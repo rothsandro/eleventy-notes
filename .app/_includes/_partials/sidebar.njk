@@ -5,6 +5,28 @@
     <li><a href="{{ '/tags' | url }}">Tags</a></li>
   </ul>
 
+  <h2>Recent</h2>
+  <ul id="recent"></ul>
+  <script>
+    const current = { url: window.location.pathname, title: document.title };
+
+    const recent = JSON.parse(localStorage.getItem('recent') || '[]');
+    !recent.some(r => r.url === current.url) && recent.unshift(current);
+    recent.splice(5);
+    localStorage.setItem('recent', JSON.stringify(recent));
+
+    const fragment = new DocumentFragment();
+    recent.forEach(page => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = page.url;
+      a.textContent = page.title;
+      li.appendChild(a);
+      fragment.append(li);
+    });
+    document.getElementById('recent').appendChild(fragment);
+  </script>
+
   <h2>Tags</h2>
   <ul>  
     {% for tag in collections.tags %}
