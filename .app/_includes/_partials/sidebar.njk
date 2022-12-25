@@ -1,0 +1,21 @@
+<aside>
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="{{ '/' | url }}">Home</a></li>
+    <li><a href="{{ '/tags' | url }}">Tags</a></li>
+  </ul>
+
+  <h2>Tags</h2>
+  <ul>  
+    {% for tag in collections.tags %}
+    <li><a href="{{ ('/tags/' + tag) | url }}">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>Notes</h2>
+  <ul>  
+    {% for note in collections.notes %}
+    <li><a href="{{ note.url }}">{{ note.data.title or note.page.fileSlug }}</a></li>
+    {% endfor %}
+  </ul>
+</aside>

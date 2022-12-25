@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="{{ '/css/prism-diff.css' | url }}">
   </head>
   <body>
-    {{ content | safe }}
+    <div class="wrapper">
+      {% include '_partials/sidebar.njk' %}
+      
+      <div>
+        {{ content | safe }}
+      </div>
+    </div>
   </body>
 </html>
