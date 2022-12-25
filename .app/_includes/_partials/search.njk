@@ -1,0 +1,13 @@
+<div x-data="search" @click.away="open = false">
+  <input type="text" placeholder="Search..." x-model="term" @focus="open = true">
+  <div x-show="open" >
+    <div x-show="!term && !results">Type to search...</div>
+    <div x-show="!!term && results && !results.length">No results found.</div>
+    <div x-show="!!term && !results">Searching...</div>
+    <ul x-show="term && results">
+      <template x-for="result in results" :key="result.url">
+        <li><a :href="result.url" x-text="result.title"></a></li>
+      </template>
+    </ul>
+  </div>
+</div>

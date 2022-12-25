@@ -10,6 +10,7 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addWatchTarget("dist/app.js");
 
   return {
     dir: {
