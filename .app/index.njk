@@ -1,0 +1,14 @@
+---
+title: Notes
+layout: base
+permalink: "/"
+---
+
+<h1>Notes</h1>
+{% for note in collections.notes %}
+  <div class="note">
+    <h2><a href="{{ note.url }}">{{ note.data.title or note.page.fileSlug }}</a></h2>
+    <p>{{ note.data.description }}</p>
+  </div>
+{% endfor %}
+

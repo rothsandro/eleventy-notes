@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or page.fileSlug }}</title>
+    <meta name="generator" content="{{ eleventy.generator }}">
+
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/prism-diff.css' | url }}">
+  </head>
+  <body>
+    {{ content | safe }}
+  </body>
+</html>
