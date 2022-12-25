@@ -1,3 +1,5 @@
+const loader = require("./_config/utils/loader.util");
+
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItTaskCheckbox = require("markdown-it-task-checkbox");
@@ -8,6 +10,11 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pageAssetsPlugin = require("eleventy-plugin-page-assets");
 
 module.exports = (eleventyConfig) => {
+  loader(__dirname, {
+    "_config/collections": (col, name) =>
+      eleventyConfig.addCollection(name, col),
+  });
+
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pageAssetsPlugin, {
@@ -22,12 +29,6 @@ module.exports = (eleventyConfig) => {
     generatePageNameFromLabel: (label) => {
       return label.toLowerCase().replace(/\s+/g, "-");
     },
-  });
-
-  eleventyConfig.addCollection("notes", function (collectionApi) {
-    const res = collectionApi.getFilteredByGlob("../*.md");
-    console.log("RES", res.length);
-    return res;
   });
 
   // Customize Markdown library and settings:
