@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run clean && npm run serve",
     "serve": "eleventy --serve",
+    "build": "npm run clean && eleventy",
     "clean": "rimraf dist"
   },
   "keywords": [],
