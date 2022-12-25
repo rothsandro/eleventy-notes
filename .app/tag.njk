@@ -7,6 +7,8 @@ pagination:
     - all
   addAllPagesToCollections: true
 layout: base
+eleventyComputed:
+  title: "Tag #{{ tag }}"
 permalink: /tags/{{ tag | slug }}/
 ---
 <h1>Tag #{{ tag }}</h1>
