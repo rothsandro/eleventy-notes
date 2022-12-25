@@ -6,21 +6,14 @@ const markdownItTaskCheckbox = require("markdown-it-task-checkbox");
 const markdownItWikilinks = require("markdown-it-wikilinks");
 const markdownItFootnote = require("markdown-it-footnote");
 
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pageAssetsPlugin = require("eleventy-plugin-page-assets");
-
 module.exports = (eleventyConfig) => {
   loader(__dirname, {
     "_config/collections": (col, name) =>
       eleventyConfig.addCollection(name, col),
+    "_config/plugins": (plugin) => eleventyConfig.addPlugin(...plugin),
   });
 
   eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
-  eleventyConfig.addPlugin(pageAssetsPlugin, {
-    mode: "parse",
-    postsMatching: "*.md",
-  });
 
   const wikiLinks = markdownItWikilinks({
     baseURL: "/",
