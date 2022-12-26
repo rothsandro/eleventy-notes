@@ -1,12 +1,24 @@
-<div x-data="search" @click.away="open = false">
-  <input type="text" placeholder="Search..." x-model="term" @focus="open = true">
-  <div x-show="open" >
-    <div x-show="!term && !results">Type to search...</div>
-    <div x-show="!!term && results && !results.length">No results found.</div>
-    <div x-show="!!term && !results">Searching...</div>
-    <ul x-show="term && results">
+<div x-data="search" @click.away="open = false" class="search">
+  <input type="text" placeholder="Quick find" x-model="term" @focus="open = true" class="search__input">
+  <div x-show="open" class="search__popover">
+    <div x-show="!term" class="search__info">
+      Search for notes by title, content and #tags
+    </div>
+    <div x-show="!!term && results && !results.length" class="search__info">
+      No notes found, try a different search term.
+    </div>
+    <div x-show="!!term && !results" class="search__info">
+      Searching...
+    </div>
+
+    <ul x-show="term && results && results.length" class="search__results">
       <template x-for="result in results" :key="result.url">
-        <li><a :href="result.url" x-text="result.title"></a></li>
+        <li>
+          <a :href="result.url" class="search__result">
+            <span class="search__note-title" x-text="result.title"></span>
+            <span class="search__note-content" x-text="result.content"></span>
+          </a>
+        </li>
       </template>
     </ul>
   </div>

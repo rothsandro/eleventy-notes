@@ -8,12 +8,10 @@
     <link rel="stylesheet" href="{{ '/app.css' | url }}">
   </head>
   <body>
-    <div class="wrapper">
+    <div class="app">
+      {% include '_partials/header.njk' %}
       {% include '_partials/sidebar.njk' %}
-      
-      <div>
-        {{ content | safe }}
-      </div>
+      {{ content | safe }}
     </div>
 
     <script src="{{ '/app.js' | url }}"></script>

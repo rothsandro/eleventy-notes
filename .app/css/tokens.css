@@ -1,0 +1,96 @@
+:root {
+  --font-family-default: ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  --color-background: #fff;
+  --color-surface: #fff;
+
+  --color-neutral-1: hsl(0, 0%, 99%);
+  --color-neutral-2: hsl(0, 0%, 97.3%);
+  --color-neutral-3: hsl(0, 0%, 95.1%);
+  --color-neutral-4: hsl(0, 0%, 93%);
+  --color-neutral-5: hsl(0, 0%, 90.9%);
+  --color-neutral-6: hsl(0, 0%, 88.7%);
+  --color-neutral-7: hsl(0, 0%, 85.8%);
+  --color-neutral-8: hsl(0, 0%, 78%);
+  --color-neutral-9: hsl(0, 0%, 56.1%);
+  --color-neutral-10: hsl(0, 0%, 52.3%);
+  --color-neutral-11: hsl(0, 0%, 43.5%);
+  --color-neutral-12: hsl(0, 0%, 9%);
+  --color-neutral-base: var(--color-neutral-1);
+  --color-neutral-bgSubtle: var(--color-neutral-2);
+  --color-neutral-bg: var(--color-neutral-3);
+  --color-neutral-bgHover: var(--color-neutral-4);
+  --color-neutral-bgActive: var(--color-neutral-5);
+  --color-neutral-line: var(--color-neutral-6);
+  --color-neutral-border: var(--color-neutral-7);
+  --color-neutral-borderHover: var(--color-neutral-8);
+  --color-neutral-bgSolid: var(--color-neutral-9);
+  --color-neutral-bgSolidHover: var(--color-neutral-10);
+  --color-neutral-text: var(--color-neutral-11);
+  --color-neutral-textContrast: var(--color-neutral-12);
+  --color-neutral-placeholder: var(--color-neutral-8);
+
+  --color-primary-1: hsl(185, 60%, 98.7%);
+  --color-primary-2: hsl(185, 73.3%, 97.1%);
+  --color-primary-3: hsl(186, 70.2%, 94.4%);
+  --color-primary-4: hsl(186, 63.8%, 90.6%);
+  --color-primary-5: hsl(187, 58.3%, 85.4%);
+  --color-primary-6: hsl(188, 54.6%, 78.4%);
+  --color-primary-7: hsl(189, 53.7%, 68.7%);
+  --color-primary-8: hsl(189, 60.3%, 52.5%);
+  --color-primary-9: hsl(190, 95%, 39%);
+  --color-primary-10: hsl(191, 91.2%, 36.8%);
+  --color-primary-11: hsl(192, 85%, 31%);
+  --color-primary-12: hsl(192, 88%, 12.5%);
+  --color-primary-base: var(--color-primary-1);
+  --color-primary-bgSubtle: var(--color-primary-2);
+  --color-primary-bg: var(--color-primary-3);
+  --color-primary-bgHover: var(--color-primary-4);
+  --color-primary-bgActive: var(--color-primary-5);
+  --color-primary-line: var(--color-primary-6);
+  --color-primary-border: var(--color-primary-7);
+  --color-primary-borderHover: var(--color-primary-8);
+  --color-primary-bgSolid: var(--color-primary-9);
+  --color-primary-bgSolidHover: var(--color-primary-10);
+  --color-primary-text: var(--color-primary-11);
+  --color-primary-textContrast: var(--color-primary-12);
+  --color-primary-placeholder: var(--color-primary-8);
+
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 36px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --rounded-none: 0;
+  --rounded-sm: 2px;
+  --rounded-md: 4px;
+  --rounded-lg: 8px;
+  --rounded-full: 9999px;
+
+  --shadow-xs: 0 1px 3px rgba(12, 12, 12, 0.09);
+  --shadow-sm: 0 1px 5px rgba(12, 12, 12, 0.05);
+  --shadow-md: 0 0 0 1px #dbdbd7, 0 1px 5px rgba(12, 12, 12, 0.05),
+    0 0 40px rgba(12, 12, 12, 0.015);
+  --shadow-lg: 0 0 0 1px #dbdbd7, 0 5px 17px rgba(12, 12, 12, 0.14);
+  --shadow-xl: 0 4px 12px rgba(12, 12, 12, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-xxl: 0 24px 38px 3px rgba(12, 12, 12, 0.16),
+    0 9px 86px 8px rgba(12, 12, 12, 0.1), 0 11px 15px -7px rgba(12, 12, 12, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+
+  --font-size-xs: calc((12 / 16) * 1rem);
+  --font-size-sm: calc((14 / 16) * 1rem);
+  --font-size-md: calc((16 / 16) * 1rem);
+  --font-size-lg: calc((18 / 16) * 1rem);
+  --font-size-xl: calc((20 / 16) * 1rem);
+  --font-size-2xl: calc((24 / 16) * 1rem);
+  --font-size-3xl: calc((32 / 16) * 1rem);
+  --font-size-4xl: calc((40 / 16) * 1rem);
+}
