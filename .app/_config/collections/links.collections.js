@@ -34,8 +34,6 @@ module.exports = (collectionApi) => {
   }
 
   function readLinks(note) {
-    console.log(_links);
-
     const notesMap = getParsedNotes();
     const links = getLinks();
     const currentLinks = links[note.url];
