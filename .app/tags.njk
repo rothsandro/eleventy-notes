@@ -7,11 +7,11 @@ permalink: "/tags/"
 <main class="app__main">
   <div class="page page--centered">
     <h1 class="page__title">Tags</h1>
-    <div class="tags-overview">
+    <div class="stack" data-stack="6">
       {% for tag in collections.tags %}
-        <div class="tags-overview__tag">
+        <div class="stack">
           <h2>#{{ tag }}</h2>
-          <ul class="tags-overview__list">
+          <ul role="list" class="stack">
             {% for post in collections[tag] %}
               <li>
                 <a href="{{ post.url }}" class="note-link">

@@ -4,12 +4,18 @@ layout: base
 permalink: "/"
 ---
 
-<main class="page page--centered">
-  <h1 class="page__title">Notes</h1>
-  {% for note in collections.notes %}
-    <div class="note">
-      <h2><a href="{{ note.url }}">{{ note.data.title or note.page.fileSlug }}</a></h2>
-      <p>{{ note.data.description }}</p>
-    </div>
-  {% endfor %}
+<main class="app__main">
+  <div class="page page--centered">
+    <h1 class="page__title">Notes</h1>
+    <ul role="list" class="stack">
+      {% for note in collections.notes %}
+      
+        <li>
+          <a href="{{ note.url }}" class="note-link">
+            {{ note.data.title or note.page.fileSlug }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </main>

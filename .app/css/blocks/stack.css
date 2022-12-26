@@ -1,0 +1,16 @@
+.stack > * {
+  --stack: var(--space-2);
+  margin-block: 0;
+}
+
+.stack > * + * {
+  margin-block-start: var(--stack) !important;
+}
+
+.stack[data-stack="4"] > * {
+  --stack: var(--space-4);
+}
+
+.stack[data-stack="6"] > * {
+  --stack: var(--space-6);
+}

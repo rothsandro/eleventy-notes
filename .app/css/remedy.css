@@ -45,3 +45,11 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/* custom */
+
+ul[role="list"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
