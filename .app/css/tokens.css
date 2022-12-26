@@ -3,6 +3,8 @@
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
   --color-background: #fff;
   --color-surface: #fff;
@@ -93,4 +95,8 @@
   --font-size-2xl: calc((24 / 16) * 1rem);
   --font-size-3xl: calc((32 / 16) * 1rem);
   --font-size-4xl: calc((40 / 16) * 1rem);
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
 }

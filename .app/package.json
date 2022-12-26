@@ -19,6 +19,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-canary.23",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "@parcel/transformer-sass": "^2.8.2",
     "eleventy-plugin-page-assets": "^0.3.0",
     "markdown-it-anchor": "^8.6.6",
     "markdown-it-footnote": "^3.0.3",
@@ -28,10 +29,12 @@
     "npm-run-all": "^4.1.5",
     "parcel": "^2.8.2",
     "rimraf": "^3.0.2",
+    "sass": "^1.57.1",
     "string-strip-html": "^8.4.0"
   },
   "dependencies": {
     "alpinejs": "^3.10.5",
-    "flexsearch": "^0.7.31"
+    "flexsearch": "^0.7.31",
+    "prism-themes": "^1.9.0"
   }
 }

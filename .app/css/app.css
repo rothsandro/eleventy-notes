@@ -1,11 +1,10 @@
 @import "./tokens.css";
 @import "./remedy.css";
 
-@import "./prism-base16-monokai.dark.css";
-@import "./prism-diff.css";
+@import "npm:prism-themes/themes/prism-material-light.css";
 
 @import "./blocks/app.css";
-@import "./blocks/article.css";
+@import "./blocks/article.scss";
 @import "./blocks/group.css";
 @import "./blocks/nav.css";
 @import "./blocks/note-link.css";
@@ -15,7 +14,7 @@
 
 @import "./utils/visually-hidden.css";
 
-* {
+body {
   font-family: var(--font-family-default);
 }
 
