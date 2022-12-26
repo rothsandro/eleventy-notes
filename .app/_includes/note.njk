@@ -6,3 +6,41 @@ layout: base
   <h1>{{ title or page.fileSlug }}</h1>
   {{ content | safe }}
 </main>
+
+<aside>
+  {% set links = collections.links[page.url]() %}
+
+  {% if links.incoming | length %}
+  <h2>Incoming</h2>
+  <ul>
+    {% for incoming in links.incoming %}
+      <li>
+        <a href="{{ incoming.url }}">{{ incoming.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if links.outgoing | length %}
+  <h2>Outgoing</h2>
+  <ul>
+    {% for outgoing in links.outgoing %}
+      <li>
+        <a href="{{ outgoing.url }}">{{ outgoing.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  
+  {% if links.external | length %}
+  <h2>External</h2>
+  <ul>
+    {% for external in links.external %}
+      <li>
+        <a href="{{ external.url }}">{{ external.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</aside>
+
