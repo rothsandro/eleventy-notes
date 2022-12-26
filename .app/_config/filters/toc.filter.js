@@ -8,7 +8,7 @@ module.exports = (content) => {
 
     const id = heading.attributes.id;
     const text = heading.innerText;
-    const level = parseInt(heading.tagName.replace("H", ""), 10) - 1;
+    const level = parseInt(heading.tagName.replace("H", ""), 10);
 
     return { id, text, level };
   });

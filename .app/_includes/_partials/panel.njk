@@ -1,0 +1,69 @@
+<aside class="app__panel">
+  {% set toc = content | toc %}
+  {% if toc | length %}
+  <div class="group">
+    <h2 class="group__label">Table of Contents</h2>
+    <ul class="group__list">
+      {% for item in toc %}
+      <li style="--level: {{ item.level }}">
+        <a href="#{{ item.id }}" class="group__link">
+          {% include '_icons/chevron-right.svg' %}
+          <span>{{ item.text }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% set links = collections.links[page.url]() %}
+
+  {% if links.incoming | length %}
+  <div class="group">
+    <h2 class="group__label">Incoming</h2>
+    <ul class="group__list">
+      {% for incoming in links.incoming %}
+        <li>
+          <a href="{{ incoming.url }}" class="group__link">
+            {% include '_icons/arrow-left.svg' %}
+            <span>{{ incoming.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if links.outgoing | length %}
+  <div class="group">
+    <h2 class="group__label">Outgoing</h2>
+    <ul class="group__list">
+      {% for outgoing in links.outgoing %}
+        <li>
+          <a href="{{ outgoing.url }}" class="group__link">
+            {% include '_icons/arrow-right.svg' %}
+            <span>{{ outgoing.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  
+  {% if links.external | length %}
+  <div class="group">
+    <h2 class="group__label">External</h2>
+    <ul class="group__list">
+      {% for external in links.external %}
+        <li>
+          <a href="{{ external.url }}" class="group__link" target="_blank" rel="noopener noreferrer">
+            {% include '_icons/external-link.svg' %}
+            <span>{{ external.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</aside>
+
