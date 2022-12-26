@@ -2,9 +2,15 @@
 layout: base
 ---
 
-<main>
-  <h1>{{ title or page.fileSlug }}</h1>
-  {{ content | safe }}
+<main class="app__main">
+  <div class="page page--centered">
+    <article class="article">
+      <h1 class="page__title">{{ title or page.fileSlug }}</h1>
+      <div class="article__content">
+        {{ content | safe }}
+      </div>
+    </article>
+  </div>
 </main>
 
 {% include '_partials/panel.njk' %}

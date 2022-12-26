@@ -11,12 +11,14 @@ eleventyComputed:
   title: "Tag #{{ tag }}"
 permalink: /tags/{{ tag | slug }}/
 ---
-<h1>Tag #{{ tag }}</h1>
 
-<ul>
-  {% for post in collections[tag] %}
-    <li><a href="{{ post.url }}">{{ post.data.title or post.page.fileSlug }}</a></li>
-  {% endfor %}
-</ul>
-
-See <a href="{{ '/tags' | url }}">all tags</a>.
+<main class="app__main">
+  <div class="page page--centered">
+    <h1 class="page__title">#{{ tag }}</h1>
+    <ul>
+      {% for post in collections[tag] %}
+        <li><a href="{{ post.url }}">{{ post.data.title or post.page.fileSlug }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>

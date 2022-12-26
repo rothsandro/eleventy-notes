@@ -5,8 +5,10 @@
 @import "./prism-diff.css";
 
 @import "./blocks/app.css";
+@import "./blocks/article.css";
 @import "./blocks/group.css";
 @import "./blocks/nav.css";
+@import "./blocks/page.css";
 @import "./blocks/search.css";
 
 @import "./utils/visually-hidden.css";

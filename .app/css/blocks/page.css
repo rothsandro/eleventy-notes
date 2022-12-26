@@ -1,0 +1,16 @@
+.page {
+  padding-block: var(--space-6);
+  padding-inline: var(--space-6);
+}
+
+.page--centered {
+  inline-size: 100%;
+  max-inline-size: 70ch;
+  margin-inline: auto;
+}
+
+.page__title {
+  margin: 0;
+  margin-block-end: var(--space-6);
+  font-size: var(--font-size-4xl);
+}
