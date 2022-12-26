@@ -19,31 +19,6 @@
     </ul>
   </nav>
 
-  <nav aria-labelledby="app-sidebar-nav-recent" class="nav">
-    <h2 id="app-sidebar-nav-recent" class="nav__title">Recent</h2>
-    <ul id="recent" class="nav__list"></ul>
-    <script>
-      const current = { url: window.location.pathname, title: document.title };
-
-      const recent = JSON.parse(localStorage.getItem('recent') || '[]');
-      !recent.some(r => r.url === current.url) && recent.unshift(current);
-      recent.splice(5);
-      localStorage.setItem('recent', JSON.stringify(recent));
-
-      const fragment = new DocumentFragment();
-      recent.forEach(page => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.classList.add('nav__link');
-        a.href = page.url;
-        a.textContent = page.title;
-        li.appendChild(a);
-        fragment.append(li);
-      });
-      document.getElementById('recent').appendChild(fragment);
-    </script>
-  </nav>
-
   <nav aria-labelledby="app-sidebar-nav-tags" class="nav">
     <h2 id="app-sidebar-nav-tags" class="nav__title">Tags</h2>
     <ul class="nav__list">
