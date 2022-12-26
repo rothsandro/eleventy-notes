@@ -16,6 +16,22 @@
   </div>
   {% endif %}
 
+  {% if tags | length %}
+  <div class="group">
+    <h2 class="group__label">Tags</h2>
+    <ul class="group__list">
+      {% for tag in tags %}
+      <li>
+        <a href="{{ ('/tags/' + (tag | slug)) | url }}" class="group__link">
+          {% include '_icons/hash.svg' %}
+          <span>{{ tag }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
   {% set links = collections.links[page.url]() %}
 
   {% if links.incoming | length %}
