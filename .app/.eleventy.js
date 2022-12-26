@@ -7,6 +7,7 @@ module.exports = (eleventyConfig) => {
     "_config/libraries": (lib, name) =>
       eleventyConfig.setLibrary(name, lib(eleventyConfig)),
     "_config/plugins": (plugin) => eleventyConfig.addPlugin(...plugin),
+    "_config/filters": (filter, name) => eleventyConfig.addFilter(name, filter),
   });
 
   eleventyConfig.addPassthroughCopy("css");
