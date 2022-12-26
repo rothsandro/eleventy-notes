@@ -26,12 +26,13 @@
   box-shadow: var(--shadow-lg);
   border-radius: var(--rounded-sm);
   background-color: var(--color-surface);
+  overflow: auto;
 }
 
 .search__info {
   padding-inline: var(--space-4);
   padding-block: var(--space-2);
-  color: var(--color-neutral-placeholder);
+  color: var(--color-neutral-text);
   font-size: var(--font-size-sm);
 }
 
@@ -66,7 +67,7 @@
 
 .search__note-content {
   color: var(--color-neutral-text);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
