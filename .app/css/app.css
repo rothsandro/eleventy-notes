@@ -1,3 +1,6 @@
+@import "./prism-base16-monokai.dark.css";
+@import "./prism-diff.css";
+
 /* Colors */
 :root {
   --lightgray: #e0e0e0;
