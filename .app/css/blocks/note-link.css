@@ -1,0 +1,9 @@
+.note-link {
+  color: var(--color-neutral-text);
+  text-decoration: none;
+}
+
+.note-link:hover {
+  color: var(--color-primary-text);
+  text-decoration: underline;
+}
