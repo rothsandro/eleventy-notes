@@ -1,44 +1,74 @@
 <aside class="app__sidebar">
+  <h2 class="visually-hidden">Navigation</h2>
 
-  <h2>Menu</h2>
-  <ul>
-    <li><a href="{{ '/' | url }}">Home</a></li>
-    <li><a href="{{ '/tags' | url }}">Tags</a></li>
-  </ul>
+  <nav aria-labelledby="app-sidebar-nav-main" class="nav">
+    <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
+    <ul class="nav__list">
+      <li>
+        <a href="{{ '/' | url }}" class="nav__link">
+          {% include '_icons/home.svg' %}
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tags' | url }}" class="nav__link">
+          {% include '_icons/hash.svg' %}
+          <span>Tags</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-  <h2>Recent</h2>
-  <ul id="recent"></ul>
-  <script>
-    const current = { url: window.location.pathname, title: document.title };
+  <nav aria-labelledby="app-sidebar-nav-recent" class="nav">
+    <h2 id="app-sidebar-nav-recent" class="nav__title">Recent</h2>
+    <ul id="recent" class="nav__list"></ul>
+    <script>
+      const current = { url: window.location.pathname, title: document.title };
 
-    const recent = JSON.parse(localStorage.getItem('recent') || '[]');
-    !recent.some(r => r.url === current.url) && recent.unshift(current);
-    recent.splice(5);
-    localStorage.setItem('recent', JSON.stringify(recent));
+      const recent = JSON.parse(localStorage.getItem('recent') || '[]');
+      !recent.some(r => r.url === current.url) && recent.unshift(current);
+      recent.splice(5);
+      localStorage.setItem('recent', JSON.stringify(recent));
 
-    const fragment = new DocumentFragment();
-    recent.forEach(page => {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = page.url;
-      a.textContent = page.title;
-      li.appendChild(a);
-      fragment.append(li);
-    });
-    document.getElementById('recent').appendChild(fragment);
-  </script>
+      const fragment = new DocumentFragment();
+      recent.forEach(page => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.classList.add('nav__link');
+        a.href = page.url;
+        a.textContent = page.title;
+        li.appendChild(a);
+        fragment.append(li);
+      });
+      document.getElementById('recent').appendChild(fragment);
+    </script>
+  </nav>
 
-  <h2>Tags</h2>
-  <ul>  
-    {% for tag in collections.tags %}
-    <li><a href="{{ ('/tags/' + tag) | url }}">{{ tag }}</a></li>
-    {% endfor %}
-  </ul>
+  <nav aria-labelledby="app-sidebar-nav-tags" class="nav">
+    <h2 id="app-sidebar-nav-tags" class="nav__title">Tags</h2>
+    <ul class="nav__list">
+      {% for tag in collections.tags %}
+      <li>
+        <a href="{{ ('/tags/' + tag) | url }}" class="nav__link">
+          {% include '_icons/hash.svg' %}
+          <span>{{ tag }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
 
-  <h2>Notes</h2>
-  <ul>  
-    {% for note in collections.notes %}
-    <li><a href="{{ note.url }}">{{ note.data.title or note.page.fileSlug }}</a></li>
-    {% endfor %}
-  </ul>
+  <nav aria-labelledby="app-sidebar-nav-notes" class="nav">
+    <h2 id="app-sidebar-nav-notes" class="nav__title">Notes</h2>
+    <ul class="nav__list">
+      {% for note in collections.notes %}
+      <li>
+        <a href="{{ note.url }}" class="nav__link">
+          {% include '_icons/file-text.svg' %}
+          <span>{{ note.data.title or note.page.fileSlug }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
 </aside>

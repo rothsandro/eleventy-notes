@@ -1,0 +1,12 @@
+.visually-hidden {
+  inline-size: 1px !important;
+  block-size: 1px !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute;
+  white-space: nowrap;
+}
