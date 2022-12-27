@@ -2,6 +2,7 @@
 title: Home
 layout: base
 permalink: "/"
+panel: false
 ---
 
 <main class="app__main">
@@ -9,7 +10,6 @@ permalink: "/"
     <h1 class="page__title">Notes</h1>
     <ul role="list" class="stack">
       {% for note in collections.notes %}
-      
         <li>
           <a href="{{ note.url }}" class="note-link">
             {{ note.data.title or note.page.fileSlug }}

@@ -1,10 +1,16 @@
+$panel-width: 380px;
+
 .app {
   block-size: 100vb;
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr) 380px;
+  grid-template-columns: 300px minmax(0, 1fr);
   grid-template-rows: auto minmax(0, 1fr);
   gap: var(--size-4);
   overflow: hidden;
+
+  &[data-panel="true"] {
+    grid-template-columns: 300px minmax(0, 1fr) $panel-width;
+  }
 }
 
 .app__header {
@@ -34,4 +40,8 @@
 .app__main {
   block-size: 100%;
   overflow: auto;
+
+  .app[data-panel="false"] & {
+    padding-inline-end: $panel-width;
+  }
 }

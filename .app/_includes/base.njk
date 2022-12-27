@@ -1,3 +1,7 @@
+---
+panel: true
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +12,7 @@
     <link rel="stylesheet" href="{{ '/app.css' | url }}">
   </head>
   <body>
-    <div class="app">
+    <div class="app" data-panel="{{ panel }}">
       {% include '_partials/header.njk' %}
       {% include '_partials/sidebar.njk' %}
       {{ content | safe }}
