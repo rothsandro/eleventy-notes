@@ -8,11 +8,11 @@
 @import "./blocks/fav-button.scss";
 @import "./blocks/group.css";
 @import "./blocks/header.scss";
-@import "./blocks/nav-toggle.scss";
+@import "./blocks/icon-btn.scss";
 @import "./blocks/nav.css";
 @import "./blocks/note-link.css";
 @import "./blocks/page.css";
-@import "./blocks/search.css";
+@import "./blocks/search.scss";
 @import "./blocks/sidebar.scss";
 @import "./blocks/stack.css";
 

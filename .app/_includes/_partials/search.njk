@@ -1,13 +1,17 @@
-<div x-data="search" @click.away="open = false" class="search">
+{% set placeholder = 'Quick find (alt+f)' if searchmode == 'overlay' else 'Search' %}
+{% set init = "$store.hotkeys.register('alt+f', () => $el.focus())" if searchmode === 'overlay' else null %}
+
+<div x-data="search" @click.away="open = false" class="search" data-mode="{{ searchmode }}">
   <input
     type="text" 
-    placeholder="Quick find (alt+f)"
+    placeholder="{{ placeholder }}"
     class="search__input"
     x-model="term"
-    x-init="$store.hotkeys.register('alt+f', () => $el.focus())"
+    x-init="{{ init }}"
     @focus="open = true"
+    {{ 'autofocus' if searchmode === 'inline' else '' }}
   >
-  <template x-if="open">
+  <template x-if="open{{ '|| true' if searchmode === 'inline' else '' }}">
     <div class="search__popover">
       <div x-show="!term" class="search__info">
         Search for notes by title, content and #tags

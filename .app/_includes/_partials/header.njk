@@ -2,5 +2,13 @@
   {% include '_partials/nav-toggle.njk' %}
   <div class="header__title">Notes</div>
   <div class="spacer"></div>
-  {% include '_partials/search.njk' %}
+  
+  
+  {% set searchmode = 'overlay' %}
+  <div class="show-md">
+    {% include '_partials/search.njk' %}
+  </div>
+  <div class="hide-md">
+    {% include '_partials/search-button.njk' %}
+  </div>
 </header>
