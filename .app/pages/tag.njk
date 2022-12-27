@@ -6,7 +6,7 @@ pagination:
   filter:
     - all
   addAllPagesToCollections: true
-layout: base
+layout: "layouts/base.njk"
 eleventyComputed:
   title: "Tag #{{ tag }}"
 permalink: /tags/{{ tag | slug }}/

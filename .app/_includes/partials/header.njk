@@ -1,14 +1,14 @@
+{% from 'macros/search.njk' import searchInput %}
+
 <header class="app__header header" x-data>
-  {% include '_partials/nav-toggle.njk' %}
+  {% include 'partials/nav-toggle.njk' %}
   <div class="header__title">Notes</div>
   <div class="spacer"></div>
   
-  
-  {% set searchmode = 'overlay' %}
   <div class="show-md">
-    {% include '_partials/search.njk' %}
+    {{ searchInput('overlay') }}
   </div>
   <div class="hide-md">
-    {% include '_partials/search-button.njk' %}
+    {% include 'partials/search-button.njk' %}
   </div>
 </header>

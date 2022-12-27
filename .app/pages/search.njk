@@ -1,15 +1,16 @@
 ---
-layout: base
+layout: "layouts/base.njk"
 permalink: "/search/"
 panel: false
 ---
+
+{% from 'macros/search.njk' import searchInput %}
 
 <main class="app__main">
   <div class="page page--centered">
     <h1 class="page__title">Search</h1>
 
-    {% set searchmode = "inline" %}
-    {% include '_partials/search.njk' %}
+    {{ searchInput('inline') }}
   </div>
 </main>
 

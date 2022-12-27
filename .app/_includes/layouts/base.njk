@@ -13,16 +13,16 @@ panel: true
   </head>
   <body>
     <div class="app" data-panel="{{ panel }}">
-      {% include '_partials/header.njk' %}
-      {% include '_partials/sidebar.njk' %}
+      {% include 'partials/header.njk' %}
+      {% include 'partials/sidebar.njk' %}
       {{ content | safe }}
     </div>
 
     <script src="{{ '/app.js' | url }}"></script>
 
     <div aria-hidden="true" hidden>
-      {% include '_icons/hash.svg' %}
-      {% include '_icons/file-text.svg' %}
+      {% include 'icons/hash.svg' %}
+      {% include 'icons/file-text.svg' %}
     </div>
   </body>
 </html>

@@ -1,0 +1,13 @@
+{% macro favToggle(id) %}
+  <div x-data x-cloak>
+    <button 
+      type="button"
+      class="toggle-btn"
+      :aria-pressed="$store.favorites.is('{{ id }}')"
+      aria-label="Favorite"
+      @click="$store.favorites.toggle('{{ id }}')"
+    >
+      {% include 'icons/star.svg' %}
+    </button>
+  </div>
+{% endmacro %}
