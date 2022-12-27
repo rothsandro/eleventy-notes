@@ -5,6 +5,7 @@
 
 @import "./blocks/app.css";
 @import "./blocks/article.scss";
+@import "./blocks/fav-button.scss";
 @import "./blocks/group.css";
 @import "./blocks/nav.css";
 @import "./blocks/note-link.css";

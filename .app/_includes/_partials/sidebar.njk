@@ -19,6 +19,22 @@
     </ul>
   </nav>
 
+  <template x-if="$store.favorites.items.length">
+    <nav aria-labelledby="app-sidebar-nav-favorites" class="nav">
+      <h2 id="app-sidebar-nav-favorites" class="nav__title">Favorites</h2>
+      <ul class="nav__list">
+        <template x-for="fav in $store.favorites.items">
+          <li>
+            <a :href="fav" class="nav__link">
+              {% include '_icons/hash.svg' %}
+              <span x-text="$store.favorites.index[fav] || fav"></span>
+            </a>
+          </li>
+        </template>
+      </ul>
+    </nav>
+  </template>
+
   <nav aria-labelledby="app-sidebar-nav-tags" class="nav">
     <h2 id="app-sidebar-nav-tags" class="nav__title">Tags</h2>
     <ul class="nav__list">

@@ -1,7 +1,3 @@
-.group + .group {
-  margin-block-start: var(--space-6);
-}
-
 .group__label {
   margin: 0;
   margin-block-end: var(--space-2);

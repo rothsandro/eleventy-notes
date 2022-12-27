@@ -3,7 +3,7 @@
   padding-block: var(--space-4);
 }
 
-.nav + nav {
+.nav:not(:first-of-type) {
   border-block-start: 1px solid var(--color-neutral-line);
 }
 

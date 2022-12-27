@@ -1,4 +1,4 @@
-<aside class="app__panel">
+<aside class="app__panel stack" data-stack="6">
   {% set toc = content | toc %}
   {% if toc | length %}
   <div class="group">
@@ -81,5 +81,18 @@
     </ul>
   </div>
   {% endif %}
+
+  {% set favid = page.url %}
+  <div x-data x-cloak class="">
+    <button 
+      type="button"
+      class="fav-button"
+      :aria-pressed="$store.favorites.is('{{ favid }}')"
+      aria-label="Favorite"
+      @click="$store.favorites.toggle('{{ favid }}')"
+    >
+      {% include '_icons/star.svg' %}
+    </button>
+  </div>
 </aside>
 

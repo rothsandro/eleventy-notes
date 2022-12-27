@@ -60,6 +60,7 @@
   --color-primary-text: var(--color-primary-11);
   --color-primary-textContrast: var(--color-primary-12);
   --color-primary-placeholder: var(--color-primary-8);
+  --color-on-primary: #fff;
 
   --space-0: 0;
   --space-1: 4px;
