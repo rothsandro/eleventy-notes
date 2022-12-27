@@ -11,7 +11,8 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addWatchTarget("dist/app.js");
+  eleventyConfig.addWatchTarget("js/**/*.js");
+  eleventyConfig.addWatchTarget("css/**/*.css");
 
   return {
     dir: {
