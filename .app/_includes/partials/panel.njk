@@ -3,12 +3,12 @@
 <aside class="app-layout__panel stack" data-stack="6">
   {% set toc = content | toc %}
   {% if toc | length %}
-  <div class="group">
-    <h2 class="group__label">Table of Contents</h2>
-    <ul class="group__list">
+  <div class="grouped-links">
+    <h2 class="grouped-links__label">Table of Contents</h2>
+    <ul class="grouped-links__list">
       {% for item in toc %}
       <li style="--level: {{ item.level }}">
-        <a href="#{{ item.id }}" class="group__link">
+        <a href="#{{ item.id }}" class="grouped-links__link">
           {% include 'icons/chevron-right.svg' %}
           <span>{{ item.text }}</span>
         </a>
@@ -19,12 +19,12 @@
   {% endif %}
 
   {% if tags | length %}
-  <div class="group">
-    <h2 class="group__label">Tags</h2>
-    <ul class="group__list">
+  <div class="grouped-links">
+    <h2 class="grouped-links__label">Tags</h2>
+    <ul class="grouped-links__list">
       {% for tag in tags %}
       <li>
-        <a href="{{ ('/tags/' + (tag | slug)) | url }}" class="group__link">
+        <a href="{{ ('/tags/' + (tag | slug)) | url }}" class="grouped-links__link">
           {% include 'icons/hash-ref.svg' %}
           <span>{{ tag }}</span>
         </a>
@@ -37,12 +37,12 @@
   {% set links = collections.links[page.url]() %}
 
   {% if links.incoming | length %}
-  <div class="group">
-    <h2 class="group__label">Incoming</h2>
-    <ul class="group__list">
+  <div class="grouped-links">
+    <h2 class="grouped-links__label">Incoming</h2>
+    <ul class="grouped-links__list">
       {% for incoming in links.incoming %}
         <li>
-          <a href="{{ incoming.url }}" class="group__link">
+          <a href="{{ incoming.url }}" class="grouped-links__link">
             {% include 'icons/arrow-left.svg' %}
             <span>{{ incoming.title }}</span>
           </a>
@@ -53,12 +53,12 @@
   {% endif %}
 
   {% if links.outgoing | length %}
-  <div class="group">
-    <h2 class="group__label">Outgoing</h2>
-    <ul class="group__list">
+  <div class="grouped-links">
+    <h2 class="grouped-links__label">Outgoing</h2>
+    <ul class="grouped-links__list">
       {% for outgoing in links.outgoing %}
         <li>
-          <a href="{{ outgoing.url }}" class="group__link">
+          <a href="{{ outgoing.url }}" class="grouped-links__link">
             {% include 'icons/arrow-right.svg' %}
             <span>{{ outgoing.title }}</span>
           </a>
@@ -69,12 +69,12 @@
   {% endif %}
   
   {% if links.external | length %}
-  <div class="group">
-    <h2 class="group__label">External</h2>
-    <ul class="group__list">
+  <div class="grouped-links">
+    <h2 class="grouped-links__label">External</h2>
+    <ul class="grouped-links__list">
       {% for external in links.external %}
         <li>
-          <a href="{{ external.url }}" class="group__link" target="_blank" rel="noopener noreferrer">
+          <a href="{{ external.url }}" class="grouped-links__link" target="_blank" rel="noopener noreferrer">
             {% include 'icons/external-link.svg' %}
             <span>{{ external.title }}</span>
           </a>

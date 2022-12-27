@@ -10,23 +10,23 @@
   >
     <h2 class="visually-hidden" >Navigation</h2>
 
-    <nav aria-labelledby="app-sidebar-nav-main" class="nav">
+    <nav aria-labelledby="app-sidebar-nav-main" class="nav-group">
       <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
-      <ul class="nav__list">
+      <ul class="nav-group__list">
         <li>
-          <a href="{{ '/' | url }}" class="nav__link">
+          <a href="{{ '/' | url }}" class="nav-group__link">
             {% include 'icons/home.svg' %}
             <span>Home</span>
           </a>
         </li>
         <li>
-          <a href="{{ '/tags' | url }}" class="nav__link">
+          <a href="{{ '/tags' | url }}" class="nav-group__link">
             {% include 'icons/hash-ref.svg' %}
             <span>Tags</span>
           </a>
         </li>
         <li>
-          <a href="{{ '/search' | url }}" class="nav__link">
+          <a href="{{ '/search' | url }}" class="nav-group__link">
             {% include 'icons/search.svg' %}
             <span>Search</span>
           </a>
@@ -35,12 +35,12 @@
     </nav>
 
     <template x-if="$store.favorites.items.length">
-      <nav aria-labelledby="app-sidebar-nav-favorites" class="nav">
-        <h2 id="app-sidebar-nav-favorites" class="nav__title">Favorites</h2>
-        <ul class="nav__list">
+      <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-group">
+        <h2 id="app-sidebar-nav-favorites" class="nav-group__title">Favorites</h2>
+        <ul class="nav-group__list">
           <template x-for="fav in $store.favorites.items">
             <li>
-              <a :href="fav" class="nav__link">
+              <a :href="fav" class="nav-group__link">
                 {% include 'icons/file-text-ref.svg' %}
                 <span x-text="$store.favorites.index[fav] || fav"></span>
               </a>
@@ -50,12 +50,12 @@
       </nav>
     </template>
 
-    <nav aria-labelledby="app-sidebar-nav-tags" class="nav">
-      <h2 id="app-sidebar-nav-tags" class="nav__title">Tags</h2>
-      <ul class="nav__list">
+    <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
+      <h2 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h2>
+      <ul class="nav-group__list">
         {% for tag in collections.tags %}
         <li>
-          <a href="{{ ('/tags/' + tag) | url }}" class="nav__link">
+          <a href="{{ ('/tags/' + tag) | url }}" class="nav-group__link">
             {% include 'icons/hash-ref.svg' %}
             <span>{{ tag }}</span>
           </a>
@@ -64,12 +64,12 @@
       </ul>
     </nav>
 
-    <nav aria-labelledby="app-sidebar-nav-notes" class="nav">
-      <h2 id="app-sidebar-nav-notes" class="nav__title">Notes</h2>
-      <ul class="nav__list">
+    <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
+      <h2 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h2>
+      <ul class="nav-group__list">
         {% for note in collections.notes %}
         <li>
-          <a href="{{ note.url }}" class="nav__link">
+          <a href="{{ note.url }}" class="nav-group__link">
             {% include 'icons/file-text-ref.svg' %}
             <span>{{ note.data.title or note.page.fileSlug }}</span>
           </a>

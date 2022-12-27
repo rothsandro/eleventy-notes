@@ -6,19 +6,20 @@
 @import "./blocks/app-header.scss";
 @import "./blocks/app-layout.scss";
 @import "./blocks/article.scss";
-@import "./blocks/group.css";
+@import "./blocks/grouped-links.scss";
 @import "./blocks/icon-btn.scss";
-@import "./blocks/nav.css";
-@import "./blocks/note-link.css";
-@import "./blocks/page.css";
+@import "./blocks/nav-group.scss";
+@import "./blocks/note-link.scss";
+@import "./blocks/page.scss";
 @import "./blocks/search.scss";
 @import "./blocks/sidebar.scss";
-@import "./blocks/stack.css";
 @import "./blocks/toggle-btn.scss";
 
-@import "./utils/responsive.scss";
+@import "./utils/hide.scss";
+@import "./utils/show.scss";
 @import "./utils/spacer.scss";
-@import "./utils/visually-hidden.css";
+@import "./utils/stack.scss";
+@import "./utils/visually-hidden.scss";
 
 [x-cloak] {
   display: none !important;
@@ -26,8 +27,5 @@
 
 body {
   font-family: var(--font-family-default);
-}
-
-body {
   color: var(--color-neutral-textContrast);
 }
