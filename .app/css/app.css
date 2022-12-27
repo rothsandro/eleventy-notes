@@ -1,5 +1,5 @@
-@import "./tokens.css";
-@import "./remedy.css";
+@import "./tokens.scss";
+@import "./remedy.scss";
 
 @import "npm:prism-themes/themes/prism-material-light.css";
 
@@ -28,4 +28,5 @@
 body {
   font-family: var(--font-family-default);
   color: var(--color-neutral-textContrast);
+  background-color: var(--color-background);
 }
