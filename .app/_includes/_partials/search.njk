@@ -9,6 +9,7 @@
     x-model="term"
     x-init="{{ init }}"
     @focus="open = true"
+    @keydown="onKeyDown"
     {{ 'autofocus' if searchmode === 'inline' else '' }}
   >
   <template x-if="open{{ '|| true' if searchmode === 'inline' else '' }}">
@@ -24,9 +25,14 @@
       </div>
 
       <ul x-show="term && results && results.length" class="search__results">
-        <template x-for="result in results" :key="result.url">
+        <template x-for="(result, index) in results" :key="result.url">
           <li>
-            <a :href="result.url" class="search__result">
+            <a
+              :href="result.url"
+              class="search__result"
+              :data-selected="index === selectedIndex"
+              x-effect="index === selectedIndex && $el.scrollIntoView({ block: 'nearest' })"
+            >
               <span class="search__note-title" x-text="result.title"></span>
               <span class="search__note-content" x-text="result.content"></span>
             </a>

@@ -69,6 +69,10 @@
   border-radius: var(--rounded-sm);
   transition: all 200ms ease;
   text-decoration: none;
+
+  &[data-selected="true"] {
+    background-color: var(--color-primary-bgSubtle);
+  }
 }
 
 .search__result:hover {

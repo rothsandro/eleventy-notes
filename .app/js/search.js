@@ -7,6 +7,7 @@ Alpine.data("search", () => ({
   open: false,
   term: "",
   results: null,
+  selectedIndex: 0,
 
   get isBusy() {
     return this._index$ === null;
@@ -15,7 +16,32 @@ Alpine.data("search", () => ({
   init() {
     this.$watch("term", async () => {
       this.results = await this.search();
+      this.open = true;
+      this.selectedIndex = 0;
     });
+  },
+
+  onKeyDown(event) {
+    switch (event.key) {
+      case "Escape":
+        this.open = false;
+        break;
+      case "ArrowUp":
+        this.selectedIndex = Math.max(0, this.selectedIndex - 1);
+        break;
+      case "ArrowDown":
+        this.selectedIndex = Math.min(
+          this.results.length - 1,
+          this.selectedIndex + 1
+        );
+        break;
+      case "Enter":
+        const result = this.results[this.selectedIndex];
+        if (result) {
+          window.location.href = result.url;
+        }
+        break;
+    }
   },
 
   async fetchNotes() {
