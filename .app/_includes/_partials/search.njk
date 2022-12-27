@@ -1,5 +1,12 @@
 <div x-data="search" @click.away="open = false" class="search">
-  <input type="text" placeholder="Quick find" x-model="term" @focus="open = true" class="search__input">
+  <input
+    type="text" 
+    placeholder="Quick find (alt+f)"
+    class="search__input"
+    x-model="term"
+    x-init="$store.hotkeys.register('alt+f', () => $el.focus())"
+    @focus="open = true"
+  >
   <template x-if="open">
     <div class="search__popover">
       <div x-show="!term" class="search__info">

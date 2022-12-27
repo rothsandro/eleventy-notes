@@ -36,6 +36,7 @@
     "@alpinejs/persist": "^3.10.5",
     "alpinejs": "^3.10.5",
     "flexsearch": "^0.7.31",
+    "hotkeys-js": "^3.10.1",
     "prism-themes": "^1.9.0"
   }
 }
