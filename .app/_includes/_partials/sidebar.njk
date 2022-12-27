@@ -21,7 +21,7 @@
         </li>
         <li>
           <a href="{{ '/tags' | url }}" class="nav__link">
-            {% include '_icons/hash.svg' %}
+            {% include '_icons/hash-ref.svg' %}
             <span>Tags</span>
           </a>
         </li>
@@ -41,7 +41,7 @@
           <template x-for="fav in $store.favorites.items">
             <li>
               <a :href="fav" class="nav__link">
-                {% include '_icons/hash.svg' %}
+                {% include '_icons/file-text-ref.svg' %}
                 <span x-text="$store.favorites.index[fav] || fav"></span>
               </a>
             </li>
@@ -56,7 +56,7 @@
         {% for tag in collections.tags %}
         <li>
           <a href="{{ ('/tags/' + tag) | url }}" class="nav__link">
-            {% include '_icons/hash.svg' %}
+            {% include '_icons/hash-ref.svg' %}
             <span>{{ tag }}</span>
           </a>
         </li>
@@ -70,7 +70,7 @@
         {% for note in collections.notes %}
         <li>
           <a href="{{ note.url }}" class="nav__link">
-            {% include '_icons/file-text.svg' %}
+            {% include '_icons/file-text-ref.svg' %}
             <span>{{ note.data.title or note.page.fileSlug }}</span>
           </a>
         </li>
