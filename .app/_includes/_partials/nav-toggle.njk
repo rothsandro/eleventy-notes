@@ -1,0 +1,10 @@
+<div class="hide-xl">
+  <button
+    class="nav-toggle"
+    :aria-expanded="$store.nav.open"
+    @click="$store.nav.toggle()"
+  >
+    {% include '_icons/menu.svg' %}
+    <span class="visually-hidden">Menu</span>
+  </button>
+</div>

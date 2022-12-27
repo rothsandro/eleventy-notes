@@ -1,0 +1,17 @@
+@use "./../breakpoints";
+
+@each $key, $value in breakpoints.$breakpoints {
+  .show-#{$key} {
+    display: none !important;
+
+    @include breakpoints.media-breakpoint-up($key) {
+      display: block !important;
+    }
+  }
+
+  .hide-#{$key} {
+    @include breakpoints.media-breakpoint-up($key) {
+      display: none !important;
+    }
+  }
+}

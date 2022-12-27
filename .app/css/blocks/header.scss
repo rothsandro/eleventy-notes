@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  position: sticky;
+  inset-block-start: 0;
+  align-items: center;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-4);
+  border-block-end: 1px solid var(--color-neutral-line);
+  background-color: var(--color-surface);
+  z-index: 1;
+}
+
+.header__title {
+  margin-inline-end: var(--space-6);
+  font-weight: var(--font-weight-bold);
+}

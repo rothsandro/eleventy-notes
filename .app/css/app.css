@@ -7,13 +7,22 @@
 @import "./blocks/article.scss";
 @import "./blocks/fav-button.scss";
 @import "./blocks/group.css";
+@import "./blocks/header.scss";
+@import "./blocks/nav-toggle.scss";
 @import "./blocks/nav.css";
 @import "./blocks/note-link.css";
 @import "./blocks/page.css";
 @import "./blocks/search.css";
+@import "./blocks/sidebar.scss";
 @import "./blocks/stack.css";
 
+@import "./utils/responsive.scss";
+@import "./utils/spacer.scss";
 @import "./utils/visually-hidden.css";
+
+[x-cloak] {
+  display: none !important;
+}
 
 body {
   font-family: var(--font-family-default);

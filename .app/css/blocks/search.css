@@ -20,7 +20,7 @@
   position: absolute;
   z-index: 1;
   inset-block-start: calc(100% + 4px);
-  inset-inline-start: 0;
+  inset-inline-end: 0;
   padding-block: var(--space-1);
   padding-inline: var(--space-1);
   box-shadow: var(--shadow-lg);

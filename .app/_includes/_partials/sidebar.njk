@@ -1,65 +1,75 @@
-<aside class="app__sidebar" x-data="scrollContainer('sidebar')" x-bind="container">
-  <h2 class="visually-hidden">Navigation</h2>
+<div class="app__sidebar">
+  <aside
+    class="sidebar"
+    x-data="scrollContainer('sidebar')"
+    x-bind="container"
+    x-cloak
+    :data-open="$store.nav.open.toString()"
+    x-effect="$store.nav.open && window.scrollTo(0, 0)"
+    tabindex="-1"
+  >
+    <h2 class="visually-hidden" >Navigation</h2>
 
-  <nav aria-labelledby="app-sidebar-nav-main" class="nav">
-    <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
-    <ul class="nav__list">
-      <li>
-        <a href="{{ '/' | url }}" class="nav__link">
-          {% include '_icons/home.svg' %}
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="{{ '/tags' | url }}" class="nav__link">
-          {% include '_icons/hash.svg' %}
-          <span>Tags</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <template x-if="$store.favorites.items.length">
-    <nav aria-labelledby="app-sidebar-nav-favorites" class="nav">
-      <h2 id="app-sidebar-nav-favorites" class="nav__title">Favorites</h2>
+    <nav aria-labelledby="app-sidebar-nav-main" class="nav">
+      <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
       <ul class="nav__list">
-        <template x-for="fav in $store.favorites.items">
-          <li>
-            <a :href="fav" class="nav__link">
-              {% include '_icons/hash.svg' %}
-              <span x-text="$store.favorites.index[fav] || fav"></span>
-            </a>
-          </li>
-        </template>
+        <li>
+          <a href="{{ '/' | url }}" class="nav__link">
+            {% include '_icons/home.svg' %}
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/tags' | url }}" class="nav__link">
+            {% include '_icons/hash.svg' %}
+            <span>Tags</span>
+          </a>
+        </li>
       </ul>
     </nav>
-  </template>
 
-  <nav aria-labelledby="app-sidebar-nav-tags" class="nav">
-    <h2 id="app-sidebar-nav-tags" class="nav__title">Tags</h2>
-    <ul class="nav__list">
-      {% for tag in collections.tags %}
-      <li>
-        <a href="{{ ('/tags/' + tag) | url }}" class="nav__link">
-          {% include '_icons/hash.svg' %}
-          <span>{{ tag }}</span>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </nav>
+    <template x-if="$store.favorites.items.length">
+      <nav aria-labelledby="app-sidebar-nav-favorites" class="nav">
+        <h2 id="app-sidebar-nav-favorites" class="nav__title">Favorites</h2>
+        <ul class="nav__list">
+          <template x-for="fav in $store.favorites.items">
+            <li>
+              <a :href="fav" class="nav__link">
+                {% include '_icons/hash.svg' %}
+                <span x-text="$store.favorites.index[fav] || fav"></span>
+              </a>
+            </li>
+          </template>
+        </ul>
+      </nav>
+    </template>
 
-  <nav aria-labelledby="app-sidebar-nav-notes" class="nav">
-    <h2 id="app-sidebar-nav-notes" class="nav__title">Notes</h2>
-    <ul class="nav__list">
-      {% for note in collections.notes %}
-      <li>
-        <a href="{{ note.url }}" class="nav__link">
-          {% include '_icons/file-text.svg' %}
-          <span>{{ note.data.title or note.page.fileSlug }}</span>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </nav>
-</aside>
+    <nav aria-labelledby="app-sidebar-nav-tags" class="nav">
+      <h2 id="app-sidebar-nav-tags" class="nav__title">Tags</h2>
+      <ul class="nav__list">
+        {% for tag in collections.tags %}
+        <li>
+          <a href="{{ ('/tags/' + tag) | url }}" class="nav__link">
+            {% include '_icons/hash.svg' %}
+            <span>{{ tag }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="app-sidebar-nav-notes" class="nav">
+      <h2 id="app-sidebar-nav-notes" class="nav__title">Notes</h2>
+      <ul class="nav__list">
+        {% for note in collections.notes %}
+        <li>
+          <a href="{{ note.url }}" class="nav__link">
+            {% include '_icons/file-text.svg' %}
+            <span>{{ note.data.title or note.page.fileSlug }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+</div>

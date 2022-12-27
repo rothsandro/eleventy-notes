@@ -1,4 +1,6 @@
-<header class="app__header">
-    <div>Notes</div>
-    {% include '_partials/search.njk' %}
+<header class="app__header header" x-data>
+  {% include '_partials/nav-toggle.njk' %}
+  <div class="header__title">Notes</div>
+  <div class="spacer"></div>
+  {% include '_partials/search.njk' %}
 </header>
