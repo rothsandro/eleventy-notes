@@ -1,4 +1,4 @@
-.header {
+.app-header {
   display: flex;
   align-items: center;
   gap: var(--space-4);
@@ -12,7 +12,7 @@
   z-index: 2;
 }
 
-.header__title {
+.app-header__title {
   margin-inline-end: var(--space-6);
   font-weight: var(--font-weight-bold);
 }

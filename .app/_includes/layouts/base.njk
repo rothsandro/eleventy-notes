@@ -13,7 +13,7 @@ panel: true
   </head>
   <body>
     <div class="app-layout" data-panel="{{ panel }}">
-      {% include 'partials/header.njk' %}
+      {% include 'partials/app-header.njk' %}
       {% include 'partials/sidebar.njk' %}
       {{ content | safe }}
     </div>
