@@ -3,7 +3,7 @@
 
 @import "npm:prism-themes/themes/prism-material-light.css";
 
-@import "./blocks/app.scss";
+@import "./blocks/app-layout.scss";
 @import "./blocks/article.scss";
 @import "./blocks/group.css";
 @import "./blocks/header.scss";

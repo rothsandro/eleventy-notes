@@ -3,7 +3,7 @@
 $sidebar-width: 300px;
 $panel-width: 380px;
 
-.app {
+.app-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas: "header" "sidebar" "main";
@@ -40,16 +40,16 @@ $panel-width: 380px;
   }
 }
 
-.app__header {
+.app-layout__header {
   grid-area: header;
 }
 
-.app__sidebar {
+.app-layout__sidebar {
   position: relative;
   grid-area: sidebar;
 }
 
-.app__panel {
+.app-layout__panel {
   block-size: 100%;
   overflow: auto;
   padding-inline: var(--space-4);
@@ -57,13 +57,13 @@ $panel-width: 380px;
   grid-area: panel;
 }
 
-.app__main {
+.app-layout__main {
   block-size: 100%;
   overflow: auto;
   grid-area: main;
 
   @include breakpoints.media-breakpoint-up("md") {
-    .app[data-panel="false"] & {
+    .app-layout[data-panel="false"] & {
       padding-inline-end: $panel-width;
     }
   }
