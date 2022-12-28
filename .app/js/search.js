@@ -27,15 +27,18 @@ Alpine.data("search", () => ({
         this.open = false;
         break;
       case "ArrowUp":
+        event.preventDefault();
         this.selectedIndex = Math.max(0, this.selectedIndex - 1);
         break;
       case "ArrowDown":
+        event.preventDefault();
         this.selectedIndex = Math.min(
           this.results.length - 1,
           this.selectedIndex + 1
         );
         break;
       case "Enter":
+        event.preventDefault();
         const result = this.results[this.selectedIndex];
         if (result) {
           window.location.href = result.url;
