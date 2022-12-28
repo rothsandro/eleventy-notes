@@ -10,9 +10,15 @@
   border-block-end: 1px solid var(--color-neutral-line);
   background-color: var(--color-surface);
   z-index: 2;
+
+  & > * {
+    flex-shrink: 0;
+  }
 }
 
 .app-header__title {
+  flex-shrink: 1;
+  flex-grow: 1;
   margin-inline-end: var(--space-6);
   font-weight: var(--font-weight-bold);
 }

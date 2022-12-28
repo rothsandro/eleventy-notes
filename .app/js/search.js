@@ -1,4 +1,4 @@
-import Alpine from "alpinejs";
+import { Alpine } from "./alpine";
 
 Alpine.data("search", () => ({
   _notes$: null,

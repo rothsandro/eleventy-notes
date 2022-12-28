@@ -1,7 +1,4 @@
-import Alpine from "alpinejs";
-import persist from "@alpinejs/persist";
-
-Alpine.plugin(persist);
+import { Alpine } from "./alpine";
 
 Alpine.store("favorites", {
   index: {},

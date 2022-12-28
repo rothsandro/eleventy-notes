@@ -1,0 +1,30 @@
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--rounded-full);
+  padding: 3px;
+  background-color: var(--color-neutral-bg);
+
+  &:has(input:focus-visible) {
+    background-color: var(--color-neutral-bgHover);
+  }
+}
+
+.theme-switcher__label {
+  padding: var(--space-2);
+  border-radius: var(--rounded-full);
+  color: var(--color-neutral-text);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-neutral-textContrast);
+    background-color: var(--color-neutral-bgHover);
+  }
+
+  &:has(input:checked) {
+    box-shadow: var(--shadow-sm);
+    color: var(--color-primary-text);
+    background-color: var(--color-surface);
+  }
+}

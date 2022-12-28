@@ -2,10 +2,12 @@
 
 <header class="app-layout__header app-header" x-data>
   {% include 'partials/nav-toggle.njk' %}
-  <div class="app-header__title">
+
+  <div class="app-header__title truncate">
     {{ app.title }}
   </div>
-  <div class="spacer"></div>
+
+  {% include 'partials/theme-switcher.njk' %}
   
   <div class="show-md">
     {{ searchInput('overlay') }}

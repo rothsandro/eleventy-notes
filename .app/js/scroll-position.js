@@ -1,4 +1,4 @@
-import Alpine from "alpinejs";
+import { Alpine } from "./alpine";
 
 Alpine.data("scrollContainer", (identifier) => ({
   key: `scroll-position-${identifier}`,

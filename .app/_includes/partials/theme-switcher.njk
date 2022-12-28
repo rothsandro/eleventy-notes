@@ -1,0 +1,36 @@
+<fieldset x-data x-cloak class="theme-switcher">
+  <legend class="visually-hidden">Appearance</legend>
+  <label class="theme-switcher__label">
+    <input
+      type="radio"
+      name="appearance"
+      x-model="$store.appearance.theme"
+      value="light"
+      class="visually-hidden"
+    >
+    {% include 'icons/sun.svg' %}
+    <span class="visually-hidden">Light</span>
+  </label>
+  <label class="theme-switcher__label">
+    <input
+      type="radio"
+      name="appearance"
+      x-model="$store.appearance.theme"
+      value="dark"
+      class="visually-hidden"
+    >
+    {% include 'icons/moon.svg' %}
+    <span class="visually-hidden">Dark</span>
+  </label>
+  <label class="theme-switcher__label">
+    <input
+      type="radio"
+      name="appearance"
+      x-model="$store.appearance.theme"
+      value="system"
+      class="visually-hidden"
+    >
+    {% include 'icons/monitor.svg' %}
+    <span class="visually-hidden">System</span>
+  </label>
+</fieldset>

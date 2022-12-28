@@ -1,4 +1,4 @@
-import Alpine from "alpinejs";
+import { Alpine } from "./alpine";
 import hotkeys from "hotkeys-js";
 
 Alpine.store("hotkeys", {

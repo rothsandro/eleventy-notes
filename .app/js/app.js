@@ -1,5 +1,6 @@
-import Alpine from "alpinejs";
+import { Alpine } from "./alpine.js";
 
+import "./appearance";
 import "./favorites";
 import "./hotkeys";
 import "./nav";
