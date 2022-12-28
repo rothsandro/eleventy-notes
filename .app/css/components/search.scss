@@ -3,21 +3,29 @@
 }
 
 .search__input {
+  inline-size: 230px;
   padding-block: var(--space-2);
-  padding-inline: var(--space-4);
+  padding-inline: var(--space-5);
   border: none;
-  border-radius: var(--rounded-md);
-  background-color: var(--color-neutral-bgSubtle);
+  border-radius: var(--rounded-full);
+  background-color: var(--color-neutral-bg);
   color: var(--color-neutral-textContrast);
+  transition: background-color 300ms ease;
 
   .search[data-mode="inline"] & {
     inline-size: 100%;
     display: block;
+    padding-inline: var(--space-4);
+    border-radius: var(--rounded-md);
   }
-}
 
-.search__input::placeholder {
-  color: var(--color-neutral-placeholder);
+  &:hover {
+    background-color: var(--color-neutral-bgHover);
+  }
+
+  &::placeholder {
+    color: var(--color-neutral-placeholder);
+  }
 }
 
 .search__popover {
