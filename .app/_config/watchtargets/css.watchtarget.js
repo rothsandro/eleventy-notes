@@ -1,1 +1,1 @@
-module.exports = "css/**/*.css";
+module.exports = "css/**/*.(css|scss)";
