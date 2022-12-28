@@ -8,8 +8,14 @@
   @include tokens.build(tokens-light.$tokens);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+body {
+  &[data-theme="dark"] {
     @include tokens.build(tokens-dark.$tokens);
+  }
+
+  &[data-theme="system"] {
+    @media (prefers-color-scheme: dark) {
+      @include tokens.build(tokens-dark.$tokens);
+    }
   }
 }

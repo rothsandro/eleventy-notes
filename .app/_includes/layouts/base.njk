@@ -11,7 +11,7 @@ panel: true
     <meta name="generator" content="{{ eleventy.generator }}">
     <link rel="stylesheet" href="{{ '/app.css' | url }}">
   </head>
-  <body>
+  <body data-theme="system">
     <div class="app-layout" data-panel="{{ panel }}">
       {% include 'partials/app-header.njk' %}
       {% include 'partials/sidebar.njk' %}
