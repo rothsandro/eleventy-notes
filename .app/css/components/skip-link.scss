@@ -1,0 +1,23 @@
+.skip-link {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  opacity: 0;
+  transform: translateX(-100%);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  box-shadow: var(--shadow-xl);
+  border-radius: var(--rounded-md);
+  background-color: var(--color-primary-bgSolid);
+  color: var(--color-on-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  z-index: 1;
+
+  &:focus {
+    inset-block-start: var(--space-3);
+    inset-inline-start: var(--space-3);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

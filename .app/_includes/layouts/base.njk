@@ -12,6 +12,8 @@ panel: true
     <link rel="stylesheet" href="{{ '/app.css' | url }}">
   </head>
   <body data-theme="system">
+    {% include 'partials/skip-to-content.njk' %}
+
     <div class="app-layout" data-panel="{{ panel }}">
       {% include 'partials/app-header.njk' %}
       {% include 'partials/sidebar.njk' %}
