@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@function map-merge-all($maps...) {
+@function merge-all($maps...) {
   $collection: ();
 
   @each $map in $maps {

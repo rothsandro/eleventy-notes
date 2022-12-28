@@ -1,11 +1,11 @@
 @use "sass:map";
-@use "./utils.scss";
+@use "./../tools/map-utils.scss";
 @use "./palettes.scss";
 @use "./colors.scss";
 
 $tokens: (
   color:
-    utils.map-merge-all(
+    map-utils.merge-all(
       (
         background: #fff,
         surface: #fff,

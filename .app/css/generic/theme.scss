@@ -1,8 +1,15 @@
 @use "./../tools/tokens.scss";
 @use "./../settings/tokens-core.scss";
 @use "./../settings/tokens-light.scss";
+@use "./../settings/tokens-dark.scss";
 
 :root {
   @include tokens.build(tokens-core.$tokens);
   @include tokens.build(tokens-light.$tokens);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include tokens.build(tokens-dark.$tokens);
+  }
 }

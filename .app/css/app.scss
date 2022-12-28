@@ -15,18 +15,9 @@
 @import "./components/sidebar.scss";
 @import "./components/toggle-btn.scss";
 
+@import "./utils/cloak.scss";
 @import "./utils/hide.scss";
 @import "./utils/show.scss";
 @import "./utils/spacer.scss";
 @import "./utils/stack.scss";
 @import "./utils/visually-hidden.scss";
-
-[x-cloak] {
-  display: none !important;
-}
-
-body {
-  font-family: var(--font-family-default);
-  color: var(--color-neutral-textContrast);
-  background-color: var(--color-background);
-}
