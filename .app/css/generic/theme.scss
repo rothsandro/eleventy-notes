@@ -1,0 +1,8 @@
+@use "./../tools/tokens.scss";
+@use "./../settings/tokens-core.scss";
+@use "./../settings/tokens-light.scss";
+
+:root {
+  @include tokens.build(tokens-core.$tokens);
+  @include tokens.build(tokens-light.$tokens);
+}

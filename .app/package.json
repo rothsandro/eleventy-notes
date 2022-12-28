@@ -9,8 +9,8 @@
     "11ty:build": "npm run clean && eleventy",
     "js:watch": "parcel watch --no-hmr --dist-dir dist/ js/app.js",
     "js:build": "parcel build --dist-dir dist/ js/app.js",
-    "css:watch": "parcel watch --no-hmr --dist-dir dist/ css/app.css",
-    "css:build": "parcel build --dist-dir dist/ css/app.css",
+    "css:watch": "parcel watch --no-hmr --dist-dir dist/ css/app.scss",
+    "css:build": "parcel build --dist-dir dist/ css/app.scss",
     "clean": "rimraf dist"
   },
   "keywords": [],

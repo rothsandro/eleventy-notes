@@ -1,0 +1,69 @@
+@use "sass:math";
+
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+$tokens: (
+  font-family: (
+    default: (
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      "Noto Sans",
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji",
+    ),
+    mono: (
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace,
+    ),
+  ),
+  space: (
+    0: 0,
+    1: 4px,
+    2: 8px,
+    3: 12px,
+    4: 16px,
+    5: 24px,
+    6: 36px,
+    7: 48px,
+    8: 64px,
+  ),
+  rounded: (
+    none: 0,
+    sm: 2px,
+    md: 4px,
+    lg: 8px,
+    full: 9999px,
+  ),
+  font-size: (
+    xs: rem(12),
+    sm: rem(14),
+    md: rem(16),
+    lg: rem(18),
+    xl: rem(20),
+    2xl: rem(24),
+    3xl: rem(32),
+    4xl: rem(40),
+  ),
+  font-weight: (
+    normal: 400,
+    medium: 500,
+    bold: 700,
+  ),
+);

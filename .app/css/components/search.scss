@@ -8,6 +8,7 @@
   border: none;
   border-radius: var(--rounded-md);
   background-color: var(--color-neutral-bgSubtle);
+  color: var(--color-neutral-textContrast);
 
   .search[data-mode="inline"] & {
     inline-size: 100%;

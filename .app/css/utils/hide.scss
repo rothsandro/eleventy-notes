@@ -1,8 +1,9 @@
-@use "./../breakpoints";
+@use "./../settings/breakpoints" as *;
+@use "./../tools/breakpoints.scss" as *;
 
-@each $key, $value in breakpoints.$breakpoints {
+@each $key, $value in $breakpoints {
   .hide-#{$key} {
-    @include breakpoints.media-breakpoint-up($key) {
+    @include media-breakpoint-up($key) {
       display: none !important;
     }
   }

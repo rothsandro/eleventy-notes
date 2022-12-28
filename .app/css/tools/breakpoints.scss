@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "./../settings/breakpoints.scss";
+
+@mixin media-breakpoint-up($bp) {
+  @if map.has-key(breakpoints.$breakpoints, $bp) {
+    $min-width: map.get(breakpoints.$breakpoints, $bp);
+
+    @media (min-width: #{$min-width}) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint `#{$bp}`.";
+  }
+}

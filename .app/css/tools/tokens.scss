@@ -1,0 +1,9 @@
+@use "sass:map";
+
+@mixin build($theme) {
+  @each $root, $map in $theme {
+    @each $key, $value in $map {
+      --#{$root}-#{$key}: #{$value};
+    }
+  }
+}
