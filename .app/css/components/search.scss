@@ -10,7 +10,6 @@
   border-radius: var(--rounded-full);
   background-color: var(--color-neutral-bg);
   color: var(--color-neutral-textContrast);
-  transition: background-color 300ms ease;
 
   .search[data-mode="inline"] & {
     inline-size: 100%;
