@@ -1,8 +1,8 @@
 import { Alpine } from "./alpine";
-import hotkeys from "hotkeys-js";
 
 Alpine.store("hotkeys", {
-  register(shortcut, callback) {
+  async register(shortcut, callback) {
+    const hotkeys = await import("hotkeys-js").then((m) => m.default);
     hotkeys(shortcut, (event) => {
       event.preventDefault();
       callback();

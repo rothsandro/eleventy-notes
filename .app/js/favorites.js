@@ -5,7 +5,9 @@ Alpine.store("favorites", {
   items: Alpine.$persist([]).as("favorites"),
 
   async init() {
-    this.index = await fetch("/index.json").then((r) => r.json());
+    this.index = await fetch("/index.json")
+      .then((r) => r.json())
+      .catch(() => console.error("Could not fetch notes index"));
   },
 
   is(id) {
