@@ -1,1 +1,2 @@
-module.exports = "/n/{{ page.filePathStem | slugifyPath }}/index.html";
+module.exports =
+  "{{ '/' if page.filePathStem == '/index' else ('/n/' + (page.filePathStem | slugifyPath) + '/') }}";

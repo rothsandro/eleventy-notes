@@ -8,7 +8,7 @@
     x-effect="$store.nav.open && window.scrollTo(0, 0)"
     tabindex="-1"
   >
-    <h2 class="visually-hidden" >Navigation</h2>
+    <h2 class="visually-hidden">Navigation</h2>
 
     <nav aria-labelledby="app-sidebar-nav-main" class="nav-group">
       <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
@@ -16,7 +16,14 @@
         <li>
           <a href="{{ '/' | url }}" class="nav-group__link">
             {% include 'icons/home.svg' %}
-            <span>Home</span>
+            {% set home = (collections.notes | home) %}
+            <span>{{ home.data.title if home else 'Home' }}</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ '/n' | url }}" class="nav-group__link">
+            {% include 'icons/file-text-ref.svg' %}
+            <span>Notes</span>
           </a>
         </li>
         <li>

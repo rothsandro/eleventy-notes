@@ -1,7 +1,9 @@
 const notesCollection = require("./notes.collection");
 
 module.exports = (collectionApi) => {
-  const notes = notesCollection(collectionApi);
+  const notes = notesCollection(collectionApi).filter(
+    (note) => note.page.filePathStem !== "/index"
+  );
   const groups = {};
 
   notes.forEach((note) => {
