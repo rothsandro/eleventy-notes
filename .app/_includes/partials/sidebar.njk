@@ -12,7 +12,7 @@
 
     <nav aria-labelledby="app-sidebar-nav-main" class="nav-group">
       <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
-      <ul class="nav-group__list">
+      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-main">
         <li>
           <a href="{{ '/' | url }}" class="nav-group__link">
             {% include 'icons/home.svg' %}
@@ -37,7 +37,7 @@
     <template x-if="$store.favorites.items.length">
       <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-group">
         <h2 id="app-sidebar-nav-favorites" class="nav-group__title">Favorites</h2>
-        <ul class="nav-group__list">
+        <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-favorites">
           <template x-for="fav in $store.favorites.items">
             <li>
               <a :href="fav" class="nav-group__link">
@@ -52,7 +52,7 @@
 
     <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
       <h2 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h2>
-      <ul class="nav-group__list">
+      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
         {% for tag in collections.tags %}
         <li>
           <a href="{{ ('/tags/' + tag) | url }}" class="nav-group__link">
@@ -66,7 +66,7 @@
 
     <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
       <h2 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h2>
-      <ul class="nav-group__list">
+      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-notes">
         {% for note in collections.notes %}
         <li>
           <a href="{{ note.url }}" class="nav-group__link">

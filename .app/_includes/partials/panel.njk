@@ -4,8 +4,8 @@
   {% set toc = content | toc %}
   {% if toc | length %}
   <div class="grouped-links">
-    <h2 class="grouped-links__label">Table of Contents</h2>
-    <ul class="grouped-links__list">
+    <h2 class="grouped-links__label" id="app-panel-toc">Table of Contents</h2>
+    <ul class="grouped-links__list" aria-labelledby="app-panel-toc">
       {% for item in toc %}
       <li style="--level: {{ item.level }}">
         <a href="#{{ item.id }}" class="grouped-links__link">
@@ -20,8 +20,8 @@
 
   {% if tags | length %}
   <div class="grouped-links">
-    <h2 class="grouped-links__label">Tags</h2>
-    <ul class="grouped-links__list">
+    <h2 class="grouped-links__label" id="app-panel-tags">Tags</h2>
+    <ul class="grouped-links__list" aria-labelledby="app-panel-tags">
       {% for tag in tags %}
       <li>
         <a href="{{ ('/tags/' + (tag | slug)) | url }}" class="grouped-links__link">
@@ -38,8 +38,8 @@
 
   {% if links.incoming | length %}
   <div class="grouped-links">
-    <h2 class="grouped-links__label">Incoming</h2>
-    <ul class="grouped-links__list">
+    <h2 class="grouped-links__label" id="app-panel-incoming">Incoming</h2>
+    <ul class="grouped-links__list" aria-labelledby="app-panel-incoming">
       {% for incoming in links.incoming %}
         <li>
           <a href="{{ incoming.url }}" class="grouped-links__link">
@@ -54,8 +54,8 @@
 
   {% if links.outgoing | length %}
   <div class="grouped-links">
-    <h2 class="grouped-links__label">Outgoing</h2>
-    <ul class="grouped-links__list">
+    <h2 class="grouped-links__label" id="app-panel-outgoing">Outgoing</h2>
+    <ul class="grouped-links__list" aria-labelledby="app-panel-outgoing">
       {% for outgoing in links.outgoing %}
         <li>
           <a href="{{ outgoing.url }}" class="grouped-links__link">
@@ -70,8 +70,8 @@
   
   {% if links.external | length %}
   <div class="grouped-links">
-    <h2 class="grouped-links__label">External</h2>
-    <ul class="grouped-links__list">
+    <h2 class="grouped-links__label" id="app-panel-external">External</h2>
+    <ul class="grouped-links__list" aria-labelledby="app-panel-external">
       {% for external in links.external %}
         <li>
           <a href="{{ external.url }}" class="grouped-links__link" target="_blank" rel="noopener noreferrer">
