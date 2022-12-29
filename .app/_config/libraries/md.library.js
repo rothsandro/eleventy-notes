@@ -9,8 +9,11 @@ module.exports = (eleventyConfig) => {
     baseURL: "/n/",
     makeAllLinksAbsolute: true,
     uriSuffix: "/",
+    postProcessLabel: (label) => {
+      return label.replace(/^\//, "");
+    },
     generatePageNameFromLabel: (label) => {
-      return label.toLowerCase().replace(/\s+/g, "-");
+      return eleventyConfig.getFilter("slugifyPath")(label);
     },
   });
 

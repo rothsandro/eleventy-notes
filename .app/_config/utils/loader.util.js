@@ -11,8 +11,8 @@ const configs = {
   plugins: function (eleventyConfig, plugin) {
     eleventyConfig.addPlugin(...plugin);
   },
-  filters: function (eleventyConfig, filter, name) {
-    eleventyConfig.addFilter(name, filter);
+  filters: function (eleventyConfig, filterFactory, name) {
+    eleventyConfig.addFilter(name, filterFactory(eleventyConfig));
   },
   watchtargets: function (eleventyConfig, watchTarget) {
     eleventyConfig.addWatchTarget(watchTarget);

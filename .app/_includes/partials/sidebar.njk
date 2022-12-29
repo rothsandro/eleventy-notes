@@ -36,7 +36,7 @@
 
     <template x-if="$store.favorites.items.length">
       <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-group">
-        <h2 id="app-sidebar-nav-favorites" class="nav-group__title">Favorites</h2>
+        <h3 id="app-sidebar-nav-favorites" class="nav-group__title">Favorites</h3>
         <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-favorites">
           <template x-for="fav in $store.favorites.items">
             <li>
@@ -51,7 +51,7 @@
     </template>
 
     <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
-      <h2 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h2>
+      <h3 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h3>
       <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
         {% for tag in collections.tags %}
         <li>
@@ -65,17 +65,27 @@
     </nav>
 
     <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
-      <h2 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h2>
-      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-notes">
-        {% for note in collections.notes %}
-        <li>
-          <a href="{{ note.url }}" class="nav-group__link">
-            {% include 'icons/file-text-ref.svg' %}
-            <span>{{ note.data.title or note.page.fileSlug }}</span>
-          </a>
-        </li>
+      <h3 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h3>
+      <div class="stack" data-stack="6">
+        {% for folder, notes in collections.groupedNotes %}
+          <div>
+            {% if folder %}
+              <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-{{ folder | slugify }}">{{ folder }}</h4>
+            {% endif %}
+
+            <ul class="nav-group__list" aria-labelledby="{{ ('app-sidebar-nav-notes-' + (folder| slugify)) if folder else 'app-sidebar-nav-notes' }}">
+              {% for note in notes %}
+              <li>
+                <a href="{{ note.url }}" class="nav-group__link">
+                  {% include 'icons/file-text-ref.svg' %}
+                  <span>{{ note.data.title or note.page.fileSlug }}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
         {% endfor %}
-      </ul>
+      </div>
     </nav>
   </aside>
 </div>

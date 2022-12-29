@@ -15,6 +15,14 @@
   letter-spacing: 0.04em;
 }
 
+.nav-group__subtitle {
+  margin-block-end: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-neutral-text);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
 .nav-group__list {
   margin: 0;
   padding: 0;

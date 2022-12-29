@@ -24,7 +24,7 @@
     <ul class="grouped-links__list" aria-labelledby="app-panel-tags">
       {% for tag in tags %}
       <li>
-        <a href="{{ ('/tags/' + (tag | slug)) | url }}" class="grouped-links__link">
+        <a href="{{ ('/tags/' + (tag | slugify)) | url }}" class="grouped-links__link">
           {% include 'icons/hash-ref.svg' %}
           <span>{{ tag }}</span>
         </a>
