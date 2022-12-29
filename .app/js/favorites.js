@@ -7,7 +7,12 @@ Alpine.store("favorites", {
   async init() {
     this.index = await fetch("/index.json")
       .then((r) => r.json())
-      .catch(() => console.error("Could not fetch notes index"));
+      .catch(() => {
+        console.error("Could not fetch notes index");
+        return {};
+      });
+
+    this.cleanUpFavorites();
   },
 
   is(id) {
@@ -20,5 +25,10 @@ Alpine.store("favorites", {
     } else {
       this.items.push(id);
     }
+  },
+
+  cleanUpFavorites() {
+    if (Object.keys(this.index).length === 0) return;
+    this.items = this.items.filter((id) => !!this.index[id]);
   },
 });
