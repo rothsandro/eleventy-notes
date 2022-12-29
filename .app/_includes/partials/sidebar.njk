@@ -50,20 +50,6 @@
       </nav>
     </template>
 
-    <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
-      <h3 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h3>
-      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
-        {% for tag in collections.tags %}
-        <li>
-          <a href="{{ ('/tags/' + tag) | url }}" class="nav-group__link">
-            {% include 'icons/hash-ref.svg' %}
-            <span>{{ tag }}</span>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-
     <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
       <h3 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h3>
       <div class="stack" data-stack="6">
@@ -86,6 +72,20 @@
           </div>
         {% endfor %}
       </div>
+    </nav>
+
+    <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
+      <h3 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h3>
+      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
+        {% for tag in collections.tags %}
+        <li>
+          <a href="{{ ('/tags/' + tag) | url }}" class="nav-group__link">
+            {% include 'icons/hash-ref.svg' %}
+            <span>{{ tag }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
     </nav>
   </aside>
 </div>
