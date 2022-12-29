@@ -6,7 +6,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 
 module.exports = (eleventyConfig) => {
   const wikiLinks = markdownItWikilinks({
-    baseURL: "/",
+    baseURL: "/n/",
     makeAllLinksAbsolute: true,
     uriSuffix: "/",
     generatePageNameFromLabel: (label) => {

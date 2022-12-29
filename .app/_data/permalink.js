@@ -1,1 +1,1 @@
-module.exports = "{{ page.fileSlug | slug }}/index.html";
+module.exports = "/n/{{ page.fileSlug | slug }}/index.html";
