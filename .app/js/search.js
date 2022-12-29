@@ -18,6 +18,7 @@ Alpine.data("search", () => ({
       this.results = await this.search();
       this.open = true;
       this.selectedIndex = 0;
+      this.announceSelected();
     });
   },
 
@@ -29,6 +30,7 @@ Alpine.data("search", () => ({
       case "ArrowUp":
         event.preventDefault();
         this.selectedIndex = Math.max(0, this.selectedIndex - 1);
+        this.announceSelected();
         break;
       case "ArrowDown":
         event.preventDefault();
@@ -36,6 +38,7 @@ Alpine.data("search", () => ({
           this.results.length - 1,
           this.selectedIndex + 1
         );
+        this.announceSelected();
         break;
       case "Enter":
         event.preventDefault();
@@ -112,5 +115,13 @@ Alpine.data("search", () => ({
     const files = Array.from(new Set(results.flatMap((entry) => entry.result)));
     const foundNotes = notes.filter((note) => files.includes(note.url));
     return foundNotes;
+  },
+
+  announceSelected() {
+    const result = this.results[this.selectedIndex];
+    if (result) {
+      const text = `${result.title}, selected`;
+      Alpine.store("announce").announce(text);
+    }
   },
 }));

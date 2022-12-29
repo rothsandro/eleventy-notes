@@ -25,7 +25,7 @@
           Searching...
         </div>
 
-        <ul x-show="term && results && results.length" class="search__results">
+        <ul x-show="term && results && results.length" class="search__results" aria-label="Results">
           <template x-for="(result, index) in results" :key="result.url">
             <li>
               <a
@@ -35,7 +35,7 @@
                 x-effect="index === selectedIndex && $el.scrollIntoView({ block: 'nearest' })"
               >
                 <span class="search__note-title" x-text="result.title"></span>
-                <span class="search__note-content" x-text="result.content"></span>
+                <span class="search__note-content" x-text="result.content" aria-hidden="true"></span>
               </a>
             </li>
           </template>

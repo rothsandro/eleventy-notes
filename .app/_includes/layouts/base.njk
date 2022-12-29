@@ -26,5 +26,13 @@ panel: true
       {% include 'icons/hash.svg' %}
       {% include 'icons/file-text.svg' %}
     </div>
+
+    <div
+      class="visually-hidden"
+      x-data
+      x-text="$store.announce.text"
+      x-cloak
+      :aria-live="$store.announce.ariaLive"
+    ></div>
   </body>
 </html>
