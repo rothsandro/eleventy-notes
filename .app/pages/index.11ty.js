@@ -1,5 +1,3 @@
-const { stripHtml } = require("string-strip-html");
-
 class Index {
   data() {
     return {
