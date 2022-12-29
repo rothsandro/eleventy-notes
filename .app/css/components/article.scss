@@ -1,3 +1,5 @@
+@use "./../tools/breakpoints" as *;
+
 .article__content {
   max-inline-size: 70ch;
   margin-inline-end: auto;
@@ -49,6 +51,19 @@
   h4 + h5,
   h5 + h6 {
     margin-block-start: var(--space-1);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-block-start: 70px;
+
+    @include media-breakpoint-up("md") {
+      scroll-margin-block-start: 20px;
+    }
   }
 
   a[href] {

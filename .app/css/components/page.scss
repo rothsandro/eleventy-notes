@@ -1,6 +1,13 @@
+@use "./../tools/breakpoints.scss" as *;
+
 .page {
-  padding-block: var(--space-6);
-  padding-inline: var(--space-6);
+  padding-block: var(--space-4);
+  padding-inline: var(--space-4);
+
+  @include media-breakpoint-up("md") {
+    padding-block: var(--space-6);
+    padding-inline: var(--space-6);
+  }
 }
 
 .page--centered {
@@ -12,6 +19,6 @@
 .page__title {
   margin: 0;
   margin-block-end: var(--space-6);
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-fluid-3);
   line-height: 1.3;
 }
