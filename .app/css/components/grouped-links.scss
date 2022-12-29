@@ -14,6 +14,10 @@
   background-color: var(--color-neutral-bgSubtle);
 }
 
+.grouped-links__list > li {
+  padding-inline-start: calc((var(--level, 1) - 1) * 30px);
+}
+
 .grouped-links__list > li:not(:last-child) > .grouped-links__link > span {
   border-block-end: 1px solid var(--color-neutral-line);
 }
