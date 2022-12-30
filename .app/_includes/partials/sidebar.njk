@@ -5,7 +5,6 @@
   x-cloak
   :data-open="$store.nav.open.toString()"
   x-effect="$store.nav.open && window.scrollTo(0, 0)"
-  tabindex="-1"
 >
   <h2 class="visually-hidden">Navigation</h2>
 
@@ -13,26 +12,42 @@
     <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
     <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-main">
       <li>
-        <a href="{{ '/' | url }}" class="nav-group__link">
+        <a
+          href="{{ '/' | url }}"
+          {{ '/' | ariaCurrent }}
+          class="nav-group__link"
+        >
           {% include 'icons/home.svg' %}
           {% set home = (collections.notes | home) %}
           <span>{{ home.data.title if home else 'Home' }}</span>
         </a>
       </li>
       <li>
-        <a href="{{ '/n' | url }}" class="nav-group__link">
+        <a
+          href="{{ '/n/' | url }}"
+          {{ '/n/' | ariaCurrent }}
+          class="nav-group__link"
+        >
           {% include 'icons/file-text-ref.svg' %}
           <span>Notes</span>
         </a>
       </li>
       <li>
-        <a href="{{ '/tags' | url }}" class="nav-group__link">
+        <a
+          href="{{ '/tags/' | url }}"
+          {{ '/tags/' | ariaCurrent }}
+          class="nav-group__link"
+        >
           {% include 'icons/hash-ref.svg' %}
           <span>Tags</span>
         </a>
       </li>
       <li>
-        <a href="{{ '/search' | url }}" class="nav-group__link">
+        <a
+          href="{{ '/search/' | url }}"
+          {{ '/search/' | ariaCurrent }}
+          class="nav-group__link"
+        >
           {% include 'icons/search.svg' %}
           <span>Search</span>
         </a>
@@ -68,7 +83,11 @@
           <ul class="nav-group__list" aria-labelledby="{{ ('app-sidebar-nav-notes-' + (folder| slugify)) if folder else 'app-sidebar-nav-notes' }}">
             {% for note in notes %}
             <li>
-              <a href="{{ note.url }}" class="nav-group__link">
+              <a
+                href="{{ note.url }}"
+                {{ note.url | ariaCurrent }}
+                class="nav-group__link"
+              >
                 {% include 'icons/file-text-ref.svg' %}
                 <span>{{ note.data.title or note.page.fileSlug }}</span>
               </a>
@@ -85,9 +104,13 @@
     <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
       {% for tag in collections.tags %}
       <li>
-        <a href="{{ ('/tags/' + tag) | url }}" class="nav-group__link">
+        <a
+          href="{{ tag.url | url }}"
+          {{ tag.url | ariaCurrent }}
+          class="nav-group__link"
+        >
           {% include 'icons/hash-ref.svg' %}
-          <span>{{ tag }}</span>
+          <span>{{ tag.name }}</span>
         </a>
       </li>
       {% endfor %}

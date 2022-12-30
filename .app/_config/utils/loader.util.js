@@ -5,8 +5,8 @@ const configs = {
   before: function (eleventyConfig, before) {
     eleventyConfig.on("eleventy.before", before);
   },
-  collections: function (eleventyConfig, col, name) {
-    eleventyConfig.addCollection(name, col);
+  collections: function (eleventyConfig, colFactory, name) {
+    eleventyConfig.addCollection(name, colFactory(eleventyConfig));
   },
   filters: function (eleventyConfig, filterFactory, name) {
     eleventyConfig.addFilter(name, filterFactory(eleventyConfig));

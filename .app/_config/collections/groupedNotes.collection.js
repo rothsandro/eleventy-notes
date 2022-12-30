@@ -1,7 +1,7 @@
 const notesCollection = require("./notes.collection");
 
-module.exports = (collectionApi) => {
-  const notes = notesCollection(collectionApi).filter(
+module.exports = (eleventyConfig) => (collectionApi) => {
+  const notes = notesCollection(eleventyConfig)(collectionApi).filter(
     (note) => note.page.filePathStem !== "/index"
   );
   const groups = {};

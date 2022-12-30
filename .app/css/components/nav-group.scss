@@ -44,6 +44,10 @@
     background-color: var(--color-neutral-bg);
   }
 
+  &[aria-current="page"] {
+    background-color: var(--color-primary-bg);
+  }
+
   svg {
     flex-shrink: 0;
   }

@@ -1,8 +1,8 @@
 const notesCollection = require("./notes.collection.js");
 const { parse } = require("node-html-parser");
 
-module.exports = (collectionApi) => {
-  const notes = notesCollection(collectionApi);
+module.exports = (eleventyConfig) => (collectionApi) => {
+  const notes = notesCollection(eleventyConfig)(collectionApi);
 
   function getNoteTitle(note) {
     return note.data.title || note.page.fileSlug;
