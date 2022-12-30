@@ -32,16 +32,18 @@
           <span>Notes</span>
         </a>
       </li>
-      <li>
-        <a
-          href="{{ '/tags/' | url }}"
-          {{ '/tags/' | ariaCurrent }}
-          class="nav-group__link"
-        >
-          {% include 'icons/hash-ref.svg' %}
-          <span>Tags</span>
-        </a>
-      </li>
+      {% if collections.tags.length %}
+        <li>
+          <a
+            href="{{ '/tags/' | url }}"
+            {{ '/tags/' | ariaCurrent }}
+            class="nav-group__link"
+          >
+            {% include 'icons/hash-ref.svg' %}
+            <span>Tags</span>
+          </a>
+        </li>
+      {% endif %}
       <li>
         <a
           href="{{ '/search/' | url }}"
@@ -99,21 +101,23 @@
     </div>
   </nav>
 
-  <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
-    <h3 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h3>
-    <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
-      {% for tag in collections.tags %}
-      <li>
-        <a
-          href="{{ tag.url | url }}"
-          {{ tag.url | ariaCurrent }}
-          class="nav-group__link"
-        >
-          {% include 'icons/hash-ref.svg' %}
-          <span>{{ tag.name }}</span>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </nav>
+  {% if collections.tags.length %}
+    <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
+      <h3 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h3>
+      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
+        {% for tag in collections.tags %}
+        <li>
+          <a
+            href="{{ tag.url | url }}"
+            {{ tag.url | ariaCurrent }}
+            class="nav-group__link"
+          >
+            {% include 'icons/hash-ref.svg' %}
+            <span>{{ tag.name }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
 </aside>
