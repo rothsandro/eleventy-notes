@@ -17,5 +17,9 @@
   &[aria-pressed="true"] {
     background-color: var(--color-primary-bgSolid);
     color: var(--color-on-primary);
+
+    svg {
+      fill: currentColor;
+    }
   }
 }
