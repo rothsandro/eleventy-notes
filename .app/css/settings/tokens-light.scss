@@ -10,12 +10,12 @@ $tokens: (
         background: #fff,
         surface: #fff,
       ),
-      colors.build("neutral", palettes.$gray),
+      colors.build("neutral", palettes.$slate),
       colors.build(
         "primary",
-        palettes.$cyan,
+        palettes.$sky,
         (
-          on-primary: #fff,
+          on-primary: #000,
         )
       )
     ),

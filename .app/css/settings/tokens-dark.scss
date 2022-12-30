@@ -7,15 +7,15 @@ $tokens: (
   color:
     map-utils.merge-all(
       (
-        background: map.get(palettes.$gray-dark, 1),
-        surface: map.get(palettes.$gray-dark, 1),
+        background: map.get(palettes.$slate-dark, 1),
+        surface: map.get(palettes.$slate-dark, 1),
       ),
-      colors.build("neutral", palettes.$gray-dark),
+      colors.build("neutral", palettes.$slate-dark),
       colors.build(
         "primary",
-        palettes.$cyan-dark,
+        palettes.$sky-dark,
         (
-          on-primary: "#fff",
+          on-primary: #000,
         )
       )
     ),
