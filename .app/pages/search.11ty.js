@@ -15,7 +15,13 @@ class SearchIndex {
           title: note.data.title || note.page.fileSlug,
           tags: note.data.tags ?? [],
           url: note.url,
-          content: stripHtml(note.content).result,
+          content: stripHtml(note.content, {
+            dumpLinkHrefsNearby: {
+              enabled: true,
+              wrapHeads: "[",
+              wrapTails: "]",
+            },
+          }).result,
         };
       }),
     });
