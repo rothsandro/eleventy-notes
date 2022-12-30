@@ -35,7 +35,7 @@
                 x-effect="index === selectedIndex && $el.scrollIntoView({ block: 'nearest' })"
               >
                 <span class="search__note-title" x-text="result.title"></span>
-                <span class="search__note-content" x-text="result.content" aria-hidden="true"></span>
+                <span class="search__note-content" x-text="result.previewText" aria-hidden="true"></span>
               </a>
             </li>
           </template>

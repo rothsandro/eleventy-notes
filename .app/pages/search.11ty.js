@@ -1,4 +1,5 @@
 const { stripHtml } = require("string-strip-html");
+const { parse } = require("node-html-parser");
 
 class SearchIndex {
   data() {
@@ -11,11 +12,16 @@ class SearchIndex {
   render({ collections }) {
     return JSON.stringify({
       notes: collections.notes.map((note) => {
+        const content = this.cleanUpContent(note.content);
+
         return {
           title: note.data.title || note.page.fileSlug,
           tags: note.data.tags ?? [],
           url: note.url,
-          content: stripHtml(note.content, {
+          previewText: stripHtml(content)
+            .result.slice(0, 150)
+            .replace(/\s{2,}/g, " "),
+          content: stripHtml(content, {
             dumpLinkHrefsNearby: {
               enabled: true,
               wrapHeads: "[",
@@ -25,6 +31,12 @@ class SearchIndex {
         };
       }),
     });
+  }
+
+  cleanUpContent(content) {
+    const doc = parse(content);
+    doc.querySelectorAll(".direct-link").forEach((el) => el.remove());
+    return doc.innerHTML;
   }
 }
 
