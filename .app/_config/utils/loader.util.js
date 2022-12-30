@@ -2,17 +2,20 @@ const fs = require("fs");
 const path = require("path");
 
 const configs = {
+  before: function (eleventyConfig, before) {
+    eleventyConfig.on("eleventy.before", before);
+  },
   collections: function (eleventyConfig, col, name) {
     eleventyConfig.addCollection(name, col);
+  },
+  filters: function (eleventyConfig, filterFactory, name) {
+    eleventyConfig.addFilter(name, filterFactory(eleventyConfig));
   },
   libraries: function (eleventyConfig, lib, name) {
     eleventyConfig.setLibrary(name, lib(eleventyConfig));
   },
   plugins: function (eleventyConfig, plugin) {
     eleventyConfig.addPlugin(...plugin);
-  },
-  filters: function (eleventyConfig, filterFactory, name) {
-    eleventyConfig.addFilter(name, filterFactory(eleventyConfig));
   },
   watchtargets: function (eleventyConfig, watchTarget) {
     eleventyConfig.addWatchTarget(watchTarget);
