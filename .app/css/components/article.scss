@@ -79,6 +79,16 @@
     padding-inline-end: 1em;
   }
 
+  blockquote {
+    border-inline-start: 3px solid var(--color-neutral-line);
+    padding-inline-start: var(--space-4);
+
+    p {
+      color: var(--color-neutral-text);
+      font-style: italic;
+    }
+  }
+
   pre,
   code {
     font-family: var(--font-family-mono);
