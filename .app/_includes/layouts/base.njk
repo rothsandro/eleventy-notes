@@ -14,10 +14,14 @@ panel: true
   <body data-theme="system">
     {% include 'partials/skip-to-content.njk' %}
 
-    <div class="app-layout" data-panel="{{ panel }}">
+    <div class="app-layout">
       {% include 'partials/app-header.njk' %}
-      {% include 'partials/sidebar.njk' %}
-      {{ content | safe }}
+      <div class="app-layout__wrapper">
+        <div class="app-layout__sidebar">
+          {% include 'partials/sidebar.njk' %}
+        </div>
+        {{ content | safe }}
+      </div>
     </div>
 
     <script src="{{ '/app.js' | url }}"></script>

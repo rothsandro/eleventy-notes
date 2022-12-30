@@ -1,70 +1,33 @@
-@use "./../tools/breakpoints";
+@use "./../tools/breakpoints" as *;
 
 $sidebar-width: 300px;
-$panel-width: 380px;
 
 .app-layout {
+  position: fixed;
+  inset: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "header" "sidebar" "main";
-  gap: var(--size-4);
-
-  &[data-panel="true"] {
-    grid-template-areas: "header" "sidebar" "main" "panel";
-  }
-
-  @include breakpoints.media-breakpoint-up("md") {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    grid-template-columns: 0px minmax(0, 1fr);
-    grid-template-rows: auto minmax(0, 1fr);
-    grid-template-areas:
-      "header header"
-      "sidebar main";
-
-    &[data-panel="true"] {
-      grid-template-areas: "header header header" "sidebar main panel";
-      grid-template-columns: 0px minmax(0, 1fr) $panel-width;
-    }
-  }
-
-  @include breakpoints.media-breakpoint-up("xl") {
-    grid-template-columns: $sidebar-width minmax(0, 1fr);
-    grid-template-areas: "header header" "sidebar main";
-
-    &[data-panel="true"] {
-      grid-template-columns: $sidebar-width minmax(0, 1fr) $panel-width;
-      grid-template-areas: "header header header" "sidebar main panel";
-    }
-  }
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
 }
 
-.app-layout__header {
-  grid-area: header;
+.app-layout__wrapper {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
 }
 
 .app-layout__sidebar {
-  position: relative;
-  grid-area: sidebar;
-}
-
-.app-layout__panel {
   block-size: 100%;
-  overflow: auto;
-  padding-inline: var(--space-4);
-  padding-block: var(--space-6);
-  grid-area: panel;
+  position: relative;
+
+  @include media-breakpoint-up("xl") {
+    inline-size: $sidebar-width;
+    overflow: auto;
+  }
 }
 
 .app-layout__main {
-  block-size: 100%;
   overflow: auto;
-  grid-area: main;
-
-  @include breakpoints.media-breakpoint-up("md") {
-    .app-layout[data-panel="false"] & {
-      padding-inline-end: $panel-width;
-    }
-  }
 }

@@ -14,16 +14,20 @@ panel: false
 ---
 
 <main class="app-layout__main" id="app-content">
-  <div class="page page--centered">
-    <h1 class="page__title">#{{ tag }}</h1>
-    <ul role="list" class="stack">
-      {% for post in collections[tag] %}
-        <li>
-          <a href="{{ post.url }}" class="note-link">
-            {{ post.data.title or post.page.fileSlug }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+  <div class="page" data-panel="false">
+    <div class="page__wrapper">
+      <div class="page__main">
+        <h1 class="page__title">#{{ tag }}</h1>
+        <ul role="list" class="stack">
+          {% for post in collections[tag] %}
+            <li>
+              <a href="{{ post.url }}" class="note-link">
+                {{ post.data.title or post.page.fileSlug }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>  
   </div>
 </main>

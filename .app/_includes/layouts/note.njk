@@ -3,16 +3,20 @@ layout: "layouts/base.njk"
 ---
 
 <main class="app-layout__main" id="app-content">
-  <div class="page page--centered">
-    <article class="article">
-      <h1 class="page__title">{{ title or page.fileSlug }}</h1>
-      <div class="article__content">
-        {{ content | safe }}
-      </div>
-    </article>
+  <div class="page" data-panel="{{ panel }}">
+    <div class="page__wrapper">
+      <article class="page__main article">
+        <h1 class="page__title">{{ title or page.fileSlug }}</h1>
+        <div class="article__content">
+          {{ content | safe }}
+        </div>
+      </article>
+      {% if panel %}
+        <div class="page__panel">
+          {% include 'partials/panel.njk' %}
+        </div>
+      {% endif%}
+    </div>
   </div>
 </main>
 
-{% if panel %}
-{% include 'partials/panel.njk' %}
-{% endif%}

@@ -1,6 +1,11 @@
+@use "./../tools/breakpoints.scss" as *;
+
 .sidebar {
-  block-size: 100%;
-  position: relative;
+  inline-size: 80vi;
+  max-inline-size: 500px;
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
   z-index: 1;
   overflow: auto;
   border-inline-end: 1px solid var(--color-neutral-line);
@@ -10,15 +15,10 @@
     display: none;
   }
 
-  @media (min-width: 50em) {
-    inline-size: 380px;
-    position: absolute;
-    inset: 0;
-  }
-
-  @media (min-width: 75em) {
+  @include media-breakpoint-up("xl") {
     position: relative;
     inline-size: 100%;
+    block-size: 100%;
     inset: unset;
 
     &[data-open="false"] {

@@ -1,98 +1,96 @@
-<div class="app-layout__sidebar">
-  <aside
-    class="sidebar"
-    x-data="scrollContainer('sidebar')"
-    x-bind="container"
-    x-cloak
-    :data-open="$store.nav.open.toString()"
-    x-effect="$store.nav.open && window.scrollTo(0, 0)"
-    tabindex="-1"
-  >
-    <h2 class="visually-hidden">Navigation</h2>
+<aside
+  class="sidebar"
+  x-data="scrollContainer('sidebar')"
+  x-bind="container"
+  x-cloak
+  :data-open="$store.nav.open.toString()"
+  x-effect="$store.nav.open && window.scrollTo(0, 0)"
+  tabindex="-1"
+>
+  <h2 class="visually-hidden">Navigation</h2>
 
-    <nav aria-labelledby="app-sidebar-nav-main" class="nav-group">
-      <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
-      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-main">
-        <li>
-          <a href="{{ '/' | url }}" class="nav-group__link">
-            {% include 'icons/home.svg' %}
-            {% set home = (collections.notes | home) %}
-            <span>{{ home.data.title if home else 'Home' }}</span>
-          </a>
-        </li>
-        <li>
-          <a href="{{ '/n' | url }}" class="nav-group__link">
-            {% include 'icons/file-text-ref.svg' %}
-            <span>Notes</span>
-          </a>
-        </li>
-        <li>
-          <a href="{{ '/tags' | url }}" class="nav-group__link">
-            {% include 'icons/hash-ref.svg' %}
-            <span>Tags</span>
-          </a>
-        </li>
-        <li>
-          <a href="{{ '/search' | url }}" class="nav-group__link">
-            {% include 'icons/search.svg' %}
-            <span>Search</span>
-          </a>
-        </li>
+  <nav aria-labelledby="app-sidebar-nav-main" class="nav-group">
+    <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
+    <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-main">
+      <li>
+        <a href="{{ '/' | url }}" class="nav-group__link">
+          {% include 'icons/home.svg' %}
+          {% set home = (collections.notes | home) %}
+          <span>{{ home.data.title if home else 'Home' }}</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/n' | url }}" class="nav-group__link">
+          {% include 'icons/file-text-ref.svg' %}
+          <span>Notes</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tags' | url }}" class="nav-group__link">
+          {% include 'icons/hash-ref.svg' %}
+          <span>Tags</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/search' | url }}" class="nav-group__link">
+          {% include 'icons/search.svg' %}
+          <span>Search</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <template x-if="$store.favorites.items.length">
+    <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-group">
+      <h3 id="app-sidebar-nav-favorites" class="nav-group__title">Favorites</h3>
+      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-favorites">
+        <template x-for="fav in $store.favorites.items">
+          <li>
+            <a :href="fav" class="nav-group__link">
+              {% include 'icons/file-text-ref.svg' %}
+              <span x-text="$store.favorites.index[fav] || fav"></span>
+            </a>
+          </li>
+        </template>
       </ul>
     </nav>
+  </template>
 
-    <template x-if="$store.favorites.items.length">
-      <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-group">
-        <h3 id="app-sidebar-nav-favorites" class="nav-group__title">Favorites</h3>
-        <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-favorites">
-          <template x-for="fav in $store.favorites.items">
+  <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
+    <h3 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h3>
+    <div class="stack" data-stack="6">
+      {% for folder, notes in collections.groupedNotes %}
+        <div>
+          {% if folder %}
+            <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-{{ folder | slugify }}">{{ folder }}</h4>
+          {% endif %}
+
+          <ul class="nav-group__list" aria-labelledby="{{ ('app-sidebar-nav-notes-' + (folder| slugify)) if folder else 'app-sidebar-nav-notes' }}">
+            {% for note in notes %}
             <li>
-              <a :href="fav" class="nav-group__link">
+              <a href="{{ note.url }}" class="nav-group__link">
                 {% include 'icons/file-text-ref.svg' %}
-                <span x-text="$store.favorites.index[fav] || fav"></span>
+                <span>{{ note.data.title or note.page.fileSlug }}</span>
               </a>
             </li>
-          </template>
-        </ul>
-      </nav>
-    </template>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </nav>
 
-    <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
-      <h3 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h3>
-      <div class="stack" data-stack="6">
-        {% for folder, notes in collections.groupedNotes %}
-          <div>
-            {% if folder %}
-              <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-{{ folder | slugify }}">{{ folder }}</h4>
-            {% endif %}
-
-            <ul class="nav-group__list" aria-labelledby="{{ ('app-sidebar-nav-notes-' + (folder| slugify)) if folder else 'app-sidebar-nav-notes' }}">
-              {% for note in notes %}
-              <li>
-                <a href="{{ note.url }}" class="nav-group__link">
-                  {% include 'icons/file-text-ref.svg' %}
-                  <span>{{ note.data.title or note.page.fileSlug }}</span>
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endfor %}
-      </div>
-    </nav>
-
-    <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
-      <h3 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h3>
-      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
-        {% for tag in collections.tags %}
-        <li>
-          <a href="{{ ('/tags/' + tag) | url }}" class="nav-group__link">
-            {% include 'icons/hash-ref.svg' %}
-            <span>{{ tag }}</span>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </aside>
-</div>
+  <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
+    <h3 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h3>
+    <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
+      {% for tag in collections.tags %}
+      <li>
+        <a href="{{ ('/tags/' + tag) | url }}" class="nav-group__link">
+          {% include 'icons/hash-ref.svg' %}
+          <span>{{ tag }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</aside>

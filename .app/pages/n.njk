@@ -6,26 +6,30 @@ panel: false
 ---
 
 <main class="app-layout__main" id="app-content">
-  <div class="page page--centered">
-    <h1 class="page__title">Notes</h1>
-    <div class="stack" data-stack="6">
-      {% for folder, notes in collections.groupedNotes %}
-        <div>
-          {% if folder %}
-          <h2>{{ folder }}</h2>
-          {% endif %}
+  <div class="page">
+    <div class="page__wrapper">
+      <div class="page__main">
+        <h1 class="page__title">Notes</h1>
+        <div class="stack" data-stack="6">
+          {% for folder, notes in collections.groupedNotes %}
+            <div>
+              {% if folder %}
+              <h2>{{ folder }}</h2>
+              {% endif %}
 
-          <ul role="list" class="stack">
-            {% for note in notes %}
-            <li>
-              <a href="{{ note.url }}" class="note-link">
-                {{ note.data.title or note.page.fileSlug }}
-              </a>
-            </li>
+              <ul role="list" class="stack">
+                {% for note in notes %}
+                <li>
+                  <a href="{{ note.url }}" class="note-link">
+                    {{ note.data.title or note.page.fileSlug }}
+                  </a>
+                </li>
+              {% endfor %}
+              </ul>
+            </div>
           {% endfor %}
-          </ul>
         </div>
-      {% endfor %}
+      </div>
     </div>
   </div>
 </main>

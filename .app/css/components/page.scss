@@ -1,19 +1,25 @@
 @use "./../tools/breakpoints.scss" as *;
 
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-block: var(--space-4);
   padding-inline: var(--space-4);
 
   @include media-breakpoint-up("md") {
     padding-block: var(--space-6);
-    padding-inline: var(--space-6);
   }
 }
 
-.page--centered {
-  inline-size: 100%;
-  max-inline-size: 70ch;
-  margin-inline: auto;
+.page__wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 70ch);
+  gap: var(--space-8);
+
+  @include media-breakpoint-up("lg") {
+    grid-template-columns: minmax(0, 70ch) 360px;
+  }
 }
 
 .page__title {
