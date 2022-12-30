@@ -13,6 +13,7 @@
 }
 
 .grouped-links__link {
+  max-inline-size: 100%;
   display: inline-flex;
   align-items: center;
   padding-block: var(--space-1);
