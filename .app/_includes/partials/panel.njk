@@ -1,16 +1,15 @@
 {% from 'macros/fav-toggle.njk' import favToggle %}
 
-<aside class="app-layout__panel stack" data-stack="6">
+<aside class="stack" data-stack="6">
   {% set toc = content | toc %}
   {% if toc | length %}
-  <div class="grouped-links">
-    <h2 class="grouped-links__label" id="app-panel-toc">Table of Contents</h2>
-    <ul class="grouped-links__list" aria-labelledby="app-panel-toc">
+  <div class="toc">
+    <h2 class="toc__label" id="app-panel-toc">Table of Contents</h2>
+    <ul class="toc__list" aria-labelledby="app-panel-toc">
       {% for item in toc %}
-      <li style="--level: {{ item.level }}">
-        <a href="#{{ item.id }}" class="grouped-links__link">
-          {% include 'icons/chevron-right.svg' %}
-          <span>{{ item.text }}</span>
+      <li style="--level: {{ item.level }}" class="toc__item">
+        <a href="#{{ item.id }}" class="toc__link">
+          {{ item.text }}
         </a>
       </li>
       {% endfor %}

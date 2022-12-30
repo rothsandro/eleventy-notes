@@ -1,0 +1,28 @@
+.toc__label {
+  margin: 0;
+  color: var(--color-neutral-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.toc__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc__item {
+  margin-block: var(--space-1);
+  margin-inline-start: calc((var(--level, 1) - 1) * var(--space-4));
+}
+
+.toc__link {
+  color: var(--color-primary-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
