@@ -12,8 +12,8 @@ module.exports = (eleventyConfig) => {
     postProcessLabel: (label) => {
       return label.replace(/^\//, "");
     },
-    generatePageNameFromLabel: (label) => {
-      return eleventyConfig.getFilter("slugifyPath")(label);
+    postProcessPageName: (pageName) => {
+      return eleventyConfig.getFilter("slugifyPath")(pageName);
     },
   });
 
