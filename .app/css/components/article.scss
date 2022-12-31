@@ -109,10 +109,20 @@
     margin-block-end: var(--space-4) !important;
     padding: 1em;
     border-radius: var(--rounded-lg);
-    background-color: var(--color-neutral-bg);
+    background-color: var(--color-neutral-bgSubtle);
+    overflow: auto;
   }
 
   code {
+    font-size: 0.9em;
+    padding: 0.2em 0.3em;
+    border-radius: var(--rounded-md);
+    background-color: var(--color-neutral-bg);
+  }
+
+  pre code {
+    font-size: inherit;
+    padding: 0;
     word-break: break-all;
     background-color: transparent !important;
   }
