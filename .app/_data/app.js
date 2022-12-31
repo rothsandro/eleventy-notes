@@ -1,6 +1,30 @@
 const fs = require("fs");
 
-module.exports = function () {
-  const config = fs.readFileSync("./../app.json");
-  return JSON.parse(config);
+const defaultConfig = {
+  title: "Notes",
+  sidebar: {
+    notes: [{}],
+  },
 };
+
+module.exports = function () {
+  const configPath = "./../app.json";
+
+  if (!fs.existsSync(configPath)) return defaultConfig;
+
+  const customConfig = JSON.parse(fs.readFileSync(configPath));
+  const mergedConfig = mergeConfigs(defaultConfig, customConfig);
+
+  return mergedConfig;
+};
+
+function mergeConfigs(a, b) {
+  return {
+    ...a,
+    ...b,
+    sidebar: {
+      ...a.sidebar,
+      ...b.sidebar,
+    },
+  };
+}

@@ -73,33 +73,35 @@
     </nav>
   </template>
 
-  <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
-    <h3 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h3>
-    <div class="stack" data-stack="6">
-      {% for folder, notes in collections.groupedNotes %}
-        <div>
-          {% if folder %}
-            <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-{{ folder | slugify }}">{{ folder }}</h4>
-          {% endif %}
+  {% if collections.sidebarNotes.length %}
+    <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
+      <h3 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h3>
+      <div class="stack" data-stack="6">
+        {% for group in collections.sidebarNotes %}
+          <div>
+            {% if group.label %}
+              <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-{{ group.id }}">{{ group.label }}</h4>
+            {% endif %}
 
-          <ul class="nav-group__list" aria-labelledby="{{ ('app-sidebar-nav-notes-' + (folder| slugify)) if folder else 'app-sidebar-nav-notes' }}">
-            {% for note in notes %}
-            <li>
-              <a
-                href="{{ note.url }}"
-                {{ note.url | ariaCurrent }}
-                class="nav-group__link"
-              >
-                {% include 'icons/file-text-ref.svg' %}
-                <span>{{ note.data.title or note.page.fileSlug }}</span>
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endfor %}
-    </div>
-  </nav>
+            <ul class="nav-group__list" aria-labelledby="'app-sidebar-nav-notes-{{ group.id }}">
+              {% for note in group.notes %}
+              <li>
+                <a
+                  href="{{ note.url }}"
+                  {{ note.url | ariaCurrent }}
+                  class="nav-group__link"
+                >
+                  {% include 'icons/file-text-ref.svg' %}
+                  <span>{{ note.data.title or note.page.fileSlug }}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    </nav>
+  {% endif %}
 
   {% if collections.tags.length %}
     <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">

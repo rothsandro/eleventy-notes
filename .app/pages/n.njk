@@ -10,25 +10,17 @@ panel: false
     <div class="page__wrapper">
       <div class="page__main">
         <h1 class="page__title">Notes</h1>
-        <div class="stack" data-stack="6">
-          {% for folder, notes in collections.groupedNotes %}
-            <div>
-              {% if folder %}
-              <h2>{{ folder }}</h2>
-              {% endif %}
-
-              <ul role="list" class="stack">
-                {% for note in notes %}
-                <li>
-                  <a href="{{ note.url }}" class="note-link">
-                    {{ note.data.title or note.page.fileSlug }}
-                  </a>
-                </li>
-              {% endfor %}
-              </ul>
-            </div>
+        <ul role="list" class="stack">
+          {% for note in collections.notes %}
+            {% if note.url !== '/' %}
+              <li>
+                <a href="{{ note.url }}" class="note-link">
+                  {{ note.data.title or note.page.fileSlug }}
+                </a>
+              </li>
+            {% endif %}
           {% endfor %}
-        </div>
+        </ul>
       </div>
     </div>
   </div>
