@@ -13,5 +13,12 @@ module.exports = () => (content) => {
     return { id, text, level };
   });
 
+  // The page title already uses an h1, so it's recommended
+  // to start with h2 in the content. If the first heading
+  // is an h2 or higher, we'll adjust the levels to start with level 1
+  // to avoid unnecessary indentation in the TOC.
+  const minLevel = Math.min(...toc.map((item) => item.level));
+  if (minLevel > 1) toc.forEach((item) => (item.level -= minLevel - 1));
+
   return toc;
 };
