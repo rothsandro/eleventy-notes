@@ -2,6 +2,7 @@ const fs = require("fs");
 
 const defaultConfig = {
   title: "Notes",
+  description: "Notes app",
   sidebar: {
     notes: [{}],
   },
