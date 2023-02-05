@@ -1,3 +1,24 @@
 {
-  "title": "Notes"
+  "title": "Eleventy Notes",
+  "description": "A simple, lightweight, and flexible note-taking template for Eleventy.",
+  "sidebar": {
+    "notes": [
+      {
+        "pattern": "^/[^/]+$",
+        "label": ""
+      },
+      {
+        "pattern": "^/Features/",
+        "label": "Features"
+      },
+      {
+        "pattern": "^/Configuration/",
+        "label": "Configuration"
+      },
+      {
+        "pattern": "^/Deployment/",
+        "label": "Deployment"
+      }
+    ]
+  }
 }
