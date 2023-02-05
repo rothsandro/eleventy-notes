@@ -43,4 +43,4 @@ You can create folders to organize your notes. Create a new folder `My Folder` i
 This is a note in a subfolder.
 ```
 
-It's up to you how you organize your notes. You can create as many folders as you want or use a flat structure. We recommend using a flat structure for your personal notes and [[Features/Tags|Tags]] them.
+It's up to you how you organize your notes. You can create as many folders as you want or use a flat structure. We recommend using a flat structure for your personal notes and [[Features/Tags|Tags]] to organize them.
