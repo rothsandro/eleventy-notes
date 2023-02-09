@@ -13,6 +13,8 @@ panel: true
     <link rel="stylesheet" href="{{ '/app.css' | url }}">
   </head>
   <body data-theme="system">
+    <script>document.body.setAttribute("data-theme", JSON.parse(localStorage.getItem("theme") ?? '"system"'))</script>
+
     {% include 'partials/skip-to-content.njk' %}
 
     <div class="app-layout">
