@@ -9,6 +9,7 @@ Create an `app.json` file in the root of the project to configure the app.
   "title": "My Notes",
   "description": "My notes",
   "sidebar": {
+    "links": [],
     "notes": [{}]
   }
 }

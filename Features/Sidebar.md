@@ -2,11 +2,42 @@
 tags: [feature]
 ---
 
-The sidebar with the main navigation of app shows link to the start page, your notes, the search and more.
+The sidebar with the main navigation of the app shows links to the start page, your notes, the search and more.
 
 ## Start page
 
 The first link in the sidebar is always the start page. The start page is the first page that is shown when you open the app. See [[Features/Start page|Start page]] for more information.
+
+## Additional links
+
+You can add additional links to the sidebar, which are shown in the first section after the main navigation. For example, you can link to your website or social profiles. These links should be external links and not point to notes. Configure them in the `app.json` file:
+
+```json5
+// /app.json
+{
+  sidebar: {
+    links: [
+      {
+        // The url of the website
+        url: "https://github.com/rothsandro/eleventy-notes",
+
+        // The visible label of the link
+        label: "GitHub",
+
+        // The icon name
+        // For a list of available icons, see https://feathericons.com/
+        icon: "github",
+
+        // If the link should open in a new tab
+        // Default: true
+        openInNewTab: true,
+      },
+    ],
+  },
+}
+```
+
+For a list of available icons visit [feathericons.com](https://feathericons.com/).
 
 ## Favorites
 
@@ -28,6 +59,9 @@ In the `app.json` file, you can configure the sidebar to show notes in different
 // /app.json
 {
   sidebar: {
+    // See "Additional links" above
+    links: [],
+
     // A list of groups shown in the sidebar
     notes: [
       {
