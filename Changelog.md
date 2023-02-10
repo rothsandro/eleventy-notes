@@ -1,6 +1,10 @@
+## Version 0.2.3 (February 10, 2023)
+
+- 🐛 Table of Contents now displays headings with special chars like quotes properly
+
 ## Version 0.2.2 (February 10, 2023)
 
-- 🧑‍💻 Replace svg files with icon filter
+- 🧑‍💻 Replaced svg files with icon filter
 
 ## Version 0.2.1 (February 09, 2023)
 
