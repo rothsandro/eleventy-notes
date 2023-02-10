@@ -24,7 +24,7 @@
       {% for tag in tags %}
       <li>
         <a href="{{ ('/tags/' + (tag | slugify)) | url }}" class="grouped-links__link">
-          {% include 'icons/hash-ref.svg' %}
+          {{ 'hash' | featherRef | safe }}
           <span>{{ tag }}</span>
         </a>
       </li>
@@ -42,7 +42,7 @@
       {% for incoming in links.incoming %}
         <li>
           <a href="{{ incoming.url }}" class="grouped-links__link">
-            {% include 'icons/arrow-left.svg' %}
+            {{ 'arrow-left' | feather | safe }}
             <span>{{ incoming.title }}</span>
           </a>
         </li>
@@ -58,7 +58,7 @@
       {% for outgoing in links.outgoing %}
         <li>
           <a href="{{ outgoing.url }}" class="grouped-links__link">
-            {% include 'icons/arrow-right.svg' %}
+            {{ 'arrow-right' | feather | safe }}
             <span>{{ outgoing.title }}</span>
           </a>
         </li>
@@ -74,7 +74,7 @@
       {% for external in links.external %}
         <li>
           <a href="{{ external.url }}" class="grouped-links__link" target="_blank" rel="noopener noreferrer">
-            {% include 'icons/external-link.svg' %}
+            {{ 'external-link' | feather | safe }}
             <span>{{ external.title }}</span>
           </a>
         </li>

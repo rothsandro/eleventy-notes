@@ -7,7 +7,7 @@
       aria-label="Favorite"
       @click="$store.favorites.toggle('{{ id }}')"
     >
-      {% include 'icons/star.svg' %}
+      {{ 'star' | feather | safe }}
     </button>
   </div>
 {% endmacro %}

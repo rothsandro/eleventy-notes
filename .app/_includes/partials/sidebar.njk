@@ -17,7 +17,7 @@
           {{ '/' | ariaCurrent }}
           class="nav-group__link"
         >
-          {% include 'icons/home.svg' %}
+          {{ 'home' | feather | safe }}
           {% set home = (collections.notes | home) %}
           <span>{{ home.data.title if home else 'Home' }}</span>
         </a>
@@ -28,7 +28,7 @@
           {{ '/n/' | ariaCurrent }}
           class="nav-group__link"
         >
-          {% include 'icons/file-text-ref.svg' %}
+          {{ 'file-text' | featherRef | safe }}
           <span>Notes</span>
         </a>
       </li>
@@ -39,7 +39,7 @@
             {{ '/tags/' | ariaCurrent }}
             class="nav-group__link"
           >
-            {% include 'icons/hash-ref.svg' %}
+            {{ 'hash' | featherRef | safe }}
             <span>Tags</span>
           </a>
         </li>
@@ -50,7 +50,7 @@
           {{ '/search/' | ariaCurrent }}
           class="nav-group__link"
         >
-          {% include 'icons/search.svg' %}
+          {{ 'search' | feather | safe }}
           <span>Search</span>
         </a>
       </li>
@@ -64,7 +64,7 @@
         <template x-for="fav in $store.favorites.items">
           <li>
             <a :href="fav" class="nav-group__link">
-              {% include 'icons/file-text-ref.svg' %}
+              {{ 'file-text' | featherRef | safe }}
               <span x-text="$store.favorites.index[fav] || fav"></span>
             </a>
           </li>
@@ -91,7 +91,7 @@
                   {{ note.url | ariaCurrent }}
                   class="nav-group__link"
                 >
-                  {% include 'icons/file-text-ref.svg' %}
+                  {{ 'file-text' | featherRef | safe }}
                   <span>{{ note.data.title or note.page.fileSlug }}</span>
                 </a>
               </li>
@@ -114,7 +114,7 @@
             {{ tag.url | ariaCurrent }}
             class="nav-group__link"
           >
-            {% include 'icons/hash-ref.svg' %}
+            {{ 'hash' | featherRef | safe }}
             <span>{{ tag.name }}</span>
           </a>
         </li>

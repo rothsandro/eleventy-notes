@@ -4,7 +4,7 @@
     :aria-expanded="$store.nav.open"
     @click="$store.nav.toggle()"
   >
-    {% include 'icons/menu.svg' %}
+    {{ 'menu' | feather | safe }}
     <span class="visually-hidden">Menu</span>
   </button>
 </div>

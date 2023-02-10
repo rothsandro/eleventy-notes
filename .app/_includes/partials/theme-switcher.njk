@@ -8,7 +8,7 @@
       value="light"
       class="visually-hidden"
     >
-    {% include 'icons/sun.svg' %}
+    {{ 'sun' | feather | safe }}
     <span class="visually-hidden">Light</span>
   </label>
   <label class="theme-switcher__label">
@@ -19,7 +19,7 @@
       value="dark"
       class="visually-hidden"
     >
-    {% include 'icons/moon.svg' %}
+    {{ 'moon' | feather | safe }}
     <span class="visually-hidden">Dark</span>
   </label>
   <label class="theme-switcher__label">
@@ -30,7 +30,7 @@
       value="system"
       class="visually-hidden"
     >
-    {% include 'icons/monitor.svg' %}
+    {{ 'monitor' | feather | safe }}
     <span class="visually-hidden">System</span>
   </label>
 </fieldset>
