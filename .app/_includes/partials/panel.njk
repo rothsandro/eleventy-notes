@@ -9,7 +9,7 @@
       {% for item in toc %}
       <li style="--level: {{ item.level }}" class="toc__item">
         <a href="#{{ item.id }}" class="toc__link">
-          {{ item.text }}
+          {{ item.text | safe }}
         </a>
       </li>
       {% endfor %}
