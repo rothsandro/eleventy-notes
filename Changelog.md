@@ -1,3 +1,7 @@
+## Version 0.2.2 (February 10, 2023)
+
+- 🧑‍💻 Replace svg files with icon filter
+
 ## Version 0.2.1 (February 09, 2023)
 
 - 🐛 Fixed the light/dark theme flash on page load
