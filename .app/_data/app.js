@@ -4,6 +4,7 @@ const defaultConfig = {
   title: "Notes",
   description: "Notes app",
   sidebar: {
+    links: [],
     notes: [{}],
   },
 };

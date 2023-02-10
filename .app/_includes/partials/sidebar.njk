@@ -57,6 +57,26 @@
     </ul>
   </nav>
 
+  {% if app.sidebar.links.length %}
+    <nav aria-labelledby="app-sidebar-nav-links" class="nav-group nav-group--continued">
+      <h3 id="app-sidebar-nav-links" class="visually-hidden">Links</h3>
+      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-links">
+        {% for item in app.sidebar.links %}
+          <li>
+            <a
+              href="{{ item.url }}"
+              {{ 'target="_blank" rel="noopener"' if item.openInNewTab != false else '' }}
+              class="nav-group__link"
+            >
+              {{ item.icon | feather | safe }}
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+
   <template x-if="$store.favorites.items.length">
     <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-group">
       <h3 id="app-sidebar-nav-favorites" class="nav-group__title">Favorites</h3>

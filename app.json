@@ -2,6 +2,18 @@
   "title": "Eleventy Notes",
   "description": "A simple, lightweight, and flexible note-taking template for Eleventy.",
   "sidebar": {
+    "links": [
+      {
+        "url": "https://github.com/rothsandro/eleventy-notes/issues",
+        "label": "Request feature",
+        "icon": "gift"
+      },
+      {
+        "url": "https://github.com/rothsandro/eleventy-notes",
+        "label": "GitHub",
+        "icon": "github"
+      }
+    ],
     "notes": [
       {
         "pattern": "^/[^/]+$",
