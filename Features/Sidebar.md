@@ -28,9 +28,9 @@ You can add additional links to the sidebar, which are shown in the first sectio
         // For a list of available icons, see https://feathericons.com/
         "icon": "github",
 
-        // If the link should open in a new tab
+        // If the link should open in a new tab (optional)
         // Default: true
-        "openInNewTab": true
+        "openInNewTab": false
       }
     ]
   }
@@ -111,7 +111,7 @@ Here is an example that shows all notes in the root. Notes in subfolders are exc
 
 ### Example: Notes in subfolder
 
-The following groups renders all notes of the subfolder "Example" :
+The following group renders all notes of the subfolder "Example":
 
 ```json
 {
