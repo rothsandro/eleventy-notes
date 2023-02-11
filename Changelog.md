@@ -1,5 +1,11 @@
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.3.0 (February 11, 2023)
+
+- ✨ Added support for custom links in the sidebar
+- ✨ Added a configurable _Edit this note_ link in the panel
+- ✨ Added schema validation for the configuration file
+
 ## Version 0.2.3 (February 10, 2023)
 
 - 🐛 Table of Contents now displays headings with special chars like quotes properly
