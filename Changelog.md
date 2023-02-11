@@ -1,3 +1,5 @@
+<!-- Use emojis from https://gitmoji.dev/ -->
+
 ## Version 0.2.3 (February 10, 2023)
 
 - 🐛 Table of Contents now displays headings with special chars like quotes properly
