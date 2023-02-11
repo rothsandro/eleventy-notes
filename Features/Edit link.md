@@ -13,7 +13,11 @@ You can configure the URL of the edit link in the `app.json` file as shown below
 
     // Example for GitHub
     // Replace "johndoe/my-notes" with your repository
-    "url": "https://github.com/johndoe/my-notes/edit/{{branch}}/{{file}}"
+    "url": "https://github.com/johndoe/my-notes/edit/{{branch}}/{{file}}",
+
+    // If the link should open in a new tab (optional)
+    // Default: false
+    "openInNewTab": true
   }
 }
 ```
@@ -25,7 +29,7 @@ The `url` property supports the following placeholders:
 {% raw %}
 
 | Placeholder  | Description                                                | Example                    |
-| ------------ | ---------------------------------------------------------- | -------------------------- |
+| :----------- | :--------------------------------------------------------- | :------------------------- |
 | `{{file}}`   | File path of the note (URL encoded, without leading slash) | `My%20Folder/My%20Note.md` |
 | `{{branch}}` | Name of the current Git branch (if you use Git)            | `main`                     |
 
