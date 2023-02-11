@@ -16,7 +16,9 @@ module.exports = () => {
 
 function getGitBranch() {
   try {
-    const branch = execSync("git rev-parse --abbrev-ref HEAD")
+    // Hide output, we don't want to show an error if it's not a git repo
+    const options = { stdio: "pipe" };
+    const branch = execSync("git rev-parse --abbrev-ref HEAD", options)
       .toString()
       .trim();
     return branch;
