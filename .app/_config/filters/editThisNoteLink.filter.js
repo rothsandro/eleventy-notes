@@ -21,7 +21,7 @@ function getGitBranch() {
     const branch = execSync("git branch --show-current", options)
       .toString()
       .trim();
-    return branch;
+    return branch || process.env.HEAD || "";
   } catch (err) {
     return "";
   }
