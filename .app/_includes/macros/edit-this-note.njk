@@ -1,0 +1,11 @@
+{% macro editThisNote(config, page) %}
+  {% if config and config.url %}
+    <a 
+      href="{{ page | editThisNoteLink(config) }}"
+      class="toggle-btn"
+      aria-label="Edit this note"
+    >
+      {{ 'edit-2' | feather({ width: 16, height: 16 }) | safe }}
+    </a>
+  {% endif %}
+{% endmacro %}
