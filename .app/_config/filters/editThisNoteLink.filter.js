@@ -18,10 +18,10 @@ function getGitBranch() {
   try {
     // Hide output, we don't want to show an error if it's not a git repo
     const options = { stdio: "pipe" };
-    const branch = execSync("git rev-parse --abbrev-ref HEAD", options)
+    const branch = execSync("git branch --show-current", options)
       .toString()
       .trim();
-    return branch;
+    return branch || process.env.HEAD || "";
   } catch (err) {
     return "";
   }
