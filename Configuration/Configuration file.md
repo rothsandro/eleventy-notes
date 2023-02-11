@@ -2,7 +2,7 @@
 sort: 3
 ---
 
-Eleventy Notes provides several configuration options to customize the app. All of them are optional but a basic configuration is recommended.
+Eleventy Notes provides several configuration options to customize the app. All of them are optional, but a basic configuration is recommended.
 
 ## Basic configuration
 
@@ -15,6 +15,17 @@ Create a new file `app.json` in the root of the project, next to your notes. Add
 }
 ```
 
+## JSON Schema
+
+If you use an editor like [VS Code](https://code.visualstudio.com/) that supports JSON schema, add the `$schema` property to your configuration file. This will give you autocompletion, descriptions and validation:
+
+```json
+{
+  "$schema": ".app/app.schema.json"
+  // ...
+}
+```
+
 ## Supported configurations
 
 In addition to the basic configuration, you can also:
@@ -22,16 +33,16 @@ In addition to the basic configuration, you can also:
 - Add an edit link to your notes, see [[Edit link]]
 - Customize the notes in the sidebar or add links to other websites, see [[Sidebar]]
 
-## API
+## Summary
 
-The following example shows all supported properties:
+The following example shows the supported configuration options:
 
 {% raw %}
 
 ```json
 {
   "title": "John's Notes",
-  "description": "The personal notes of John Doe"
+  "description": "The personal notes of John Doe",
   "editThisNote": {
     "url": "https://example.com/edit/{{file}}"
   },

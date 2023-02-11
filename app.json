@@ -1,4 +1,5 @@
 {
+  "$schema": ".app/app.schema.json",
   "title": "Eleventy Notes",
   "description": "A simple, lightweight, and flexible note-taking template for Eleventy.",
   "editThisNote": {
