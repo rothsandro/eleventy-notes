@@ -12,28 +12,28 @@ The first link in the sidebar is always the start page. The start page is the fi
 
 You can add additional links to the sidebar, which are shown in the first section after the main navigation. For example, you can link to your website or social profiles. These links should be external links and not point to notes. Configure them in the `app.json` file:
 
-```json5
+```json
 // /app.json
 {
-  sidebar: {
-    links: [
+  "sidebar": {
+    "links": [
       {
         // The url of the website
-        url: "https://github.com/rothsandro/eleventy-notes",
+        "url": "https://github.com/rothsandro/eleventy-notes",
 
         // The visible label of the link
-        label: "GitHub",
+        "label": "GitHub",
 
         // The icon name
         // For a list of available icons, see https://feathericons.com/
-        icon: "github",
+        "icon": "github",
 
         // If the link should open in a new tab
         // Default: true
-        openInNewTab: true,
-      },
-    ],
-  },
+        "openInNewTab": true
+      }
+    ]
+  }
 }
 ```
 
@@ -55,29 +55,29 @@ Without configuration, the sidebar shows all your notes in a single group. You c
 
 In the `app.json` file, you can configure the sidebar to show notes in different groups. The following configuration shows all available options:
 
-```json5
+```json
 // /app.json
 {
-  sidebar: {
+  "sidebar": {
     // See "Additional links" above
-    links: [],
+    "links": [],
 
     // A list of groups shown in the sidebar
-    notes: [
+    "notes": [
       {
         // A label for the group.
-        label: "Archive",
+        "label": "Archive",
 
         // A RegEx pattern to filter files by path + name
         // The pattern is case-insensitive.
-        pattern: ".",
+        "pattern": ".",
 
         // A list of tags to filter the notes.
         // Notes that have at least one of these tags are shown.
-        tags: ["one", "two"],
-      },
-    ],
-  },
+        "tags": ["one", "two"]
+      }
+    ]
+  }
 }
 ```
 
@@ -85,11 +85,11 @@ In the `app.json` file, you can configure the sidebar to show notes in different
 
 If you want to show all your notes in a single group, add an empty group without a filter. You can also omit the `notes` property completely which will use the default configuration:
 
-```json5
+```json
 {
-  sidebar: {
-    notes: [{}],
-  },
+  "sidebar": {
+    "notes": [{}]
+  }
 }
 ```
 
@@ -97,15 +97,15 @@ If you want to show all your notes in a single group, add an empty group without
 
 Here is an example that shows all notes in the root. Notes in subfolders are excluded:
 
-```json5
+```json
 {
-  sidebar: {
-    notes: [
+  "sidebar": {
+    "notes": [
       {
-        pattern: "^/[^/]+$",
-      },
-    ],
-  },
+        "pattern": "^/[^/]+$"
+      }
+    ]
+  }
 }
 ```
 
@@ -113,16 +113,16 @@ Here is an example that shows all notes in the root. Notes in subfolders are exc
 
 The following groups renders all notes of the subfolder "Example" :
 
-```json5
+```json
 {
-  sidebar: {
-    notes: [
+  "sidebar": {
+    "notes": [
       {
-        label: "Example",
-        pattern: "^/Example/",
-      },
-    ],
-  },
+        "label": "Example",
+        "pattern": "^/Example/"
+      }
+    ]
+  }
 }
 ```
 
