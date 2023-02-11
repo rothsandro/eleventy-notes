@@ -23,12 +23,12 @@
         "label": ""
       },
       {
-        "pattern": "^/Features/",
-        "label": "Features"
-      },
-      {
         "pattern": "^/Configuration/",
         "label": "Configuration"
+      },
+      {
+        "pattern": "^/Features/",
+        "label": "Features"
       },
       {
         "pattern": "^/Deployment/",
