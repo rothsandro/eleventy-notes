@@ -1,5 +1,5 @@
-@use "./../settings/breakpoints" as *;
-@use "./../tools/breakpoints.scss" as *;
+@use "./../1-tokens/breakpoints" as *;
+@use "./../2-lib/breakpoints.scss" as *;
 
 @each $key, $value in $breakpoints {
   .hide-#{$key} {

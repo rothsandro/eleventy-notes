@@ -1,7 +1,7 @@
-@use "./../tools/tokens.scss";
-@use "./../settings/tokens-core.scss";
-@use "./../settings/tokens-light.scss";
-@use "./../settings/tokens-dark.scss";
+@use "./../2-lib/tokens.scss";
+@use "./../1-tokens/tokens-core.scss";
+@use "./../1-tokens/tokens-light.scss";
+@use "./../1-tokens/tokens-dark.scss";
 
 :root {
   @include tokens.build(tokens-core.$tokens);
