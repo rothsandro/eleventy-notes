@@ -1,4 +1,9 @@
-@import "./3-global/theme.scss";
+$color: null !default;
+
+@use "./3-global/theme.scss" with (
+  $color: $color
+);
+
 @import "./3-global/remedy.scss";
 
 @import "npm:prism-themes/themes/prism-material-light.css";

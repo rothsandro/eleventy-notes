@@ -10,7 +10,7 @@ panel: true
     <meta name="description" content="{{ app.description }}">
     <title>{{ title or page.fileSlug }}</title>
     <meta name="generator" content="{{ eleventy.generator }}">
-    <link rel="stylesheet" href="{{ '/app.css' | url }}">
+    <link rel="stylesheet" href="{{ setup.css.output | url }}">
   </head>
   <body data-theme="system">
     <script>document.body.setAttribute("data-theme", JSON.parse(localStorage.getItem("theme") ?? '"system"'))</script>

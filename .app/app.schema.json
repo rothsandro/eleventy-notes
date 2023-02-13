@@ -14,6 +14,40 @@
       "description": "The description of the app, used by search engines",
       "default": "Notes app"
     },
+    "theme": {
+      "type": "object",
+      "description": "The configuration for the theme of the app",
+      "default": { "color": "sky" },
+      "properties": {
+        "color": {
+          "type": "string",
+          "description": "The primary color of the app",
+          "enum": [
+            "tomato",
+            "red",
+            "crimson",
+            "pink",
+            "plum",
+            "purple",
+            "violet",
+            "indigo",
+            "blue",
+            "sky",
+            "cyan",
+            "teal",
+            "mint",
+            "green",
+            "grass",
+            "lime",
+            "yellow",
+            "amber",
+            "orange",
+            "brown"
+          ],
+          "default": "sky"
+        }
+      }
+    },
     "editThisNote": {
       "type": "object",
       "description": "The configuration for the \"Edit this note\" link that redirects to the repo where the notes are stored and allows users to edit the note.",
