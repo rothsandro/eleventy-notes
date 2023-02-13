@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "./../settings/breakpoints.scss";
+@use "./../1-tokens/breakpoints.scss";
 
 @mixin media-breakpoint-up($bp) {
   @if map.has-key(breakpoints.$breakpoints, $bp) {

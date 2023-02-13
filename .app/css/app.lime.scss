@@ -1,0 +1,7 @@
+@use "./app" with (
+  $color: (
+    neutral: "olive",
+    primary: "lime",
+    on-primary: "#000",
+  )
+);

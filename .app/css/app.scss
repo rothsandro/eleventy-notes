@@ -1,28 +1,32 @@
+$color: null !default;
+
+@use "./3-global/theme.scss" with (
+  $color: $color
+);
+
+@import "./3-global/remedy.scss";
+
 @import "npm:prism-themes/themes/prism-material-light.css";
+@import "./4-components/app-header.scss";
+@import "./4-components/app-layout.scss";
+@import "./4-components/article.scss";
+@import "./4-components/grouped-links.scss";
+@import "./4-components/icon-btn.scss";
+@import "./4-components/nav-group.scss";
+@import "./4-components/note-link.scss";
+@import "./4-components/page.scss";
+@import "./4-components/search.scss";
+@import "./4-components/sidebar.scss";
+@import "./4-components/skip-link.scss";
+@import "./4-components/theme-switcher.scss";
+@import "./4-components/toc.scss";
+@import "./4-components/toggle-btn.scss";
 
-@import "./generic/theme.scss";
-@import "./generic/remedy.scss";
-
-@import "./components/app-header.scss";
-@import "./components/app-layout.scss";
-@import "./components/article.scss";
-@import "./components/grouped-links.scss";
-@import "./components/icon-btn.scss";
-@import "./components/nav-group.scss";
-@import "./components/note-link.scss";
-@import "./components/page.scss";
-@import "./components/search.scss";
-@import "./components/sidebar.scss";
-@import "./components/skip-link.scss";
-@import "./components/theme-switcher.scss";
-@import "./components/toc.scss";
-@import "./components/toggle-btn.scss";
-
-@import "./utils/cloak.scss";
-@import "./utils/hide.scss";
-@import "./utils/inline.scss";
-@import "./utils/show.scss";
-@import "./utils/spacer.scss";
-@import "./utils/stack.scss";
-@import "./utils/truncate.scss";
-@import "./utils/visually-hidden.scss";
+@import "./5-utils/cloak.scss";
+@import "./5-utils/hide.scss";
+@import "./5-utils/inline.scss";
+@import "./5-utils/show.scss";
+@import "./5-utils/spacer.scss";
+@import "./5-utils/stack.scss";
+@import "./5-utils/truncate.scss";
+@import "./5-utils/visually-hidden.scss";

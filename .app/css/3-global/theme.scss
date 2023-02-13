@@ -1,0 +1,23 @@
+@use "sass:map";
+@use "./../2-lib/tokens.scss";
+@use "./../1-tokens/tokens-core.scss";
+@use "./../1-tokens/tokens-color.scss";
+
+$color: null !default;
+
+:root {
+  @include tokens.build(tokens-core.$tokens);
+  @include tokens.build(tokens-color.build($color, $dark: false));
+}
+
+body {
+  &[data-theme="dark"] {
+    @include tokens.build(tokens-color.build($color, $dark: true));
+  }
+
+  &[data-theme="system"] {
+    @media (prefers-color-scheme: dark) {
+      @include tokens.build(tokens-color.build($color, $dark: true));
+    }
+  }
+}

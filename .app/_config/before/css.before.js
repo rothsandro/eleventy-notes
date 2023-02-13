@@ -1,15 +1,18 @@
 const { Parcel } = require("@parcel/core");
-const isProd = process.env.ELEVENTY_ENV === "production";
+const setupFactory = require("./../../_data/setup.js");
 
-const bundler = new Parcel({
-  entries: "css/app.scss",
-  distDir: "dist/",
-  mode: isProd ? "production" : "development",
-  defaultConfig: "@parcel/config-default",
-});
+const isProd = process.env.ELEVENTY_ENV === "production";
 
 module.exports = async () => {
   try {
+    const setup = setupFactory();
+    const bundler = new Parcel({
+      entries: setup.css.input,
+      distDir: "dist/",
+      mode: isProd ? "production" : "development",
+      defaultConfig: "@parcel/config-default",
+    });
+
     let { bundleGraph, buildTime } = await bundler.run();
     let bundles = bundleGraph.getBundles();
     console.log(`✨ CSS: Built ${bundles.length} bundles in ${buildTime}ms!`);

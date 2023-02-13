@@ -3,6 +3,9 @@ const fs = require("fs");
 const defaultConfig = {
   title: "Notes",
   description: "Notes app",
+  theme: {
+    color: "sky",
+  },
   sidebar: {
     links: [],
     notes: [{}],
@@ -24,6 +27,10 @@ function mergeConfigs(a, b) {
   return {
     ...a,
     ...b,
+    theme: {
+      ...a.theme,
+      ...b.theme,
+    },
     sidebar: {
       ...a.sidebar,
       ...b.sidebar,
