@@ -1,5 +1,10 @@
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.4.0 (February 16, 2023)
+
+- ✨ Added color schemes
+- ⬆️ Updated to Eleventy 2.0
+
 ## Version 0.3.0 (February 11, 2023)
 
 - ✨ Added support for custom links in the sidebar
