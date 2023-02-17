@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "npm-run-all clean 11ty:serve",
-    "build": "cross-env ELEVENTY_ENV=production npm-run-all clean 11ty:build",
+    "build": "npm-run-all clean 11ty:build",
     "11ty:serve": "eleventy --serve",
     "11ty:build": "npm run clean && eleventy",
     "clean": "rimraf dist"
@@ -16,7 +16,6 @@
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@parcel/transformer-sass": "^2.8.2",
-    "cross-env": "^7.0.3",
     "eleventy-plugin-page-assets": "^0.3.0",
     "markdown-it-anchor": "^8.6.6",
     "markdown-it-footnote": "^3.0.3",
