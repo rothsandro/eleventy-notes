@@ -16,7 +16,7 @@ module.exports = () => {
 
 function getGitBranch() {
   try {
-    const cmd = execSync("git branch --show-current");
+    const cmd = execSync("git branch --show-current").toString();
     console.log("Git Branch:", cmd);
     const branch = cmd.trim();
     return branch || process.env.HEAD || "";
