@@ -38,8 +38,6 @@ In addition to the basic configuration, you can also:
 
 The following example shows the supported configuration options:
 
-{% raw %}
-
 ```json
 {
   "title": "John's Notes",
@@ -56,5 +54,3 @@ The following example shows the supported configuration options:
   }
 }
 ```
-
-{% endraw %}

@@ -1,5 +1,12 @@
----
-layout: "layouts/base.njk"
+---js
+{
+  layout: "layouts/base.njk",
+  permalink: function({ page }) {
+    return page.filePathStem === "/index"
+      ? "/"
+      : `/n/${this.slugifyPath(page.filePathStem)}/`;
+  }
+}
 ---
 
 <main class="app-layout__main" id="app-content">
