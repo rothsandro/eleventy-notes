@@ -21,7 +21,12 @@ function getGitBranch() {
     const branch = execSync("git branch --show-current", options)
       .toString()
       .trim();
-    return branch || process.env.HEAD || "";
+    return (
+      branch ||
+      process.env.CF_PAGES_BRANCH || // Cloudflare Pages
+      process.env.HEAD || // Netlify
+      ""
+    );
   } catch (err) {
     return "";
   }
