@@ -1,5 +1,10 @@
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.5.0 (February 19, 2023)
+
+- ✨ Added support and docs for Cloudflare Pages
+- 💥 Disabled Nunjucks processing of Markdown files to prevent unexpected output when using curly braces. This is a breaking change for anyone who relied on Nunjucks processing in their Markdown files. You can still enable Nunjucks processing by setting the `templateEngineOverride` front matter property.
+
 ## Version 0.4.0 (February 16, 2023)
 
 - ✨ Added color schemes
