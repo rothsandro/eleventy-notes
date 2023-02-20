@@ -1,3 +1,7 @@
+---
+tags: [release]
+---
+
 <!-- Use emojis from https://gitmoji.dev/ -->
 
 ## Version 0.5.0 (February 19, 2023)

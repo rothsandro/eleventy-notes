@@ -1,5 +1,6 @@
 ---
 sort: 1
+tags: [feature]
 ---
 
 The start page is the first link in the sidebar and always server under `/`. You can adjust the content by creating an `index.md` in the root of the project.
