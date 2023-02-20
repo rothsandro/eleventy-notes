@@ -8,13 +8,8 @@
   "sidebar": {
     "links": [
       {
-        "url": "https://github.com/rothsandro/eleventy-notes/issues",
-        "label": "Request feature",
-        "icon": "gift"
-      },
-      {
         "url": "https://github.com/rothsandro/eleventy-notes",
-        "label": "GitHub",
+        "label": "GitHub / Support",
         "icon": "github"
       }
     ],
