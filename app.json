@@ -24,6 +24,10 @@
         "label": ""
       },
       {
+        "pattern": "^/Releases/",
+        "label": "Releases"
+      },
+      {
         "pattern": "^/Configuration/",
         "label": "Configuration"
       },
