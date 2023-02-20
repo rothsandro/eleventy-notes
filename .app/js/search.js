@@ -113,7 +113,9 @@ Alpine.data("search", () => ({
       : index.search(options);
 
     const files = Array.from(new Set(results.flatMap((entry) => entry.result)));
-    const foundNotes = notes.filter((note) => files.includes(note.url));
+    const foundNotes = files
+      .map((file) => notes.find((n) => n.url === file))
+      .filter(Boolean);
     return foundNotes;
   },
 
