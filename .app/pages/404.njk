@@ -1,0 +1,24 @@
+---
+title: Page not found (404)
+layout: "layouts/base.njk"
+permalink: "404.html"
+panel: false
+---
+
+{% from 'macros/search.njk' import searchInput %}
+
+<main class="app-layout__main" id="app-content">
+  <div class="page" data-panel="false">
+    <div class="page__wrapper">
+      <div class="page__main">
+        <h1 class="page__title">Page not found (404)</h1>
+        <p class="page__description">
+          Sorry, the page you are looking for doesn't exist or has been moved.
+          Try searching for what you are looking for:
+        </p>
+        {{ searchInput('inline') }}
+      </div>
+    </div>
+  </div>
+</main>
+
