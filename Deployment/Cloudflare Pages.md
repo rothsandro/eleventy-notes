@@ -18,7 +18,7 @@ Make sure to add the following environment variables to your Cloudflare Pages pr
 Adjust the build configurations to the following values:
 
 | Property               | Value                                                      |
-| ---------------------- | ---------------------------------------------------------- |
+| :--------------------- | :--------------------------------------------------------- |
 | Build command          | `npm install --prefix .app && npm run build --prefix .app` |
 | Build output directory | `.app/dist/`                                               |
 | Root Directory         | `/` (default)                                              |
