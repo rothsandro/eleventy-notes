@@ -11,6 +11,7 @@
       x-init="{{ init }}"
       @focus="open = true"
       @keydown="onKeyDown"
+      @pageshow.window="term = $el.value"
       {{ 'autofocus' if mode === 'inline' else '' }}
     >
     <template x-if="open{{ '|| true' if mode === 'inline' else '' }}">
