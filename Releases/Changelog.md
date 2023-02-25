@@ -4,6 +4,13 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.6.0 (February 25, 2023)
+
+- ✨ Added 404 page
+- 🚸 Navigating back to the search page now shows the last search results
+- 🐛 Search results are now sorted by relevance
+- 📝 Improved docs and added new update guide
+
 ## Version 0.5.0 (February 19, 2023)
 
 - ✨ Added support and docs for Cloudflare Pages
