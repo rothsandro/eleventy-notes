@@ -2,7 +2,6 @@
   class="sidebar"
   x-data="scrollContainer('sidebar')"
   x-bind="container"
-  x-cloak
   :data-open="$store.nav.open.toString()"
   x-effect="$store.nav.open && window.scrollTo(0, 0)"
 >

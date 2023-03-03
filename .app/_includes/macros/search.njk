@@ -2,7 +2,13 @@
   {% set placeholder = 'Quick find (alt+f)' if mode == 'overlay' else 'Search' %}
   {% set init = "$store.hotkeys.register('alt+f', () => $el.focus())" if mode === 'overlay' else null %}
 
-  <div x-data="search" @click.away="open = false" class="search" data-mode="{{ mode }}">
+  {% if mode === 'inline' %}
+    <noscript>
+      Please enable JavaScript to use the search.
+    </noscript>
+  {% endif %}
+
+  <div  x-cloak x-data="search" @click.away="open = false" class="search" data-mode="{{ mode }}">
     <input
       type="text" 
       placeholder="{{ placeholder }}"
