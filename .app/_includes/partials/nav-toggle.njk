@@ -3,6 +3,7 @@
     class="icon-btn"
     :aria-expanded="$store.nav.open"
     @click="$store.nav.toggle()"
+    x-cloak
   >
     {{ 'menu' | feather | safe }}
     <span class="visually-hidden">Menu</span>
