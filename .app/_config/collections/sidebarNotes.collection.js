@@ -30,13 +30,26 @@ module.exports = (eleventyConfig) => (collectionApi) => {
         id: getId(),
         label: group.label,
         notes: sortedNotes,
-        tree: createTreeOfNotes(sortedNotes, slugify),
+        tree: group.tree
+          ? createTreeOfNotes(sortedNotes, slugify)
+          : createFlatTreeOfNotes(sortedNotes, slugify),
       },
     ];
   });
 
   return groups;
 };
+
+function createFlatTreeOfNotes(notes, slugify) {
+  return notes.map((note) => {
+    return {
+      key: slugify(note.page.fileSlug),
+      label: note.data.title || note.page.fileSlug,
+      note,
+      children: [],
+    };
+  });
+}
 
 function createTreeOfNotes(notes, slugify) {
   const tree = [];

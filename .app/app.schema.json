@@ -119,6 +119,11 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "tree": {
+                "type": "boolean",
+                "description": "If the notes should be displayed as a tree",
+                "default": false
               }
             }
           }
