@@ -44,10 +44,10 @@ function getTreeConfig(tree) {
   const custom = typeof tree === "boolean" ? {} : tree;
 
   return {
+    expanded: true,
     ...custom,
     replace: {
       ...(custom.replace ?? {}),
-      "^/": "",
       "/index$": "",
       "//": "/",
     },
@@ -74,18 +74,22 @@ function createTreeOfNotes(notes, slugify, config) {
       note.page.filePathStem
     );
 
-    const parts = filePathStem.split("/");
+    const parts = filePathStem.replace(/^\//, "").split("/");
 
     let [parent, current] = [undefined, tree];
     parts.forEach((part, idx) => {
       let item = current.find((i) => i.label === part);
       if (!item) {
+        const currentParts = parts.slice(0, idx + 1);
+
         item = {
-          key: parts
-            .slice(0, idx + 1)
-            .map(slugify)
-            .join("--"),
+          key: currentParts.map(slugify).join("--"),
           label: part,
+          expanded: getInitialExpandedState(
+            config.expanded,
+            `/${currentParts.join("/")}`,
+            idx + 1
+          ),
           children: [],
         };
         current.push(item);
@@ -98,6 +102,17 @@ function createTreeOfNotes(notes, slugify, config) {
   });
 
   return tree;
+}
+
+function getInitialExpandedState(config, filePath, depth) {
+  if (typeof config === "boolean") return config;
+  if (typeof config === "number") return depth <= config;
+  if (typeof config === "string") {
+    const pattern = new RegExp(config, "i");
+    return pattern.test(filePath);
+  }
+
+  return true;
 }
 
 function doTagsMatch(actual, expected) {

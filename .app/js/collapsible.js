@@ -1,7 +1,7 @@
 import { Alpine } from "./alpine";
 
-Alpine.data("collapsible", (key) => ({
-  expanded: Alpine.$persist(true)
+Alpine.data("collapsible", (key, defaultExpanded) => ({
+  expanded: Alpine.$persist(defaultExpanded)
     .as(`collapsible:${key}`)
     .using(sessionStorage),
 

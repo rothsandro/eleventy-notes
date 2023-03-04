@@ -3,7 +3,7 @@
   <ul class="nav-group__list" aria-labelledby="'app-sidebar-nav-notes-group:{{ group.id }}">
     {% for item in tree %}
       <li
-        {% if item.children.length %}x-data="collapsible('{{item.key}}')"{% endif %}
+        {% if item.children.length %}x-data="collapsible('{{item.key}}', {{ item.expanded }})"{% endif %}
       >
         {% if item.note %}
           <div class="nav-group__link-with-toggle">

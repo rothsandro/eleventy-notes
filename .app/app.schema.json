@@ -125,6 +125,11 @@
                 "description": "If the notes should be displayed as a tree",
                 "default": false,
                 "properties": {
+                  "expanded": {
+                    "type": ["boolean", "number", "string"],
+                    "description": "Whether the tree should be expanded by default. If a boolean is provided, it will be used for all levels. If a number is provided, the first n levels (starting with 1) will be expanded while all others are collapsed. If a string is provided, it will be used as a RegEx pattern to match the paths of the folders that are expanded by default.",
+                    "default": true
+                  },
                   "replace": {
                     "type": "object",
                     "description": "A map of search/replace values that will be applied to the paths of the notes in the tree. The keys are case-insensitive RegEx patterns.",
