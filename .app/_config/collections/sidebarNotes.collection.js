@@ -24,15 +24,15 @@ module.exports = (eleventyConfig) => (collectionApi) => {
 
     if (!filteredNotes.length) return [];
 
-    const sortedNotes = sortNotes(filteredNotes);
+    const tree = group.tree
+      ? createTreeOfNotes(filteredNotes, slugify, getTreeConfig(group.tree))
+      : createFlatTreeOfNotes(filteredNotes, slugify);
+
     return [
       {
         id: getId(),
         label: group.label,
-        notes: sortedNotes,
-        tree: group.tree
-          ? createTreeOfNotes(sortedNotes, slugify, getTreeConfig(group.tree))
-          : createFlatTreeOfNotes(sortedNotes, slugify),
+        tree: sortTree(tree),
       },
     ];
   });
@@ -106,31 +106,32 @@ function doTagsMatch(actual, expected) {
   return expected.some((tag) => actual.includes(tag));
 }
 
-function sortNotes(notes) {
-  const autoSort = sortByTitle(notes);
-  return sortBySortProperty(autoSort);
+function sortTree(tree) {
+  const autoSort = sortTreeByTitle(tree);
+  const sorted = sortTreeBySortProperty(autoSort);
+  return sorted.map((item) => ({ ...item, children: sortTree(item.children) }));
 }
 
-function sortBySortProperty(notes) {
-  const customSort = notes.filter((n) => typeof n.data.sort === "number");
-  const autoSorted = notes.filter((n) => typeof n.data.sort !== "number");
+function sortTreeBySortProperty(tree) {
+  const customSort = tree.filter(
+    (item) => typeof item.note?.data.sort === "number"
+  );
+  const autoSorted = tree.filter(
+    (item) => typeof item.note?.data.sort !== "number"
+  );
 
   return [
     ...customSort.sort((a, b) => {
-      const sortA = a.data.sort;
-      const sortB = b.data.sort;
+      const sortA = a.note.data.sort;
+      const sortB = b.note.data.sort;
       return sortA - sortB;
     }),
     ...autoSorted,
   ];
 }
 
-function sortByTitle(notes) {
-  return notes.slice().sort((a, b) => {
-    const nameA = a.data.title || a.page.fileSlug;
-    const nameB = b.data.title || b.page.fileSlug;
-    return nameA.localeCompare(nameB);
-  });
+function sortTreeByTitle(tree) {
+  return tree.slice().sort((a, b) => a.label.localeCompare(b.label));
 }
 
 function isIndexPage(note) {
