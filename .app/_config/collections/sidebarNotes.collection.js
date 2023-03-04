@@ -31,7 +31,7 @@ module.exports = (eleventyConfig) => (collectionApi) => {
         label: group.label,
         notes: sortedNotes,
         tree: group.tree
-          ? createTreeOfNotes(sortedNotes, slugify)
+          ? createTreeOfNotes(sortedNotes, slugify, getTreeConfig(group.tree))
           : createFlatTreeOfNotes(sortedNotes, slugify),
       },
     ];
@@ -39,6 +39,20 @@ module.exports = (eleventyConfig) => (collectionApi) => {
 
   return groups;
 };
+
+function getTreeConfig(tree) {
+  const custom = typeof tree === "boolean" ? {} : tree;
+
+  return {
+    ...custom,
+    replace: {
+      ...(custom.replace ?? {}),
+      "^/": "",
+      "/index$": "",
+      "//": "/",
+    },
+  };
+}
 
 function createFlatTreeOfNotes(notes, slugify) {
   return notes.map((note) => {
@@ -51,14 +65,16 @@ function createFlatTreeOfNotes(notes, slugify) {
   });
 }
 
-function createTreeOfNotes(notes, slugify) {
+function createTreeOfNotes(notes, slugify, config) {
   const tree = [];
 
   notes.forEach((note) => {
-    const parts = note.page.filePathStem
-      .replace(/^\//, "")
-      .replace(/\/index$/, "")
-      .split("/");
+    const filePathStem = Object.entries(config.replace).reduce(
+      (acc, [pattern, value]) => acc.replace(new RegExp(pattern, "gi"), value),
+      note.page.filePathStem
+    );
+
+    const parts = filePathStem.split("/");
 
     let [parent, current] = [undefined, tree];
     parts.forEach((part, idx) => {

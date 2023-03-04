@@ -121,9 +121,17 @@
                 }
               },
               "tree": {
-                "type": "boolean",
+                "type": ["boolean", "object"],
                 "description": "If the notes should be displayed as a tree",
-                "default": false
+                "default": false,
+                "properties": {
+                  "replace": {
+                    "type": "object",
+                    "description": "A map of search/replace values that will be applied to the paths of the notes in the tree. The keys are case-insensitive RegEx patterns.",
+                    "additionalProperties": { "type": "string" },
+                    "default": {}
+                  }
+                }
               }
             }
           }
