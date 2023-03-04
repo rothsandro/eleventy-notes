@@ -19,6 +19,7 @@
                 type="button"
                 class="nav-group__link nav-group__toggle"
                 aria-controls="app-sidebar-nav-notes-tree:{{ group.id }}:{{ item.key }}"
+                aria-expanded="true"
                 :aria-expanded="expanded"
                 @click="toggle()"
               >
@@ -34,6 +35,7 @@
             type="button"
             class="nav-group__link nav-group__toggle"
             aria-controls="app-sidebar-nav-notes-tree:{{ group.id }}:{{ item.key }}"
+            aria-expanded="true"
             :aria-expanded="expanded"
             @click="toggle()"
           >
