@@ -2,6 +2,8 @@ const appData = require("./../../_data/app");
 const notesCollection = require("./notes.collection");
 
 module.exports = (eleventyConfig) => (collectionApi) => {
+  const slugify = eleventyConfig.getFilter("slugify");
+
   let counter = 0;
   const getId = () => counter++;
 
@@ -28,12 +30,46 @@ module.exports = (eleventyConfig) => (collectionApi) => {
         id: getId(),
         label: group.label,
         notes: sortedNotes,
+        tree: createTreeOfNotes(sortedNotes, slugify),
       },
     ];
   });
 
   return groups;
 };
+
+function createTreeOfNotes(notes, slugify) {
+  const tree = [];
+
+  notes.forEach((note) => {
+    const parts = note.page.filePathStem
+      .replace(/^\//, "")
+      .replace(/\/index$/, "")
+      .split("/");
+
+    let [parent, current] = [undefined, tree];
+    parts.forEach((part, idx) => {
+      let item = current.find((i) => i.label === part);
+      if (!item) {
+        item = {
+          key: parts
+            .slice(0, idx + 1)
+            .map(slugify)
+            .join("--"),
+          label: part,
+          children: [],
+        };
+        current.push(item);
+      }
+      [parent, current] = [item, item.children];
+    });
+
+    parent.note = note;
+    parent.label = note.data.title || note.page.fileSlug;
+  });
+
+  return tree;
+}
 
 function doTagsMatch(actual, expected) {
   if (!expected || expected.length === 0) return true;

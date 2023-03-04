@@ -1,4 +1,4 @@
 module.exports = () =>
-  function (url) {
-    return url === this.page.url ? "aria-current=page" : "";
+  function (url, page = this.page) {
+    return url === page.url ? "aria-current=page" : "";
   };
