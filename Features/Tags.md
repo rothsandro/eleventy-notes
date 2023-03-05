@@ -1,5 +1,4 @@
 ---
-sort: 3
 tags: [feature]
 ---
 
