@@ -1,3 +1,5 @@
+{% from 'macros/sidebar-tree.njk' import sidebarTree %}
+
 <aside
   class="sidebar"
   x-data="scrollContainer('sidebar')"
@@ -99,23 +101,9 @@
         {% for group in collections.sidebarNotes %}
           <div>
             {% if group.label %}
-              <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-{{ group.id }}">{{ group.label }}</h4>
+              <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-group:{{ group.id }}">{{ group.label }}</h4>
             {% endif %}
-
-            <ul class="nav-group__list" aria-labelledby="'app-sidebar-nav-notes-{{ group.id }}">
-              {% for note in group.notes %}
-              <li>
-                <a
-                  href="{{ note.url }}"
-                  {{ note.url | ariaCurrent }}
-                  class="nav-group__link"
-                >
-                  {{ 'file-text' | featherRef | safe }}
-                  <span>{{ note.data.title or note.page.fileSlug }}</span>
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
+            {{ sidebarTree(group.tree, group, page) }}
           </div>
         {% endfor %}
       </div>

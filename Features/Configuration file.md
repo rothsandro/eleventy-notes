@@ -1,5 +1,6 @@
 ---
-sort: 3
+sort: 1
+tags: [feature]
 ---
 
 Eleventy Notes provides several configuration options to customize the app. All of them are optional, but a basic configuration is recommended.

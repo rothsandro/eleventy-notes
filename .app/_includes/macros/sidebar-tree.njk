@@ -1,0 +1,54 @@
+{% macro sidebarTree(tree, group, page) %}
+  <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-notes-group:{{ group.id }}">
+    {% for item in tree %}
+      <li
+        {% if item.children.length %}x-data="collapsible('{{item.key}}', {{ item.expanded }})"{% endif %}
+      >
+        {% if item.note %}
+          <div class="nav-group__link-with-toggle">
+            <a
+              href="{{ item.note.url }}"
+              {{ item.note.url | ariaCurrent(page) }}
+              class="nav-group__link"
+            >
+              <span>{{ item.label }}</span>
+            </a>
+            {% if item.children.length %}
+              <button
+                type="button"
+                class="nav-group__link nav-group__toggle"
+                aria-controls="app-sidebar-nav-notes-tree:{{ group.id }}:{{ item.key }}"
+                aria-expanded="true"
+                :aria-expanded="expanded"
+                @click="toggle()"
+              >
+                {{ 'chevron-right' | feather | safe }}
+                <span class="visually-hidden">
+                  Toggle {{ item.label }}
+                </span>
+              </button>
+            {% endif %}
+          </div>
+        {% else %}
+          <button
+            type="button"
+            class="nav-group__link nav-group__toggle"
+            aria-controls="app-sidebar-nav-notes-tree:{{ group.id }}:{{ item.key }}"
+            aria-expanded="true"
+            :aria-expanded="expanded"
+            @click="toggle()"
+          >
+            <span>{{ item.label }}</span>
+            {{ 'chevron-right' | feather | safe }}
+          </button>
+        {% endif %}
+
+        {% if item.children.length %}
+          <div x-show="expanded" id="app-sidebar-nav-notes-tree:{{ group.id }}:{{ item.key }}">
+            {{ sidebarTree(item.children, group, page) }}
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

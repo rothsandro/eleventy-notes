@@ -23,12 +23,13 @@
         "label": "Releases"
       },
       {
-        "pattern": "^/Configuration/",
-        "label": "Configuration"
-      },
-      {
         "pattern": "^/Features/",
-        "label": "Features"
+        "label": "Features",
+        "tree": {
+          "replace": {
+            "^/Features": ""
+          }
+        }
       },
       {
         "pattern": "^/Deployment/",

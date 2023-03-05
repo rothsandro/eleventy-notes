@@ -2,9 +2,9 @@
 {
   layout: "layouts/base.njk",
   permalink: function({ page }) {
-    return page.filePathStem === "/index"
-      ? "/"
-      : `/n/${this.slugifyPath(page.filePathStem)}/`;
+    const url = this.slugifyPath(page.filePathStem).replace(/\/index$/, '');
+    const isRoot = url === "";
+    return isRoot ? "/" : `/n/${url}/`;
   }
 }
 ---

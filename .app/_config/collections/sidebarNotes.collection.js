@@ -2,6 +2,8 @@ const appData = require("./../../_data/app");
 const notesCollection = require("./notes.collection");
 
 module.exports = (eleventyConfig) => (collectionApi) => {
+  const slugify = eleventyConfig.getFilter("slugify");
+
   let counter = 0;
   const getId = () => counter++;
 
@@ -22,12 +24,15 @@ module.exports = (eleventyConfig) => (collectionApi) => {
 
     if (!filteredNotes.length) return [];
 
-    const sortedNotes = sortNotes(filteredNotes);
+    const tree = group.tree
+      ? createTreeOfNotes(filteredNotes, slugify, getTreeConfig(group.tree))
+      : createFlatTreeOfNotes(filteredNotes, slugify);
+
     return [
       {
         id: getId(),
         label: group.label,
-        notes: sortedNotes,
+        tree: sortTree(tree),
       },
     ];
   });
@@ -35,37 +40,114 @@ module.exports = (eleventyConfig) => (collectionApi) => {
   return groups;
 };
 
+function getTreeConfig(tree) {
+  const custom = typeof tree === "boolean" ? {} : tree;
+
+  return {
+    expanded: true,
+    ...custom,
+    replace: {
+      ...(custom.replace ?? {}),
+      "/index$": "",
+      "//": "/",
+    },
+  };
+}
+
+function createFlatTreeOfNotes(notes, slugify) {
+  return notes.map((note) => {
+    return {
+      key: slugify(note.page.fileSlug),
+      label: note.data.title || note.page.fileSlug,
+      note,
+      children: [],
+    };
+  });
+}
+
+function createTreeOfNotes(notes, slugify, config) {
+  const tree = [];
+
+  notes.forEach((note) => {
+    const filePathStem = Object.entries(config.replace).reduce(
+      (acc, [pattern, value]) => acc.replace(new RegExp(pattern, "gi"), value),
+      note.page.filePathStem
+    );
+
+    const parts = filePathStem.replace(/^\//, "").split("/");
+
+    let [parent, current] = [undefined, tree];
+    parts.forEach((part, idx) => {
+      let item = current.find((i) => i.name === part);
+      if (!item) {
+        const currentParts = parts.slice(0, idx + 1);
+
+        item = {
+          key: currentParts.map(slugify).join("--"),
+          name: part,
+          label: part,
+          expanded: getInitialExpandedState(
+            config.expanded,
+            `/${currentParts.join("/")}`,
+            idx + 1
+          ),
+          children: [],
+        };
+        current.push(item);
+      }
+      [parent, current] = [item, item.children];
+    });
+
+    parent.note = note;
+    parent.label = note.data.title || note.page.fileSlug;
+  });
+
+  return tree;
+}
+
+function getInitialExpandedState(config, filePath, depth) {
+  if (typeof config === "boolean") return config;
+  if (typeof config === "number") return depth <= config;
+  if (typeof config === "string") {
+    const pattern = new RegExp(config, "i");
+    return pattern.test(filePath);
+  }
+
+  return true;
+}
+
 function doTagsMatch(actual, expected) {
   if (!expected || expected.length === 0) return true;
   if (!actual) return false;
   return expected.some((tag) => actual.includes(tag));
 }
 
-function sortNotes(notes) {
-  const autoSort = sortByTitle(notes);
-  return sortBySortProperty(autoSort);
+function sortTree(tree) {
+  const autoSort = sortTreeByTitle(tree);
+  const sorted = sortTreeBySortProperty(autoSort);
+  return sorted.map((item) => ({ ...item, children: sortTree(item.children) }));
 }
 
-function sortBySortProperty(notes) {
-  const customSort = notes.filter((n) => typeof n.data.sort === "number");
-  const autoSorted = notes.filter((n) => typeof n.data.sort !== "number");
+function sortTreeBySortProperty(tree) {
+  const customSort = tree.filter(
+    (item) => typeof item.note?.data.sort === "number"
+  );
+  const autoSorted = tree.filter(
+    (item) => typeof item.note?.data.sort !== "number"
+  );
 
   return [
     ...customSort.sort((a, b) => {
-      const sortA = a.data.sort;
-      const sortB = b.data.sort;
+      const sortA = a.note.data.sort;
+      const sortB = b.note.data.sort;
       return sortA - sortB;
     }),
     ...autoSorted,
   ];
 }
 
-function sortByTitle(notes) {
-  return notes.slice().sort((a, b) => {
-    const nameA = a.data.title || a.page.fileSlug;
-    const nameB = b.data.title || b.page.fileSlug;
-    return nameA.localeCompare(nameB);
-  });
+function sortTreeByTitle(tree) {
+  return tree.slice().sort((a, b) => a.label.localeCompare(b.label));
 }
 
 function isIndexPage(note) {
