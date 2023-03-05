@@ -28,7 +28,12 @@
       },
       {
         "pattern": "^/Features/",
-        "label": "Features"
+        "label": "Features",
+        "tree": {
+          "replace": {
+            "^/Features": ""
+          }
+        }
       },
       {
         "pattern": "^/Deployment/",
