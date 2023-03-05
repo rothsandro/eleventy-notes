@@ -1,6 +1,5 @@
 {% macro sidebarTree(tree, group, page) %}
-
-  <ul class="nav-group__list" aria-labelledby="'app-sidebar-nav-notes-group:{{ group.id }}">
+  <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-notes-group:{{ group.id }}">
     {% for item in tree %}
       <li
         {% if item.children.length %}x-data="collapsible('{{item.key}}', {{ item.expanded }})"{% endif %}
@@ -52,7 +51,4 @@
       </li>
     {% endfor %}
   </ul>
-
 {% endmacro %}
-
-
