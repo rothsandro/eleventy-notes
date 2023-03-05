@@ -11,7 +11,7 @@ Alpine.data("collapsible", (key, defaultExpanded) => ({
     }
   },
 
-  async toggle() {
+  toggle() {
     this.expanded = !this.expanded;
   },
 }));
