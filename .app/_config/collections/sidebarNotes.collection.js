@@ -78,12 +78,13 @@ function createTreeOfNotes(notes, slugify, config) {
 
     let [parent, current] = [undefined, tree];
     parts.forEach((part, idx) => {
-      let item = current.find((i) => i.label === part);
+      let item = current.find((i) => i.name === part);
       if (!item) {
         const currentParts = parts.slice(0, idx + 1);
 
         item = {
           key: currentParts.map(slugify).join("--"),
+          name: part,
           label: part,
           expanded: getInitialExpandedState(
             config.expanded,
