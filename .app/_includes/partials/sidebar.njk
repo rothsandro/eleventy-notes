@@ -9,14 +9,14 @@
 >
   <h2 class="visually-hidden">Navigation</h2>
 
-  <nav aria-labelledby="app-sidebar-nav-main" class="nav-group">
+  <nav aria-labelledby="app-sidebar-nav-main" class="nav-section">
     <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
-    <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-main">
+    <ul class="nav-list" aria-labelledby="app-sidebar-nav-main">
       <li>
         <a
           href="{{ '/' | url }}"
           {{ '/' | ariaCurrent }}
-          class="nav-group__link"
+          class="nav-list__link"
         >
           {{ 'home' | feather | safe }}
           {% set home = (collections.notes | home) %}
@@ -27,7 +27,7 @@
         <a
           href="{{ '/n/' | url }}"
           {{ '/n/' | ariaCurrent }}
-          class="nav-group__link"
+          class="nav-list__link"
         >
           {{ 'file-text' | featherRef | safe }}
           <span>Notes</span>
@@ -38,7 +38,7 @@
           <a
             href="{{ '/tags/' | url }}"
             {{ '/tags/' | ariaCurrent }}
-            class="nav-group__link"
+            class="nav-list__link"
           >
             {{ 'hash' | featherRef | safe }}
             <span>Tags</span>
@@ -49,7 +49,7 @@
         <a
           href="{{ '/search/' | url }}"
           {{ '/search/' | ariaCurrent }}
-          class="nav-group__link"
+          class="nav-list__link"
         >
           {{ 'search' | feather | safe }}
           <span>Search</span>
@@ -59,15 +59,15 @@
   </nav>
 
   {% if app.sidebar.links.length %}
-    <nav aria-labelledby="app-sidebar-nav-links" class="nav-group nav-group--continued">
+    <nav aria-labelledby="app-sidebar-nav-links" class="nav-section nav-section--continued">
       <h3 id="app-sidebar-nav-links" class="visually-hidden">Links</h3>
-      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-links">
+      <ul class="nav-list" aria-labelledby="app-sidebar-nav-links">
         {% for item in app.sidebar.links %}
           <li>
             <a
               href="{{ item.url }}"
               {{ 'target="_blank" rel="noopener"' if item.openInNewTab != false else '' }}
-              class="nav-group__link"
+              class="nav-list__link"
             >
               {{ item.icon | feather | safe }}
               <span>{{ item.label }}</span>
@@ -79,12 +79,12 @@
   {% endif %}
 
   <template x-if="$store.favorites.items.length">
-    <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-group">
-      <h3 id="app-sidebar-nav-favorites" class="nav-group__title">Favorites</h3>
-      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-favorites">
+    <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-section">
+      <h3 id="app-sidebar-nav-favorites" class="nav-section__title">Favorites</h3>
+      <ul class="nav-list" aria-labelledby="app-sidebar-nav-favorites">
         <template x-for="fav in $store.favorites.items">
           <li>
-            <a :href="fav" class="nav-group__link">
+            <a :href="fav" class="nav-list__link">
               {{ 'file-text' | featherRef | safe }}
               <span x-text="$store.favorites.index[fav] || fav"></span>
             </a>
@@ -95,53 +95,52 @@
   </template>
 
   {% if collections.sidebarNotes.length %}
-    <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
-      <h3 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h3>
-      <div class="nav-group__subgroups">
-        {% for group in collections.sidebarNotes %}
-          <div
-            {% if group.label %}
-            x-data="collapsible('notes-group:{{ group.id }}', {{ group.expanded }})"
-            :data-expanded="expanded"
-            {% endif %}
-            data-expanded="true"
-          >
-            {% if group.label %}
-              <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-group:{{ group.id }}">
-                <button
-                  type="button"
-                  class="group__subtitle-toggle" 
-                  aria-controls="app-sidebar-nav-notes-group-root:{{ group.id }}"
-                  aria-expanded="true"
-                  :aria-expanded="expanded"
-                  @click="toggle()"
-                >
-                  <span>{{ group.label }}</span>
-                  {{ 'chevron-right' | feather | safe }}
-                </button>
-              </h4>
-            {% endif %}
-            <div 
-              {% if group.label %}x-show="expanded"{% endif %}
-              id="app-sidebar-nav-notes-group-root:{{ group.id }}">
-              {{ sidebarTree(group.tree, group, page) }}
-            </div>
+    <nav aria-labelledby="app-sidebar-nav-notes" class="nav-section">
+      <h3 id="app-sidebar-nav-notes" class="nav-section__title">Notes</h3>
+      {% for group in collections.sidebarNotes %}
+        <div
+          class="nav-group"
+          {% if group.label %}
+          x-data="collapsible('notes-group:{{ group.id }}', {{ group.expanded }})"
+          :data-expanded="expanded"
+          {% endif %}
+          data-expanded="true"
+        >
+          {% if group.label %}
+            <h4 class="nav-group__title" id="app-sidebar-nav-notes-group:{{ group.id }}">
+              <button
+                type="button"
+                class="nav-group__toggle" 
+                aria-controls="app-sidebar-nav-notes-group-root:{{ group.id }}"
+                aria-expanded="true"
+                :aria-expanded="expanded"
+                @click="toggle()"
+              >
+                <span>{{ group.label }}</span>
+                {{ 'chevron-right' | feather | safe }}
+              </button>
+            </h4>
+          {% endif %}
+          <div 
+            {% if group.label %}x-show="expanded"{% endif %}
+            id="app-sidebar-nav-notes-group-root:{{ group.id }}">
+            {{ sidebarTree(group.tree, group, page) }}
           </div>
-        {% endfor %}
-      </div>
+        </div>
+      {% endfor %}
     </nav>
   {% endif %}
 
   {% if collections.tags.length %}
-    <nav aria-labelledby="app-sidebar-nav-tags" class="nav-group">
-      <h3 id="app-sidebar-nav-tags" class="nav-group__title">Tags</h3>
-      <ul class="nav-group__list" aria-labelledby="app-sidebar-nav-tags">
+    <nav aria-labelledby="app-sidebar-nav-tags" class="nav-section">
+      <h3 id="app-sidebar-nav-tags" class="nav-section__title">Tags</h3>
+      <ul class="nav-list" aria-labelledby="app-sidebar-nav-tags">
         {% for tag in collections.tags %}
         <li>
           <a
             href="{{ tag.url | url }}"
             {{ tag.url | ariaCurrent }}
-            class="nav-group__link"
+            class="nav-list__link"
           >
             {{ 'hash' | featherRef | safe }}
             <span>{{ tag.name }}</span>

@@ -1,27 +1,15 @@
 .nav-group {
-  padding-inline: var(--space-4);
-  padding-block: var(--space-4);
+  &[data-expanded] + .nav-group {
+    margin-block-start: var(--space-6);
+  }
 
-  &:not(:first-of-type) {
-    border-block-start: 1px solid var(--color-neutral-line);
+  &:not([data-expanded]) + .nav-group {
+    margin-block-start: var(--space-4);
   }
 }
 
-.nav-group.nav-group--continued {
-  border-block-start-width: 0;
-  padding-block-start: 0;
-}
-
-.nav-group__title {
-  margin-block-end: var(--space-2);
-  font-size: var(--font-size-sm);
-  color: var(--color-neutral-text);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
 .nav-group__subtitle,
-.group__subtitle-toggle {
+.nav-group__toggle {
   margin-block-end: var(--space-1);
   font-size: var(--font-size-xs);
   color: var(--color-neutral-text);
@@ -29,7 +17,7 @@
   letter-spacing: 0.02em;
 }
 
-.group__subtitle-toggle {
+.nav-group__toggle {
   inline-size: 100%;
   display: flex;
   align-items: center;
@@ -40,95 +28,5 @@
 
   &[aria-expanded="true"] svg {
     transform: rotate(90deg);
-  }
-}
-
-.nav-group__subgroups {
-  & > *[data-expanded] + * {
-    margin-block-start: var(--space-6);
-  }
-
-  & > *:not([data-expanded]) + * {
-    margin-block-start: var(--space-4);
-  }
-}
-
-.nav-group__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  & & {
-    margin-block-start: 1px;
-    margin-inline-start: var(--space-4);
-  }
-
-  li li {
-    margin-block-start: 1px;
-  }
-}
-
-.nav-group__link-with-toggle {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-
-  & > * {
-    grid-area: 1 / 1;
-  }
-}
-
-.nav-group__toggle {
-  inline-size: 100%;
-  border: 0;
-  background: transparent;
-  appearance: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-neutral-bg);
-  }
-
-  svg {
-    margin-inline-start: auto;
-    opacity: 0.75;
-  }
-
-  &[aria-expanded="true"] svg {
-    transform: rotate(90deg);
-  }
-}
-
-.nav-group__link {
-  display: flex;
-  gap: var(--space-2);
-  align-items: center;
-  padding-block: var(--space-2);
-  padding-inline: var(--space-2);
-  border-radius: var(--rounded-md);
-  color: var(--color-neutral-text);
-  font-size: var(--font-size-base);
-  text-decoration: none;
-
-  & + .nav-group__toggle {
-    inline-size: auto;
-    justify-self: end;
-  }
-
-  &:hover {
-    background-color: var(--color-neutral-bg);
-  }
-
-  &[aria-current="page"] {
-    background-color: var(--color-primary-bg);
-
-    & + .nav-group__toggle:hover {
-      background-color: var(--color-primary-bgHover);
-    }
-  }
-
-  span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
