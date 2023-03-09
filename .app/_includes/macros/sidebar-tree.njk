@@ -1,8 +1,10 @@
 {% macro sidebarTree(tree, group, page) %}
-  <ul class="nav-list" aria-labelledby="app-sidebar-nav-notes-group:{{ group.id }}">
+  <ul class="nav-list" aria-labelledby="app:sidebar:section:notes:group:{{ group.id }}:title">
     {% for item in tree %}
       <li
-        {% if item.children.length %}x-data="collapsible('{{item.key}}', {{ item.expanded }})"{% endif %}
+        {% if item.children.length %}
+          x-data="collapsible('app:sidebar:section:notes:group:{{group.id}}:tree:{{item.key}}', {{ item.expanded }})"
+        {% endif %}
       >
         {% if item.note %}
           <div class="nav-list__link-with-toggle">
@@ -17,7 +19,7 @@
               <button
                 type="button"
                 class="nav-list__link nav-list__toggle"
-                aria-controls="app-sidebar-nav-notes-tree:{{ group.id }}:{{ item.key }}"
+                aria-controls="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.key }}:list"
                 aria-expanded="true"
                 :aria-expanded="expanded"
                 @click="toggle()"
@@ -33,7 +35,7 @@
           <button
             type="button"
             class="nav-list__link nav-list__toggle"
-            aria-controls="app-sidebar-nav-notes-tree:{{ group.id }}:{{ item.key }}"
+            aria-controls="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.key }}:list"
             aria-expanded="true"
             :aria-expanded="expanded"
             @click="toggle()"
@@ -44,7 +46,7 @@
         {% endif %}
 
         {% if item.children.length %}
-          <div x-show="expanded" id="app-sidebar-nav-notes-tree:{{ group.id }}:{{ item.key }}">
+          <div x-show="expanded" id="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.key }}:list">
             {{ sidebarTree(item.children, group, page) }}
           </div>
         {% endif %}

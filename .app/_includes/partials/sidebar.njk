@@ -2,16 +2,16 @@
 
 <aside
   class="sidebar"
-  x-data="scrollContainer('sidebar')"
+  x-data="scrollContainer('app:sidebar')"
   x-bind="container"
   :data-open="$store.nav.open.toString()"
   x-effect="$store.nav.open && window.scrollTo(0, 0)"
 >
   <h2 class="visually-hidden">Navigation</h2>
 
-  <nav aria-labelledby="app-sidebar-nav-main" class="nav-section">
-    <h3 id="app-sidebar-nav-main" class="visually-hidden">Main</h3>
-    <ul class="nav-list" aria-labelledby="app-sidebar-nav-main">
+  <nav aria-labelledby="app:sidebar:nav" class="nav-section">
+    <h3 id="app:sidebar:nav" class="visually-hidden">Main</h3>
+    <ul class="nav-list" aria-labelledby="app:sidebar:nav">
       <li>
         <a
           href="{{ '/' | url }}"
@@ -59,9 +59,9 @@
   </nav>
 
   {% if app.sidebar.links.length %}
-    <nav aria-labelledby="app-sidebar-nav-links" class="nav-section nav-section--continued">
-      <h3 id="app-sidebar-nav-links" class="visually-hidden">Links</h3>
-      <ul class="nav-list" aria-labelledby="app-sidebar-nav-links">
+    <nav aria-labelledby="app:sidebar:section:links" class="nav-section nav-section--continued">
+      <h3 id="app:sidebar:section:links" class="visually-hidden">Links</h3>
+      <ul class="nav-list" aria-labelledby="app:sidebar:section:links">
         {% for item in app.sidebar.links %}
           <li>
             <a
@@ -79,9 +79,9 @@
   {% endif %}
 
   <template x-if="$store.favorites.items.length">
-    <nav aria-labelledby="app-sidebar-nav-favorites" class="nav-section">
-      <h3 id="app-sidebar-nav-favorites" class="nav-section__title">Favorites</h3>
-      <ul class="nav-list" aria-labelledby="app-sidebar-nav-favorites">
+    <nav aria-labelledby="app:sidebar:section:favorites" class="nav-section">
+      <h3 id="app:sidebar:section:favorites" class="nav-section__title">Favorites</h3>
+      <ul class="nav-list" aria-labelledby="app:sidebar:section:favorites">
         <template x-for="fav in $store.favorites.items">
           <li>
             <a :href="fav" class="nav-list__link">
@@ -95,23 +95,23 @@
   </template>
 
   {% if collections.sidebarNotes.length %}
-    <nav aria-labelledby="app-sidebar-nav-notes" class="nav-section">
-      <h3 id="app-sidebar-nav-notes" class="nav-section__title">Notes</h3>
+    <nav aria-labelledby="app:sidebar:section:notes" class="nav-section">
+      <h3 id="app:sidebar:section:notes" class="nav-section__title">Notes</h3>
       {% for group in collections.sidebarNotes %}
         <div
           class="nav-group"
           {% if group.label %}
-          x-data="collapsible('notes-group:{{ group.id }}', {{ group.expanded }})"
+          x-data="collapsible('app:sidebar:section:notes:group:{{ group.id }}:list', {{ group.expanded }})"
           :data-expanded="expanded"
           {% endif %}
           data-expanded="true"
         >
           {% if group.label %}
-            <h4 class="nav-group__title" id="app-sidebar-nav-notes-group:{{ group.id }}">
+            <h4 class="nav-group__title" id="app:sidebar:section:notes:group:{{ group.id }}:title">
               <button
                 type="button"
                 class="nav-group__toggle" 
-                aria-controls="app-sidebar-nav-notes-group-root:{{ group.id }}"
+                aria-controls="app:sidebar:section:notes:group:{{ group.id }}:list"
                 aria-expanded="true"
                 :aria-expanded="expanded"
                 @click="toggle()"
@@ -123,7 +123,7 @@
           {% endif %}
           <div 
             {% if group.label %}x-show="expanded"{% endif %}
-            id="app-sidebar-nav-notes-group-root:{{ group.id }}">
+            id="app:sidebar:section:notes:group:{{ group.id }}:list">
             {{ sidebarTree(group.tree, group, page) }}
           </div>
         </div>
@@ -132,9 +132,9 @@
   {% endif %}
 
   {% if collections.tags.length %}
-    <nav aria-labelledby="app-sidebar-nav-tags" class="nav-section">
-      <h3 id="app-sidebar-nav-tags" class="nav-section__title">Tags</h3>
-      <ul class="nav-list" aria-labelledby="app-sidebar-nav-tags">
+    <nav aria-labelledby="app:sidebar:section:tags" class="nav-section">
+      <h3 id="app:sidebar:section:tags" class="nav-section__title">Tags</h3>
+      <ul class="nav-list" aria-labelledby="app:sidebar:section:tags">
         {% for tag in collections.tags %}
         <li>
           <a
