@@ -113,6 +113,11 @@
                 "type": "string",
                 "description": "The label of the group"
               },
+              "expanded": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether the group should be expanded by default. Ignored if the group has no label."
+              },
               "tags": {
                 "type": "array",
                 "description": "A list of tags to match notes",

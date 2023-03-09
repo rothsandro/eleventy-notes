@@ -97,13 +97,35 @@
   {% if collections.sidebarNotes.length %}
     <nav aria-labelledby="app-sidebar-nav-notes" class="nav-group">
       <h3 id="app-sidebar-nav-notes" class="nav-group__title">Notes</h3>
-      <div class="stack" data-stack="6">
+      <div class="nav-group__subgroups">
         {% for group in collections.sidebarNotes %}
-          <div>
+          <div
             {% if group.label %}
-              <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-group:{{ group.id }}">{{ group.label }}</h4>
+            x-data="collapsible('notes-group:{{ group.id }}', {{ group.expanded }})"
+            :data-expanded="expanded"
             {% endif %}
-            {{ sidebarTree(group.tree, group, page) }}
+            data-expanded="true"
+          >
+            {% if group.label %}
+              <h4 class="nav-group__subtitle" id="app-sidebar-nav-notes-group:{{ group.id }}">
+                <button
+                  type="button"
+                  class="group__subtitle-toggle" 
+                  aria-controls="app-sidebar-nav-notes-group-root:{{ group.id }}"
+                  aria-expanded="true"
+                  :aria-expanded="expanded"
+                  @click="toggle()"
+                >
+                  <span>{{ group.label }}</span>
+                  {{ 'chevron-right' | feather | safe }}
+                </button>
+              </h4>
+            {% endif %}
+            <div 
+              {% if group.label %}x-show="expanded"{% endif %}
+              id="app-sidebar-nav-notes-group-root:{{ group.id }}">
+              {{ sidebarTree(group.tree, group, page) }}
+            </div>
           </div>
         {% endfor %}
       </div>

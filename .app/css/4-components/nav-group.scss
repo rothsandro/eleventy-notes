@@ -20,12 +20,37 @@
   letter-spacing: 0.04em;
 }
 
-.nav-group__subtitle {
+.nav-group__subtitle,
+.group__subtitle-toggle {
   margin-block-end: var(--space-1);
   font-size: var(--font-size-xs);
   color: var(--color-neutral-text);
   text-transform: uppercase;
   letter-spacing: 0.02em;
+}
+
+.group__subtitle-toggle {
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  &[aria-expanded="true"] svg {
+    transform: rotate(90deg);
+  }
+}
+
+.nav-group__subgroups {
+  & > *[data-expanded] + * {
+    margin-block-start: var(--space-6);
+  }
+
+  & > *:not([data-expanded]) + * {
+    margin-block-start: var(--space-4);
+  }
 }
 
 .nav-group__list {
