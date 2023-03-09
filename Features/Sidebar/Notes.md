@@ -56,6 +56,7 @@ You can create multiple groups with an optional label to show notes in different
       },
       {
         "label": "Archived",
+        "expanded": false,
         "pattern": "/archive/"
       }
     ]
