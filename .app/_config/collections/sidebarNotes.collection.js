@@ -32,6 +32,7 @@ module.exports = (eleventyConfig) => (collectionApi) => {
       {
         id: getId(),
         label: group.label,
+        expanded: group.expanded ?? true,
         tree: sortTree(tree),
       },
     ];

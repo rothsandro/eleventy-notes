@@ -42,7 +42,7 @@ You can filter notes by their tags. Notes that have at least one of the specifie
 
 ## Multiple Groups
 
-You can create multiple groups with an optional label to show notes in different sections.
+You can create multiple groups with an optional label. Groups with a label can be collapsed by the user and are expanded by default. You can change the default expansion state by setting the `expanded` property to `false`.
 
 ```json
 // /app.json
@@ -56,6 +56,7 @@ You can create multiple groups with an optional label to show notes in different
       },
       {
         "label": "Archived",
+        "expanded": false,
         "pattern": "/archive/"
       }
     ]
