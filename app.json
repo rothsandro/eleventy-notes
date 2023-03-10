@@ -15,13 +15,12 @@
     ],
     "notes": [
       {
-        "pattern": "^/[^/]+$",
-        "label": "",
-        "expanded": false
+        "pattern": "^/[^/]+$"
       },
       {
         "pattern": "^/Releases/",
-        "label": "Releases"
+        "label": "Releases",
+        "expanded": false
       },
       {
         "pattern": "^/Features/",
@@ -35,7 +34,8 @@
       },
       {
         "pattern": "^/Deployment/",
-        "label": "Deployment"
+        "label": "Deployment",
+        "expanded": false
       }
     ]
   }
