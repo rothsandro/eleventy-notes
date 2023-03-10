@@ -4,7 +4,7 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## 0.7.0 (March 10, 2023)
+## Version 0.7.0 (March 10, 2023)
 
 - ✨ Added support for folders in the sidebar
 - ✨ Groups in the sidebar can now be collapsed
