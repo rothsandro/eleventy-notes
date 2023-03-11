@@ -39,6 +39,10 @@
     line-height: 1.45;
   }
 
+  ul {
+    list-style-type: disc;
+  }
+
   ul,
   ol {
     padding-inline-start: var(--space-4);
