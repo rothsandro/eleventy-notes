@@ -4,6 +4,10 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.8.0 (March 14, 2023)
+
+- 💄 Improved typography and spacing
+
 ## Version 0.7.0 (March 10, 2023)
 
 - ✨ Added support for folders in the sidebar
