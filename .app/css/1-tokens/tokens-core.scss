@@ -71,6 +71,8 @@ $tokens: (
     fluid-6: clamp(2.03rem, calc(1.94rem + 0.44vw), 2.28rem),
     fluid-7: clamp(2.28rem, calc(2.18rem + 0.5vw), 2.57rem),
     fluid-8: clamp(2.57rem, calc(2.45rem + 0.56vw), 2.89rem),
+  ),
+  font-weight: (
     normal: 400,
     medium: 500,
     bold: 700,
