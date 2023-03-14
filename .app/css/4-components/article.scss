@@ -84,11 +84,7 @@
   h5,
   h6 {
     line-height: 1.25;
-    scroll-margin-block-start: 70px;
-
-    @include media-breakpoint-up("md") {
-      scroll-margin-block-start: 20px;
-    }
+    scroll-margin-block-start: 20px;
   }
 
   a {
