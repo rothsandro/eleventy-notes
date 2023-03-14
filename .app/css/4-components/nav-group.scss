@@ -11,6 +11,8 @@
 .nav-group__subtitle,
 .nav-group__toggle {
   margin-block-end: var(--space-1);
+  padding-block: 0;
+  padding-inline: var(--space-2);
   font-size: var(--font-size-xs);
   color: var(--color-neutral-text);
   text-transform: uppercase;
