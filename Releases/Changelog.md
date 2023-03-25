@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.8.1 (March 25, 2023)
+
+- 🐛 Fixed scrolling to headings on page load
+- 🐛 Fixed tag pages and sorting of notes
+- 📝 Improved docs
+
 ## Version 0.8.0 (March 14, 2023)
 
 - 💄 Improved typography and spacing

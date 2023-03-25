@@ -1,6 +1,6 @@
 {
   "name": "eleventy-notes",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "",
   "scripts": {
     "start": "npm-run-all clean 11ty:serve",
