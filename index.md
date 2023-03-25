@@ -3,6 +3,16 @@ title: "Intro"
 panel: false
 ---
 
-Eleventy Notes is a documentation template for [Eleventy](https://www.11ty.dev/), mainly designed to publish your personal notes but can be used for small documentation projects as well. For larger, more complex documentation it's better to use a real documentation tool like [Docusaurus](https://docusaurus.io/) or [Nextra](https://nextra.site/).
+Welcome to **Eleventy Notes**, an opinionated template for publishing your personal notes, documentation or even your blog. It's built with [Eleventy](https://www.11ty.dev/), a powerful static site generator.
 
-This documentation is built with Eleventy Notes (of course). If you want to use this template read the [[Getting started]] guide.
+Eleventy Notes has many great features you'll love:
+
+- ✅ [[Wikilinks]] and backlinks
+- ✅ Support for [[Tags]]
+- ✅ A fast [[Search|client-side search]]
+- ✅ Two [[Themes]] and multiple color schemes to choose from
+- ✅ A customizable [[Sidebar]] with support for folders
+- ✅ Lightweight and fast, with minimal JavaScript
+- ... and much more!
+
+Start using Eleventy Notes by reading the [[Getting started]] guide.
