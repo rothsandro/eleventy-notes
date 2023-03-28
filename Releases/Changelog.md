@@ -4,6 +4,11 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.8.2 (March 28, 2023)
+
+- 🐛 Fixed footnotes
+- 📝 Updated Netlify build settings to fix caching issues
+
 ## Version 0.8.1 (March 25, 2023)
 
 - 🐛 Fixed scrolling to headings on page load
