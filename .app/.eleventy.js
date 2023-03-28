@@ -11,6 +11,6 @@ module.exports = (eleventyConfig) => {
       data: ".app/_data",
       includes: ".app/_includes",
     },
-    markdownTemplateEngine: "md",
+    markdownTemplateEngine: false,
   };
 };
