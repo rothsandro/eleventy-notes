@@ -7,7 +7,7 @@ Open the terminal and navigate to your project folder. Then run the following co
 
 ```bash
 cd .app
-npm run install # if not already done
+npm install # if not already done
 npm run build
 ```
 
