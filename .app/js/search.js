@@ -1,5 +1,8 @@
 import { Alpine } from "./alpine";
 
+const baseUrl = document.currentScript?.getAttribute("data-base") ?? "/";
+const searchJsonUrl = baseUrl + "search.json";
+
 Alpine.data("search", () => ({
   _notes$: null,
   _index$: null,
@@ -53,7 +56,7 @@ Alpine.data("search", () => ({
   async fetchNotes() {
     if (!this._notes) {
       this._notes = new Promise(async (resolve) => {
-        const result = await fetch("/search.json").then((r) => r.json());
+        const result = await fetch(searchJsonUrl).then((r) => r.json());
         resolve(result.notes);
       });
     }

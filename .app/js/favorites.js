@@ -1,11 +1,14 @@
 import { Alpine } from "./alpine";
 
+const baseUrl = document.currentScript?.getAttribute("data-base") ?? "/";
+const indexJsonUrl = baseUrl + "index.json";
+
 Alpine.store("favorites", {
   index: {},
   items: Alpine.$persist([]).as("favorites"),
 
   async init() {
-    this.index = await fetch("/index.json")
+    this.index = await fetch(indexJsonUrl)
       .then((r) => r.json())
       .catch(() => {
         console.error("Could not fetch notes index");

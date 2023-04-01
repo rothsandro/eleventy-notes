@@ -24,7 +24,7 @@
     <ul class="grouped-links__list" aria-labelledby="app-panel-tags">
       {% for tag in tags %}
       <li>
-        <a href="{{ ('/tags/' + (tag | slugify)) | url }}" class="grouped-links__link">
+        <a href="/tags/{{ tag | slugify }}/" class="grouped-links__link">
           {{ 'hash' | featherRef | safe }}
           <span>{{ tag }}</span>
         </a>
@@ -85,7 +85,7 @@
   {% endif %}
 
   <div class="inline">
-    {{ favToggle(page.url) }}
+    {{ favToggle(page.url | htmlBaseUrl ) }}
     {{ editThisNote(app.editThisNote, page) }}
   </div>
 </aside>
