@@ -13,4 +13,4 @@ npm run build
 
 After building, you can find the generated files in the `.app/dist` folder. These files can be deployed to any static web server.
 
-Instead of building the files locally, you can also use a service like [[Netlify]] or [[Cloudflare Pages]].
+Instead of building the files locally, you can also use a service like [[Netlify]], [[Cloudflare Pages]] or [[GitLab Pages]].
