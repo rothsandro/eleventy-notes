@@ -1,7 +1,7 @@
 try {
-  const hash = window.location.hash;
-  const anchor = hash ? document.querySelector(hash) : null;
-  anchor?.scrollIntoView();
+  const anchorId = window.location.hash.substring(1);
+  const anchorEl = anchorId ? document.getElementById(anchorId) : null;
+  anchorEl?.scrollIntoView();
 } catch (e) {
   console.warn("Cannot scroll to anchor");
 }
