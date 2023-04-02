@@ -1,4 +1,4 @@
-const notesCollection = require("./notes.collection.js");
+const notesCollection = require("./_notes.collection.js");
 const { parse } = require("node-html-parser");
 
 module.exports = (eleventyConfig) => (collectionApi) => {
