@@ -1,13 +1,28 @@
 module.exports = function applyQueryFilter(items, filter) {
-  return items.filter((item) => checkFilterForItem(item, filter));
+  const group = Array.isArray(filter) ? { and: filter } : filter;
+  return items.filter((item) => checkFilterGroupForItem(item, group));
 };
 
-function checkFilterForItem(item, filter) {
-  return filter.every((filter) => checkFilterRow(item, filter));
+function checkFilterGroupForItem(item, filterGroup) {
+  const [operator, filterRows] = Object.entries(filterGroup)[0];
+  const validate = (filterRow) => {
+    return Array.isArray(filterRow)
+      ? checkFilterEntryForItem(item, filterRow)
+      : checkFilterGroupForItem(item, filterRow);
+  };
+
+  switch (operator) {
+    case "and":
+      return filterRows.every(validate);
+    case "or":
+      return filterRows.some(validate);
+    default:
+      throw new Error(`Unknown group operator ${operator}`);
+  }
 }
 
-function checkFilterRow(item, filterRow) {
-  const [propPath, operator, filterValue] = filterRow;
+function checkFilterEntryForItem(item, filterEntry) {
+  const [propPath, operator, filterValue] = filterEntry;
   const value = getValueByPath(item, propPath);
   const matches = checkOperator(operator, filterValue, value);
   return matches;
