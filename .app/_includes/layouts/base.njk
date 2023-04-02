@@ -10,7 +10,7 @@ panel: true
     <meta name="description" content="{{ app.description }}">
     <title>{{ title or page.fileSlug }}</title>
     <meta name="generator" content="{{ eleventy.generator }}">
-    <link rel="stylesheet" href="{{ setup.css.output | url }}">
+    <link rel="stylesheet" href="{{ setup.css.output }}">
   </head>
   <body data-theme="system">
     <script>document.body.setAttribute("data-theme", JSON.parse(localStorage.getItem("theme") ?? '"system"'))</script>
@@ -27,7 +27,7 @@ panel: true
       </div>
     </div>
 
-    <script src="{{ '/app.js' | url }}"></script>
+    <script src="/app.js" data-base="{{ '/' | htmlBaseUrl }}"></script>
 
     <div aria-hidden="true" hidden>
       {{ 'hash' | feather({ id: 'icon-hash' }) | safe }}

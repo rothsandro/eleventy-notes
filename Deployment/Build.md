@@ -13,4 +13,14 @@ npm run build
 
 After building, you can find the generated files in the `.app/dist` folder. These files can be deployed to any static web server.
 
+## Subdirectory
+
+You can deploy your notes to a subdirectory, like `https://example.com/docs/`. To do so, you need to set the environment variable `ELEVENTY_NOTES_PATH_PREFIX` to the subdirectory, e.g. `/docs/`. How to set environment variables depends on your environment or cloud service you use. For example, on macOS you can run the following command:
+
+```bash
+ELEVENTY_NOTES_PATH_PREFIX=/docs/ npm run build
+```
+
+## Cloud Services
+
 Instead of building the files locally, you can also use a service like [[Netlify]], [[Cloudflare Pages]] or [[GitLab Pages]].

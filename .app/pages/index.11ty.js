@@ -10,7 +10,7 @@ class Index {
     return JSON.stringify(
       Object.fromEntries(
         collections.notes.map((note) => [
-          note.url,
+          this.htmlBaseUrl(note.url),
           note.data.title || note.page.fileSlug,
         ])
       )

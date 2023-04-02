@@ -5,6 +5,7 @@ module.exports = (eleventyConfig) => {
   loader([__dirname, "_config"], eleventyConfig);
 
   return {
+    pathPrefix: process.env.ELEVENTY_NOTES_PATH_PREFIX || undefined,
     dir: {
       input: "./../",
       output: "dist",

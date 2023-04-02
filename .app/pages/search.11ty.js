@@ -17,7 +17,7 @@ class SearchIndex {
         return {
           title: note.data.title || note.page.fileSlug,
           tags: note.data.tags ?? [],
-          url: note.url,
+          url: this.htmlBaseUrl(note.url),
           previewText: stripHtml(content)
             .result.slice(0, 150)
             .replace(/\s{2,}/g, " "),

@@ -14,7 +14,7 @@
     <ul class="nav-list" aria-labelledby="app:sidebar:nav">
       <li>
         <a
-          href="{{ '/' | url }}"
+          href="/"
           {{ '/' | ariaCurrent }}
           class="nav-list__link"
         >
@@ -25,7 +25,7 @@
       </li>
       <li>
         <a
-          href="{{ '/n/' | url }}"
+          href="/n/"
           {{ '/n/' | ariaCurrent }}
           class="nav-list__link"
         >
@@ -36,7 +36,7 @@
       {% if collections.tags.length %}
         <li>
           <a
-            href="{{ '/tags/' | url }}"
+            href="/tags/"
             {{ '/tags/' | ariaCurrent }}
             class="nav-list__link"
           >
@@ -47,7 +47,7 @@
       {% endif %}
       <li>
         <a
-          href="{{ '/search/' | url }}"
+          href="/search/"
           {{ '/search/' | ariaCurrent }}
           class="nav-list__link"
         >
@@ -138,7 +138,7 @@
         {% for tag in collections.tags %}
         <li>
           <a
-            href="{{ tag.url | url }}"
+            href="{{ tag.url }}"
             {{ tag.url | ariaCurrent }}
             class="nav-list__link"
           >
