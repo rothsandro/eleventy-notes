@@ -1,3 +1,5 @@
+const getValueByPath = require("./query-prop");
+
 module.exports = function applyQueryFilter(items, filter) {
   const group = Array.isArray(filter) ? { and: filter } : filter;
   return items.filter((item) => checkFilterGroupForItem(item, group));
@@ -26,20 +28,6 @@ function checkFilterEntryForItem(item, filterEntry) {
   const value = getValueByPath(item, propPath);
   const matches = checkOperator(operator, filterValue, value);
   return matches;
-}
-
-function getValueByPath(item, path) {
-  if (!path) return item;
-
-  const parts = path.split(".");
-  let value = item;
-
-  for (let part of parts) {
-    if (!(part in value)) return undefined;
-    value = value[part];
-  }
-
-  return value;
 }
 
 function checkOperator(operator, filterValue, applyOn) {
