@@ -12,5 +12,13 @@ module.exports = function runQuery(data, query) {
     result = querySort(result, query.sort);
   }
 
+  if (query.offset) {
+    result = result.slice(query.offset);
+  }
+
+  if (query.limit) {
+    result = result.slice(0, query.limit);
+  }
+
   return result;
 };
