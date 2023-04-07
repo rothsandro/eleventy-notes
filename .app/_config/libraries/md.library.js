@@ -46,7 +46,6 @@ module.exports = (eleventyConfig) => {
 
   const lib = markdownIt({
     html: true,
-    breaks: true,
     linkify: true,
   })
     .use(markdownItTaskCheckbox)

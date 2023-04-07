@@ -1,10 +1,12 @@
 const operators = require("./query-operators");
 const ValueParser = require("./value-parser");
+const TreeGenerator = require("./tree-generator");
 
 module.exports = class QueryRunner {
-  constructor(items, query) {
+  constructor(items, query, slugify) {
     this.items = items;
     this.query = query;
+    this.slugify = slugify;
   }
 
   run() {
@@ -15,8 +17,15 @@ module.exports = class QueryRunner {
       result = filter.run();
     }
 
+    if (this.query.tree) {
+      const tree = new TreeGenerator(result, this.query.tree, this.slugify);
+      result = tree.run();
+    }
+
     if (this.query.sort) {
-      const sorter = new QuerySorter(result, this.query.sort);
+      const sorter = this.query.tree
+        ? new RecursiveQuerySorter(result, this.query.sort)
+        : new QuerySorter(result, this.query.sort);
       result = sorter.run();
     }
 
@@ -82,6 +91,27 @@ class QueryFilter {
   }
 }
 
+class RecursiveQuerySorter {
+  constructor(items, sortConfig) {
+    this.items = items;
+    this.sortConfig = sortConfig;
+  }
+
+  run() {
+    return this.sortItems(this.items);
+  }
+
+  sortItems(items) {
+    const sorter = new QuerySorter(items, this.sortConfig);
+    const sortedItems = sorter.run();
+
+    return sortedItems.map((item) => ({
+      ...item,
+      children: this.sortItems(item.children),
+    }));
+  }
+}
+
 class QuerySorter {
   constructor(items, config) {
     this.items = items;
@@ -129,6 +159,9 @@ class QuerySorter {
   }
 
   compareValues(a, b) {
+    const emptyValues = new Set([undefined, null]);
+    if (emptyValues.has(a) && !emptyValues.has(b)) return 1;
+    if (!emptyValues.has(a) && emptyValues.has(b)) return -1;
     return a < b ? -1 : a > b ? 1 : 0;
   }
 }
