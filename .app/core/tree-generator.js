@@ -25,13 +25,13 @@ module.exports = class TreeGenerator {
 
       let [parent, current] = [undefined, tree];
       parts.forEach((part, idx) => {
-        let item = current.find((i) => i.__treeName === part);
+        let item = current.find((i) => i.$treeName === part);
         if (!item) {
           const currentParts = parts.slice(0, idx + 1);
 
           item = {
-            __treeKey: currentParts.map(this.slugify).join("--"),
-            __treeName: part,
+            $treeKey: currentParts.map(this.slugify).join("--"),
+            $treeName: part,
             [this.options.titleProp]: part,
             children: [],
           };
