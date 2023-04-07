@@ -7,6 +7,7 @@ module.exports = (eleventyConfig) => (collectionApi) => {
     tags: parseTags(note.data.tags),
     fileSlug: note.fileSlug,
     filePathStem: note.filePathStem,
+    date: note.date,
     url: note.url,
     data: note.data,
   }));
