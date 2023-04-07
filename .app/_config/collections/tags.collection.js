@@ -7,9 +7,10 @@ module.exports = (eleventyConfig) => (collectionApi) => {
     .filter((tag, idx, list) => list.indexOf(tag) === idx)
     .map((tag) => ({
       url: `/tags/${slugify(tag)}/`,
-      name: tag,
+      title: tag,
+      notes: collectionApi.getFilteredByTag(tag),
     }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.title.localeCompare(b.title));
 
   return tagsFromPosts;
 };

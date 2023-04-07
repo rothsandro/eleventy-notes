@@ -13,9 +13,9 @@ panel: false
         <div class="stack" data-stack="6">
           {% for tag in collections.tags %}
             <div class="stack">
-              <h2>#{{ tag.name }}</h2>
+              <h2>#{{ tag.title }}</h2>
               <ul role="list" class="stack">
-                {% for post in collections[tag.name] %}
+                {% for post in collections[tag.title] %}
                   <li>
                     <a href="{{ post.url }}" class="note-link">
                       {{ post.data.title or post.page.fileSlug }}
