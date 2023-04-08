@@ -1,6 +1,7 @@
 ---
 sort: 3
 tags: [deployment]
+isCloudService: true
 ---
 
 You can build and deploy your notes using [Cloudflare Pages](https://pages.cloudflare.com/). Cloudflare Pages is a static site hosting service that can be used to host your notes. It is free for small projects. You will need to create an account on Cloudflare Pages to use this service.

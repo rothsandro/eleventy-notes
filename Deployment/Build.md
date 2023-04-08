@@ -1,6 +1,12 @@
 ---
 sort: 1
 tags: [deployment]
+templateEngineOverride: njk,md
+cloudServiceNotes:
+  sort: ["data.sort"]
+  filter:
+    - ["tags", "includes", "deployment"]
+    - ["data.isCloudService", "isEqual", true]
 ---
 
 Open the terminal and navigate to your project folder. Then run the following command:
@@ -23,4 +29,6 @@ ELEVENTY_NOTES_PATH_PREFIX=/docs/ npm run build
 
 ## Cloud Services
 
-Instead of building the files locally, you can also use a service like [[Netlify]], [[Cloudflare Pages]] or [[GitLab Pages]].
+Instead of building the files locally, you can also use a cloud service. Here are instructions for some popular services:
+
+{{ collections.notes | query(cloudServiceNotes) | renderAsList | safe }}
