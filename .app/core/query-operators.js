@@ -3,7 +3,19 @@ module.exports = {
     return normalizeValue(applyOn) === normalizeValue(filterValue);
   },
   isNotEqual(applyOn, filterValue) {
-    return normalizeValue(applyOn) !== normalizeValue(filterValue);
+    return !this.isEqual(applyOn, filterValue);
+  },
+  isGreaterThan(applyOn, filterValue) {
+    return applyOn > filterValue;
+  },
+  isGreaterThanOrEqual(applyOn, filterValue) {
+    return applyOn >= filterValue;
+  },
+  isLessThan(applyOn, filterValue) {
+    return applyOn < filterValue;
+  },
+  isLessThanOrEqual(applyOn, filterValue) {
+    return applyOn <= filterValue;
   },
   isEmpty(applyOn) {
     if (applyOn === "") return true;
@@ -16,32 +28,33 @@ module.exports = {
     return false;
   },
   isNotEmpty(applyOn, filterValue) {
-    return this.isEmpty(applyOn, filterValue) === false;
+    return !this.isEmpty(applyOn, filterValue);
   },
-  contains(applyOn, filterValue) {
-    if (typeof applyOn === "string") {
-      return applyOn.toLowerCase().includes(filterValue.toLowerCase());
+  includes(applyOn, filterValue) {
+    applyOn = normalizeValue(applyOn);
+    filterValue = normalizeValue(filterValue);
+
+    if (Array.isArray(applyOn)) return applyOn.includes(filterValue);
+
+    if (typeof applyOn === "string" && typeof filterValue === "string") {
+      return applyOn.includes(filterValue);
     }
+
     return false;
+  },
+  doesNotInclude(applyOn, filterValue) {
+    return !this.includes(applyOn, filterValue);
   },
   includesAnyOf(applyOn, filterValue) {
-    if (Array.isArray(applyOn) && Array.isArray(filterValue)) {
-      applyOn = normalizeValue(applyOn);
-      filterValue = normalizeValue(filterValue);
-      return filterValue.some((value) => applyOn.includes(value));
-    }
-    return false;
+    if (!Array.isArray(filterValue)) return false;
+    return filterValue.some((val) => this.includes(applyOn, val));
   },
   includesAllOf(applyOn, filterValue) {
-    if (Array.isArray(applyOn) && Array.isArray(filterValue)) {
-      applyOn = normalizeValue(applyOn);
-      filterValue = normalizeValue(filterValue);
-      return filterValue.every((value) => applyOn.includes(value));
-    }
-    return false;
+    if (!Array.isArray(filterValue)) return false;
+    return filterValue.every((val) => this.includes(applyOn, val));
   },
   includesNoneOf(applyOn, filterValue) {
-    return this.includesAnyOf(applyOn, filterValue) === false;
+    return !this.includesAnyOf(applyOn, filterValue);
   },
   matches: (applyOn, filterValue) => {
     if (typeof applyOn === "string") {
