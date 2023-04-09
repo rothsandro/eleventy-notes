@@ -2,7 +2,7 @@ const ValueParser = require("./../../core/value-parser");
 const html = require("nanohtml");
 
 module.exports = () => (data, options) => {
-  return html`<ul>
+  return html`<ul data-link-list>
     ${data.map((item) => createItem(item, options))}
   </ul>`;
 };

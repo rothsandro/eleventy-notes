@@ -45,10 +45,19 @@
   ul,
   ol {
     padding-inline-start: var(--space-4);
+
+    ul,
+    ol {
+      margin-block-start: 0.3em;
+    }
+
+    &[data-link-list] a:not(:hover) {
+      text-decoration: none;
+    }
   }
 
   li + li {
-    margin-block-start: 0.2em;
+    margin-block-start: 0.3em;
   }
 
   h1 {
