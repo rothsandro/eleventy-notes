@@ -2,11 +2,9 @@ const ValueParser = require("./../../core/value-parser");
 const html = require("nanohtml");
 
 module.exports = () => (data, options) => {
-  return html`
-    <ul>
-      ${data.map((item) => createItem(item, options))}
-    </ul>
-  `;
+  return html`<ul>
+    ${data.map((item) => createItem(item, options))}
+  </ul>`;
 };
 
 function createItem(item, options = {}) {
@@ -26,9 +24,7 @@ function createItem(item, options = {}) {
 function createChildList(children, options) {
   if (!Array.isArray(children) || children.length === 0) return null;
 
-  return html`
-    <ul>
-      ${children.map((item) => createItem(item, options))}
-    </ul>
-  `;
+  return html`<ul>
+    ${children.map((item) => createItem(item, options))}
+  </ul>`;
 }
