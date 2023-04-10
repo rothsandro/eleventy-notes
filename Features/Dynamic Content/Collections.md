@@ -1,4 +1,4 @@
-Eleventy Notes provides a number of collections that you can use in your notes. These collections are available in the `collections` object.
+Eleventy Notes provides a number of collections that you can use in your notes.
 
 ## Notes
 
@@ -16,11 +16,11 @@ Eleventy Notes provides a number of collections that you can use in your notes. 
     // Filename without extension
     fileSlug: "My Note",
 
-    // Filepath without without extension
-    filePathStem: "My Folder/My Note",
+    // Filepath without extension
+    filePathStem: "/My Folder/My Note",
 
     // The URL of the note
-    url: "/my-folder/my-note/",
+    url: "/n/my-folder/my-note/",
 
     // The date of the note
     date: new Date(),

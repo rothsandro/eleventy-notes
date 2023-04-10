@@ -8,7 +8,7 @@ Below you will find an example of using these features to render a list of featu
 
 ## Example: Featured notes
 
-You may want to create a list of featured notes on the [[Start page]]. You can create this list manually using [[Wiklinks]] or, as we will see in this example, you can use Eleventy Notes' dynamic content features to render the list dynamically.
+You may want to create a list of featured notes on the [[Start page]]. You can create this list manually using [[Wikilinks]] or, as we will see in this example, you can use Eleventy Notes' dynamic content features to render the list dynamically.
 
 ### 1. Define featured notes
 
@@ -60,6 +60,6 @@ templateEngineOverride: njk, md
 {{ collections.notes | query(featuredNotes) | renderAsList | safe }}
 ```
 
-We first access our notes using the collection `collections.notes`. Then we apply the query `featuredNotes` using the `query` filter. Finally, we render the result as a list using the `renderAsList` filter and the `safe` filter to prevent the HTML from being escaped.
+We first access our notes using the collection `collections.notes`. Then we apply our `featuredNotes` query using the `query` filter. Finally, we render the result as a list using the `renderAsList` filter and the `safe` filter to prevent the HTML from being escaped.
 
 Now open the page in the browser and should see a list of featured notes. If you click on one of the links, you should be redirected to the note.

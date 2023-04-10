@@ -1,8 +1,26 @@
 Queries allow you to filter, sort and manipulate data collections. Queries can be used on [[Collections]] provided by Eleventy Notes or any other list of objects you want to manipulate.
 
-## Filtering
+## Usage
 
-The `filter` property allows you to filter the data collection. The `filter` property is an array of filter rows. Each filter row is an array with three elements: the property to filter on, the operator and the value to filter on.
+Define a query in the front matter of a note and use the `query` filter to apply it to a list of objects.
+
+```md
+---
+myQuery:
+  filter: ... # see below
+  sort: ... # see below
+---
+
+# My Notes
+
+{{ collections.notes | query(myQuery) }}
+```
+
+## Query Properties
+
+### Filtering
+
+The `filter` property allows you to filter the data collection. The `filter` property is an array of filter rows. Each filter row is an array with three elements: the property to filter on, the operator and the value of the operator.
 
 ```yml
 myQuery:
@@ -17,7 +35,7 @@ myQuery:
     - ["tags", "includes", "book"]
 ```
 
-### Operators
+#### Operators
 
 The following operators are available:
 
@@ -38,7 +56,7 @@ The following operators are available:
 | `includesNoneOf`       | The property must include none of the values            |
 | `matches`              | The property must match the given RegEx pattern         |
 
-### And / Or
+#### And / Or
 
 By default, all provided conditions must match. You can change this behavior by passing an object with either an `and` or `or` property. These objects can also be nested:
 
@@ -56,7 +74,7 @@ myQuery:
 
 The example above filters all notes that have the tag `book` OR that have the title `Book:` AND no tags.
 
-## Sorting
+### Sorting
 
 The `sort` property allows you to sort the data collection. The `sort` property is an array of sort rows. Each sort row is an array with two elements: the property to sort on and the sort direction.
 
@@ -73,7 +91,7 @@ myQuery:
     - ["title", "desc"]
 ```
 
-## Tree
+### Tree
 
 The `tree` property allows you to transform the data collection into a tree structure. The tree is created by a path property that is split on a separator.
 
@@ -113,9 +131,9 @@ If `tree` is enabled, it will transform each item in the collection into a tree 
 ];
 ```
 
-## Offset and Limit
+### Offset and Limit
 
-The `offset` and `limit` properties allow you to limit the number of items in the data collection.
+The `offset` and `limit` properties allow you to limit the number of items returned by the query.
 
 ```yml
 myQuery:

@@ -1,4 +1,4 @@
-Eleventy Notes provides a `renderAsList` filter that renders a list:
+The `renderAsList` filter renders the given collection as a list.
 
 ```njk
 {{ collections.notes | renderAsList | safe }}
