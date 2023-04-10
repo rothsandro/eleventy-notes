@@ -1,7 +1,20 @@
-module.exports = () => (collectionApi) => {
-  return collectionApi.getFilteredByGlob("../**/*.md").sort((a, b) => {
-    const nameA = a.data.title || a.fileSlug;
-    const nameB = b.data.title || b.fileSlug;
-    return nameA.localeCompare(nameB);
-  });
+const notesCollection = require("./_notes.collection");
+
+module.exports = (eleventyConfig) => (collectionApi) => {
+  const notes = notesCollection(eleventyConfig)(collectionApi);
+  return notes.map((note) => ({
+    title: note.data.title || note.page.fileSlug,
+    tags: parseTags(note.data.tags),
+    fileSlug: note.fileSlug,
+    filePathStem: note.filePathStem,
+    date: note.date,
+    url: note.url,
+    data: note.data,
+  }));
 };
+
+function parseTags(tags) {
+  if (Array.isArray(tags)) return tags;
+  if (typeof tags === "string") return [tags];
+  return [];
+}

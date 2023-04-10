@@ -34,7 +34,7 @@
   </div>
   {% endif %}
 
-  {% set links = collections.links[page.url]() %}
+  {% set links = collections._links[page.url]() %}
 
   {% if links.incoming | length %}
   <div class="grouped-links">

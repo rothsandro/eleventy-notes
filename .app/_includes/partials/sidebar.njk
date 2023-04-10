@@ -19,7 +19,7 @@
           class="nav-list__link"
         >
           {{ 'home' | feather | safe }}
-          {% set home = (collections.notes | home) %}
+          {% set home = (collections._notes | home) %}
           <span>{{ home.data.title if home else 'Home' }}</span>
         </a>
       </li>
@@ -94,10 +94,10 @@
     </nav>
   </template>
 
-  {% if collections.sidebarNotes.length %}
+  {% if collections._sidebarNotes.length %}
     <nav aria-labelledby="app:sidebar:section:notes" class="nav-section">
       <h3 id="app:sidebar:section:notes" class="nav-section__title">Notes</h3>
-      {% for group in collections.sidebarNotes %}
+      {% for group in collections._sidebarNotes %}
         <div
           class="nav-group"
           {% if group.label %}
@@ -143,7 +143,7 @@
             class="nav-list__link"
           >
             {{ 'hash' | featherRef | safe }}
-            <span>{{ tag.name }}</span>
+            <span>{{ tag.title }}</span>
           </a>
         </li>
         {% endfor %}

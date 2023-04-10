@@ -9,7 +9,7 @@ class Index {
   render({ collections }) {
     return JSON.stringify(
       Object.fromEntries(
-        collections.notes.map((note) => [
+        collections._notes.map((note) => [
           this.htmlBaseUrl(note.url),
           note.data.title || note.page.fileSlug,
         ])

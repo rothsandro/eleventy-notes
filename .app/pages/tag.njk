@@ -6,8 +6,8 @@ pagination:
   addAllPagesToCollections: true
 layout: "layouts/base.njk"
 eleventyComputed:
-  title: "Tag #{{ tag.name }}"
-permalink: /tags/{{ tag.name | slugify }}/
+  title: "Tag #{{ tag.title }}"
+permalink: /tags/{{ tag.title | slugify }}/
 panel: false
 ---
 
@@ -15,9 +15,9 @@ panel: false
   <div class="page" data-panel="false">
     <div class="page__wrapper">
       <div class="page__main">
-        <h1 class="page__title">#{{ tag.name }}</h1>
+        <h1 class="page__title">#{{ tag.title }}</h1>
         <ul role="list" class="stack">
-          {% for post in collections[tag.name] | sortByTitle(tag.name) %}
+          {% for post in collections[tag.title] | sortByTitle(tag.title) %}
             <li>
               <a href="{{ post.url }}" class="note-link">
                 {{ post.data.title or post.page.fileSlug }}

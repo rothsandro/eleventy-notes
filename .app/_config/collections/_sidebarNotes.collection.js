@@ -1,5 +1,5 @@
-const appData = require("./../../_data/app");
-const notesCollection = require("./notes.collection");
+const appData = require("../../_data/app");
+const notesCollection = require("./_notes.collection");
 
 module.exports = (eleventyConfig) => (collectionApi) => {
   const slugify = eleventyConfig.getFilter("slugify");

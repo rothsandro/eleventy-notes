@@ -11,7 +11,7 @@ class SearchIndex {
 
   render({ collections }) {
     return JSON.stringify({
-      notes: collections.notes.map((note) => {
+      notes: collections._notes.map((note) => {
         const content = this.cleanUpContent(note.content);
 
         return {

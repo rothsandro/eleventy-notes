@@ -11,7 +11,7 @@ panel: false
       <div class="page__main">
         <h1 class="page__title">Notes</h1>
         <ul role="list" class="stack">
-          {% for note in collections.notes %}
+          {% for note in collections._notes %}
             {% if note.url !== '/' %}
               <li>
                 <a href="{{ note.url }}" class="note-link">

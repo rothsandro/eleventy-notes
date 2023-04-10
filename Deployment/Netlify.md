@@ -1,6 +1,7 @@
 ---
 sort: 2
 tags: [deployment]
+isCloudService: true
 ---
 
 You can build and deploy your notes using [Netlify](https://www.netlify.com/). Netlify is a static site hosting service that can be used to host your notes. It is free for small projects. You will need to create an account on Netlify to use this service.
