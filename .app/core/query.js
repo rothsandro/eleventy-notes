@@ -3,10 +3,9 @@ const ValueParser = require("./value-parser");
 const TreeGenerator = require("./tree-generator");
 
 module.exports = class QueryRunner {
-  constructor(items, query, slugify) {
+  constructor(items, query) {
     this.items = items;
     this.query = query;
-    this.slugify = slugify;
   }
 
   run() {
@@ -18,7 +17,7 @@ module.exports = class QueryRunner {
     }
 
     if (this.query.tree) {
-      const tree = new TreeGenerator(result, this.query.tree, this.slugify);
+      const tree = new TreeGenerator(result, this.query.tree);
       result = tree.run();
     }
 

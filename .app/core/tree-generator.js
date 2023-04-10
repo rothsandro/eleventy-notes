@@ -1,10 +1,9 @@
 const ValueParser = require("./value-parser");
 
 module.exports = class TreeGenerator {
-  constructor(data, options, slugify) {
+  constructor(data, options) {
     this.data = data;
     this.options = this.normalize(options);
-    this.slugify = slugify;
   }
 
   normalize(options) {
@@ -13,6 +12,7 @@ module.exports = class TreeGenerator {
       pathProp: Array.isArray(options?.pathProp)
         ? options.pathProp
         : [options.pathProp || "filePathStem"],
+      expanded: options?.expanded ?? true,
       replace: options?.replace ?? {},
     };
   }
@@ -32,6 +32,10 @@ module.exports = class TreeGenerator {
           item = {
             $treeKey: currentParts.map(this.slugify).join("--"),
             $treeName: part,
+            $treeExpanded: this.getInitialExpandedState(
+              `/${currentParts.join("/")}`,
+              idx + 1
+            ),
             [this.options.titleProp]: part,
             children: [],
           };
@@ -64,5 +68,24 @@ module.exports = class TreeGenerator {
     }
 
     return "";
+  }
+
+  getInitialExpandedState(path, depth) {
+    const config = this.options.expanded;
+    if (typeof config === "boolean") return config;
+    if (typeof config === "number") return depth <= config;
+    if (typeof config === "string") {
+      const pattern = new RegExp(config, "i");
+      return pattern.test(path);
+    }
+
+    return true;
+  }
+
+  slugify(value) {
+    return value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)+/g, "");
   }
 };

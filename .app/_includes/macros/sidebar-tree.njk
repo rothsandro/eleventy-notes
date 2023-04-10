@@ -3,30 +3,30 @@
     {% for item in tree %}
       <li
         {% if item.children.length %}
-          x-data="collapsible('app:sidebar:section:notes:group:{{group.id}}:tree:{{item.key}}', {{ item.expanded }})"
+          x-data="collapsible('app:sidebar:section:notes:group:{{group.id}}:tree:{{item.$treeKey}}', {{ item.$treeExpanded }})"
         {% endif %}
       >
-        {% if item.note %}
+        {% if item.url %}
           <div class="nav-list__link-with-toggle">
             <a
-              href="{{ item.note.url }}"
-              {{ item.note.url | ariaCurrent(page) }}
+              href="{{ item.url }}"
+              {{ item.url | ariaCurrent(page) }}
               class="nav-list__link"
             >
-              <span>{{ item.label }}</span>
+              <span>{{ item.title }}</span>
             </a>
             {% if item.children.length %}
               <button
                 type="button"
                 class="nav-list__link nav-list__toggle"
-                aria-controls="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.key }}:list"
+                aria-controls="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.$treeKey }}:list"
                 aria-expanded="true"
                 :aria-expanded="expanded"
                 @click="toggle()"
               >
                 {{ 'chevron-right' | feather | safe }}
                 <span class="visually-hidden">
-                  Toggle {{ item.label }}
+                  Toggle {{ item.title }}
                 </span>
               </button>
             {% endif %}
@@ -35,18 +35,18 @@
           <button
             type="button"
             class="nav-list__link nav-list__toggle"
-            aria-controls="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.key }}:list"
+            aria-controls="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.$treeKey }}:list"
             aria-expanded="true"
             :aria-expanded="expanded"
             @click="toggle()"
           >
-            <span>{{ item.label }}</span>
+            <span>{{ item.title }}</span>
             {{ 'chevron-right' | feather | safe }}
           </button>
         {% endif %}
 
         {% if item.children.length %}
-          <div x-show="expanded" id="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.key }}:list">
+          <div x-show="expanded" id="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.$treeKey }}:list">
             {{ sidebarTree(item.children, group, page) }}
           </div>
         {% endif %}
