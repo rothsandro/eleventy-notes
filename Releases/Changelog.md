@@ -4,6 +4,14 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.9.0 (April 10, 2023)
+
+- ✨ Added collections to give you access to your notes and tags
+- ✨ Added queries to let you filter and sort your notes / tags or other data collections
+- ✨ Added `renderAsList` filter to render collections as (nested) lists
+- ✨ Added support for deployments in subdirectories
+- 🐛 Fixed a bug that anchor scrolling on page load did not work in some cases
+
 ## Version 0.8.2 (March 28, 2023)
 
 - 🐛 Fixed footnotes
