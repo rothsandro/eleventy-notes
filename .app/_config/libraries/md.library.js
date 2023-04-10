@@ -4,31 +4,16 @@ const markdownItTaskCheckbox = require("markdown-it-task-checkbox");
 const markdownItWikilinks = require("markdown-it-wikilinks");
 const markdownItFootnote = require("markdown-it-footnote");
 
-const glob = require("glob");
-const path = require("path");
-const inputDir = path.join(__dirname, "../../../");
-
 module.exports = (eleventyConfig) => {
-  // Find all notes in the root. This is not exactly the same as the notes collection
-  // (e.g. files excluded via .eleventyignore are not excluded) but it's close enough
-  // for our purposes (hopefully).
-  const mdFiles = glob
-    .sync("**/*.md", { cwd: inputDir })
-    .map((file) => file.toLowerCase().replace(/\.md$/, ""));
+  let notesPaths = [];
 
   function resolvePageName(pageName) {
     pageName = pageName.toLowerCase();
 
-    // Wikilinks are always absolute. We can check if the file exists and, if not,
-    // search for a file with the same name in any folder and use that instead (if it exists).
-    // We cannot support relative wikilinks with this approach because we don't know
-    // on which page we are currently on.
-    if (!mdFiles.includes(pageName)) {
-      const fileByName = mdFiles.find((f) => f.split("/").pop() === pageName);
-      pageName = fileByName || pageName;
-    }
+    if (notesPaths.includes(pageName)) return pageName;
 
-    return pageName;
+    const fileByName = notesPaths.find((p) => p.endsWith(`/${pageName}`));
+    return fileByName || pageName;
   }
 
   const wikiLinks = markdownItWikilinks({
@@ -60,6 +45,14 @@ module.exports = (eleventyConfig) => {
         level: [1, 2, 3, 4],
       }),
     });
+
+  const originalRender = lib.render;
+  lib.render = (str, data) => {
+    notesPaths = data.collections._notes.map((n) =>
+      n.filePathStem.replace(/^\//, "").toLowerCase()
+    );
+    return originalRender.call(lib, str, data);
+  };
 
   return lib;
 };
