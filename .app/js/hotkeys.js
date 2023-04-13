@@ -2,8 +2,10 @@ import { Alpine } from "./alpine";
 
 Alpine.store("hotkeys", {
   async register(shortcut, callback) {
-    const hotkeys = await import("hotkeys-js").then((m) => m.default);
-    hotkeys(shortcut, (event) => {
+    window.addEventListener("keypress", (event) => {
+      if (event.defaultPrevented) return;
+      if (event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (!event.altKey || event.code !== shortcut) return;
       event.preventDefault();
       callback();
     });

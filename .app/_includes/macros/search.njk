@@ -1,6 +1,6 @@
 {% macro searchInput(mode) %}
   {% set placeholder = 'Quick find (alt+f)' if mode == 'overlay' else 'Search' %}
-  {% set init = "$store.hotkeys.register('alt+f', () => $el.focus())" if mode === 'overlay' else null %}
+  {% set init = "$store.hotkeys.register('KeyF', () => $el.focus())" if mode === 'overlay' else null %}
   {% set id = uniqueId() %}
 
   {% if mode === 'inline' %}
