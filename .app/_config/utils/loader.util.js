@@ -2,9 +2,6 @@ const fs = require("fs");
 const path = require("path");
 
 const configs = {
-  before: function (eleventyConfig, before) {
-    eleventyConfig.on("eleventy.before", before);
-  },
   collections: function (eleventyConfig, colFactory, name) {
     eleventyConfig.addCollection(name, colFactory(eleventyConfig));
   },
@@ -19,9 +16,6 @@ const configs = {
   },
   plugins: function (eleventyConfig, plugin) {
     eleventyConfig.addPlugin(...plugin);
-  },
-  watchtargets: function (eleventyConfig, watchTarget) {
-    eleventyConfig.addWatchTarget(watchTarget);
   },
 };
 
