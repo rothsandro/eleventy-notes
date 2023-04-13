@@ -1,5 +1,6 @@
 const { stripHtml } = require("string-strip-html");
 const { parse } = require("node-html-parser");
+const crypto = require("crypto");
 
 class SearchIndex {
   data() {
@@ -15,6 +16,7 @@ class SearchIndex {
         const content = this.cleanUpContent(note.content);
 
         return {
+          id: `n-${crypto.randomUUID().substring(0, 8)}`,
           title: note.data.title || note.page.fileSlug,
           tags: note.data.tags ?? [],
           url: this.htmlBaseUrl(note.url),

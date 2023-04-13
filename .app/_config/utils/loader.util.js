@@ -11,6 +11,9 @@ const configs = {
   filters: function (eleventyConfig, filterFactory, name) {
     eleventyConfig.addFilter(name, filterFactory(eleventyConfig));
   },
+  globals: function (eleventyConfig, globalFactory, name) {
+    eleventyConfig.addNunjucksGlobal(name, globalFactory(eleventyConfig));
+  },
   libraries: function (eleventyConfig, lib, name) {
     eleventyConfig.setLibrary(name, lib(eleventyConfig));
   },

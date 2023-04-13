@@ -10,19 +10,28 @@ Alpine.data("search", () => ({
   open: false,
   term: "",
   results: null,
-  selectedIndex: 0,
-
-  get isBusy() {
-    return this._index$ === null;
-  },
+  selectedId: null,
 
   init() {
     this.$watch("term", async () => {
       this.results = await this.search();
       this.open = true;
-      this.selectedIndex = 0;
-      this.announceSelected();
+      this.selectedId = this.results[0]?.id ?? null;
     });
+  },
+
+  get selectedIdx() {
+    return this.results.findIndex((r) => r.id === this.selectedId);
+  },
+
+  selectPrevResult() {
+    const newIdx = Math.max(0, this.selectedIdx - 1);
+    this.selectedId = this.results[newIdx].id;
+  },
+
+  selectNextResult() {
+    const newIdx = Math.min(this.results.length - 1, this.selectedIdx + 1);
+    this.selectedId = this.results[newIdx].id;
   },
 
   onKeyDown(event) {
@@ -32,23 +41,16 @@ Alpine.data("search", () => ({
         break;
       case "ArrowUp":
         event.preventDefault();
-        this.selectedIndex = Math.max(0, this.selectedIndex - 1);
-        this.announceSelected();
+        this.results && this.selectPrevResult();
         break;
       case "ArrowDown":
         event.preventDefault();
-        this.selectedIndex = Math.min(
-          this.results.length - 1,
-          this.selectedIndex + 1
-        );
-        this.announceSelected();
+        this.results && this.selectNextResult();
         break;
       case "Enter":
         event.preventDefault();
-        const result = this.results[this.selectedIndex];
-        if (result) {
-          window.location.href = result.url;
-        }
+        const result = this.results?.[this.selectedIdx];
+        if (result) window.location.href = result.url;
         break;
     }
   },
@@ -120,13 +122,5 @@ Alpine.data("search", () => ({
       .map((file) => notes.find((n) => n.url === file))
       .filter(Boolean);
     return foundNotes;
-  },
-
-  announceSelected() {
-    const result = this.results[this.selectedIndex];
-    if (result) {
-      const text = `${result.title}, selected`;
-      Alpine.store("announce").announce(text);
-    }
   },
 }));

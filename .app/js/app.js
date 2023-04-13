@@ -1,6 +1,5 @@
 import { Alpine } from "./alpine.js";
 
-import "./announce";
 import "./appearance";
 import "./collapsible";
 import "./favorites";

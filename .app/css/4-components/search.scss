@@ -78,7 +78,7 @@
   transition: all 200ms ease;
   text-decoration: none;
 
-  &[data-selected="true"] {
+  &[aria-selected="true"] {
     background-color: var(--color-primary-bgSubtle);
   }
 }
