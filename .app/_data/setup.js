@@ -8,7 +8,7 @@ module.exports = () => {
     env: runMode === "build" ? "production" : "development",
     css: {
       input: `css/app.${appConfig.theme.color}.scss`,
-      output: `/css/app.${appConfig.theme.color}.css`,
+      output: `/app.${appConfig.theme.color}.css`,
     },
   };
 };

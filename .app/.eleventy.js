@@ -5,7 +5,7 @@ module.exports = (eleventyConfig) => {
   loader([__dirname, "_config"], eleventyConfig);
 
   eleventyConfig.setServerOptions({
-    watch: ["dist/js/app.js", "dist/css/app.*.css"],
+    watch: ["dist/app.js", "dist/app.*.css"],
   });
 
   return {
