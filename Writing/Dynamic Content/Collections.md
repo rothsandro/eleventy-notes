@@ -1,3 +1,7 @@
+---
+tags: [writing, dynamic-content]
+---
+
 Eleventy Notes provides a number of collections that you can use in your notes.
 
 ## Notes

@@ -1,8 +1,9 @@
 ---
-tags: [feature]
+sort: 3
+tags: writing
 ---
 
-Use Wikilinks to create links to other notes. They will automatically be converted to the correct URL. Wikilinks are case-insensitive and can contain spaces. In addition, you will see all incoming links (aka backlinks) to a note in the panel on the right.
+Use Wikilinks to create links to other notes. They will automatically be converted to the correct URL. Wikilinks are case-insensitive and can contain spaces. In addition, you will see all incoming links (aka backlinks) to a note in the [[Panel]] on the right.
 
 # Syntax
 

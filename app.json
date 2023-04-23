@@ -18,12 +18,27 @@
         "pattern": "^/[^/]+$"
       },
       {
-        "pattern": "^/Features/",
-        "label": "Features",
+        "pattern": "^/Writing/",
+        "label": "Writing Notes",
         "expanded": false,
         "tree": {
           "replace": {
-            "^/Features": ""
+            "^/\\w+": ""
+          }
+        }
+      },
+      {
+        "pattern": "^/Organizing/",
+        "label": "Organizing Notes",
+        "expanded": false
+      },
+      {
+        "pattern": "^/Features/",
+        "label": "Core Features",
+        "expanded": false,
+        "tree": {
+          "replace": {
+            "^/\\w+": ""
           }
         }
       },

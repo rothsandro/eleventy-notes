@@ -1,3 +1,7 @@
+---
+tags: [writing, dynamic-content]
+---
+
 Queries allow you to filter, sort and manipulate data collections. Queries can be used on [[Collections]] provided by Eleventy Notes or any other list of objects you want to manipulate.
 
 ## Usage

@@ -1,3 +1,7 @@
+---
+tags: [writing, dynamic-content]
+---
+
 Besides static content written in Markdown, you can render dynamic content, like a filtered list of your notes. Eleventy Notes provides a set of features for this purpose:
 
 - [[Collections]] give you access to your notes and tags

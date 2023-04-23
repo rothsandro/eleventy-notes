@@ -1,8 +1,9 @@
 ---
+sort: 2
 tags: [feature]
 ---
 
-_Eleventy Notes_ automatically creates an index of all of your notes. Use the search in the top right corner or the separate search page. You can search for both, the title and content.
+Eleventy Notes automatically creates an index of all of your notes. Use the search in the top right corner or the separate search page. You can search for both, the title and content.
 
 # Filter by tags
 

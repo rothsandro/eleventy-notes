@@ -1,3 +1,7 @@
+---
+tags: [writing, dynamic-content]
+---
+
 The `renderAsList` filter renders the given collection as a list.
 
 ```njk

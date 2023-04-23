@@ -6,7 +6,7 @@ The sidebar with the main navigation of the app shows links to the start page, y
 
 ## Start page
 
-The first link in the sidebar is always the start page. The start page is the first page that is shown when you open the app. See [[Features/Start page|Start page]] for more information.
+The first link in the sidebar is always the start page. The start page is the first page that is shown when you open the app. See [[Start page]] for more information.
 
 ## Additional links
 
@@ -14,7 +14,7 @@ You can add additional links to the sidebar. See [[Additional Links]] for more i
 
 ## Favorites
 
-If you add a note as [[Features/Favorites|Favorite]], a new section _Favorites_ will automatically appear in the sidebar, showing all your favorites.
+If you add a note to your [[Favorites]], a new section _Favorites_ will automatically appear in the sidebar, showing all your favorites.
 
 ## Notes
 

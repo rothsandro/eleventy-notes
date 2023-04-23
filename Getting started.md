@@ -41,4 +41,4 @@ After a few seconds you should see something like this:
 [11ty] Server at http://localhost:8080/
 ```
 
-The project is now running and you can open it in your browser at [http://localhost:8080/](http://localhost:8080/). Now you are ready to write your first note. Move on to the next section [[Writing Notes]].
+The project is now running and you can open it in your browser at [http://localhost:8080/](http://localhost:8080/). Now you are ready to write [[your first note]].
