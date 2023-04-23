@@ -30,13 +30,13 @@ You can add images to your notes using a relative file path:
 You can use task lists with checkboxes:
 
 ```md
-- [ ] Taks 1
+- [ ] Task 1
 - [ ] Task 2
 - [x] Completed task
 ```
 
 This will render a list with checkboxes:
 
-- [ ] Taks 1
+- [ ] Task 1
 - [ ] Task 2
 - [x] Completed task

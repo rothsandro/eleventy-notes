@@ -61,7 +61,7 @@ tags: [release]
 
 ## Version 0.2.2 (February 10, 2023)
 
-- 🧑‍💻 Replaced svg files with icon filter
+- 🧑‍💻 Replaced SVG files with icon filter
 
 ## Version 0.2.1 (February 09, 2023)
 
