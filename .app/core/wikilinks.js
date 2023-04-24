@@ -29,11 +29,19 @@ module.exports = (md, options) => {
   }
 
   function processMatch(match, env) {
-    const [, pageName, , label = pageName] = match;
-    const page = findMatchingPage(pageName, env);
-    const href = page ? page.url : options.slugify(`/${pageName}`);
+    const [, path, , text] = match;
+    const { file, hash } = processPath(path);
+    const page = findMatchingPage(file, env);
+    const label = createLabel(text, file);
+
+    let href = page ? page.url : options.slugify(`/${pageName}`);
+    hash && (href += `#${options.slugify(hash)}`);
 
     return { href, label };
+  }
+
+  function createLabel(text, file) {
+    return text || file;
   }
 
   function findMatchingPage(pageName, env) {
@@ -45,6 +53,12 @@ module.exports = (md, options) => {
       pages.find((f) => normalizePath(f.filePathStem).endsWith(`/${pageName}`));
 
     return match;
+  }
+
+  function processPath(path) {
+    const [file, ...hashes] = path.split("#");
+    const hash = hashes.join("#");
+    return { file, hash };
   }
 
   function normalizePath(path) {
