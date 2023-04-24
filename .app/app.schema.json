@@ -147,6 +147,26 @@
           }
         }
       }
+    },
+    "wikilinks": {
+      "type": "object",
+      "description": "The configuration for wikilinks",
+      "default": {
+        "autoLabel": "ref",
+        "anchorLabel": "none"
+      },
+      "properties": {
+        "autoLabel": {
+          "type": "string",
+          "description": "The automatic label generated for Wikilinks",
+          "enum": ["ref", "title", "fileSlug"]
+        },
+        "anchorLabel": {
+          "type": "string",
+          "description": "How anchors are rendered in Wikilinks",
+          "enum": ["arrow", "parentheses", "hash", "none"]
+        }
+      }
     }
   }
 }

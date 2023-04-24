@@ -34,6 +34,7 @@ In addition to the basic configuration, you can also:
 - Add an edit link to your notes, see [[Edit link]]
 - Customize the notes in the sidebar or add links to other websites, see [[Sidebar]]
 - Change the color scheme, see [[Themes]]
+- Customize the behavior of Wikilinks, see [[Wikilinks#Automatic Label]]
 
 ## Summary
 
@@ -52,6 +53,10 @@ The following example shows the supported configuration options:
   "sidebar": {
     "links": [],
     "notes": [{}]
+  },
+  "wikilinks": {
+    "autoLabel": "ref",
+    "anchorLabel": "none"
   }
 }
 ```

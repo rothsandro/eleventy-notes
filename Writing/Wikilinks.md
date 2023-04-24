@@ -5,7 +5,9 @@ tags: writing
 
 Use Wikilinks to create links to other notes. They will automatically be converted to the correct URL. Wikilinks are case-insensitive and can contain spaces. In addition, you will see all incoming links (aka backlinks) to a note in the [[Panel]] on the right.
 
-# Syntax
+## Syntax
+
+### Basic
 
 Use double square brackets to create a Wikilink.
 
@@ -13,13 +15,23 @@ Use double square brackets to create a Wikilink.
 [[My Note]]
 ```
 
+### Custom Label
+
 Use a pipe to specify the link text.
 
 ```markdown
 [[My Note|My Note Title]]
 ```
 
-# Folders
+### Anchor
+
+Use `#` to link to a specific heading on the page:
+
+```markdown
+[[My Note#Some Heading]]
+```
+
+### Folder
 
 If you want to link to a specific note in a folder you should include the folder (or all folders if nested):
 
@@ -27,7 +39,31 @@ If you want to link to a specific note in a folder you should include the folder
 [[Folder/Another Folder/My Note]]
 ```
 
-# How Wikilinks are resolved
+## Automatic Label
+
+A label will automatically be generated from the provided reference if you omit the label. You can customize the behavior in the [[Configuration file]]:
+
+```json
+// /app.json
+{
+  "wikilinks": {
+    // What label to use for wikilinks without a label
+    // - "ref"       Use the reference
+    // - "title"     Use the title of the note (fallback fileSlug)
+    // - "fileSlug"  Use the file slug
+    "autoLabel": "ref",
+
+    // How to include anchors in the auto label
+    // - "arrow"        Use an arrow, e.g. "My Note → Some Heading"
+    // - "parentheses"  Use parentheses, e.g. "My Note (Some Heading)"
+    // - "hash"         Use a hash, e.g. "My Note#Some Heading"
+    // - "none"         Don't include the anchor, e.g. "My Note"
+    "anchorLabel": "none"
+  }
+}
+```
+
+## How Wikilinks are resolved
 
 Wikilinks are resolved in the following way:
 
