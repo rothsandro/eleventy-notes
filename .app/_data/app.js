@@ -10,6 +10,10 @@ const defaultConfig = {
     links: [],
     notes: [{}],
   },
+  wikilinks: {
+    autoLabel: "ref",
+    anchorLabel: "none",
+  },
 };
 
 module.exports = function () {
@@ -34,6 +38,10 @@ function mergeConfigs(a, b) {
     sidebar: {
       ...a.sidebar,
       ...b.sidebar,
+    },
+    wikilinks: {
+      ...a.wikilinks,
+      ...b.wikilinks,
     },
   };
 }

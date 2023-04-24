@@ -32,7 +32,7 @@ module.exports = (md, options) => {
     const [, path, , text] = match;
     const { file, hash } = processPath(path);
     const page = findMatchingPage(file, env);
-    const label = createLabel(text, file);
+    const label = createLabel(text, file, hash, page);
 
     let href = page ? page.url : options.slugify(`/${pageName}`);
     hash && (href += `#${options.slugify(hash)}`);
@@ -40,8 +40,41 @@ module.exports = (md, options) => {
     return { href, label };
   }
 
-  function createLabel(text, file) {
-    return text || file;
+  function createLabel(text, file, hash, page) {
+    if (text) return text;
+
+    let label = file;
+
+    switch (options.autoLabel) {
+      case "title":
+        label = page.data.title || page.fileSlug || file;
+        break;
+      case "fileSlug":
+        label = page.fileSlug || file;
+        break;
+      case "ref":
+      default:
+        break;
+    }
+
+    if (hash) {
+      switch (options.anchorLabel) {
+        case "arrow":
+          label += ` → ${hash}`;
+          break;
+        case "parentheses":
+          label += ` (${hash})`;
+          break;
+        case "hash":
+          label += `#${hash}`;
+          break;
+        case "none":
+        default:
+          break;
+      }
+    }
+
+    return label;
   }
 
   function findMatchingPage(pageName, env) {
