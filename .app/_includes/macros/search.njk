@@ -1,6 +1,5 @@
 {% macro searchInput(mode) %}
-  {% set placeholder = 'Quick find (alt+f)' if mode == 'overlay' else 'Search' %}
-  {% set init = "$store.hotkeys.register('KeyF', () => $el.focus())" if mode === 'overlay' else null %}
+  {% set init = "$store.hotkeys.register('/', () => $el.focus())" if mode === 'overlay' else null %}
   {% set id = uniqueId() %}
 
   {% if mode === 'inline' %}
@@ -21,7 +20,7 @@
       aria-expanded="false"
       :aria-activedescendant="open && selectedId ? `{{ id('result', '') }}${selectedId}` : ''"
       :aria-expanded="open"
-      placeholder="{{ placeholder }}"
+      placeholder="Search"
       class="search__input"
       autocorrect="off"
       autocapitalize="off"
@@ -34,6 +33,9 @@
       @pageshow.window="term = $el.value"
       {{ 'autofocus' if mode === 'inline' else '' }}
     >
+    {% if mode === 'overlay' %}
+      <div class="search__kbd" >Press <kbd>/<kbd></div>
+    {% endif %}
     <template x-if="open{{ '|| true' if mode === 'inline' else '' }}">
       <div class="search__popover" id="{{ id('popup') }}">
         <div x-show="!term" class="search__info">

@@ -4,6 +4,7 @@
 
 .search__input {
   inline-size: 230px;
+  position: relative;
   padding-block: var(--space-2);
   padding-inline: var(--space-5);
   border: none;
@@ -24,6 +25,22 @@
 
   &::placeholder {
     color: var(--color-neutral-placeholder);
+  }
+}
+
+.search__kbd {
+  display: none;
+
+  input:placeholder-shown:not(:focus) + & {
+    display: block;
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: var(--space-4);
+    transform: translateY(-50%);
+    color: var(--color-neutral-placeholder);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    pointer-events: none;
   }
 }
 
