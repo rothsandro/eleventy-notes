@@ -63,6 +63,8 @@ A label will automatically be generated from the provided reference if you omit 
 }
 ```
 
+You may need to restart the app for the changes to take effect.
+
 ## How Wikilinks are resolved
 
 Wikilinks are resolved in the following way:
