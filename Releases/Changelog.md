@@ -4,6 +4,16 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.10.0 (April 27, 2023)
+
+- ✨ Wikilinks can now link to a specific heading, e.g. `[[My Note#My Heading]]`
+- ✨ Auto-generated Wikilink labels are now customizable
+- 📝 Improved and restructured docs
+- ♿️ Improved accessibility of the search
+- ⚡️ Reduced bundle size
+- ♻️ Refactored a few things (Wikilinks, Sidebar, Bundling)
+- 💥 Line breaks in paragraphs are not rendered anymore. Use two spaces at the end of a line to force a line break.
+
 ## Version 0.9.0 (April 10, 2023)
 
 - ✨ Added collections to give you access to your notes and tags
