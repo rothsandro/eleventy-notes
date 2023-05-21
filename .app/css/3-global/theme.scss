@@ -12,11 +12,13 @@ $color: null !default;
 
 body {
   &[data-theme="dark"] {
+    color-scheme: dark;
     @include tokens.build(tokens-color.build($color, $dark: true));
   }
 
   &[data-theme="system"] {
     @media (prefers-color-scheme: dark) {
+      color-scheme: dark;
       @include tokens.build(tokens-color.build($color, $dark: true));
     }
   }
