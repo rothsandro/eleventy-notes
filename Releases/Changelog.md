@@ -4,6 +4,10 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.10.1 (May 21, 2023)
+
+- 💄 Improved dark mode
+
 ## Version 0.10.0 (April 27, 2023)
 
 - ✨ Wikilinks can now link to a specific heading, e.g. `[[My Note#My Heading]]`
