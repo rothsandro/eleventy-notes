@@ -9,15 +9,17 @@
   border-block-end: 1px solid var(--color-neutral-line);
   background-color: var(--color-surface);
 
-  & > * {
+  & > :not(.app-header__title) {
     flex-shrink: 0;
   }
 }
 
 .app-header__title {
-  flex-shrink: 1;
-  margin-inline-end: var(--space-6);
+  margin-inline-end: auto;
   color: var(--color-neutral-textContrast);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

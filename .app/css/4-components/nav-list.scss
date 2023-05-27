@@ -1,8 +1,4 @@
 .nav-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
   & & {
     margin-block-start: 1px;
     margin-inline-start: var(--space-4);
@@ -51,7 +47,6 @@
   padding-inline: var(--space-2);
   border-radius: var(--rounded-md);
   color: var(--color-neutral-text);
-  font-size: var(--font-size-base);
   text-decoration: none;
 
   & + .nav-list__toggle {

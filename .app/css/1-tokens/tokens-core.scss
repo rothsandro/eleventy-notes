@@ -45,7 +45,6 @@ $tokens: (
     8: 64px,
   ),
   rounded: (
-    none: 0,
     sm: 2px,
     md: 4px,
     lg: 8px,
@@ -54,12 +53,6 @@ $tokens: (
   font-size: (
     xs: rem(12),
     sm: rem(14),
-    md: rem(16),
-    lg: rem(18),
-    xl: rem(20),
-    2xl: rem(24),
-    3xl: rem(32),
-    4xl: rem(40),
     // https://utopia.fyi/type/calculator?c=320,16,1.125,1240,18,1.125,8,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
     fluid--1: clamp(0.89rem, calc(0.85rem + 0.19vw), 1rem),
     fluid-0: clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem),

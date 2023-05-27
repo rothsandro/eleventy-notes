@@ -75,12 +75,6 @@
   }
 }
 
-.search__results {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 .search__results > li + li {
   margin-block-start: var(--space-1);
 }

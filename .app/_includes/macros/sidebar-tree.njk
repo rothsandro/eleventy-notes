@@ -1,5 +1,5 @@
 {% macro sidebarTree(tree, group, page) %}
-  <ul class="nav-list" aria-labelledby="app:sidebar:section:notes:group:{{ group.id }}:title">
+  <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:notes:group:{{ group.id }}:title">
     {% for item in tree %}
       <li
         {% if item.children.length %}

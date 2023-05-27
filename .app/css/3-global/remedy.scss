@@ -19,6 +19,9 @@ body {
 }
 
 body {
+  background-color: var(--color-background);
+  color: var(--color-neutral-textContrast);
+  font-family: var(--font-family-default);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -38,9 +41,7 @@ svg {
 }
 
 input,
-button,
-textarea,
-select {
+button {
   font: inherit;
 }
 
@@ -54,21 +55,8 @@ h6 {
   overflow-wrap: break-word;
 }
 
-#root,
-#__next {
-  isolation: isolate;
-}
-
-/* custom */
-
-ul[role="list"] {
+ul[role] {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-body {
-  font-family: var(--font-family-default);
-  color: var(--color-neutral-textContrast);
-  background-color: var(--color-background);
 }
