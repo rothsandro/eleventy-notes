@@ -5,7 +5,7 @@ Alpine.store("appearance", {
 
   init() {
     Alpine.effect(() => {
-      document.body.setAttribute("data-theme", this.theme);
+      document.documentElement.setAttribute("data-theme", this.theme);
     });
   },
 });

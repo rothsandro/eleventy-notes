@@ -1,0 +1,13 @@
+{
+  "space": {
+    "0": { "value": "0px" },
+    "1": { "value": "4px" },
+    "2": { "value": "8px" },
+    "3": { "value": "12px" },
+    "4": { "value": "16px" },
+    "5": { "value": "24px" },
+    "6": { "value": "36px" },
+    "7": { "value": "48px" },
+    "8": { "value": "64px" }
+  }
+}

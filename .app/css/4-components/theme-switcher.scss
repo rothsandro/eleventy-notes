@@ -7,7 +7,7 @@
   background-color: var(--color-neutral-bg);
 
   &:has(input:focus-visible) {
-    background-color: var(--color-neutral-bgHover);
+    background-color: var(--color-neutral-bg-hover);
   }
 }
 
@@ -18,11 +18,11 @@
   cursor: pointer;
 
   &:hover {
-    color: var(--color-neutral-textContrast);
-    background-color: var(--color-neutral-bgHover);
+    color: var(--color-neutral-text-contrast);
+    background-color: var(--color-neutral-bg-hover);
   }
 
-  &:has(input:checked) {
+  input:checked + & {
     box-shadow: var(--shadow-sm);
     color: var(--color-primary-text);
     background-color: var(--color-surface);

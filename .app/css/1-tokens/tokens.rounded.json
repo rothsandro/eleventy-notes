@@ -1,0 +1,8 @@
+{
+  "rounded": {
+    "sm": { "value": "2px" },
+    "md": { "value": "4px" },
+    "lg": { "value": "8px" },
+    "full": { "value": "9999px" }
+  }
+}

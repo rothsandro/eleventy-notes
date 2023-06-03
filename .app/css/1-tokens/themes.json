@@ -1,0 +1,22 @@
+{
+  "amber": { "primary": "amber", "neutral": "sand", "onPrimary": "#000" },
+  "blue": { "primary": "blue", "neutral": "slate", "onPrimary": "#fff" },
+  "brown": { "primary": "brown", "neutral": "sand", "onPrimary": "#fff" },
+  "crimson": { "primary": "crimson", "neutral": "mauve", "onPrimary": "#fff" },
+  "cyan": { "primary": "cyan", "neutral": "slate", "onPrimary": "#fff" },
+  "grass": { "primary": "grass", "neutral": "olive", "onPrimary": "#fff" },
+  "green": { "primary": "green", "neutral": "sage", "onPrimary": "#fff" },
+  "indigo": { "primary": "indigo", "neutral": "slate", "onPrimary": "#fff" },
+  "lime": { "primary": "lime", "neutral": "olive", "onPrimary": "#000" },
+  "mint": { "primary": "mint", "neutral": "sage", "onPrimary": "#000" },
+  "orange": { "primary": "orange", "neutral": "sand", "onPrimary": "#fff" },
+  "pink": { "primary": "pink", "neutral": "mauve", "onPrimary": "#fff" },
+  "plum": { "primary": "plum", "neutral": "mauve", "onPrimary": "#fff" },
+  "purple": { "primary": "purple", "neutral": "mauve", "onPrimary": "#fff" },
+  "red": { "primary": "red", "neutral": "mauve", "onPrimary": "#fff" },
+  "sky": { "primary": "sky", "neutral": "slate", "onPrimary": "#000" },
+  "teal": { "primary": "teal", "neutral": "sage", "onPrimary": "#fff" },
+  "tomato": { "primary": "tomato", "neutral": "mauve", "onPrimary": "#fff" },
+  "violet": { "primary": "violet", "neutral": "mauve", "onPrimary": "#fff" },
+  "yellow": { "primary": "yellow", "neutral": "sand", "onPrimary": "#000" }
+}

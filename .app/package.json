@@ -3,15 +3,16 @@
   "version": "0.10.1",
   "description": "",
   "scripts": {
-    "start": "npm-run-all clean -p css:watch js:watch 11ty:serve",
-    "build": "npm-run-all clean -p css:build js:build 11ty:build",
+    "start": "npm-run-all clean tokens:generate -p css:watch js:watch 11ty:serve",
+    "build": "npm-run-all clean tokens:generate -p css:build js:build 11ty:build",
     "11ty:serve": "eleventy --serve",
     "11ty:build": "eleventy",
+    "tokens:generate": "node ./style-dictionary.js",
     "css:watch": "node scripts/bundle-css.js --watch",
     "js:watch": "node scripts/bundle-js.js --watch",
     "css:build": "node scripts/bundle-css.js",
     "js:build": "node scripts/bundle-js.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist rimraf css/dist"
   },
   "keywords": [],
   "author": "",
@@ -30,7 +31,8 @@
     "parcel": "^2.8.2",
     "rimraf": "^3.0.2",
     "sass": "^1.57.1",
-    "string-strip-html": "^8.4.0"
+    "string-strip-html": "^8.4.0",
+    "style-dictionary": "^3.8.0"
   },
   "dependencies": {
     "@alpinejs/persist": "^3.10.5",

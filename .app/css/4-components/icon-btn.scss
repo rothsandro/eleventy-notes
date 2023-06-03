@@ -14,10 +14,10 @@
 
   &:hover,
   &:focus-visible {
-    background-color: var(--color-neutral-bgHover);
+    background-color: var(--color-neutral-bg-hover);
   }
 
   &:active {
-    background-color: var(--color-neutral-bgActive);
+    background-color: var(--color-neutral-bg-active);
   }
 }

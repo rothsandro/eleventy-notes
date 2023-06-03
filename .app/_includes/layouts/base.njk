@@ -3,7 +3,7 @@ panel: true
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="system">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,8 @@ panel: true
     <meta name="generator" content="{{ eleventy.generator }}">
     <link rel="stylesheet" href="{{ setup.css.output }}">
   </head>
-  <body data-theme="system">
-    <script>document.body.setAttribute("data-theme", JSON.parse(localStorage.getItem("theme") ?? '"system"'))</script>
+  <body>
+    <script>document.documentElement.setAttribute("data-theme", JSON.parse(localStorage.getItem("theme") ?? '"system"'))</script>
     <script>window.document.documentElement.classList.add("supports-js")</script>
     {% include 'partials/skip-to-content.njk' %}
 
