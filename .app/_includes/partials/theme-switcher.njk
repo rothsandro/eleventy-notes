@@ -1,5 +1,4 @@
-<fieldset x-data x-cloak class="theme-switcher">
-  <legend class="visually-hidden">Appearance</legend>
+<div role="radiogroup" aria-label="Appearance" class="theme-switcher" x-data x-cloak>
   <label class="theme-switcher__label">
     <input
       type="radio"
@@ -32,5 +31,4 @@
     >
     {{ 'monitor' | feather | safe }}
     <span class="visually-hidden">System</span>
-  </label>
-</fieldset>
+</div>
