@@ -6,6 +6,7 @@
   overflow: auto;
 
   .supports-js & {
+    inline-size: 80vw;
     inline-size: 80vi;
     max-inline-size: 500px;
     position: absolute;
