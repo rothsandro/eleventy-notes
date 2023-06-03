@@ -12,7 +12,7 @@
     "js:watch": "node scripts/bundle-js.js --watch",
     "css:build": "node scripts/bundle-css.js",
     "js:build": "node scripts/bundle-js.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist rimraf css/dist"
   },
   "keywords": [],
   "author": "",

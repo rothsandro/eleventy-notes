@@ -3,84 +3,78 @@ const palettes = require("./css/1-tokens/palettes.json");
 const themes = require("./css/1-tokens/themes.json");
 const fs = require("fs");
 
-const outputDir = "./css/dist/";
-!fs.existsSync(outputDir) && fs.mkdirSync(outputDir);
+const distDir = "./css/dist";
+!fs.existsSync(distDir) && fs.mkdirSync(distDir);
 
 let styleDictionary = StyleDictionary.extend({
   format: {
-    "scss/app-theme": function ({ dictionary }) {
-      const core = dictionary.allTokens.filter(
-        (token) => token.attributes.category !== "dark"
-      );
-      const dark = dictionary.allTokens.filter(
-        (token) => token.attributes.category === "dark"
-      );
+    "scss/app-theme": function ({ dictionary: { allTokens }, file }) {
+      const coreTokens = allTokens.filter((t) => !/^dark-/.test(t.name));
+      const darkTokens = allTokens.filter((t) => !coreTokens.includes(t));
 
-      const regex = /^(dark-)/;
+      const getTokenValue = (token) => {
+        const darkTokenName = `dark-${token.name}`;
+        const darkToken = darkTokens.find((t) => t.name === darkTokenName);
+        return darkToken
+          ? `var(--light, ${token.value}) var(--dark, ${darkToken.value})`
+          : token.value;
+      };
 
-      return `
-@use './../app.scss';
- 
-:root {
-  ${core.map((t) => `--${t.name}: ${t.value};`).join("\n")}
-}
-    
-body {
-    &[data-theme="dark"] {
-    color-scheme: dark;
-    ${dark.map((t) => `--${t.name.replace(regex, "")}: ${t.value};`).join("\n")}
-  }
-
-  &[data-theme="system"] {
-    @media (prefers-color-scheme: dark) {
-      color-scheme: dark;
-      ${dark
-        .map((t) => `--${t.name.replace(regex, "")}: ${t.value};`)
-        .join("\n")}
-    }
-  }
-}
-    `;
+      return [
+        StyleDictionary.formatHelpers.fileHeader({ file }),
+        "@use './../app.scss';",
+        ":root {",
+        ...coreTokens.map((t) => `  --${t.name}: ${getTokenValue(t)};`),
+        "}",
+      ].join("\n");
     },
   },
 });
 
-Object.entries(themes)
-  .map(([name, theme]) => [
-    name,
-    {
+for (const [name, theme] of Object.entries(themes)) {
+  const themeWithColors = createThemeWithPaletteColors(theme);
+  const baseFilePath = saveBaseFile(name, themeWithColors);
+  buildTokens(name, baseFilePath);
+}
+
+function createThemeWithPaletteColors(theme) {
+  return {
+    color: {
+      onPrimary: { value: theme.onPrimary },
+      primary: palettes[theme.primary],
+      neutral: palettes[theme.neutral],
+    },
+    dark: {
       color: {
-        onPrimary: { value: theme.onPrimary },
-        primary: palettes[theme.primary],
-        neutral: palettes[theme.neutral],
-      },
-      dark: {
-        color: {
-          primary: palettes[`${theme.primary}-dark`],
-          neutral: palettes[`${theme.neutral}-dark`],
-        },
+        primary: palettes[`${theme.primary}-dark`],
+        neutral: palettes[`${theme.neutral}-dark`],
       },
     },
-  ])
-  .forEach(([name, theme]) => {
-    const filePath = `./css/dist/base.${name}.json`;
-    fs.writeFileSync(filePath, JSON.stringify(theme, null, 2));
+  };
+}
 
-    styleDictionary
-      .extend({
-        source: ["css/1-tokens/tokens.*.json", `css/dist/base.${name}.json`],
-        platforms: {
-          scss: {
-            transformGroup: "scss",
-            files: [
-              {
-                destination: `./css/dist/app.${name}.scss`,
-                format: "scss/app-theme",
-                filter: (token) => !token.original.private,
-              },
-            ],
-          },
+function saveBaseFile(name, theme) {
+  const filePath = `./${distDir}/base.${name}.json`;
+  fs.writeFileSync(filePath, JSON.stringify(theme, null, 2));
+  return filePath;
+}
+
+function buildTokens(name, baseFilePath) {
+  styleDictionary
+    .extend({
+      source: ["css/1-tokens/tokens.*.json", baseFilePath],
+      platforms: {
+        scss: {
+          transformGroup: "scss",
+          files: [
+            {
+              destination: `./css/dist/app.${name}.scss`,
+              format: "scss/app-theme",
+              filter: (t) => !t.original.private,
+            },
+          ],
         },
-      })
-      .buildAllPlatforms();
-  });
+      },
+    })
+    .buildAllPlatforms();
+}
