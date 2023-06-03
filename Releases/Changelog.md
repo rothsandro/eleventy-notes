@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.11.0 (June 03, 2023)
+
+- 💄 Improved styling compatibility with older browsers
+- ⚡️ Reduced CSS bundle size
+- ♻️ Refactored the styling
+
 ## Version 0.10.1 (May 21, 2023)
 
 - 💄 Improved dark mode
