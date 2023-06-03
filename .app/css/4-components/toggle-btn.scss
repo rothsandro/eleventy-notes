@@ -13,11 +13,11 @@
   transition: all 300ms ease;
 
   &:hover {
-    background-color: var(--color-primary-bgHover);
+    background-color: var(--color-primary-bg-hover);
   }
 
   &[aria-pressed="true"] {
-    background-color: var(--color-primary-bgSolid);
+    background-color: var(--color-primary-bg-solid);
     color: var(--color-on-primary);
 
     svg {

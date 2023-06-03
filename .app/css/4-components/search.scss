@@ -10,7 +10,7 @@
   border: none;
   border-radius: var(--rounded-full);
   background-color: var(--color-neutral-bg);
-  color: var(--color-neutral-textContrast);
+  color: var(--color-neutral-text-contrast);
 
   .search[data-mode="inline"] & {
     inline-size: 100%;
@@ -20,7 +20,7 @@
   }
 
   &:hover {
-    background-color: var(--color-neutral-bgHover);
+    background-color: var(--color-neutral-bg-hover);
   }
 
   &::placeholder {
@@ -90,12 +90,12 @@
   text-decoration: none;
 
   &[aria-selected="true"] {
-    background-color: var(--color-primary-bgSubtle);
+    background-color: var(--color-primary-bg-subtle);
   }
 }
 
 .search__result:hover {
-  background-color: var(--color-primary-bgSubtle);
+  background-color: var(--color-primary-bg-subtle);
 }
 
 .search__note-title {
