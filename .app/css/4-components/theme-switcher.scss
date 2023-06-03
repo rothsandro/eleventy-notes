@@ -22,7 +22,7 @@
     background-color: var(--color-neutral-bg-hover);
   }
 
-  &:has(input:checked) {
+  input:checked + & {
     box-shadow: var(--shadow-sm);
     color: var(--color-primary-text);
     background-color: var(--color-surface);
