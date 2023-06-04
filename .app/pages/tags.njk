@@ -6,27 +6,23 @@ panel: false
 ---
 
 <main class="app-layout__main" id="app-content">
-  <div class="page" data-panel="false">
-    <div class="page__wrapper">
-      <div class="page__main">
-        <h1 class="page__title">Tags</h1>
-        <div class="stack" data-stack="6">
-          {% for tag in collections.tags %}
-            <div class="stack">
-              <h2>#{{ tag.title }}</h2>
-              <ul role="list" class="stack">
-                {% for post in collections[tag.title] %}
-                  <li>
-                    <a href="{{ post.url }}" class="note-link">
-                      {{ post.data.title or post.page.fileSlug }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endfor %}
+  <div class="page content-block">
+    <h1 class="page__title">Tags</h1>
+    <div class="stack" data-stack="6">
+      {% for tag in collections.tags %}
+        <div class="stack">
+          <h2>#{{ tag.title }}</h2>
+          <ul role="list" class="stack">
+            {% for post in collections[tag.title] %}
+              <li>
+                <a href="{{ post.url }}" class="note-link">
+                  {{ post.data.title or post.page.fileSlug }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </main>

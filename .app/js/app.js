@@ -6,7 +6,7 @@ import "./favorites";
 import "./hotkeys";
 import "./nav";
 import "./search";
-import "./scroll-anchor";
 import "./scroll-position";
+import "./window-scroll";
 
 Alpine.start();

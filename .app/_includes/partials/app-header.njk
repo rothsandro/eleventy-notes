@@ -1,6 +1,6 @@
 {% from 'macros/search.njk' import searchInput %}
 
-<header class="app-layout__header app-header" x-data>
+<header class="app-layout__header app-header" x-data x-bind="WindowScroll">
   {% include 'partials/nav-toggle.njk' %}
 
   <a href="/" class="app-header__title">

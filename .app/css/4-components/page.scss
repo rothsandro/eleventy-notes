@@ -1,36 +1,12 @@
 @use "./../2-lib/breakpoints.scss" as *;
 
-.page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-block: var(--space-4);
-  padding-inline: var(--space-4);
-
-  @include media-breakpoint-up("md") {
-    padding-block: var(--space-6);
-  }
-}
-
-.page__wrapper {
-  display: grid;
-  grid-template-columns: minmax(0, 70ch);
-  gap: var(--space-8);
-
-  @include media-breakpoint-up("lg") {
-    grid-template-columns: minmax(0, 70ch) 360px;
-  }
-}
-
 .page__title {
-  margin: 0;
   margin-block-end: var(--space-6);
   font-size: var(--font-size-fluid-6);
   line-height: 1.3;
 }
 
 .page__description {
-  margin: 0;
   margin-block-end: var(--space-6);
   font-size: var(--font-size-fluid-1);
   line-height: 1.3;

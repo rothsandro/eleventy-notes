@@ -1,7 +1,7 @@
 {% from 'macros/fav-toggle.njk' import favToggle %}
 {% from 'macros/edit-this-note.njk' import editThisNote %}
 
-<aside class="stack" data-stack="6">
+<aside class="content-block stack" data-stack="6">
   {% set toc = content | toc %}
   {% if toc | length %}
   <div class="toc">

@@ -1,46 +1,58 @@
 @use "./../2-lib/breakpoints" as *;
 
-$sidebar-width: 300px;
-
-.app-layout {
-  position: fixed;
-  inset: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto minmax(0, 1fr);
-  overflow: hidden;
-}
-
 .app-layout__wrapper {
-  overflow: auto;
-
-  .supports-js & {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr);
-    overflow: hidden;
-  }
-
   @include media-breakpoint-up("xl") {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr);
-    overflow: hidden;
+    grid-template-columns: 300px minmax(0, 1fr) 300px;
   }
 }
 
 .app-layout__sidebar {
+  background-color: var(--color-surface);
+  overscroll-behavior: contain;
+  z-index: 1;
+
+  &[data-open="false"] {
+    display: none;
+  }
+
   .supports-js & {
-    position: relative;
-    block-size: 100%;
+    position: fixed;
+    inset: 4rem 0 0;
+    overflow: auto;
   }
 
   @include media-breakpoint-up("xl") {
-    inline-size: $sidebar-width;
-    overflow: auto;
+    &,
+    .supports-js & {
+      block-size: calc(100vh - 4rem);
+      display: block;
+      position: sticky;
+      inset: 4rem 0 0;
+      overflow: auto;
+    }
+  }
+}
+
+.app-layout__panel {
+  padding-block: var(--space-6);
+  padding-inline: var(--space-4);
+  overscroll-behavior: contain;
+
+  @include media-breakpoint-up("xl") {
+    &,
+    .supports-js & {
+      position: sticky;
+      inset: 0;
+      inset-block-start: 4rem;
+      block-size: calc(100vh - 4rem);
+      overflow: auto;
+      z-index: 1;
+    }
   }
 }
 
 .app-layout__main {
-  overflow: auto;
+  padding-inline: var(--space-4);
+  padding-block: var(--space-6);
 }
