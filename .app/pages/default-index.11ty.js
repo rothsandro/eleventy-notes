@@ -13,14 +13,10 @@ class DefaultIndex {
   render() {
     return `
       <main class="app-layout__main" id="app-content">
-        <div class="page" data-panel="false">
-          <div class="page__wrapper">
-            <div class="page__main">
-              <h1 class="page__title">Home</h1>
-              Welcome to Eleventy Notes.
-              Customize this page by creating a file named index.md in the root of your project.
-            </div>
-          </div>
+        <div class="page content-block">
+          <h1 class="page__title">Home</h1>
+          Welcome to Eleventy Notes.
+          Customize this page by creating a file named index.md in the root of your project.
         </div>
       </main>
     `;

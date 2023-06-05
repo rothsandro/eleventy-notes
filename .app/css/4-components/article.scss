@@ -1,12 +1,6 @@
 @use "./../2-lib/breakpoints" as *;
 
-.article__content {
-  max-inline-size: 70ch;
-  margin-inline-end: auto;
-  margin-block: var(--space-6);
-}
-
-.article__content {
+.article {
   & > * + * {
     margin-block-start: var(--flow-space, 1.5em);
     margin-block-end: 0;
@@ -33,7 +27,7 @@
   }
 }
 
-.article__content {
+.article {
   p {
     line-height: 1.6;
   }
@@ -93,7 +87,7 @@
   h5,
   h6 {
     line-height: 1.25;
-    scroll-margin-block-start: 20px;
+    scroll-margin-block-start: 6rem;
   }
 
   a {

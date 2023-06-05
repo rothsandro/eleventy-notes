@@ -1,19 +1,20 @@
 .nav-section {
+  margin-block-start: var(--space-7);
   padding-inline: var(--space-4);
-  padding-block: var(--space-4);
 
-  &:not(:first-of-type) {
-    border-block-start: 1px solid var(--color-neutral-line);
+  &:first-of-type,
+  &.nav-section--continued {
+    margin-block-start: var(--space-4);
   }
-}
 
-.nav-section.nav-section--continued {
-  border-block-start-width: 0;
-  padding-block-start: 0;
+  &:last-of-type {
+    margin-block-end: var(--space-4);
+  }
 }
 
 .nav-section__title {
   margin-block-end: var(--space-2);
+  margin-inline-start: var(--space-2);
   font-size: var(--font-size-sm);
   color: var(--color-neutral-text);
   text-transform: uppercase;

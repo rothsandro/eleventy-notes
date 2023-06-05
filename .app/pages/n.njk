@@ -6,22 +6,18 @@ panel: false
 ---
 
 <main class="app-layout__main" id="app-content">
-  <div class="page">
-    <div class="page__wrapper">
-      <div class="page__main">
-        <h1 class="page__title">Notes</h1>
-        <ul role="list" class="stack">
-          {% for note in collections._notes %}
-            {% if note.url !== '/' %}
-              <li>
-                <a href="{{ note.url }}" class="note-link">
-                  {{ note.data.title or note.page.fileSlug }}
-                </a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
+  <div class="page content-block">
+    <h1 class="page__title">Notes</h1>
+    <ul role="list" class="stack">
+      {% for note in collections._notes %}
+        {% if note.url !== '/' %}
+          <li>
+            <a href="{{ note.url }}" class="note-link">
+              {{ note.data.title or note.page.fileSlug }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
   </div>
 </main>

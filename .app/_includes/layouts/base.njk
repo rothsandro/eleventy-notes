@@ -20,7 +20,12 @@ panel: true
     <div class="app-layout">
       {% include 'partials/app-header.njk' %}
       <div class="app-layout__wrapper">
-        <div class="app-layout__sidebar">
+        <div
+          class="app-layout__sidebar"
+          x-data="scrollContainer('app:sidebar')"
+          x-bind="container"
+          :data-open="$store.nav.open.toString()"
+        >
           {% include 'partials/sidebar.njk' %}
         </div>
         {{ content | safe }}
