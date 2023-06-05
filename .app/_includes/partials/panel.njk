@@ -1,4 +1,4 @@
-{% from 'macros/fav-toggle.njk' import favToggle %}
+{% from 'macros/bookmark-toggle.njk' import bookmarkToggle %}
 {% from 'macros/edit-this-note.njk' import editThisNote %}
 
 <aside class="content-block stack" data-stack="6">
@@ -85,7 +85,7 @@
   {% endif %}
 
   <div class="inline">
-    {{ favToggle(page.url | htmlBaseUrl ) }}
+    {{ bookmarkToggle(page.url | htmlBaseUrl ) }}
     {{ editThisNote(app.editThisNote, page) }}
   </div>
 </aside>

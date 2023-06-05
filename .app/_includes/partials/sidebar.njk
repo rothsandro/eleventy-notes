@@ -72,15 +72,15 @@
     </nav>
   {% endif %}
 
-  <template x-if="$store.favorites.items.length">
-    <nav aria-labelledby="app:sidebar:section:favorites" class="nav-section">
-      <h3 id="app:sidebar:section:favorites" class="nav-section__title">Favorites</h3>
-      <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:favorites">
-        <template x-for="fav in $store.favorites.items">
+  <template x-if="$store.bookmarks.items.length">
+    <nav aria-labelledby="app:sidebar:section:bookmarks" class="nav-section" x-cloak>
+      <h3 id="app:sidebar:section:bookmarks" class="nav-section__title">Bookmarks</h3>
+      <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:bookmarks">
+        <template x-for="bkm in $store.bookmarks.items">
           <li>
-            <a :href="fav" class="nav-list__link">
+            <a :href="bkm" class="nav-list__link">
               {{ 'file-text' | featherRef | safe }}
-              <span x-text="$store.favorites.index[fav] || fav"></span>
+              <span x-text="$store.bookmarks.index[bkm] || bkm"></span>
             </a>
           </li>
         </template>

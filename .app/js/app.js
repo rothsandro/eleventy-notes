@@ -1,8 +1,8 @@
 import { Alpine } from "./alpine.js";
 
 import "./appearance";
+import "./bookmarks";
 import "./collapsible";
-import "./favorites";
 import "./hotkeys";
 import "./nav";
 import "./search";

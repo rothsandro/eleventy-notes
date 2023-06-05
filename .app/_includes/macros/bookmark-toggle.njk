@@ -1,0 +1,12 @@
+{% macro bookmarkToggle(id) %}
+  <button
+    x-data x-cloak
+    type="button"
+    class="toggle-btn"
+    :aria-pressed="$store.bookmarks.is('{{ id }}')"
+    aria-label="Bookmark"
+    @click="$store.bookmarks.toggle('{{ id }}')"
+  >
+    {{ 'bookmark' | feather | safe }}
+  </button>
+{% endmacro %}

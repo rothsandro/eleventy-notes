@@ -12,9 +12,9 @@ The first link in the sidebar is always the start page. The start page is the fi
 
 You can add additional links to the sidebar. See [[Additional Links]] for more information.
 
-## Favorites
+## Bookmarks
 
-If you add a note to your [[Favorites]], a new section _Favorites_ will automatically appear in the sidebar, showing all your favorites.
+If you add a note to your [[Bookmarks]], a new section _Bookmarks_ will automatically appear in the sidebar, showing all your bookmarks.
 
 ## Notes
 

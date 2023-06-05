@@ -3,9 +3,9 @@ import { Alpine } from "./alpine";
 const baseUrl = document.currentScript?.getAttribute("data-base") ?? "/";
 const indexJsonUrl = baseUrl + "index.json";
 
-Alpine.store("favorites", {
+Alpine.store("bookmarks", {
   index: {},
-  items: Alpine.$persist([]).as("favorites"),
+  items: Alpine.$persist([]).as("favorites"), // called favorites for backwards compatibility
 
   async init() {
     this.index = await fetch(indexJsonUrl)
@@ -15,7 +15,7 @@ Alpine.store("favorites", {
         return {};
       });
 
-    this.cleanUpFavorites();
+    this.cleanUpBookmarks();
   },
 
   is(id) {
@@ -24,13 +24,13 @@ Alpine.store("favorites", {
 
   toggle(id) {
     if (this.items.includes(id)) {
-      this.items = this.items.filter((fav) => fav !== id);
+      this.items = this.items.filter((bkm) => bkm !== id);
     } else {
       this.items.push(id);
     }
   },
 
-  cleanUpFavorites() {
+  cleanUpBookmarks() {
     if (Object.keys(this.index).length === 0) return;
     this.items = this.items.filter((id) => !!this.index[id]);
   },
