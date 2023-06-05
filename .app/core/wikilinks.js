@@ -34,7 +34,7 @@ module.exports = (md, options) => {
     const page = findMatchingPage(file, env);
     const label = createLabel(text, file, hash, page);
 
-    let href = page ? page.url : options.slugify(`/${pageName}`);
+    let href = page ? page.url : options.slugify(`/${file}`);
     hash && (href += `#${options.slugify(hash)}`);
 
     return { href, label };
