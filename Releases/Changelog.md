@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next release
+
+- ✨ Improved UI
+- ✨ Renamed favorites to bookmarks
+- 🐛 Fixed handling of invalid wikilinks
+
 ## Version 0.11.0 (June 03, 2023)
 
 - 💄 Improved styling compatibility with older browsers
