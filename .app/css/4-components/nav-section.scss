@@ -1,13 +1,20 @@
 .nav-section {
-  padding: var(--space-4);
-}
+  margin-block-start: var(--space-7);
+  padding-inline: var(--space-4);
 
-.nav-section.nav-section--continued {
-  padding-block-start: 0;
+  &:first-of-type,
+  &.nav-section--continued {
+    margin-block-start: var(--space-4);
+  }
+
+  &:last-of-type {
+    margin-block-end: var(--space-4);
+  }
 }
 
 .nav-section__title {
   margin-block-end: var(--space-2);
+  margin-inline-start: var(--space-2);
   font-size: var(--font-size-sm);
   color: var(--color-neutral-text);
   text-transform: uppercase;
