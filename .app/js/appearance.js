@@ -5,7 +5,10 @@ Alpine.store("appearance", {
 
   init() {
     Alpine.effect(() => {
-      document.documentElement.setAttribute("data-theme", this.theme);
+      const root = document.documentElement;
+      root.setAttribute("data-no-transition", "");
+      root.setAttribute("data-theme", this.theme);
+      setTimeout(() => root.removeAttribute("data-no-transition"));
     });
   },
 });

@@ -27,3 +27,12 @@
     @include light-mode();
   }
 }
+
+[data-no-transition] {
+  &,
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
