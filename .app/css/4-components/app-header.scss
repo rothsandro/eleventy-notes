@@ -23,6 +23,7 @@
 
 .app-header__title {
   margin-inline-end: auto;
+  outline-offset: var(--space-2);
   color: var(--color-neutral-text-contrast);
   font-weight: var(--font-weight-bold);
   text-decoration: none;

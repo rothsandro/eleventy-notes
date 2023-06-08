@@ -71,6 +71,7 @@
 }
 
 .app-layout__main {
+  scroll-margin-block-start: 6rem;
   padding-inline: var(--space-4);
   padding-block: var(--space-6);
 }
