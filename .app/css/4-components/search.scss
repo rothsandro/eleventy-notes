@@ -52,10 +52,9 @@
     z-index: 1;
     inset-block-start: calc(100% + 4px);
     inset-inline-end: 0;
-    padding-block: var(--space-1);
-    padding-inline: var(--space-1);
+    padding: var(--space-1);
     box-shadow: var(--shadow-lg);
-    border-radius: var(--rounded-sm);
+    border-radius: var(--rounded-lg);
     background-color: var(--color-surface);
     overflow: auto;
   }
@@ -85,9 +84,12 @@
   gap: var(--space-1);
   padding-inline: var(--space-4);
   padding-block: var(--space-2);
-  border-radius: var(--rounded-sm);
-  transition: all 200ms ease;
+  border-radius: calc(var(--rounded-lg) - var(--space-1));
   text-decoration: none;
+
+  .search__popover:hover & {
+    transition: all 200ms ease;
+  }
 
   &[aria-selected="true"] {
     background-color: var(--color-primary-bg-subtle);
@@ -100,6 +102,7 @@
 
 .search__note-title {
   color: var(--color-primary-text);
+  font-weight: var(--font-weight-medium);
 }
 
 .search__note-content {
