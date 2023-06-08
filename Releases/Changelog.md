@@ -4,7 +4,7 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## next release
+## Version 0.12.0 (June 08, 2023)
 
 - ✨ Improved UI
 - ✨ Renamed favorites to bookmarks
