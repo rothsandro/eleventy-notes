@@ -35,7 +35,6 @@
     "style-dictionary": "^3.8.0"
   },
   "dependencies": {
-    "@alpinejs/persist": "^3.10.5",
     "alpinejs": "^3.10.5",
     "feather-icons": "^4.29.0",
     "flexsearch": "^0.7.31",

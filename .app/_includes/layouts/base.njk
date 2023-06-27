@@ -13,8 +13,8 @@ panel: true
     <link rel="stylesheet" href="{{ setup.css.output }}">
   </head>
   <body>
-    <script>document.documentElement.setAttribute("data-theme", JSON.parse(localStorage.getItem("theme") ?? '"system"'))</script>
-    <script>window.document.documentElement.classList.add("supports-js")</script>
+    <script>document.documentElement.setAttribute("data-theme", /"(\w+)"+/.exec(localStorage.getItem("theme"))?.[1] || "system")</script>
+    <script>document.documentElement.classList.add("supports-js")</script>
     {% include 'partials/skip-to-content.njk' %}
 
     <div class="app-layout">

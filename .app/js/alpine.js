@@ -1,5 +1,5 @@
 import Alpine from "alpinejs";
-import persist from "@alpinejs/persist";
+import persist from "./persist";
 
 Alpine.plugin(persist);
 
