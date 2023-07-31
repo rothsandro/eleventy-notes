@@ -34,7 +34,7 @@
                 {% elseif value.type == 'boolean' %}
                   {{ value.formattedValue }}
                 {% elseif value.type == 'date' %}
-                  {{ value.formattedValue }}
+                  <time datetime="{{ value.value.toISOString() }}">{{ value.formattedValue }}</time>
                 {% elseif value.type == 'number' %}
                   {{ value.formattedValue }}
                 {% elseif value.type == 'wikilink' %}

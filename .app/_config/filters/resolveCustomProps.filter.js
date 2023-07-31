@@ -49,7 +49,7 @@ module.exports = (eleventyConfig) =>
           options?.date?.locale,
           options?.date?.format
         );
-        return [{ type: "date", formattedValue: intl.format(value) }];
+        return [{ type: "date", value, formattedValue: intl.format(value) }];
       }
 
       if (Array.isArray(value)) {
