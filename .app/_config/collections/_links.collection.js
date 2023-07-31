@@ -24,7 +24,10 @@ module.exports = (eleventyConfig) => (collectionApi) => {
         const { dom } = getParsedNotes()[note.url];
         const links = Array.from(dom.querySelectorAll("a[href]"));
         const filteredLinks = links
-          .map((link) => [link.attributes.href, link.textContent])
+          .map((link) => [
+            link.attributes.href?.split("#")[0],
+            link.textContent,
+          ])
           .filter(([href], idx, list) => {
             return !!href && list.findIndex(([h]) => h === href) === idx;
           });
