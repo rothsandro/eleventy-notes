@@ -4,6 +4,10 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.13.0 (July 31, 2023)
+
+- ✨ Added custom properties
+
 ## Version 0.12.1 (June 27, 2023)
 
 - 🐛 Added error handling for parsing the last used theme
