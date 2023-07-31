@@ -1,9 +1,6 @@
 ---
 templateEngineOverride: njk,md
 tags: [release]
-eleventyComputed:
-  props:
-    latestVersion: "v{{ pkg.version }}"
 ---
 
 You may want to update your notes to the latest version of Eleventy Notes now and then. Read on to learn how to do that.
