@@ -1,13 +1,10 @@
-const appData = require("../../_data/app");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItTaskCheckbox = require("markdown-it-task-checkbox");
 const markdownItFootnote = require("markdown-it-footnote");
-const markdownItWikilinks = require("./../../core/wikilinks");
+const markdownItWikilinks = require("./../../core/wikilink-md");
 
 module.exports = (eleventyConfig) => {
-  const app = appData();
-
   const lib = markdownIt({
     html: true,
     linkify: true,
@@ -16,8 +13,6 @@ module.exports = (eleventyConfig) => {
     .use(markdownItFootnote)
     .use(markdownItWikilinks, {
       collections: "_notes",
-      autoLabel: app.wikilinks.autoLabel,
-      anchorLabel: app.wikilinks.anchorLabel,
       slugify: eleventyConfig.getFilter("slugifyPath"),
     })
     .use(markdownItAnchor, {
