@@ -41,7 +41,7 @@ module.exports = (eleventyConfig) =>
       }
 
       if (typeof value === "boolean") {
-        return { type: "boolean", formattedValue: value ? "Yes" : "No" };
+        return [{ type: "boolean", formattedValue: value ? "Yes" : "No" }];
       }
 
       if (value instanceof Date) {
