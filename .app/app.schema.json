@@ -48,6 +48,49 @@
         }
       }
     },
+    "customProperties": {
+      "type": "object",
+      "description": "The configuration for custom properties.",
+      "default": {
+        "properties": []
+      },
+      "properties": {
+        "properties": {
+          "type": "array",
+          "description": "A list of properties to display in the panel.",
+          "default": [],
+          "items": {
+            "type": "object",
+            "description": "A property to display in the panel.",
+            "default": { "name": "myProp" },
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "The path of the property (if nested)"
+              },
+              "name": {
+                "type": "string",
+                "description": "A regular expression for the name of the property."
+              },
+              "label": {
+                "type": "string",
+                "description": "The label of the property."
+              },
+              "formatOptions": {
+                "type": "object",
+                "description": "The options for formatting the property value.",
+                "properties": {
+                  "dateLocale": { "type": "string" },
+                  "dateFormat": { "type": "object" },
+                  "numberLocale": { "type": "string" },
+                  "numberFormat": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "editThisNote": {
       "type": "object",
       "description": "The configuration for the \"Edit this note\" link that redirects to the repo where the notes are stored and allows users to edit the note.",

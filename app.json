@@ -5,6 +5,16 @@
   "editThisNote": {
     "url": "https://github.com/rothsandro/eleventy-notes/edit/{{branch}}/{{file}}"
   },
+  "customProperties": {
+    "properties": [
+      {
+        "path": "props",
+        "formatOptions": {
+          "dateLocale": "en-US"
+        }
+      }
+    ]
+  },
   "sidebar": {
     "links": [
       {

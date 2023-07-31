@@ -18,6 +18,25 @@
   </div>
   {% endif %}
 
+  {% set props = app.customProperties.properties | resolveCustomProps %}
+  {% if props | length %}
+  <div class="custom-props">
+    <h2 class="custom-props__label" id="app-panel-props">Properties</h2>
+    <dl class="custom-props__list stack" data-stack="4" role="list" aria-labelledby="app-panel-props">
+      {% for prop in props %}
+      <div>
+          <dt>{{ prop.label }}</dt>
+          <dd>
+            {% for value in prop.displayValues %}
+              <div>{{ value }}</div>
+            {% endfor %}
+          </dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </div>
+  {% endif %}
+
   {% if tags | length %}
   <div class="grouped-links">
     <h2 class="grouped-links__label" id="app-panel-tags">Tags</h2>
