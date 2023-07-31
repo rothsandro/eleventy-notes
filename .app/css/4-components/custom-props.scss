@@ -1,0 +1,19 @@
+.custom-props__label {
+  margin: 0;
+  margin-block-end: var(--space-2);
+  color: var(--color-neutral-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.custom-props__list {
+  dt {
+    color: var(--color-neutral-text);
+    font-size: var(--font-size-xs);
+  }
+
+  dd {
+    color: var(--color-neutral-text-contrast);
+    font-size: var(--font-size-sm);
+  }
+}

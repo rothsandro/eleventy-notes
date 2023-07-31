@@ -1,0 +1,141 @@
+---
+tags: [writing]
+props:
+  author: Sandro Roth
+  publishedOn: 2023-07-31
+---
+
+Custom Properties are additional metadata for notes, such as the author or the date it was published.
+You can add custom properties to your notes using Front Matter and specify properties in the [[Configuration file]] to show them in the [[Panel]].
+
+## Examples
+
+### Author
+
+This example shows how to add an author to a note. First, define the author in your note using Front Matter:
+
+```md
+---
+author: John Doe
+---
+
+# My Note
+```
+
+Then add the property to the configuration file:
+
+```json
+// /app.json
+{
+  "customProperties": {
+    "properties": [
+      {
+        "name": "author"
+      }
+    ]
+  }
+}
+```
+
+### Published Date
+
+This example shows how to add a date to a note. First, define the date in your note using Front Matter:
+
+```md
+---
+publishedOn: 2023-08-01
+---
+
+# My Note
+```
+
+Then add the property to the configuration file:
+
+```json
+// /app.json
+{
+  "customProperties": {
+    "properties": [
+      {
+        "name": "publishedOn",
+
+        // Optionally, format the date.
+        "formatOptions": {
+          "dateLocale": "en-US",
+          "dateFormat": { "dateStyle": "full" }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Arbitrary Properties
+
+This example shows how to add arbitrary properties to a note. First, define the properties in your note using Front Matter.
+For arbitrary properties, it's recommended to use a nested object (`meta` in this example).
+
+```md
+---
+meta:
+  language: German
+  license: MIT
+---
+
+# My Note
+```
+
+Then add the property to the configuration file:
+
+```json
+// /app.json
+{
+  "customProperties": {
+    "properties": [
+      {
+        // Includes all props in the meta object
+        "path": "meta"
+      }
+    ]
+  }
+}
+```
+
+## Configuration API
+
+What properties are shown in the panel can be configured in the [[Configuration file]].
+
+```json
+{
+  "customProperties": {
+    // Define a list of properties to show in the panel.
+    "properties": [
+      {
+        // The path to the property, if your property is nested (optional).
+        "path": "meta",
+
+        // The name of the property.
+        // If omitted, all properties in the path are shown.
+        // Define a regular expression to match multiple properties.
+        "name": "author",
+
+        // The label to show in the panel.
+        // If omitted, is inferred from the property name.
+        "label": "Lovely written by",
+
+        // Options for formatting the property value (optional).
+        "formatOptions": {
+          "dateLocale": "en-US",
+          "dateFormat": { "dateStyle": "full" },
+          "numberLocale": "en-US",
+          "numberFormat": {
+            "style": "currency",
+            "currency": "USD",
+            "currencyDisplay": "symbol"
+          }
+        }
+      }
+    ]
+  }
+}
+```

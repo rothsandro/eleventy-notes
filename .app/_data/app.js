@@ -6,6 +6,9 @@ const defaultConfig = {
   theme: {
     color: "sky",
   },
+  customProperties: {
+    properties: [],
+  },
   sidebar: {
     links: [],
     notes: [{}],
@@ -31,6 +34,10 @@ function mergeConfigs(a, b) {
   return {
     ...a,
     ...b,
+    customProperties: {
+      ...a.customProperties,
+      ...b.customProperties,
+    },
     theme: {
       ...a.theme,
       ...b.theme,
