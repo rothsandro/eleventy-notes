@@ -3,6 +3,9 @@ tags: [writing]
 props:
   author: Sandro Roth
   publishedOn: 2023-07-31
+  learnMore:
+    - "[[Configuration file|Config file]]"
+    - "[[Wikilinks#syntax|Wikilink syntax]]"
 ---
 
 Custom Properties are additional metadata for notes, such as the author or the date it was published.
@@ -71,6 +74,38 @@ Then add the property to the configuration file:
   }
 }
 ```
+
+### Related notes
+
+This example shows how to add a list of related notes to a note. First, define the related notes in your note using Front Matter.
+Related notes can be referenced using the same [[Wikilinks#syntax|wikilink syntax]] as in your notes.
+
+```md
+---
+related:
+  - "[[My other note]]" # Must be wrapped in quotes!
+  - "[[My third note]]"
+---
+
+# My Note
+```
+
+Then add the property to the configuration file:
+
+```json
+// /app.json
+{
+  "customProperties": {
+    "properties": [
+      {
+        "name": "related"
+      }
+    ]
+  }
+}
+```
+
+Wikilinks used in custom properties are not listed in the incoming / outgoing sections of the panel.
 
 ### Arbitrary Properties
 
