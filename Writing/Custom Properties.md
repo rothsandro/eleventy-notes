@@ -60,9 +60,11 @@ Then add the property to the configuration file:
         "name": "publishedOn",
 
         // Optionally, format the date.
-        "formatOptions": {
-          "dateLocale": "en-US",
-          "dateFormat": { "dateStyle": "full" }
+        "options": {
+          "date": {
+            "locale": "en-US",
+            "format": { "dateStyle": "full" }
+          }
         }
       }
     ]
@@ -123,15 +125,21 @@ What properties are shown in the panel can be configured in the [[Configuration 
         // If omitted, is inferred from the property name.
         "label": "Lovely written by",
 
-        // Options for formatting the property value (optional).
-        "formatOptions": {
-          "dateLocale": "en-US",
-          "dateFormat": { "dateStyle": "full" },
-          "numberLocale": "en-US",
-          "numberFormat": {
-            "style": "currency",
-            "currency": "USD",
-            "currencyDisplay": "symbol"
+        // Options for the property value (optional).
+        "options": {
+          // Options for date values
+          "date": {
+            "locale": "en-US",
+            "format": { "dateStyle": "full" }
+          },
+          // Options for numeric values
+          "number": {
+            "locale": "en-US",
+            "format": {
+              "style": "currency",
+              "currency": "USD",
+              "currencyDisplay": "symbol"
+            }
           }
         }
       }

@@ -34,8 +34,8 @@ module.exports = (eleventyConfig) =>
 
       if (typeof value === "number") {
         const intl = new Intl.NumberFormat(
-          options?.numberLocale,
-          options?.numberFormat
+          options?.number?.locale,
+          options?.number?.format
         );
         return [{ type: "number", formattedValue: intl.format(value) }];
       }
@@ -46,8 +46,8 @@ module.exports = (eleventyConfig) =>
 
       if (value instanceof Date) {
         const intl = new Intl.DateTimeFormat(
-          options?.dateLocale,
-          options?.dateFormat
+          options?.date?.locale,
+          options?.date?.format
         );
         return [{ type: "date", formattedValue: intl.format(value) }];
       }
@@ -71,7 +71,7 @@ module.exports = (eleventyConfig) =>
           {
             name,
             label: property.label || nameToDisplayName(name),
-            values: parseValue(value, property.formatOptions),
+            values: parseValue(value, property.options),
           },
         ];
       });

@@ -9,8 +9,10 @@
     "properties": [
       {
         "path": "props",
-        "formatOptions": {
-          "dateLocale": "en-US"
+        "options": {
+          "date": {
+            "locale": "en-US"
+          }
         }
       }
     ]

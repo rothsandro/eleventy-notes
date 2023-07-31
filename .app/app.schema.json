@@ -76,14 +76,26 @@
                 "type": "string",
                 "description": "The label of the property."
               },
-              "formatOptions": {
+              "options": {
                 "type": "object",
-                "description": "The options for formatting the property value.",
+                "description": "Configuration options for the property value.",
                 "properties": {
-                  "dateLocale": { "type": "string" },
-                  "dateFormat": { "type": "object" },
-                  "numberLocale": { "type": "string" },
-                  "numberFormat": { "type": "object" }
+                  "date": {
+                    "type": "object",
+                    "description": "Configuration options for date values.",
+                    "properties": {
+                      "locale": { "type": "string" },
+                      "format": { "type": "object" }
+                    }
+                  },
+                  "number": {
+                    "type": "object",
+                    "description": "Configuration options for numeric values.",
+                    "properties": {
+                      "locale": { "type": "string" },
+                      "format": { "type": "object" }
+                    }
+                  }
                 }
               }
             }
