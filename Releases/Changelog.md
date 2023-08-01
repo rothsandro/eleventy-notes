@@ -4,7 +4,7 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## next release
+## Version 0.14.0 (August 01, 2023)
 
 - ✨ Added support for wikilinks in custom props
 - 🐛 Wikilinks with anchor are now shown as incoming / outgoing
