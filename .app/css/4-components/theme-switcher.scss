@@ -26,5 +26,9 @@
     box-shadow: var(--shadow-sm);
     color: var(--color-primary-text);
     background-color: var(--color-surface);
+
+    svg {
+      fill: var(--color-primary-bg);
+    }
   }
 }
