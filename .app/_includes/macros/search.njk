@@ -8,7 +8,7 @@
     </noscript>
   {% endif %}
 
-  <div  x-cloak x-data="search" @click.away="open = false" class="search" data-mode="{{ mode }}">
+  <div x-cloak x-data="search" @click.away="open = false" class="search" data-mode="{{ mode }}">
     <input
       type="search"
       role="combobox"
@@ -34,7 +34,8 @@
       {{ 'autofocus' if mode === 'inline' else '' }}
     >
     {% if mode === 'overlay' %}
-      <div class="search__kbd" >Press <kbd>/<kbd></div>
+      <kbd class="search__kbd" aria-hidden="true">/</kbd>
+      <span class="visually-hidden">Press <kbd>/<kbd> to activate search</span>
     {% endif %}
     <template x-if="open{{ '|| true' if mode === 'inline' else '' }}">
       <div class="search__popover" id="{{ id('popup') }}">
