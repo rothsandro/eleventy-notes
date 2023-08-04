@@ -7,11 +7,11 @@ panel: false
 
 <main class="app-layout__main" id="app-content">
   <div class="page content-block">
-    <h1 class="page__title">Tags</h1>
+    <h1 class="page__title">Tags <small>({{ collections.tags.length }})</small></h1>
     <div class="stack" data-stack="6">
       {% for tag in collections.tags %}
         <div class="stack">
-          <h2>#{{ tag.title }}</h2>
+          <h2>{{ tag.title }} <small>({{ collections[tag.title].length }})</small></h2>
           <ul role="list" class="stack">
             {% for post in collections[tag.title] %}
               <li>

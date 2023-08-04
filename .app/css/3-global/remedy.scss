@@ -40,6 +40,12 @@ h6 {
   overflow-wrap: break-word;
 }
 
+small {
+  color: var(--color-neutral-text);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-fluid-x1);
+}
+
 ul[role] {
   list-style: none;
   padding: 0;

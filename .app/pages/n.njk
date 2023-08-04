@@ -7,7 +7,7 @@ panel: false
 
 <main class="app-layout__main" id="app-content">
   <div class="page content-block">
-    <h1 class="page__title">Notes</h1>
+    <h1 class="page__title">Notes <small>({{ collections._notes.length }})</small></h1>
     <ul role="list" class="stack">
       {% for note in collections._notes %}
         {% if note.url !== '/' %}
