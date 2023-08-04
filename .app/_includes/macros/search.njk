@@ -58,9 +58,13 @@
                   class="search__result"
                   :aria-selected="result.id === selectedId"
                   x-effect="result.id === selectedId && $el.scrollIntoView({ block: 'nearest' })"
+                  :data-first="index == 0"
                 >
                   <span class="search__note-title" x-text="result.title"></span>
                   <span class="search__note-content" x-text="result.previewText" aria-hidden="true"></span>
+                  <span class="search__selected-icon" aria-hidden="true">
+                    {{ 'corner-down-left' | feather | safe }}
+                  </span>
                 </a>
               </li>
             </template>

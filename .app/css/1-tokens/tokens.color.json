@@ -22,6 +22,7 @@
       "bg": { "value": "{color.primary.3}" },
       "bg-hover": { "value": "{color.primary.4}" },
       "bg-active": { "value": "{color.primary.5}" },
+      "line-weak": { "value": "{color.primary.5}" },
       "line": { "value": "{color.primary.6}" },
       "border": { "value": "{color.primary.7}" },
       "border-hover": { "value": "{color.primary.8}" },
