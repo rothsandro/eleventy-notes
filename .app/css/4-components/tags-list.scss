@@ -1,0 +1,6 @@
+.tags-list {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-items: center;
+}

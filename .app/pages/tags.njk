@@ -9,9 +9,17 @@ panel: false
   <div class="page content-block">
     <h1 class="page__title">Tags <small>({{ collections.tags.length }})</small></h1>
     <div class="stack" data-stack="6">
+      <ul role="list" class="tags-list">
+        {% for tag in collections.tags %}
+          <li>
+            <a href="#{{ tag.id }}" class="note-link"># {{ tag.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      <hr>
       {% for tag in collections.tags %}
         <div class="stack">
-          <h2>{{ tag.title }} <small>({{ collections[tag.title].length }})</small></h2>
+          <h2 id="{{ tag.id }}">{{ tag.title }} <small>({{ collections[tag.title].length }})</small></h2>
           <ul role="list" class="stack">
             {% for post in collections[tag.title] %}
               <li>

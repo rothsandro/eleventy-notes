@@ -37,6 +37,7 @@ h3,
 h4,
 h5,
 h6 {
+  scroll-margin-block-start: 6rem;
   overflow-wrap: break-word;
 }
 
@@ -50,4 +51,11 @@ ul[role] {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+hr {
+  block-size: 1px;
+  margin: 0;
+  border: none;
+  background-color: var(--color-neutral-border);
 }

@@ -6,6 +6,7 @@ module.exports = (eleventyConfig) => (collectionApi) => {
     .flatMap((item) => item.data.tags)
     .filter((tag, idx, list) => list.indexOf(tag) === idx)
     .map((tag) => ({
+      id: slugify(tag),
       url: `/tags/${slugify(tag)}/`,
       title: tag,
       notes: collectionApi.getFilteredByTag(tag),
