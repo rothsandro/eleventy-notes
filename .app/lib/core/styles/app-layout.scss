@@ -1,4 +1,4 @@
-@use "./../2-lib/breakpoints" as *;
+@use "./../../../css/2-lib/breakpoints" as *;
 
 .app-layout__wrapper {
   @include media-breakpoint-up("lg") {

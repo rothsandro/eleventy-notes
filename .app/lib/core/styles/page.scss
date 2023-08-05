@@ -1,4 +1,8 @@
-@use "./../2-lib/breakpoints.scss" as *;
+.page {
+  inline-size: 70ch;
+  max-inline-size: 100%;
+  margin-inline: auto;
+}
 
 .page__title {
   margin-block-end: var(--space-6);

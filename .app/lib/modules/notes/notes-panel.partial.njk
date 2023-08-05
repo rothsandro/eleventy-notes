@@ -1,7 +1,7 @@
 {% from 'modules/bookmarks/bookmark-toggle.macro.njk' import bookmarkToggle %}
 {% from 'modules/notes/edit-this-note.macro.njk' import editThisNote %}
 
-<aside class="content-block stack" data-stack="6">
+<aside class="stack" data-stack="6">
   {% set toc = content | toc %}
   {% if toc | length %}
   <div class="toc">

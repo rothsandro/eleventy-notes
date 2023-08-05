@@ -12,7 +12,7 @@ panel: false
 ---
 
 <main class="app-layout__main" id="app-content">
-  <div class="page content-block">
+  <div class="page">
     <h1 class="page__title">Tag: {{ tag.title }} <small>({{ collections[tag.title].length }})</small></h1>
     <ul role="list" class="stack">
       {% for post in collections[tag.title] | sortNotesByTitle %}

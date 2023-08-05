@@ -1,29 +1,25 @@
-@import "./3-global/remedy.scss";
-@import "./3-global/theme-mode.scss";
+@import "./3-global/remedy";
+@import "./3-global/theme-mode";
 
 @import "npm:prism-themes/themes/prism-material-light.css";
-@import "./4-components/app-header.scss";
-@import "./4-components/app-layout.scss";
-@import "./4-components/article.scss";
-@import "./4-components/content-block.scss";
-@import "./4-components/custom-props.scss";
-@import "./4-components/grouped-links.scss";
-@import "./4-components/icon-btn.scss";
-@import "./4-components/nav-group.scss";
-@import "./4-components/nav-list.scss";
-@import "./4-components/nav-section.scss";
-@import "./4-components/note-link.scss";
-@import "./4-components/page.scss";
-@import "./4-components/search.scss";
-@import "./4-components/skip-link.scss";
-@import "./4-components/tags-list.scss";
-@import "./4-components/theme-switcher.scss";
-@import "./4-components/toc.scss";
-@import "./4-components/toggle-btn.scss";
 
-@import "./5-utils/cloak.scss";
-@import "./5-utils/hide.scss";
-@import "./5-utils/inline.scss";
-@import "./5-utils/show.scss";
-@import "./5-utils/stack.scss";
-@import "./5-utils/visually-hidden.scss";
+@import "./4-components/icon-btn";
+@import "./4-components/note-link";
+@import "./4-components/toggle-btn";
+
+@import "./../lib/core/styles";
+@import "./../lib/modules/custom-props/styles";
+@import "./../lib/modules/notes/styles";
+@import "./../lib/modules/search/styles";
+@import "./../lib/modules/sidebar/styles";
+@import "./../lib/modules/tags/styles";
+@import "./../lib/modules/themes/styles";
+@import "./../lib/modules/toc/styles";
+@import "./../lib/shared/styles";
+
+@import "./5-utils/cloak";
+@import "./5-utils/hide";
+@import "./5-utils/inline";
+@import "./5-utils/show";
+@import "./5-utils/stack";
+@import "./5-utils/visually-hidden";
