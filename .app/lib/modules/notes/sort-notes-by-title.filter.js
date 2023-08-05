@@ -1,4 +1,4 @@
-module.exports = () => (collection, tag) => {
+module.exports = () => (collection) => {
   return collection.slice().sort((a, b) => {
     const nameA = a.data.title || a.fileSlug;
     const nameB = b.data.title || b.fileSlug;

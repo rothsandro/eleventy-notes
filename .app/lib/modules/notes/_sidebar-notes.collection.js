@@ -1,6 +1,7 @@
-const appData = require("../../_data/app");
+const appData = require("../../../_data/app");
 const notesCollection = require("./notes.collection");
-const QueryRunner = require("./../../core/query");
+const dynamicContentModule = require("../dynamic-content");
+const QueryRunner = dynamicContentModule.QueryRunner;
 
 module.exports = (eleventyConfig) => (collectionApi) => {
   let counter = 0;

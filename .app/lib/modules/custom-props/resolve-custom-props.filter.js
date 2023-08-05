@@ -1,5 +1,5 @@
-const ValueParser = require("../../core/value-parser");
-const Wikilink = require("../../core/wikilink");
+const ValueParser = require("../../shared").ValueParser;
+const { Wikilink } = require("../wikilinks");
 
 module.exports = (eleventyConfig) =>
   function (properties) {

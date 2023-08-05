@@ -15,7 +15,7 @@ panel: false
   <div class="page content-block">
     <h1 class="page__title">Tag: {{ tag.title }} <small>({{ collections[tag.title].length }})</small></h1>
     <ul role="list" class="stack">
-      {% for post in collections[tag.title] | sortByTitle(tag.title) %}
+      {% for post in collections[tag.title] | sortNotesByTitle %}
         <li>
           <a href="{{ post.url }}" class="note-link">
             {{ post.data.title or post.page.fileSlug }}

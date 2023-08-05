@@ -2,7 +2,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItTaskCheckbox = require("markdown-it-task-checkbox");
 const markdownItFootnote = require("markdown-it-footnote");
-const markdownItWikilinks = require("./../../core/wikilink-md");
+const markdownItWikilinks = require("./../modules/wikilinks").markdownPlugin;
 
 module.exports = (eleventyConfig) => {
   const lib = markdownIt({

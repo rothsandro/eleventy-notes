@@ -1,5 +1,5 @@
 const operators = require("./query-operators");
-const ValueParser = require("./value-parser");
+const { ValueParser } = require("../../shared");
 const TreeGenerator = require("./tree-generator");
 
 module.exports = class QueryRunner {

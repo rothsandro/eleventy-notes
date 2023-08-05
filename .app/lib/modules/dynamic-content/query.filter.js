@@ -1,4 +1,4 @@
-const QueryRunner = require("./../../core/query");
+const QueryRunner = require("./query-runner");
 
 module.exports = () => (data, query) => {
   const runner = new QueryRunner(data, query);

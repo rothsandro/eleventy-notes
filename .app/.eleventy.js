@@ -1,21 +1,25 @@
-const loader = require("./_config/utils/loader.util");
+const sharedModule = require("./lib/shared");
+const customPropsModule = require("./lib/modules/custom-props");
+const dynamicContentModule = require("./lib/modules/dynamic-content");
+const notesModule = require("./lib/modules/notes");
+const startPageModule = require("./lib/modules/start-page");
+const tagsModule = require("./lib/modules/tags");
+const tocModule = require("./lib/modules/toc");
+const wikilinksModule = require("./lib/modules/wikilinks");
+const core = require("./lib/core");
 
 module.exports = (eleventyConfig) => {
-  // Load eleventy configurations from './_config' folder
-  loader([__dirname, "_config"], eleventyConfig);
+  sharedModule.setup(eleventyConfig);
 
-  eleventyConfig.setServerOptions({
-    watch: ["dist/app.js", "dist/app.*.css"],
-  });
+  customPropsModule.setup(eleventyConfig);
+  dynamicContentModule.setup(eleventyConfig);
+  notesModule.setup(eleventyConfig);
+  startPageModule.setup(eleventyConfig);
+  tagsModule.setup(eleventyConfig);
+  tocModule.setup(eleventyConfig);
+  wikilinksModule.setup(eleventyConfig);
 
-  return {
-    pathPrefix: process.env.ELEVENTY_NOTES_PATH_PREFIX || undefined,
-    dir: {
-      input: "./../",
-      output: "dist",
-      data: ".app/_data",
-      includes: ".app/_includes",
-    },
-    markdownTemplateEngine: false,
-  };
+  core.setup(eleventyConfig);
+
+  return core.configObj;
 };

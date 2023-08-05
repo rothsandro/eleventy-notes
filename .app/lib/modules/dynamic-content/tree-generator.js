@@ -1,4 +1,4 @@
-const ValueParser = require("./value-parser");
+const { ValueParser } = require("../../shared");
 
 module.exports = class TreeGenerator {
   constructor(data, options) {

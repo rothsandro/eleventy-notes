@@ -1,4 +1,4 @@
-const ValueParser = require("./../../core/value-parser");
+const ValueParser = require("../../shared").ValueParser;
 const html = require("nanohtml");
 
 module.exports = () => (data, options) => {
