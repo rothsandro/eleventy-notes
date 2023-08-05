@@ -11,7 +11,7 @@ module.exports = {
       input: "./../",
       output: "dist",
       data: ".app/_data",
-      includes: ".app/_includes",
+      includes: ".app/lib",
     },
     markdownTemplateEngine: false,
   },

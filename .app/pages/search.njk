@@ -1,11 +1,11 @@
 ---
 title: Search
-layout: "layouts/base.njk"
+layout: "core/base.layout.njk"
 permalink: "/search/"
 panel: false
 ---
 
-{% from 'macros/search.njk' import searchInput %}
+{% from 'modules/search/search.macro.njk' import searchInput %}
 
 <main class="app-layout__main" id="app-content">
   <div class="page content-block">

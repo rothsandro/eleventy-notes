@@ -1,11 +1,11 @@
 ---
 title: Page not found (404)
-layout: "layouts/base.njk"
+layout: "core/base.layout.njk"
 permalink: "404.html"
 panel: false
 ---
 
-{% from 'macros/search.njk' import searchInput %}
+{% from 'modules/search/search.macro.njk' import searchInput %}
 
 <main class="app-layout__main" id="app-content">
   <div class="page content-block">

@@ -1,6 +1,6 @@
 ---js
 {
-  layout: "layouts/base.njk",
+  layout: "core/base.layout.njk",
   permalink: function({ page }) {
     const url = this.slugifyPath(page.filePathStem).replace(/\/index$/, '');
     const isRoot = url === "";
@@ -22,7 +22,7 @@
 
 {% if panel %}
 <div class="app-layout__panel">
-  {% include 'partials/panel.njk' %}
+  {% include 'modules/notes/notes-panel.partial.njk' %}
 </div>
 {% endif%}
 

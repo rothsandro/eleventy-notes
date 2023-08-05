@@ -1,18 +1,18 @@
-{% from 'macros/search.njk' import searchInput %}
+{% from 'modules/search/search.macro.njk' import searchInput %}
 
 <header class="app-layout__header app-header" x-data x-bind="WindowScroll">
-  {% include 'partials/nav-toggle.njk' %}
+  {% include 'core/nav-toggle.partial.njk' %}
 
   <a href="/" class="app-header__title">
     {{ app.title }}
   </a>
 
-  {% include 'partials/theme-switcher.njk' %}
+  {% include 'modules/themes/theme-switcher.partial.njk' %}
   
   <div class="show-md">
     {{ searchInput('overlay') }}
   </div>
   <div class="hide-md">
-    {% include 'partials/search-button.njk' %}
+    {% include 'modules/search/search-button.partial.njk' %}
   </div>
 </header>

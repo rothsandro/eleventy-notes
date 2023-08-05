@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: tag
   addAllPagesToCollections: true
-layout: "layouts/base.njk"
+layout: "core/base.layout.njk"
 eleventyComputed:
   title: "Tag #{{ tag.title }}"
 permalink: /tags/{{ tag.title | slugify }}/

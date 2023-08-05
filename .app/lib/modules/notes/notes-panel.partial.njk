@@ -1,5 +1,5 @@
-{% from 'macros/bookmark-toggle.njk' import bookmarkToggle %}
-{% from 'macros/edit-this-note.njk' import editThisNote %}
+{% from 'modules/bookmarks/bookmark-toggle.macro.njk' import bookmarkToggle %}
+{% from 'modules/notes/edit-this-note.macro.njk' import editThisNote %}
 
 <aside class="content-block stack" data-stack="6">
   {% set toc = content | toc %}

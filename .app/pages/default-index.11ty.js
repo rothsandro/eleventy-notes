@@ -5,7 +5,7 @@ class DefaultIndex {
     const hasCustomIndex = fs.existsSync("./../index.md");
     return {
       permalink: hasCustomIndex ? false : "/",
-      layout: "layouts/base.njk",
+      layout: "core/base.layout.njk",
       panel: false,
     };
   }
