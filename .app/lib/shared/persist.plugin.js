@@ -1,5 +1,9 @@
-// Alpine Persist plugin but with error handling
-// See https://github.com/alpinejs/alpine/blob/main/packages/persist/src/index.js
+/**
+ * Alpine Persist plugin but with error handling.
+ * See https://github.com/alpinejs/alpine/blob/main/packages/persist/src/index.js
+ *
+ * @param {import("alpinejs").Alpine} Alpine The alpine instance.
+ */
 export default function (Alpine) {
   let persist = () => {
     let alias;
