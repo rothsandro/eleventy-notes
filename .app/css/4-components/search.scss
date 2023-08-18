@@ -23,6 +23,10 @@
     background-color: var(--color-neutral-bg-hover);
   }
 
+  &:focus-visible {  
+    outline: var(--color-primary-text) solid 2px;
+  }
+
   &::placeholder {
     color: var(--color-neutral-placeholder);
   }
