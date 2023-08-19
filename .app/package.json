@@ -3,11 +3,11 @@
   "version": "0.14.0",
   "description": "",
   "scripts": {
-    "start": "npm-run-all clean tokens:generate -p css:watch js:watch 11ty:serve",
-    "build": "npm-run-all clean tokens:generate -p css:build js:build 11ty:build",
+    "start": "npm-run-all clean -p css:watch js:watch 11ty:serve",
+    "build": "npm-run-all clean -p css:build js:build 11ty:build",
     "11ty:serve": "eleventy --serve",
     "11ty:build": "eleventy",
-    "tokens:generate": "node ./style-dictionary.js",
+    "themes:generate": "node ./scripts/generate-themes.js",
     "css:watch": "node scripts/bundle-css.js --watch",
     "js:watch": "node scripts/bundle-js.js --watch",
     "css:build": "node scripts/bundle-css.js",
@@ -21,6 +21,7 @@
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@parcel/transformer-sass": "^2.8.2",
+    "@radix-ui/colors": "^2.0.1",
     "eleventy-plugin-page-assets": "^0.3.0",
     "markdown-it-anchor": "^8.6.6",
     "markdown-it-footnote": "^3.0.3",
@@ -31,8 +32,7 @@
     "parcel": "^2.8.2",
     "rimraf": "^3.0.2",
     "sass": "^1.57.1",
-    "string-strip-html": "^8.4.0",
-    "style-dictionary": "^3.8.0"
+    "string-strip-html": "^8.4.0"
   },
   "dependencies": {
     "alpinejs": "^3.10.5",
