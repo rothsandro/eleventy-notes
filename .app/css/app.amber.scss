@@ -50,6 +50,7 @@
   --color-primary-line: var(--light, hsl(39, 83.6%, 75.4%)) var(--dark, hsl(35, 58.3%, 20.5%));
   --color-primary-border: var(--light, hsl(37, 66.9%, 68.2%)) var(--dark, hsl(35, 59.0%, 27.4%));
   --color-primary-border-hover: var(--light, hsl(35, 59.8%, 60.0%)) var(--dark, hsl(36, 60.2%, 41.4%));
+  --color-primary-focus-ring: var(--light, hsl(35, 59.8%, 60.0%)) var(--dark, hsl(36, 60.2%, 41.4%));
   --color-primary-bg-solid: var(--light, hsl(42, 100%, 62.0%)) var(--dark, hsl(42, 100%, 62.0%));
   --color-primary-bg-solid-hover: var(--light, hsl(42, 100%, 55.0%)) var(--dark, hsl(43, 100%, 64.0%));
   --color-primary-text: var(--light, hsl(25, 50.0%, 38.0%)) var(--dark, hsl(43, 100%, 65.0%));
@@ -63,6 +64,7 @@
   --color-neutral-line: var(--light, hsl(56, 5.0%, 86.0%)) var(--dark, hsl(49, 3.1%, 24.3%));
   --color-neutral-border: var(--light, hsl(54, 4.9%, 81.8%)) var(--dark, hsl(47, 3.3%, 28.7%));
   --color-neutral-border-hover: var(--light, hsl(51, 5.0%, 72.4%)) var(--dark, hsl(43, 3.7%, 37.1%));
+  --color-neutral-focus-ring: var(--light, hsl(51, 5.0%, 72.4%)) var(--dark, hsl(43, 3.7%, 37.1%));
   --color-neutral-bg-solid: var(--light, hsl(60, 3.0%, 53.9%)) var(--dark, hsl(50, 4.0%, 41.8%));
   --color-neutral-bg-solid-hover: var(--light, hsl(60, 2.6%, 49.0%)) var(--dark, hsl(48, 3.5%, 49.5%));
   --color-neutral-text: var(--light, hsl(50, 2.5%, 38.0%)) var(--dark, hsl(50, 5.0%, 68.3%));
