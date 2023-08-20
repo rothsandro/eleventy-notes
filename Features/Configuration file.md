@@ -33,6 +33,7 @@ In addition to the basic configuration, you can also:
 
 - Add an edit link to your notes, see [[Edit link]]
 - Customize the notes in the sidebar or add links to other websites, see [[Sidebar]]
+- Customize the content of the panel, see [[Panel]]
 - Configure custom properties in the panel, see [[Custom Properties]]
 - Change the color scheme, see [[Themes]]
 - Customize the behavior of Wikilinks, see [[Wikilinks#Automatic Label]]
@@ -57,6 +58,14 @@ The following example shows the supported configuration options:
   "sidebar": {
     "links": [],
     "notes": [{}]
+  },
+  "panel": {
+    "tableOfContents": true,
+    "tags": true,
+    "customProperties": true,
+    "incomingLinks": true,
+    "outgoingLinks": true,
+    "externalLinks": true
   },
   "wikilinks": {
     "autoLabel": "ref",

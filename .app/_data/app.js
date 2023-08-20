@@ -13,6 +13,14 @@ const defaultConfig = {
     links: [],
     notes: [{}],
   },
+  panel: {
+    tableOfContents: true,
+    customProperties: true,
+    tags: true,
+    incomingLinks: true,
+    outgoingLinks: true,
+    externalLinks: true,
+  },
   wikilinks: {
     autoLabel: "ref",
     anchorLabel: "none",
@@ -45,6 +53,10 @@ function mergeConfigs(a, b) {
     sidebar: {
       ...a.sidebar,
       ...b.sidebar,
+    },
+    panel: {
+      ...a.panel,
+      ...b.panel,
     },
     wikilinks: {
       ...a.wikilinks,

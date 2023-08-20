@@ -203,6 +203,42 @@
         }
       }
     },
+    "panel": {
+      "type": "object",
+      "description": "The configuration for the panel",
+      "properties": {
+        "tableOfContents": {
+          "type": "boolean",
+          "description": "Whether to display the table of contents in the panel",
+          "default": true
+        },
+        "customProperties": {
+          "type": "boolean",
+          "description": "Whether to display custom properties in the panel",
+          "default": true
+        },
+        "tags": {
+          "type": "boolean",
+          "description": "Whether to display tags in the panel",
+          "default": true
+        },
+        "incomingLinks": {
+          "type": "boolean",
+          "description": "Whether to display incoming links in the panel",
+          "default": true
+        },
+        "outgoingLinks": {
+          "type": "boolean",
+          "description": "Whether to display outgoing links in the panel",
+          "default": true
+        },
+        "externalLinks": {
+          "type": "boolean",
+          "description": "Whether to display external links in the panel",
+          "default": true
+        }
+      }
+    },
     "wikilinks": {
       "type": "object",
       "description": "The configuration for wikilinks",
