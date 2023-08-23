@@ -4,6 +4,11 @@ const markdownItTaskCheckbox = require("markdown-it-task-checkbox");
 const markdownItFootnote = require("markdown-it-footnote");
 const markdownItWikilinks = require("./../modules/wikilinks").markdownPlugin;
 
+/**
+ * Creates a markdown-it instance.
+ * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @returns The configured markdown library.
+ */
 module.exports = (eleventyConfig) => {
   const lib = markdownIt({
     html: true,

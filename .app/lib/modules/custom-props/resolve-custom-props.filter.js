@@ -1,8 +1,18 @@
 const ValueParser = require("../../shared").ValueParser;
 const { Wikilink } = require("../wikilinks");
 
-module.exports = (eleventyConfig) =>
-  function (properties) {
+/**
+ * Creates a filter function that resolves custom properties.
+ * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @returns The filter function.
+ */
+module.exports = (eleventyConfig) => {
+  /**
+   * Filter function to parse the custom properties of a note.
+   * @param {Record<string, any>[]} properties The list of properties to parse.
+   * @returns The parsed list of properties.
+   */
+  return function (properties) {
     const wikilink = new Wikilink(
       this.ctx.collections._notes,
       this.ctx.app.wikilinks,
@@ -77,3 +87,4 @@ module.exports = (eleventyConfig) =>
       });
     });
   };
+};

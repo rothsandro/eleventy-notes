@@ -1,5 +1,5 @@
 ---
-title: "Intro"
+title: Intro
 panel: false
 ---
 

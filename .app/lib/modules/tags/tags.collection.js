@@ -1,3 +1,8 @@
+/**
+ * Creates the collection factory of all tags
+ * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @returns The collection function
+ */
 module.exports = (eleventyConfig) => (collectionApi) => {
   const slugify = eleventyConfig.getFilter("slugify");
   const tagsFromPosts = collectionApi

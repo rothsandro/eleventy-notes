@@ -1,11 +1,37 @@
 const { ValueParser } = require("../../shared");
 
+/**
+ * Generates a tree structure from a list of items.
+ *
+ * @typedef {{
+ *   titleProp?: string;
+ *   pathProp?: string | string[];
+ *   expanded?: boolean | number | string;
+ *   replace?: Record<string, string>;
+ * }} TreeConfigObj
+ * @typedef {boolean | TreeConfigObj} TreeConfig
+ * @typedef {{
+ *   titleProp: string;
+ *   pathProp: string[];
+ *   expanded: boolean | number | string;
+ *   replace: Record<string, string>;
+ * }} NormalizedTreeConfig
+ */
 module.exports = class TreeGenerator {
+  /**
+   * @param {any[]} data The list of items to generate the tree from.
+   * @param {TreeConfig} options The tree generation options.
+   */
   constructor(data, options) {
     this.data = data;
     this.options = this.normalize(options);
   }
 
+  /**
+   * Normalizes the tree generation options.
+   * @param {TreeConfig} options
+   * @returns {NormalizedTreeConfig}
+   */
   normalize(options) {
     return {
       titleProp: options?.titleProp || "title",
@@ -17,6 +43,9 @@ module.exports = class TreeGenerator {
     };
   }
 
+  /**
+   * Creates a tree structure from the list of items.
+   */
   run() {
     const tree = [];
 
@@ -82,6 +111,11 @@ module.exports = class TreeGenerator {
     return true;
   }
 
+  /**
+   * Slugifies a string.
+   * @param {string} value
+   * @returns {string}
+   */
   slugify(value) {
     return value
       .toLowerCase()

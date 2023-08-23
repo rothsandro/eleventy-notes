@@ -1,6 +1,11 @@
 const notesModule = require("./../notes");
 const { parse } = require("node-html-parser");
 
+/**
+ * Creates the collection factory of all links.
+ * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @returns The collection function
+ */
 module.exports = (eleventyConfig) => (collectionApi) => {
   const notes = notesModule._notesCollection(eleventyConfig)(collectionApi);
 

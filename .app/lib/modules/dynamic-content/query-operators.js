@@ -65,6 +65,11 @@ module.exports = {
   },
 };
 
+/**
+ * Normalizes the value for better comparison.
+ * @param {*} value The value to normalize.
+ * @returns The normalized value.
+ */
 function normalizeValue(value) {
   if (typeof value === "string") return value.toLowerCase().trim();
   if (Array.isArray(value)) return value.map((item) => normalizeValue(item));

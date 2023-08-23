@@ -8,7 +8,17 @@ const indexJsonUrl = baseUrl + "index.json";
  */
 export default function (Alpine) {
   Alpine.store("bookmarks", {
+    /**
+     * The index of all notes.
+     * A key-value map of note URLs to note titles.
+     * @type {Record<string, string>}
+     */
     index: {},
+
+    /**
+     * The list of bookmarked notes.
+     * @type {string[]}
+     */
     items: Alpine.$persist([]).as("favorites"), // called favorites for backwards compatibility
 
     async init() {
@@ -26,6 +36,10 @@ export default function (Alpine) {
       return this.items.includes(id);
     },
 
+    /**
+     * Toggles the bookmark status of a note.
+     * @param {string} id
+     */
     toggle(id) {
       if (this.items.includes(id)) {
         this.items = this.items.filter((bkm) => bkm !== id);

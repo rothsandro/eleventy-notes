@@ -6,6 +6,10 @@ module.exports = {
   uniqueIdGlobal: require("./unique-id.global"),
   ValueParser: require("./value-parser"),
 
+  /**
+   * Sets up the module
+   * @param {import("@11ty/eleventy").UserConfig} config
+   */
   setup(config) {
     config.addFilter("ariaCurrent", this.ariaCurrentFilter(config));
     config.addFilter("feather", this.featherFilter(config));

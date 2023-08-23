@@ -1,4 +1,3 @@
-const colors = require("@radix-ui/colors");
 const generateTokens = require("../css/1-tokens/tokens.js");
 const themes = require("../css/1-tokens/themes.js");
 

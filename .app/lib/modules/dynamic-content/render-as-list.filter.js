@@ -1,12 +1,30 @@
 const ValueParser = require("../../shared").ValueParser;
 const html = require("nanohtml");
 
+/**
+ * Creates the HTML for a list of items.
+ * @param {any[]} data The list of items to create the HTML for.
+ * @param {object} options The options for the list.
+ * @returns The HTML code
+ *
+ * @typedef {{
+ *   titleProp?: string; // The property name of the title.
+ *   urlProp?: string;
+ *   childrenProp?: string;
+ * }} Options
+ */
 module.exports = () => (data, options) => {
   return html`<ul data-link-list>
     ${data.map((item) => createItem(item, options))}
   </ul>`;
 };
 
+/**
+ * Creates the HTML for a single item.
+ * @param {*} item
+ * @param {Options} options
+ * @returns The HTML code
+ */
 function createItem(item, options = {}) {
   const titleProp = options.titleProp ?? "title";
   const urlProp = options.urlProp ?? "url";

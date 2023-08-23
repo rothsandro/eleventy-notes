@@ -2,7 +2,28 @@ const operators = require("./query-operators");
 const { ValueParser } = require("../../shared");
 const TreeGenerator = require("./tree-generator");
 
+/**
+ * Runs a query on a list of items.
+ *
+ * @typedef {undefined | string | Array<[string, "asc" | "desc"] | string>} QuerySortConfig
+ * @typedef {boolean | {
+ *   pathProp?: string;
+ *   replace?: Record<string, string>;
+ * }} QueryTreeConfig
+ * @typedef {{
+ *   filter?: object;
+ *   sort?: QuerySortConfig;
+ *   tree?: QueryTreeConfig;
+ *   offset?: number;
+ *   limit?: number;
+ * }} QueryDef
+ */
 module.exports = class QueryRunner {
+  /**
+   *
+   * @param {object[]} items The list of items to run the query on.
+   * @param {QueryDef} query The query to run.
+   */
   constructor(items, query) {
     this.items = items;
     this.query = query;
@@ -91,6 +112,10 @@ class QueryFilter {
 }
 
 class RecursiveQuerySorter {
+  /**
+   * @param {unknown[]} items The items to sort.
+   * @param {QuerySortConfig} sortConfig The sort configuration.
+   */
   constructor(items, sortConfig) {
     this.items = items;
     this.sortConfig = sortConfig;
@@ -112,6 +137,10 @@ class RecursiveQuerySorter {
 }
 
 class QuerySorter {
+  /**
+   * @param {unknown[]} items The items to sort.
+   * @param {QuerySortConfig} config The sort configuration.
+   */
   constructor(items, config) {
     this.items = items;
     this.config = this.normalize(config);
@@ -130,6 +159,13 @@ class QuerySorter {
     });
   }
 
+  /**
+   * Normalizes the sort configuration.
+   * @typedef {[string, 'asc' | 'desc']} NormalizedQuerySortRow
+   * @typedef {NormalizedQuerySortRow[]} NormalizedQuerySortConfig
+   * @param {QuerySortConfig} sortConfig
+   * @returns {NormalizedQuerySortConfig}
+   */
   normalize(sortConfig) {
     if (typeof sortConfig === "string") {
       return [[sortConfig, "asc"]];
@@ -148,6 +184,13 @@ class QuerySorter {
     return [];
   }
 
+  /**
+   * Compares two items by a given sort configuration.
+   * @param {*} a The first item.
+   * @param {*} b The second item.
+   * @param {NormalizedQuerySortRow} sort The sort configuration.
+   * @returns The comparison result.
+   */
   compare(a, b, sort) {
     const [propPath, direction] = sort;
     const valueA = ValueParser.getValueByPath(a, propPath);
@@ -157,6 +200,12 @@ class QuerySorter {
     return direction === "desc" ? result * -1 : result;
   }
 
+  /**
+   * Compares two values.
+   * @param {*} a
+   * @param {*} b
+   * @returns The comparison result.
+   */
   compareValues(a, b) {
     const emptyValues = new Set([undefined, null]);
     if (emptyValues.has(a) && !emptyValues.has(b)) return 1;

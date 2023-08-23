@@ -13,8 +13,9 @@
           class="nav-list__link"
         >
           {{ 'home' | feather | safe }}
-          {% set home = (collections._notes | home) %}
-          <span>{{ home.data.title if home else 'Home' }}</span>
+          {% set indexQuery = { filter: [['url', 'isEqual', '/' ]] } %}
+          {% set indexNote = (collections._notes | query(indexQuery)) | first %}
+          <span>{{ indexNote.data.title if indexNote else 'Home' }}</span>
         </a>
       </li>
       <li>
