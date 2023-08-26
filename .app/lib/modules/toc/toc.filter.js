@@ -2,7 +2,7 @@ const { parse } = require("node-html-parser");
 
 module.exports = () => (content) => {
   const html = parse(content);
-  const headings = html.querySelectorAll("h1, h2, h3, h4, h5, h6");
+  const headings = html.querySelectorAll("h1, h2, h3, h4");
   const toc = headings.map((heading) => {
     heading.querySelectorAll("[aria-hidden=true]").forEach((el) => el.remove());
 

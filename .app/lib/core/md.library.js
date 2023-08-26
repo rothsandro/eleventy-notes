@@ -22,11 +22,11 @@ module.exports = (eleventyConfig) => {
     })
     .use(markdownItAnchor, {
       slugify: eleventyConfig.getFilter("slug"),
+      level: [1, 2, 3, 4],
       permalink: markdownItAnchor.permalink.ariaHidden({
         placement: "after",
-        class: "direct-link",
-        symbol: "#",
-        level: [1, 2, 3, 4],
+        class: "anchor-link",
+        symbol: `<svg width="0.8em" height="0.8em"><use xlink:href="#icon-anchor-link"></use></svg>`,
       }),
     });
 

@@ -176,16 +176,21 @@
     border-color: var(--color-neutral-line);
   }
 
-  .direct-link {
+  .anchor-link {
     outline-offset: 4px;
     text-decoration: none;
     margin-inline-start: 0.1em;
     color: transparent;
     transition: color 300ms ease;
+
+    svg {
+      display: inline-block;
+      transform: translateY(1px);
+    }
   }
 
-  *:hover > .direct-link,
-  .direct-link:focus {
+  *:hover > .anchor-link,
+  .anchor-link:focus {
     color: var(--color-neutral-text);
   }
 }
