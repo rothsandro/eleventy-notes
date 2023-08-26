@@ -2,16 +2,17 @@ const ValueParser = require("../../shared").ValueParser;
 const html = require("nanohtml");
 
 /**
+ * @typedef {object} Options
+ * @property {string} [titleProp] The name of the title property.
+ * @property {string} [urlProp] The name of the url property.
+ * @property {string} [childrenProp] The name of the children property.
+ */
+
+/**
  * Creates the HTML for a list of items.
  * @param {any[]} data The list of items to create the HTML for.
- * @param {object} options The options for the list.
+ * @param {Options} options The options for the list.
  * @returns The HTML code
- *
- * @typedef {{
- *   titleProp?: string; // The property name of the title.
- *   urlProp?: string;
- *   childrenProp?: string;
- * }} Options
  */
 module.exports = () => (data, options) => {
   return html`<ul data-link-list>

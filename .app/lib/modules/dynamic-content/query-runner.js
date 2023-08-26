@@ -3,24 +3,30 @@ const { ValueParser } = require("../../shared");
 const TreeGenerator = require("./tree-generator");
 
 /**
- * Runs a query on a list of items.
- *
  * @typedef {undefined | string | Array<[string, "asc" | "desc"] | string>} QuerySortConfig
+ */
+
+/**
  * @typedef {boolean | {
  *   pathProp?: string;
  *   replace?: Record<string, string>;
  * }} QueryTreeConfig
- * @typedef {{
- *   filter?: object;
- *   sort?: QuerySortConfig;
- *   tree?: QueryTreeConfig;
- *   offset?: number;
- *   limit?: number;
- * }} QueryDef
+ */
+
+/**
+ * @typedef {object} QueryDef
+ * @property {object} [filter]
+ * @property {QuerySortConfig} [sort]
+ * @property {QueryTreeConfig} [tree]
+ * @property {number} [offset]
+ * @property {number} [limit]
+ */
+
+/**
+ * Runs a query on a list of items.
  */
 module.exports = class QueryRunner {
   /**
-   *
    * @param {object[]} items The list of items to run the query on.
    * @param {QueryDef} query The query to run.
    */

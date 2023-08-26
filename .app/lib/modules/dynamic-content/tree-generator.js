@@ -1,21 +1,27 @@
 const { ValueParser } = require("../../shared");
 
 /**
- * Generates a tree structure from a list of items.
- *
- * @typedef {{
- *   titleProp?: string;
- *   pathProp?: string | string[];
- *   expanded?: boolean | number | string;
- *   replace?: Record<string, string>;
- * }} TreeConfigObj
+ * @typedef {object} TreeConfigObj
+ * @property {string} [titleProp]
+ * @property {string | string[]} [pathProp]
+ * @property {boolean | number | string} [expanded]
+ * @property {Record<string, string>} [replace]
+ */
+
+/**
  * @typedef {boolean | TreeConfigObj} TreeConfig
- * @typedef {{
- *   titleProp: string;
- *   pathProp: string[];
- *   expanded: boolean | number | string;
- *   replace: Record<string, string>;
- * }} NormalizedTreeConfig
+ */
+
+/**
+ * @typedef {object} NormalizedTreeConfig
+ * @property {string} titleProp
+ * @property {string[]} pathProp
+ * @property {boolean | number | string} expanded
+ * @property {Record<string, string>} replace
+ */
+
+/**
+ * Generates a tree structure from a list of items.
  */
 module.exports = class TreeGenerator {
   /**
