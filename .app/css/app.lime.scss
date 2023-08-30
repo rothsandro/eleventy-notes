@@ -40,6 +40,7 @@
   --space-6: 36px;
   --space-7: 48px;
   --space-8: 64px;
+  --color-backdrop: var(--light, rgba(0, 0, 0, 0.25)) var(--dark, rgba(0, 0, 0, 0.5));
   --color-background: var(--light, #fff) var(--dark, hsl(110, 5.0%, 9.2%));
   --color-surface: var(--light, #fff) var(--dark, hsl(110, 5.0%, 9.2%));
   --color-primary-bg-subtle: var(--light, hsl(85, 66.7%, 96.5%)) var(--dark, hsl(78, 41.5%, 8.0%));

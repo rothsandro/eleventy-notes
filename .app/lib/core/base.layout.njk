@@ -3,7 +3,7 @@ panel: true
 ---
 
 <!doctype html>
-<html lang="en" data-theme="system">
+<html lang="en" data-theme="system"> 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +26,11 @@ panel: true
           x-bind="container"
           :data-open="$store.nav.open.toString()"
         >
-          {% include 'modules/sidebar/sidebar.partial.njk' %}
+          <div class="app-layout__sidebar-inner">
+            {% include 'modules/sidebar/sidebar.partial.njk' %}
+          </div>
         </div>
-        {{ content | safe }}
+        <div>{{ content | safe }}</div>
       </div>
     </div>
 

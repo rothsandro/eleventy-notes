@@ -4,9 +4,8 @@ layout: "core/base.layout.njk"
 permalink: "/n/"
 panel: false
 ---
-
-<main class="app-layout__main" id="app-content">
-  <div class="page">
+<div class="page">
+  <main class="page__main" id="app-content">
     <h1 class="page__title">Notes <small>({{ collections._notes.length }})</small></h1>
     <ul role="list" class="stack">
       {% for note in collections._notes %}
@@ -19,5 +18,5 @@ panel: false
         {% endif %}
       {% endfor %}
     </ul>
-  </div>
-</main>
+  </main>
+</div>

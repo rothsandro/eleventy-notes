@@ -1,24 +1,7 @@
 @use "./../../../css/2-lib/breakpoints" as *;
 
-.app-layout__wrapper {
-  @include media-breakpoint-up("lg") {
-    .supports-js & {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 300px;
-    }
-  }
-
-  @include media-breakpoint-up("xl") {
-    &,
-    .supports-js & {
-      display: grid;
-      grid-template-columns: 300px minmax(0, 1fr) 300px;
-    }
-  }
-}
-
 .app-layout__sidebar {
-  background-color: var(--color-surface);
+  background-color: var(--color-backdrop);
   overscroll-behavior: contain;
   z-index: 2;
 
@@ -31,47 +14,27 @@
     inset: 4rem 0 0;
     overflow: auto;
   }
-
-  @include media-breakpoint-up("xl") {
-    &,
-    .supports-js & {
-      block-size: calc(100vh - 4rem);
-      display: block;
-      position: sticky;
-      inset: 4rem 0 0;
-      overflow: auto;
-    }
-  }
 }
 
-.app-layout__panel {
-  padding-block: var(--space-6);
-  padding-inline: var(--space-4);
-  overscroll-behavior: contain;
+.app-layout__sidebar-inner {
+  inline-size: 100%;
+  max-inline-size: 400px;
+  padding-block: var(--space-4);
+  box-shadow: var(--shadow-xxl);
+  background-color: var(--color-surface);
+}
 
-  @include media-breakpoint-up("lg") {
-    .supports-js & {
-      position: sticky;
-      inset: 0;
-      inset-block-start: 4rem;
-      block-size: calc(100vh - 4rem);
-      overflow: auto;
-      z-index: 1;
-    }
+@include media-breakpoint-up("xl") {
+  .app-layout__wrapper {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
   }
 
-  @include media-breakpoint-up("xl") {
-    position: sticky;
-    inset: 0;
-    inset-block-start: 4rem;
+  .app-layout__sidebar {
     block-size: calc(100vh - 4rem);
+    display: block !important;
+    position: sticky !important;
+    inset: 4rem 0 0;
     overflow: auto;
-    z-index: 1;
   }
-}
-
-.app-layout__main {
-  scroll-margin-block-start: 6rem;
-  padding-inline: var(--space-4);
-  padding-block: var(--space-6);
 }

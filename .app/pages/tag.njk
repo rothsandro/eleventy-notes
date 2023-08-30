@@ -11,8 +11,8 @@ permalink: /tags/{{ tag.title | slugify }}/
 panel: false
 ---
 
-<main class="app-layout__main" id="app-content">
-  <div class="page">
+<div class="page">
+  <main class="page__main" id="app-content">
     <h1 class="page__title">Tag: {{ tag.title }} <small>({{ collections[tag.title].length }})</small></h1>
     <ul role="list" class="stack">
       {% for post in collections[tag.title] | sortNotesByTitle %}
@@ -23,5 +23,5 @@ panel: false
         </li>
       {% endfor %}
     </ul>
-  </div>
-</main>
+  </main>
+</div>

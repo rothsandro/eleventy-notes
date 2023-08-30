@@ -50,6 +50,7 @@ module.exports = (theme) => ({
   "space-7": "48px",
   "space-8": "64px",
 
+  "color-backdrop": themeValue("rgba(0, 0, 0, 0.25)", "rgba(0, 0, 0, 0.5)"),
   "color-background": themeValue("#fff", theme.neutral.dark[1]),
   "color-surface": themeValue("#fff", theme.neutral.dark[1]),
   "color-primary-bg-subtle": colorStep(theme.primary, 2),

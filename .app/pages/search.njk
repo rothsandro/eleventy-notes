@@ -7,10 +7,9 @@ panel: false
 
 {% from 'modules/search/search.macro.njk' import searchInput %}
 
-<main class="app-layout__main" id="app-content">
-  <div class="page">
+<div class="page">
+  <main class="page__main" id="app-content">
     <h1 class="page__title">Search</h1>
     {{ searchInput('inline') }}
-  </div>
-</main>
-
+  </main>
+</div>

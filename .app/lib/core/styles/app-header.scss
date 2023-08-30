@@ -16,6 +16,10 @@
     box-shadow: var(--shadow-lg);
   }
 
+  :root:not(.supports-js) & {
+    border-block-end: 1px solid var(--color-neutral-line);
+  }
+
   & > :not(.app-header__title) {
     flex-shrink: 0;
   }

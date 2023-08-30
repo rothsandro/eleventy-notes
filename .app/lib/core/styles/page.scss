@@ -1,7 +1,18 @@
-.page {
+@use "./../../../css/2-lib/breakpoints" as *;
+
+.page__main {
   inline-size: 70ch;
   max-inline-size: 100%;
   margin-inline: auto;
+  padding-inline: var(--space-4);
+  padding-block: var(--space-6);
+  scroll-margin-block-start: 6rem;
+}
+
+.page__panel {
+  padding-block: var(--space-6);
+  padding-inline: var(--space-4);
+  overscroll-behavior: contain;
 }
 
 .page__title {
@@ -14,4 +25,20 @@
   margin-block-end: var(--space-6);
   font-size: var(--font-size-fluid-1);
   line-height: 1.3;
+}
+
+@include media-breakpoint-up("lg") {
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+
+  .page__panel {
+    position: sticky;
+    inset: 0;
+    inset-block-start: 4rem;
+    block-size: calc(100vh - 4rem);
+    overflow: auto;
+    z-index: 1;
+  }
 }
