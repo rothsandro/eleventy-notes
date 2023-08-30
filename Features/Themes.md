@@ -16,7 +16,7 @@ Eleventy Notes supports a few different color schemes to choose from. You can ch
 }
 ```
 
-The supported color schemes are: tomato, red, crimson, pink, plum, purple, violet, indigo, blue, sky, cyan, teal, mint, green, grass, lime, yellow, amber, orange and brown.
+The supported color schemes are: tomato, red, ruby, crimson, pink, plum, purple, violet, iris, indigo, blue, sky, cyan, teal, jade, mint, green, grass, lime, yellow, amber, orange and brown.
 
 # Light and dark themes
 

@@ -46,6 +46,14 @@ module.exports = {
     primary: { light: colors.indigo, dark: colors.indigoDark },
     neutral: { light: colors.slate, dark: colors.slateDark },
   },
+  iris: {
+    primary: { light: colors.iris, dark: colors.irisDark },
+    neutral: { light: colors.slate, dark: colors.slateDark },
+  },
+  jade: {
+    primary: { light: colors.jade, dark: colors.jadeDark },
+    neutral: { light: colors.sage, dark: colors.sageDark },
+  },
   lime: {
     primary: { light: colors.lime, dark: colors.limeDark },
     neutral: { light: colors.olive, dark: colors.oliveDark },
@@ -72,6 +80,10 @@ module.exports = {
   },
   red: {
     primary: { light: colors.red, dark: colors.redDark },
+    neutral: { light: colors.mauve, dark: colors.mauveDark },
+  },
+  ruby: {
+    primary: { light: colors.ruby, dark: colors.rubyDark },
     neutral: { light: colors.mauve, dark: colors.mauveDark },
   },
   sky: {
