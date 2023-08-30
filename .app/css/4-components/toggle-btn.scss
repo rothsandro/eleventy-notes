@@ -1,16 +1,18 @@
 .toggle-btn {
-  block-size: 2.25rem;
-  inline-size: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-2);
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
   border: 0;
-  border-radius: var(--rounded-full);
-  background-color: var(--color-primary-bg);
+  border-radius: var(--rounded-md);
+  background: transparent;
   cursor: pointer;
+  font-size: var(--font-size-sm);
   color: var(--color-primary-text);
   transition: all 300ms ease;
+  text-decoration: none;
 
   &:hover {
     background-color: var(--color-primary-bg-hover);
