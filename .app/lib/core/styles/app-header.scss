@@ -26,7 +26,7 @@
 }
 
 .app-header__title {
-  margin-inline-end: auto;
+  margin-inline: var(--space-2) auto;
   outline-offset: var(--space-2);
   color: var(--color-neutral-text-contrast);
   font-weight: var(--font-weight-bold);
@@ -34,4 +34,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  &:hover {
+    color: var(--color-primary-text);
+  }
 }
