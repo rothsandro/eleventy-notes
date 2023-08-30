@@ -5,7 +5,8 @@
     @click="$store.nav.toggle()"
     x-cloak
   >
-    {{ 'menu' | feather | safe }}
+    <span x-show="!$store.nav.open">{{ 'menu' | feather | safe }}</span>
+    <span x-show="$store.nav.open">{{ 'x' | feather | safe }}</span>
     <span class="visually-hidden">Menu</span>
   </button>
 </div>
