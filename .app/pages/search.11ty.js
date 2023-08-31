@@ -37,7 +37,7 @@ class SearchIndex {
 
   cleanUpContent(content) {
     const doc = parse(content);
-    doc.querySelectorAll(".direct-link").forEach((el) => el.remove());
+    doc.querySelectorAll(".anchor-link").forEach((el) => el.remove());
     return doc.innerHTML;
   }
 }
