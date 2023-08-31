@@ -4,9 +4,16 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.16.0
+
+**August 31, 2023**
+
+- 💄 **Color schemes**: Three new color schemes are available: ruby, iris and jade.
+- 💄 **Design**: This version includes a few design improvements.
+
 ## Version 0.15.0
 
-**August 15, 2023**
+**August 26, 2023**
 
 - ✨ **Tags Overview**: The tags page now shows an overview of all tags at the top.
 - ✨ **Notes Count**: The notes and tag pages now show the number of notes.
