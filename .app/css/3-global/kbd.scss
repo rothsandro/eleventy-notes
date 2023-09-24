@@ -1,0 +1,20 @@
+kbd {
+  display: inline-block;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  box-shadow: 0 2px 0 1px var(--color-neutral-border);
+  border-radius: var(--rounded-md);
+  border: 1px solid var(--color-neutral-border);
+  background-color: var(--color-surface);
+  font-family: var(--font-family-mono);
+  font-size: 0.8em;
+  line-height: 1;
+  cursor: default;
+
+  &:hover,
+  [data-kbd-trigger]:hover + &,
+  [data-kbd-trigger]:focus + & {
+    box-shadow: 0 1px 0 0.5px var(--color-neutral-border);
+    transform: translateY(1px);
+  }
+}
