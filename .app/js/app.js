@@ -9,6 +9,7 @@ import hotkeysStore from "../lib/shared/hotkeys.store.js";
 import scrollPositionData from "../lib/shared/scroll-position.data.js";
 import windowScrollBind from "../lib/shared/window-scroll.bind.js";
 import persistPlugin from "../lib/shared/persist.plugin";
+import copyToClipboardData from "../lib/shared/copy-to-clipboard.data.js";
 
 Alpine.plugin(persistPlugin);
 
@@ -20,5 +21,6 @@ collapsibleData(Alpine);
 hotkeysStore(Alpine);
 scrollPositionData(Alpine);
 windowScrollBind(Alpine);
+copyToClipboardData(Alpine);
 
 Alpine.start();

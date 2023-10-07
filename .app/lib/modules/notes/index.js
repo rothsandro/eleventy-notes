@@ -4,6 +4,7 @@ module.exports = {
   notesCollection: require("./notes.collection"),
   editThisNoteLinkFilter: require("./edit-this-note-link.filter"),
   sortNotesByTitleFilter: require("./sort-notes-by-title.filter"),
+  copyCodeMarkdownPlugin: require("./copy-code.md-plugin"),
 
   /**
    * Sets up the module.
