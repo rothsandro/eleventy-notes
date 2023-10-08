@@ -23,12 +23,11 @@ module.exports = (md) => {
             x-cloak
             x-data="copyToClipboard()"
             x-bind="copyBtn"
-            data-clipboard-text="${content}"
           >
-            <svg width="1em" height="1em" data-if-copied="false">
+            <svg x-show="!copied">
               <use xlink:href="#icon-clipboard"></use>
             </svg>
-            <svg width="1em" height="1em" data-if-copied="true">
+            <svg x-show="copied">
               <use xlink:href="#icon-check"></use>
             </svg>
           </button>

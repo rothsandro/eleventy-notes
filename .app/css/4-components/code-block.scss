@@ -34,9 +34,4 @@
     inline-size: 1.125em;
     block-size: 1.125em;
   }
-
-  &[data-copied="true"] [data-if-copied="false"],
-  &[data-copied="false"] [data-if-copied="true"] {
-    display: none;
-  }
 }
