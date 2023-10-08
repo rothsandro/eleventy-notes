@@ -4,6 +4,13 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.17.0
+
+**October 08, 2023**
+
+- ✨ **Copy code**: Code blocks now have a copy button.
+- 💄 **Styling**: Keyboard elements `<kbd>` are now styled.
+
 ## Version 0.16.0
 
 **August 31, 2023**
