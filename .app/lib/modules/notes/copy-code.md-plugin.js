@@ -25,7 +25,7 @@ module.exports = (md) => {
             x-bind="copyBtn"
           >
             <svg x-show="!copied">
-              <use xlink:href="#icon-clipboard"></use>
+              <use xlink:href="#icon-copy"></use>
             </svg>
             <svg x-show="copied">
               <use xlink:href="#icon-check"></use>
