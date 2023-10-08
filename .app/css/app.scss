@@ -2,8 +2,7 @@
 @import "./3-global/theme-mode";
 @import "./3-global/kbd";
 
-@import "npm:prism-themes/themes/prism-material-light.css";
-
+@import "./4-components/code-block";
 @import "./4-components/icon-btn";
 @import "./4-components/note-link";
 @import "./4-components/toggle-btn";

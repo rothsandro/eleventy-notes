@@ -3,6 +3,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const markdownItTaskCheckbox = require("markdown-it-task-checkbox");
 const markdownItFootnote = require("markdown-it-footnote");
 const markdownItWikilinks = require("./../modules/wikilinks").markdownPlugin;
+const markdownItCopyCode = require("./../modules/notes/copy-code.md-plugin");
 
 /**
  * Creates a markdown-it instance.
@@ -16,6 +17,7 @@ module.exports = (eleventyConfig) => {
   })
     .use(markdownItTaskCheckbox)
     .use(markdownItFootnote)
+    .use(markdownItCopyCode)
     .use(markdownItWikilinks, {
       collections: "_notes",
       slugify: eleventyConfig.getFilter("slugifyPath"),

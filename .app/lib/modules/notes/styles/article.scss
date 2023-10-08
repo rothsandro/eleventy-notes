@@ -22,8 +22,7 @@
 
   pre {
     // Overwrite prism styles
-    margin-block-start: var(--flow-space, 1.5em);
-    margin-block-end: 0;
+    margin-block: 0;
   }
 }
 

@@ -1,0 +1,36 @@
+@import "npm:prism-themes/themes/prism-material-light.css";
+
+.code-block {
+  position: relative;
+}
+
+.code-block__copy {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-end: var(--space-2);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: var(--space-2);
+  border-radius: var(--rounded-md);
+  background: var(--color-neutral-bg-subtle);
+  color: var(--color-neutral-text);
+  cursor: pointer;
+  transition: all 300ms ease;
+
+  .code-block:not(:hover) &:not(:focus) {
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-neutral-bg);
+  }
+
+  svg {
+    inline-size: 1.125em;
+    block-size: 1.125em;
+  }
+}
