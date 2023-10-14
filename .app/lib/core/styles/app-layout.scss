@@ -17,11 +17,15 @@
 }
 
 .app-layout__sidebar-inner {
+  min-block-size: 100%;
   inline-size: 100%;
-  max-inline-size: 400px;
   padding-block: var(--space-4);
-  box-shadow: var(--shadow-xxl);
   background-color: var(--color-surface);
+
+  :root.supports-js & {
+    box-shadow: var(--shadow-xxl);
+    max-inline-size: 400px;
+  }
 }
 
 @include media-breakpoint-up("xl") {
