@@ -32,7 +32,7 @@
     "parcel": "^2.8.2",
     "rimraf": "^3.0.2",
     "sass": "^1.57.1",
-    "string-strip-html": "^8.4.0"
+    "string-strip-html": "^13.4.3"
   },
   "dependencies": {
     "alpinejs": "^3.13.2",

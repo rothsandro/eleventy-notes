@@ -1,4 +1,3 @@
-const { stripHtml } = require("string-strip-html");
 const { parse } = require("node-html-parser");
 const crypto = require("crypto");
 
@@ -10,7 +9,8 @@ class SearchIndex {
     };
   }
 
-  render({ collections }) {
+  async render({ collections }) {
+    const { stripHtml } = await import("string-strip-html");
     return JSON.stringify({
       notes: collections._notes.map((note) => {
         const content = this.cleanUpContent(note.content);
