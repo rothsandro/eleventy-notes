@@ -35,7 +35,7 @@
     "string-strip-html": "^8.4.0"
   },
   "dependencies": {
-    "alpinejs": "^3.10.5",
+    "alpinejs": "^3.13.2",
     "feather-icons": "^4.29.0",
     "flexsearch": "^0.7.31",
     "prism-themes": "^1.9.0"
