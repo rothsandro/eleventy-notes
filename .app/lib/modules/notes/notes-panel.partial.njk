@@ -54,10 +54,11 @@
     <h2 class="grouped-links__label" id="app-panel-tags">Tags</h2>
     <ul class="grouped-links__list" role="list" aria-labelledby="app-panel-tags">
       {% for tag in tags %}
+      {% set tagConfig = collections.tags.byId[tag] %}
       <li>
-        <a href="/tags/{{ tag | slugify }}/" class="grouped-links__link">
+        <a href="{{ tagConfig.url }}" class="grouped-links__link">
           {{ 'hash' | featherRef | safe }}
-          <span>{{ tag }}</span>
+          <span>{{ tagConfig.label }}</span>
         </a>
       </li>
       {% endfor %}

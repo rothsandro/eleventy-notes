@@ -8,8 +8,10 @@ tags: [release]
 
 **to be released**
 
+- ✨ **Tags mapping**: Tags can now be mapped to a different label.
 - 🐛 **Sidebar Layout**: The sidebar styling is not broken anymore with little content.
 - 📦️ **Dependencies**: Dependencies have been updated to the latest versions.
+- 💥 **Tags collection**: The `title` property has been renamed to `label`.
 
 ## Version 0.17.0
 

@@ -37,6 +37,7 @@ In addition to the basic configuration, you can also:
 - Configure custom properties in the panel, see [[Custom Properties]]
 - Change the color scheme, see [[Themes]]
 - Customize the behavior of Wikilinks, see [[Wikilinks#Automatic Label]]
+- Create mappings for your tags, see [[Tags#Tags mapping]]
 
 ## Summary
 
@@ -70,6 +71,9 @@ The following example shows the supported configuration options:
   "wikilinks": {
     "autoLabel": "ref",
     "anchorLabel": "none"
+  },
+  "tags": {
+    "map": {}
   }
 }
 ```

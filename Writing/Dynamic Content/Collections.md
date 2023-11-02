@@ -39,8 +39,8 @@ Eleventy Notes provides a number of collections that you can use in your notes.
 ```js
 [
   {
-    // The name of the tag
-    title: "tag1",
+    // The display name of the tag
+    label: "tag1",
 
     // The url of the tag page
     url: "/tags/tag1/",
