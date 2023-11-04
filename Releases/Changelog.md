@@ -4,6 +4,13 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## NEXT
+
+**to be released**
+
+- 🐛 **Sidebar Layout**: The sidebar styling is not broken anymore with little content.
+- 📦️ **Dependencies**: Dependencies have been updated to the latest versions.
+
 ## Version 0.17.0
 
 **October 08, 2023**
