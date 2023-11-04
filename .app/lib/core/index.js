@@ -24,6 +24,7 @@ module.exports = {
     config.addPlugin(pageAssetsPlugin, {
       mode: "parse",
       postsMatching: "*.md",
+      assetsMatching: "*.png|*.jpg|*.jpeg|*.svg|*.webp|*.gif",
     });
 
     config.setServerOptions({
