@@ -4,9 +4,9 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## NEXT
+## Version 0.18.0
 
-**to be released**
+**November 04, 2023**
 
 - ✨ **Tags mapping**: Tags can now be mapped to a different label.
 - ✨ **Images**: Additional image formats are now supported in Markdown files.
