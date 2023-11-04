@@ -6,16 +6,16 @@ pagination:
   addAllPagesToCollections: true
 layout: "core/base.layout.njk"
 eleventyComputed:
-  title: "Tag #{{ tag.title }}"
-permalink: /tags/{{ tag.title | slugify }}/
+  title: "Tag: {{ tag.label }}"
+permalink: "{{ tag.url }}"
 panel: false
 ---
 
 <div class="page">
   <main class="page__main" id="app-content">
-    <h1 class="page__title">Tag: {{ tag.title }} <small>({{ collections[tag.title].length }})</small></h1>
+    <h1 class="page__title">Tag: {{ tag.label }} <small>({{ tag.notes.length }})</small></h1>
     <ul role="list" class="stack">
-      {% for post in collections[tag.title] | sortNotesByTitle %}
+      {% for post in tag.notes | sortNotesByTitle %}
         <li>
           <a href="{{ post.url }}" class="note-link">
             {{ post.data.title or post.page.fileSlug }}

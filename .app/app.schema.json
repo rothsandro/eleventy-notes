@@ -261,6 +261,32 @@
           "enum": ["arrow", "parentheses", "hash", "none"]
         }
       }
+    },
+    "tags": {
+      "type": "object",
+      "description": "The configuration for tags",
+      "default": {},
+      "properties": {
+        "map": {
+          "type": "object",
+          "description": "A key-value object mapping each tag to a different display name.",
+          "default": {},
+          "additionalProperties": {
+            "type": ["string", "object"],
+            "required": ["label", "slug"],
+            "properties": {
+              "label": {
+                "type": "string",
+                "description": "The display name of the tag."
+              },
+              "slug": {
+                "type": "string",
+                "description": "The slug of the tag used in the URL."
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

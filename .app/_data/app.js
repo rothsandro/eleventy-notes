@@ -37,5 +37,9 @@ module.exports = function () {
       anchorLabel: "none",
       ...custom.wikilinks,
     },
+    tags: {
+      map: {},
+      ...custom.tags,
+    },
   };
 };

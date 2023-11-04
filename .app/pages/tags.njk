@@ -12,16 +12,16 @@ panel: false
       <ul role="list" class="tags-list">
         {% for tag in collections.tags %}
           <li>
-            <a href="#{{ tag.id }}" class="note-link"># {{ tag.title }}</a>
+            <a href="#{{ tag.slug }}" class="note-link"># {{ tag.label }}</a>
           </li>
         {% endfor %}
       </ul>
       <hr>
       {% for tag in collections.tags %}
         <div class="stack">
-          <h2 id="{{ tag.id }}">{{ tag.title }} <small>({{ collections[tag.title].length }})</small></h2>
+          <h2 id="{{ tag.slug }}">{{ tag.label }} <small>({{ tag.notes.length }})</small></h2>
           <ul role="list" class="stack">
-            {% for post in collections[tag.title] %}
+            {% for post in tag.notes %}
               <li>
                 <a href="{{ post.url }}" class="note-link">
                   {{ post.data.title or post.page.fileSlug }}
