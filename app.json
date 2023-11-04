@@ -65,5 +65,10 @@
         "expanded": false
       }
     ]
+  },
+  "tags": {
+    "map": {
+      "dynamic-content": "dynamic content"
+    }
   }
 }
