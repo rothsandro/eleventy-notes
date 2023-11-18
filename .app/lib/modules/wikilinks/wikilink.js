@@ -16,11 +16,13 @@ module.exports = class Wikilink {
    * @param {Note[]} notes The collection of notes.
    * @param {*} wikilinksConfig The configuration for wikilinks.
    * @param {(path: string) => string} slugify
+   * @param {(path: string) => string} slugifyAnchor
    */
-  constructor(notes, wikilinksConfig, slugify) {
+  constructor(notes, wikilinksConfig, slugify, slugifyAnchor) {
     this.notes = notes;
     this.wikilinksConfig = wikilinksConfig;
     this.slugify = slugify;
+    this.slugifyAnchor = slugifyAnchor;
   }
 
   /**
@@ -31,13 +33,29 @@ module.exports = class Wikilink {
    */
   process(path, text) {
     const { file, hash } = this.processPath(path);
-    const page = this.findMatchingPage(file);
+    const page = file ? this.findMatchingPage(file) : undefined;
     const label = this.createLabel(text, file, hash, page);
-
-    let href = page ? page.url : this.slugify(`/${file}`);
-    hash && (href += `#${this.slugify(hash)}`);
+    const href = this.createHref(file, hash, page);
 
     return { href, label };
+  }
+
+  /**
+   * Creates the href for a wikilink.
+   * @param {string} file The file path of the wikilink.
+   * @param {string | undefined} hash The anchor target of the wikilink (if any).
+   * @param {Note} page The page that the wikilink points to (if any).
+   * @returns The href for the wikilink.
+   */
+  createHref(file, hash, page) {
+    if (hash === "Cloning the template") {
+      console.log({ file, hash });
+    }
+
+    let href = page ? page.url : file ? this.slugify(`/${file}`) : "";
+    hash && (href += `#${this.slugifyAnchor(hash)}`);
+
+    return href;
   }
 
   /**
@@ -50,6 +68,7 @@ module.exports = class Wikilink {
    */
   createLabel(text, file, hash, page) {
     if (text) return text;
+    if (!file && !!hash) return hash;
 
     let label = file;
 

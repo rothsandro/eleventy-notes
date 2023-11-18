@@ -16,7 +16,8 @@ module.exports = (eleventyConfig) => {
     const wikilink = new Wikilink(
       this.ctx.collections._notes,
       this.ctx.app.wikilinks,
-      eleventyConfig.getFilter("slugifyPath")
+      eleventyConfig.getFilter("slugifyPath"),
+      eleventyConfig.getFilter("slugify")
     );
 
     function nameToDisplayName(name) {

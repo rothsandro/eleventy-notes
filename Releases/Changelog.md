@@ -4,6 +4,10 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next (to be released)
+
+- ✨ **Anchor Wikilinks**: Wikilinks can now link to a heading, e.g. `[[#My Heading]]`.
+
 ## Version 0.18.0
 
 **November 04, 2023**

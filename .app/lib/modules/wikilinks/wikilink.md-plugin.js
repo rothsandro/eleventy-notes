@@ -31,7 +31,8 @@ module.exports = (md, options) => {
     const wikilink = new Wikilink(
       env.collections[options.collections],
       env.app.wikilinks,
-      options.slugify
+      options.slugify,
+      options.slugifyAnchor
     );
 
     const [, path, , text] = match;

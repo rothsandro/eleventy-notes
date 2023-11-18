@@ -21,9 +21,10 @@ module.exports = (eleventyConfig) => {
     .use(markdownItWikilinks, {
       collections: "_notes",
       slugify: eleventyConfig.getFilter("slugifyPath"),
+      slugifyAnchor: eleventyConfig.getFilter("slugify"),
     })
     .use(markdownItAnchor, {
-      slugify: eleventyConfig.getFilter("slug"),
+      slugify: eleventyConfig.getFilter("slugify"),
       level: [1, 2, 3, 4],
       permalink: markdownItAnchor.permalink.ariaHidden({
         placement: "after",

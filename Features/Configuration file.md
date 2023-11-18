@@ -29,7 +29,7 @@ If you use an editor like [VS Code](https://code.visualstudio.com/) that support
 
 ## Supported configurations
 
-In addition to the basic configuration, you can also:
+In addition to the [[#basic configuration]], you can also:
 
 - Add an edit link to your notes, see [[Edit link]]
 - Customize the notes in the sidebar or add links to other websites, see [[Sidebar]]
