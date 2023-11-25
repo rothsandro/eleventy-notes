@@ -18,16 +18,6 @@
           <span>{{ indexNote.data.title if indexNote else 'Home' }}</span>
         </a>
       </li>
-      <li>
-        <a
-          href="/n/"
-          {{ '/n/' | ariaCurrent }}
-          class="nav-list__link"
-        >
-          {{ 'file-text' | featherRef | safe }}
-          <span>Notes</span>
-        </a>
-      </li>
       {% if collections.tags.length %}
         <li>
           <a
@@ -80,7 +70,7 @@
         <template x-for="bkm in $store.bookmarks.items">
           <li>
             <a :href="bkm" class="nav-list__link">
-              {{ 'file-text' | featherRef | safe }}
+              {{ 'file-text' | feather | safe }}
               <span x-text="$store.bookmarks.index[bkm] || bkm"></span>
             </a>
           </li>

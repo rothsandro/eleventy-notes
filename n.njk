@@ -1,0 +1,12 @@
+---
+title: Notes
+permalink: "/n/"
+panel: false
+notesQuery:
+  filter: [["url", "isNotEqual", "/"]]
+  sort: [["filePathStem", "asc"]]
+  tree: true
+templateEngineOverride: njk, md
+---
+
+{{ collections.notes | query(notesQuery) | renderAsList | safe }}

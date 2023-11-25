@@ -7,6 +7,10 @@ tags: [release]
 ## next (to be released)
 
 - ✨ **Anchor Wikilinks**: Wikilinks can now link to a heading, e.g. `[[#My Heading]]`.
+- 💥 **Removed notes page**: The notes page `/n` has been removed. We think the flat list of all notes
+  was not very useful for most users as it did not provide any context (e.g. in which folder the note is located).
+  A properly configured sidebar, the tags pages and the search are much more useful for navigating your notes.
+  You can create your own notes page if you still want to have one.
 
 ## Version 0.18.0
 
