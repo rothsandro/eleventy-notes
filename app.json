@@ -32,7 +32,6 @@
       {
         "pattern": "^/Writing/",
         "label": "Writing Notes",
-        "expanded": false,
         "tree": {
           "replace": {
             "^/\\w+": ""
@@ -41,13 +40,11 @@
       },
       {
         "pattern": "^/Organizing/",
-        "label": "Organizing Notes",
-        "expanded": false
+        "label": "Organizing Notes"
       },
       {
         "pattern": "^/Features/",
         "label": "Core Features",
-        "expanded": false,
         "tree": {
           "replace": {
             "^/\\w+": ""
@@ -56,13 +53,11 @@
       },
       {
         "pattern": "^/Deployment/",
-        "label": "Deployment",
-        "expanded": false
+        "label": "Deployment"
       },
       {
         "pattern": "^/Releases/",
-        "label": "Releases",
-        "expanded": false
+        "label": "Releases"
       }
     ]
   },
