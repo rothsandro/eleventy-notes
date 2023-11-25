@@ -41,5 +41,9 @@ module.exports = function () {
       map: {},
       ...custom.tags,
     },
+    notes: {
+      pathPrefix: "/n",
+      ...custom.notes,
+    },
   };
 };

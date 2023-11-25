@@ -11,3 +11,21 @@ You can name your files however you want, whether it's a technical name like `my
 ## Folders
 
 You can create folders to organize your notes. Folders end up in the URL of your note. For example, a note located in `My Folder/My Note.md` will be available at `/n/my-folder/my-note/`. Folders are also well-supported when using [[Wikilinks]].
+
+## URL prefix
+
+All your notes are automatically prefixed with `/n`. This is to avoid conflicts with other pages like search and tags.
+You can change the prefix to something else or remove it entirely. If you remove it, you'll need to make sure you don't have any conflicts with other pages.
+
+```json
+// /app.json
+{
+  "notes": {
+    // Change the prefix to something else
+    "pathPrefix": "/articles",
+
+    // Remove the prefix entirely
+    "pathPrefix": "/"
+  }
+}
+```

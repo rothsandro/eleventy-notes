@@ -287,6 +287,17 @@
           }
         }
       }
+    },
+    "notes": {
+      "type": "object",
+      "description": "The configuration for notes.",
+      "properties": {
+        "pathPrefix": {
+          "type": "string",
+          "default": "/n",
+          "description": "The prefix for all notes."
+        }
+      }
     }
   }
 }

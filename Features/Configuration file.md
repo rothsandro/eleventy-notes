@@ -31,6 +31,7 @@ If you use an editor like [VS Code](https://code.visualstudio.com/) that support
 
 In addition to the [[#basic configuration]], you can also:
 
+- Adjust the URL of your notes, see [[Files and Folders#URL prefix]]
 - Add an edit link to your notes, see [[Edit link]]
 - Customize the notes in the sidebar or add links to other websites, see [[Sidebar]]
 - Customize the content of the panel, see [[Panel]]
