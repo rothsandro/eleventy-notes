@@ -27,17 +27,17 @@ author: John Doe
 
 Then add the property to the configuration file:
 
-```json
-// /app.json
-{
-  "customProperties": {
-    "properties": [
+```js
+// /app.js
+module.exports = defineConfig({
+  customProperties: {
+    properties: [
       {
-        "name": "author"
-      }
-    ]
-  }
-}
+        name: "author",
+      },
+    ],
+  },
+});
 ```
 
 ### Published Date
@@ -54,25 +54,25 @@ publishedOn: 2023-08-01
 
 Then add the property to the configuration file:
 
-```json
-// /app.json
-{
-  "customProperties": {
-    "properties": [
+```js
+// /app.js
+module.exports = defineConfig({
+  customProperties: {
+    properties: [
       {
-        "name": "publishedOn",
+        name: "publishedOn",
 
         // Optionally, format the date.
-        "options": {
-          "date": {
-            "locale": "en-US",
-            "format": { "dateStyle": "full" }
-          }
-        }
-      }
-    ]
-  }
-}
+        options: {
+          date: {
+            locale: "en-US",
+            format: { dateStyle: "full" },
+          },
+        },
+      },
+    ],
+  },
+});
 ```
 
 ### Related notes
@@ -92,17 +92,17 @@ related:
 
 Then add the property to the configuration file:
 
-```json
-// /app.json
-{
-  "customProperties": {
-    "properties": [
+```js
+// /app.js
+module.exports = defineConfig({
+  customProperties: {
+    properties: [
       {
-        "name": "related"
-      }
-    ]
-  }
-}
+        name: "related",
+      },
+    ],
+  },
+});
 ```
 
 Wikilinks used in custom properties are not listed in the incoming / outgoing sections of the panel.
@@ -124,61 +124,61 @@ meta:
 
 Then add the property to the configuration file:
 
-```json
-// /app.json
-{
-  "customProperties": {
-    "properties": [
+```js
+// /app.js
+module.exports = defineConfig({
+  customProperties: {
+    properties: [
       {
         // Includes all props in the meta object
-        "path": "meta"
-      }
-    ]
-  }
-}
+        path: "meta",
+      },
+    ],
+  },
+});
 ```
 
 ## Configuration API
 
 What properties are shown in the panel can be configured in the [[Configuration file]].
 
-```json
-{
-  "customProperties": {
+```js
+module.exports = defineConfig({
+  customProperties: {
     // Define a list of properties to show in the panel.
-    "properties": [
+    properties: [
       {
         // The path to the property, if your property is nested (optional).
-        "path": "meta",
+        path: "meta",
 
         // The name of the property.
         // If omitted, all properties in the path are shown.
         // Define a regular expression to match multiple properties.
-        "name": "author",
+        name: "author",
 
         // The label to show in the panel.
         // If omitted, is inferred from the property name.
-        "label": "Lovely written by",
+        label: "Lovely written by",
 
         // Options for the property value (optional).
-        "options": {
+        options: {
           // Options for date values
-          "date": {
-            "locale": "en-US",
-            "format": { "dateStyle": "full" }
+          date: {
+            locale: "en-US",
+            format: { dateStyle: "full" },
           },
           // Options for numeric values
-          "number": {
-            "locale": "en-US",
-            "format": {
-              "style": "currency",
-              "currency": "USD",
-              "currencyDisplay": "symbol"
-            }
-          }
-        }
-      }
-    ]
-  }
-}
+          number: {
+            locale: "en-US",
+            format: {
+              style: "currency",
+              currency: "USD",
+              currencyDisplay: "symbol",
+            },
+          },
+        },
+      },
+    ],
+  },
+});
 ```

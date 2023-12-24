@@ -15,17 +15,20 @@ You can create folders to organize your notes. Folders end up in the URL of your
 ## URL prefix
 
 All your notes are automatically prefixed with `/n`. This is to avoid conflicts with other pages like search and tags.
-You can change the prefix to something else or remove it entirely. If you remove it, you'll need to make sure you don't have any conflicts with other pages.
+You can change the prefix to something else or remove it entirely.
+If you remove it, you'll need to make sure you don't have any conflicts with other pages.
 
-```json
-// /app.json
-{
-  "notes": {
+You can adjust the prefix in the [[Configuration file]]:
+
+```js
+// /app.js
+module.exports = defineConfig({
+  notes: {
     // Change the prefix to something else
-    "pathPrefix": "/articles",
+    pathPrefix: "/articles",
 
     // Remove the prefix entirely
-    "pathPrefix": "/"
-  }
-}
+    pathPrefix: "/",
+  },
+});
 ```

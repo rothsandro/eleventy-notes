@@ -30,5 +30,7 @@ module.exports = {
     config.setServerOptions({
       watch: ["dist/app.js", "dist/app.*.css"],
     });
+
+    config.addWatchTarget("./../app.js");
   },
 };

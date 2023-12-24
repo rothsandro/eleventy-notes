@@ -7,25 +7,28 @@ Eleventy Notes provides several configuration options to customize the app. All 
 
 ## Basic configuration
 
-Create a new file `app.json` in the root of the project, next to your notes. Add a custom title (shown in the header) and a description (not shown but used by search engines):
+Create a new file `app.js` in the root of the project, next to your notes. Add a custom title (shown in the header) and a description (not shown but used by search engines):
 
-```json
-{
-  "title": "John's Notes",
-  "description": "The personal notes of John Doe"
-}
+```js
+const { defineConfig } = require(".app/app-config");
+
+module.exports = defineConfig({
+  title: "John's Notes",
+  description: "The personal notes of John Doe",
+});
 ```
 
-## JSON Schema
+## TypeScript
 
-If you use an editor like [VS Code](https://code.visualstudio.com/) that supports JSON schema, add the `$schema` property to your configuration file. This will give you autocompletion, descriptions and validation:
+If you use an editor like [VS Code](https://code.visualstudio.com/), you can add
+type-checking to your configuration file by adding the following comment
+at the top of the file:
 
-```json
-{
-  "$schema": ".app/app.schema.json"
-  // ...
-}
+```js
+// @ts-check
 ```
+
+This will warn you about invalid configuration options.
 
 ## Supported configurations
 
@@ -44,37 +47,37 @@ In addition to the [[#basic configuration]], you can also:
 
 The following example shows the supported configuration options:
 
-```json
-{
-  "title": "John's Notes",
-  "description": "The personal notes of John Doe",
-  "customProperties": {
-    "properties": []
+```js
+modul.exports = defineConfig({
+  title: "John's Notes",
+  description: "The personal notes of John Doe",
+  customProperties: {
+    properties: [],
   },
-  "theme": {
-    "color": "sky"
+  theme: {
+    color: "sky",
   },
-  "editThisNote": {
-    "url": "https://example.com/edit/{{file}}"
+  editThisNote: {
+    url: "https://example.com/edit/{{file}}",
   },
-  "sidebar": {
-    "links": [],
-    "notes": [{}]
+  sidebar: {
+    links: [],
+    notes: [{}],
   },
-  "panel": {
-    "tableOfContents": true,
-    "tags": true,
-    "customProperties": true,
-    "incomingLinks": true,
-    "outgoingLinks": true,
-    "externalLinks": true
+  panel: {
+    tableOfContents: true,
+    tags: true,
+    customProperties: true,
+    incomingLinks: true,
+    outgoingLinks: true,
+    externalLinks: true,
   },
-  "wikilinks": {
-    "autoLabel": "ref",
-    "anchorLabel": "none"
+  wikilinks: {
+    autoLabel: "ref",
+    anchorLabel: "none",
   },
-  "tags": {
-    "map": {}
-  }
-}
+  tags: {
+    map: {},
+  },
+});
 ```

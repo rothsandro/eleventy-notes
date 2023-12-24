@@ -43,27 +43,25 @@ If you want to link to a specific note in a folder you should include the folder
 
 A label will automatically be generated from the provided reference if you omit the label. You can customize the behavior in the [[Configuration file]]:
 
-```json
-// /app.json
-{
-  "wikilinks": {
+```js
+// /app.js
+module.exports = defineConfig({
+  wikilinks: {
     // What label to use for wikilinks without a label
     // - "ref"       Use the reference
     // - "title"     Use the title of the note (fallback fileSlug)
     // - "fileSlug"  Use the file slug
-    "autoLabel": "ref",
+    autoLabel: "ref",
 
     // How to include anchors in the auto label
     // - "arrow"        Use an arrow, e.g. "My Note → Some Heading"
     // - "parentheses"  Use parentheses, e.g. "My Note (Some Heading)"
     // - "hash"         Use a hash, e.g. "My Note#Some Heading"
     // - "none"         Don't include the anchor, e.g. "My Note"
-    "anchorLabel": "none"
-  }
-}
+    anchorLabel: "none",
+  },
+});
 ```
-
-You may need to restart the app for the changes to take effect.
 
 ## How Wikilinks are resolved
 

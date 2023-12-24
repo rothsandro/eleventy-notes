@@ -41,23 +41,23 @@ My note
 
 You can customize the visible label of a tag by adding a mapping in the [[Configuration file]].
 
-```json
-// /app.json
-{
-  "tags": {
-    "map": {
+```js
+// /app.js
+module.exports = defineConfig({
+  tags: {
+    map: {
       // Map a tag to a different label
-      "books": "📚 Books",
+      books: "📚 Books",
 
       // Map a tag to a different label with a custom URL slug
-      "books": {
-        "label": "📚 Books & Articles",
-        "slug": "books"
+      books: {
+        label: "📚 Books & Articles",
+        slug: "books",
       },
 
       // If a tag consists of emojis only, you must provide a mapping for it.
-      "⭐": "⭐ Favorites"
-    }
-  }
-}
+      "⭐": "⭐ Favorites",
+    },
+  },
+});
 ```

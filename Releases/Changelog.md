@@ -7,11 +7,22 @@ tags: [release]
 ## next (to be released)
 
 - ✨ **Anchor Wikilinks**: Wikilinks can now link to a heading, e.g. `[[#My Heading]]`.
-- ✨ **URL Prefix**: The url prefix `/n` can now be configured via `app.json`.
+- ✨ **URL Prefix**: The url prefix `/n` can now be configured via configuration file.
 - 💥 **Removed notes page**: The notes page `/n` has been removed. We think the flat list of all notes
   was not very useful for most users as it did not provide any context (e.g. in which folder the note is located).
   A properly configured sidebar, the tags pages and the search are much more useful for navigating your notes.
   You can create your own notes page if you still want to have one.
+- 💥 **New configuration file**: The previous JSON configuration `app.json` has been replaced with a JavaScript configuration `app.js`.
+  If you have an existing configuration, you need to migrate it to the new format. Rename the file to `app.js` and replace the content with the following:
+
+  ```js
+  const { defineConfig } = require(".app/app-config");
+
+  module.exports = defineConfig({
+    // Put your existing configuration here, e.g.:
+    title: "My Notes",
+  });
+  ```
 
 ## Version 0.18.0
 
