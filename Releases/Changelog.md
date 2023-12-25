@@ -26,6 +26,8 @@ tags: [release]
   });
   ```
 
+  If you've used the `$schema` property, you can remove it and instead add a `// @ts-check` comment at the top of the file.
+
 ## Version 0.18.0
 
 **November 04, 2023**
