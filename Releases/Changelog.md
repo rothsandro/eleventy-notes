@@ -8,6 +8,8 @@ tags: [release]
 
 - ✨ **Anchor Wikilinks**: Wikilinks can now link to a heading, e.g. `[[#My Heading]]`.
 - ✨ **URL Prefix**: The url prefix `/n` can now be configured via configuration file.
+- ✨ **Improved search**: It now includes an excerpt and highlights the search term.
+- ⚡️ **Performance**: Rebuilding the site after a change when running in development mode is now faster.
 - 💥 **Removed notes page**: The notes page `/n` has been removed. We think the flat list of all notes
   was not very useful for most users as it did not provide any context (e.g. in which folder the note is located).
   A properly configured sidebar, the tags pages and the search are much more useful for navigating your notes.

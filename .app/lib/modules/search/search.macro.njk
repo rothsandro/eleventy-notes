@@ -62,7 +62,7 @@
                   :data-first="index == 0"
                 >
                   <span class="search__note-title" x-text="result.title"></span>
-                  <span class="search__note-content" x-text="result.previewText" aria-hidden="true"></span>
+                  <span class="search__note-content" x-html="result.excerpt"></span>
                   <span class="search__selected-icon" aria-hidden="true">
                     {{ 'corner-down-left' | feather | safe }}
                   </span>

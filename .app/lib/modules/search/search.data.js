@@ -1,5 +1,6 @@
 const baseUrl = document.currentScript?.getAttribute("data-base") ?? "/";
 const searchJsonUrl = baseUrl + "search.json";
+const pagefindUrl = baseUrl + "pagefind/pagefind.js";
 
 /**
  * Creates the search data for searching notes.
@@ -9,7 +10,7 @@ const searchJsonUrl = baseUrl + "search.json";
 export default function (Alpine) {
   Alpine.data("search", () => ({
     _notes$: null,
-    _index$: null,
+    _pagefind: null,
 
     open: false,
     term: "",
@@ -18,9 +19,13 @@ export default function (Alpine) {
 
     init() {
       this.$watch("term", async () => {
-        this.results = await this.search();
-        this.open = true;
-        this.selectedId = this.results[0]?.id ?? null;
+        const results = await this.search();
+
+        if (results) {
+          this.results = results;
+          this.open = true;
+          this.selectedId = this.results[0]?.id ?? null;
+        }
       });
     },
 
@@ -69,65 +74,38 @@ export default function (Alpine) {
       return this._notes;
     },
 
-    async buildSearchIndex() {
-      if (!this._index$) {
-        this._index$ = new Promise(async (resolve) => {
-          const FlexSearch = await import("flexsearch");
-          const doc = new FlexSearch.Document({
-            document: {
-              id: "url",
-              tag: "tags",
-              index: [
-                {
-                  field: "title",
-                  tokenize: "full",
-                  optimize: true,
-                  resolution: 9,
-                },
-                {
-                  field: "content",
-                  tokenize: "full",
-                  optimize: true,
-                  resolution: 5,
-                  minlength: 3,
-                  context: {
-                    depth: 1,
-                    resolution: 3,
-                  },
-                },
-              ],
-            },
-          });
-
-          const notes = await this.fetchNotes();
-          notes.forEach((note) => doc.add(note));
-          resolve(doc);
+    async loadPagefind() {
+      if (!this._pagefind) {
+        this._pagefind = new Promise(async (resolve) => {
+          // Workaround, waiting for https://github.com/parcel-bundler/parcel/issues/8316
+          const pagefind = await eval(`import("${pagefindUrl}")`);
+          await pagefind.options({ excerptLength: 15 });
+          resolve(pagefind);
         });
       }
 
-      return this._index$;
+      return this._pagefind;
     },
 
     async search() {
-      const index = await this.buildSearchIndex();
-      const notes = await this.fetchNotes();
+      const pagefind = await this.loadPagefind();
 
       const tagsQuery = this.term.match(/#(\S+)/g) ?? [];
       const tags = tagsQuery.map((tag) => tag.substring(1));
       const termWithoutTags = this.term.replace(/#(\S+)/g, "").trim();
+      const searchTerm = termWithoutTags || null;
+      const filters = tags.length ? { tags } : undefined;
+      const search = await pagefind.debouncedSearch(searchTerm, { filters });
+      if (!search) return null;
 
-      const options = { tag: tags };
-      const results = termWithoutTags
-        ? index.search(termWithoutTags, options)
-        : index.search(options);
+      const results = await Promise.all(search.results.map((x) => x.data()));
 
-      const files = Array.from(
-        new Set(results.flatMap((entry) => entry.result))
-      );
-      const foundNotes = files
-        .map((file) => notes.find((n) => n.url === file))
-        .filter(Boolean);
-      return foundNotes;
+      return results.map((x) => ({
+        id: x.url,
+        url: x.url,
+        title: x.meta.title,
+        excerpt: x.excerpt,
+      }));
     },
   }));
 }

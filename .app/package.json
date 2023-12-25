@@ -31,13 +31,13 @@
     "npm-run-all": "^4.1.5",
     "parcel": "^2.10.1",
     "rimraf": "^5.0.5",
-    "sass": "^1.69.5",
-    "string-strip-html": "^13.4.3"
+    "sass": "^1.69.5"
   },
   "dependencies": {
     "alpinejs": "^3.13.2",
     "feather-icons": "^4.29.1",
     "flexsearch": "^0.7.31",
+    "pagefind": "^1.0.4",
     "prism-themes": "^1.9.0"
   }
 }

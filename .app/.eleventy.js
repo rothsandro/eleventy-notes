@@ -2,6 +2,7 @@ const sharedModule = require("./lib/shared");
 const customPropsModule = require("./lib/modules/custom-props");
 const dynamicContentModule = require("./lib/modules/dynamic-content");
 const notesModule = require("./lib/modules/notes");
+const searchModule = require("./lib/modules/search");
 const tagsModule = require("./lib/modules/tags");
 const tocModule = require("./lib/modules/toc");
 const wikilinksModule = require("./lib/modules/wikilinks");
@@ -13,6 +14,7 @@ module.exports = (eleventyConfig) => {
   customPropsModule.setup(eleventyConfig);
   dynamicContentModule.setup(eleventyConfig);
   notesModule.setup(eleventyConfig);
+  searchModule.setup(eleventyConfig);
   tagsModule.setup(eleventyConfig);
   tocModule.setup(eleventyConfig);
   wikilinksModule.setup(eleventyConfig);

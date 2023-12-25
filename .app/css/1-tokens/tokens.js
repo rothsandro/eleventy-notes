@@ -53,6 +53,7 @@ module.exports = (theme) => ({
   "color-backdrop": themeValue("rgba(0, 0, 0, 0.25)", "rgba(0, 0, 0, 0.5)"),
   "color-background": themeValue("#fff", theme.neutral.dark[1]),
   "color-surface": themeValue("#fff", theme.neutral.dark[1]),
+  "color-primary-mark": colorStepAlpha(theme.primary, 5),
   "color-primary-bg-subtle": colorStep(theme.primary, 2),
   "color-primary-bg": colorStep(theme.primary, 3),
   "color-primary-bg-hover": colorStep(theme.primary, 4),
@@ -86,6 +87,10 @@ module.exports = (theme) => ({
 
 function colorStep(color, step) {
   return themeValue(color.light[step], color.dark[step]);
+}
+
+function colorStepAlpha(color, step) {
+  return themeValue(color.lightA[step], color.darkA[step]);
 }
 
 function themeValue(light, dark) {

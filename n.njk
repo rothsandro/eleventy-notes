@@ -8,5 +8,6 @@ notesQuery:
   tree: true
 templateEngineOverride: njk, md
 ---
-
+<div data-pagefind-ignore>
 {{ collections.notes | query(notesQuery) | renderAsList | safe }}
+</div>

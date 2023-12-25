@@ -126,9 +126,11 @@
 .search__note-content {
   color: var(--color-neutral-text);
   font-size: var(--font-size-sm);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  mark {
+    background: var(--color-primary-mark);
+    color: inherit;
+  }
 }
 
 .search__selected-icon {
