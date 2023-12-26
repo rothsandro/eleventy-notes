@@ -4,7 +4,9 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## next (to be released)
+## Version 0.19.0
+
+**December 26, 2023**
 
 - ✨ **Anchor Wikilinks**: Wikilinks can now link to a heading, e.g. `[[#My Heading]]`.
 - ✨ **URL Prefix**: The url prefix `/n` can now be configured via configuration file.
@@ -21,7 +23,7 @@ tags: [release]
   const { defineConfig } = require(".app/app-config");
 
   module.exports = defineConfig({
-    // Put your existing configuration here, e.g.:
+    // Put your existing configuration here, e.g.
     title: "My Notes",
   });
   ```
