@@ -1,5 +1,4 @@
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
-const pageAssetsPlugin = require("eleventy-plugin-page-assets");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = {
@@ -21,11 +20,6 @@ module.exports = {
 
     config.addPlugin(EleventyHtmlBasePlugin);
     config.addPlugin(syntaxHighlightPlugin);
-    config.addPlugin(pageAssetsPlugin, {
-      mode: "parse",
-      postsMatching: "*.md",
-      assetsMatching: "*.png|*.jpg|*.jpeg|*.svg|*.webp|*.gif",
-    });
 
     config.setServerOptions({
       watch: ["dist/app.js", "dist/app.*.css"],

@@ -6,6 +6,7 @@ const searchModule = require("./lib/modules/search");
 const tagsModule = require("./lib/modules/tags");
 const tocModule = require("./lib/modules/toc");
 const wikilinksModule = require("./lib/modules/wikilinks");
+const assetsModule = require("./lib/modules/assets");
 const core = require("./lib/core");
 
 module.exports = (eleventyConfig) => {
@@ -18,6 +19,7 @@ module.exports = (eleventyConfig) => {
   tagsModule.setup(eleventyConfig);
   tocModule.setup(eleventyConfig);
   wikilinksModule.setup(eleventyConfig);
+  assetsModule.setup(eleventyConfig);
 
   core.setup(eleventyConfig);
 
