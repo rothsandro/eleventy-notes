@@ -4,6 +4,11 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next (to be released)
+
+- ✨ **Language**: The content language can now be configured int the config file.
+- ⚡️ **Performance**: Rebuilding the site after a change when running in development mode is now faster.
+
 ## Version 0.19.0
 
 **December 26, 2023**
