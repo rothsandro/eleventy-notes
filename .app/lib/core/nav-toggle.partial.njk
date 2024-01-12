@@ -4,6 +4,7 @@
     :aria-expanded="$store.nav.open"
     @click="$store.nav.toggle()"
     x-cloak
+    lang="en"
   >
     <span x-show="!$store.nav.open">{{ 'menu' | feather | safe }}</span>
     <span x-show="$store.nav.open">{{ 'x' | feather | safe }}</span>

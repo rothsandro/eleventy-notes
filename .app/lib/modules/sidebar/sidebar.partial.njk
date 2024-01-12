@@ -1,10 +1,10 @@
 {% from 'modules/sidebar/sidebar-tree.macro.njk' import sidebarTree %}
 
 <aside>
-  <h2 class="visually-hidden">Navigation</h2>
+  <h2 class="visually-hidden" lang="en">Navigation</h2>
 
   <nav aria-labelledby="app:sidebar:nav" class="nav-section">
-    <h3 id="app:sidebar:nav" class="visually-hidden">Main</h3>
+    <h3 id="app:sidebar:nav" class="visually-hidden" lang="en">Main</h3>
     <ul class="nav-list" role="list" aria-labelledby="app:sidebar:nav">
       <li>
         <a
@@ -24,6 +24,7 @@
             href="/tags/"
             {{ '/tags/' | ariaCurrent }}
             class="nav-list__link"
+            lang="en"
           >
             {{ 'hash' | featherRef | safe }}
             <span>Tags</span>
@@ -35,6 +36,7 @@
           href="/search/"
           {{ '/search/' | ariaCurrent }}
           class="nav-list__link"
+          lang="en"
         >
           {{ 'search' | feather | safe }}
           <span>Search</span>
@@ -45,7 +47,7 @@
 
   {% if app.sidebar.links.length %}
     <nav aria-labelledby="app:sidebar:section:links" class="nav-section nav-section--continued">
-      <h3 id="app:sidebar:section:links" class="visually-hidden">Links</h3>
+      <h3 id="app:sidebar:section:links" class="visually-hidden" lang="en">Links</h3>
       <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:links">
         {% for item in app.sidebar.links %}
           <li>
@@ -65,7 +67,7 @@
 
   <template x-if="$store.bookmarks.items.length">
     <nav aria-labelledby="app:sidebar:section:bookmarks" class="nav-section" x-cloak>
-      <h3 id="app:sidebar:section:bookmarks" class="nav-section__title">Bookmarks</h3>
+      <h3 id="app:sidebar:section:bookmarks" class="nav-section__title" lang="en">Bookmarks</h3>
       <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:bookmarks">
         <template x-for="bkm in $store.bookmarks.items">
           <li>
@@ -81,7 +83,7 @@
 
   {% if collections._sidebarNotes.length %}
     <nav aria-labelledby="app:sidebar:section:notes" class="nav-section">
-      <h3 id="app:sidebar:section:notes" class="nav-section__title">Notes</h3>
+      <h3 id="app:sidebar:section:notes" class="nav-section__title" lang="en">Notes</h3>
       {% for group in collections._sidebarNotes %}
         <div
           class="nav-group"
@@ -118,7 +120,7 @@
 
   {% if collections.tags.length %}
     <nav aria-labelledby="app:sidebar:section:tags" class="nav-section">
-      <h3 id="app:sidebar:section:tags" class="nav-section__title">Tags</h3>
+      <h3 id="app:sidebar:section:tags" class="nav-section__title" lang="en">Tags</h3>
       <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:tags">
         {% for tag in collections.tags %}
         <li>

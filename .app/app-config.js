@@ -23,6 +23,7 @@ function applyDefaults(custom) {
   return {
     title: "Notes",
     description: "Notes app",
+    lang: "en",
     ...custom,
 
     theme: {

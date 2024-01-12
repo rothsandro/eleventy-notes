@@ -3,7 +3,7 @@
   {% set id = uniqueId() %}
 
   {% if mode === 'inline' %}
-    <noscript>
+    <noscript lang="en">
       Please enable JavaScript to use the search.
     </noscript>
   {% endif %}
@@ -32,21 +32,22 @@
       @focus="open = true"
       @keydown="onKeyDown"
       @pageshow.window="term = $el.value"
+      lang="en"
       {{ 'autofocus' if mode === 'inline' else '' }}
     >
     {% if mode === 'overlay' %}
       <kbd class="search__kbd" aria-hidden="true">/</kbd>
-      <span class="visually-hidden">Press <kbd>/<kbd> to activate search</span>
+      <span class="visually-hidden" lang="en">Press <kbd>/<kbd> to activate search</span>
     {% endif %}
     <template x-if="open{{ '|| true' if mode === 'inline' else '' }}">
       <div class="search__popover" id="{{ id('popup') }}">
-        <div x-show="!term" class="search__info">
+        <div x-show="!term" class="search__info" lang="en">
           Search for notes by title, content and #tags
         </div>
-        <div x-show="!!term && results && !results.length" class="search__info">
+        <div x-show="!!term && results && !results.length" class="search__info" lang="en">
           No notes found, try a different search term.
         </div>
-        <div x-show="!!term && !results" class="search__info">
+        <div x-show="!!term && !results" class="search__info" lang="en">
           Searching...
         </div>
 

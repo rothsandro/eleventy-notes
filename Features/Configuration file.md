@@ -7,7 +7,7 @@ Eleventy Notes provides several configuration options to customize the app. All 
 
 ## Basic configuration
 
-Create a new file `app.js` in the root of the project, next to your notes. Add a custom title (shown in the header) and a description (not shown but used by search engines):
+Create a new file `app.js` in the root of the project, next to your notes. Add a custom title (shown in the header), a description (not shown but used by search engines) and define the language of your content:
 
 ```js
 const { defineConfig } = require(".app/app-config");
@@ -15,6 +15,7 @@ const { defineConfig } = require(".app/app-config");
 module.exports = defineConfig({
   title: "John's Notes",
   description: "The personal notes of John Doe",
+  lang: "en",
 });
 ```
 
@@ -51,6 +52,7 @@ The following example shows the supported configuration options:
 modul.exports = defineConfig({
   title: "John's Notes",
   description: "The personal notes of John Doe",
+  lang: "en",
   customProperties: {
     properties: [],
   },

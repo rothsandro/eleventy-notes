@@ -12,6 +12,12 @@ export interface AppConfig {
   description?: string;
 
   /**
+   * The language of the content.
+   * @default en
+   */
+  lang?: string;
+
+  /**
    * The theme configuration.
    * @default { color: "sky" }
    */
