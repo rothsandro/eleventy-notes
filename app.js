@@ -27,6 +27,11 @@ module.exports = defineConfig({
         label: "GitHub / Support",
         icon: "github",
       },
+      {
+        url: "https://www.buymeacoffee.com/sandroroth",
+        label: "Buy me a coffee",
+        icon: "coffee",
+      },
     ],
     notes: [
       {
