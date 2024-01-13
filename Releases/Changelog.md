@@ -4,6 +4,10 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next (to be released)
+
+- ✨ **Custom CSS**: You can now add custom CSS to your site.
+
 ## Version 0.20.0
 
 **January 13, 2023**
