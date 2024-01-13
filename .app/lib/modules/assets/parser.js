@@ -20,16 +20,16 @@ module.exports = async function transformParser(content) {
   const outputDir = path.dirname(outputPath);
 
   const $ = cheerio.load(content);
-  const elements = queryAll($, "img");
+  const elements = $("img").toArray();
 
   await Promise.all(
     elements.map(async (img) => {
-      const src = img.attr("src");
+      const src = img.attribs.src;
 
       if (!isRelative(src) || !isImageFile(src)) return;
 
       const paths = await buildPaths(templateDir, outputDir, src);
-      img.attr("src", paths.newSrc);
+      $(img).attr("src", paths.newSrc);
 
       fs.mkdirSync(paths.destDir, { recursive: true });
       await fs.promises.copyFile(paths.sourcePath, paths.destPath);
@@ -81,10 +81,4 @@ function hashFile(filename) {
       return reject(error);
     }
   });
-}
-
-function queryAll($, selector) {
-  const nodes = [];
-  $(selector).each((_, el) => nodes.push($(el)));
-  return nodes;
 }
