@@ -6,11 +6,13 @@ tags: [release]
 
 ## Version 0.21.0
 
+**January 20, 2024**
+
 - ✨ **Custom CSS**: You can now add custom CSS to your site.
 
 ## Version 0.20.0
 
-**January 13, 2023**
+**January 13, 2024**
 
 - ✨ **Language**: The content language can now be configured in the config file.
 - ⚡️ **Performance**: Building the site is now faster (dev mode and production build).
