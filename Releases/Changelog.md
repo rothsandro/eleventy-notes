@@ -4,7 +4,7 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## next (to be released)
+## Version 0.21.0
 
 - ✨ **Custom CSS**: You can now add custom CSS to your site.
 
