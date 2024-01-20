@@ -42,10 +42,10 @@
     <template x-if="open{{ '|| true' if mode === 'inline' else '' }}">
       <div class="search__popover" id="{{ id('popup') }}">
         <div x-show="!term" class="search__info" lang="en">
-          Search for notes by title, content and #tags
+          Search by title, content and #tags
         </div>
         <div x-show="!!term && results && !results.length" class="search__info" lang="en">
-          No notes found, try a different search term.
+          Nothing found, try a different search term.
         </div>
         <div x-show="!!term && !results" class="search__info" lang="en">
           Searching...
