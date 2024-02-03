@@ -1,0 +1,57 @@
+$colors: ("blue", "mint", "green", "orange", "red", "purple", "gray");
+
+.callout {
+  border-radius: var(--rounded-md);
+  background: var(--callout-bg);
+
+  @each $color in $colors {
+    &[data-color="#{$color}"] {
+      --callout-text: var(--callout-#{$color}-text);
+      --callout-bg: var(--callout-#{$color}-bg);
+    }
+  }
+}
+
+.callout__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+  font-weight: var(--font-weight-bold);
+  color: var(--callout-text);
+}
+
+summary.callout__title {
+  margin: 0;
+  list-style: none;
+  cursor: pointer;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.callout__icon {
+  flex-shrink: 0;
+
+  svg {
+    block-size: 1.5em;
+    inline-size: 1.5em;
+    stroke-width: 1.5;
+  }
+}
+
+.callout__foldable {
+  flex-shrink: 0;
+  margin-inline-start: auto;
+
+  details[open] > summary > & {
+    transform: rotate(180deg);
+  }
+}
+
+.callout__content {
+  padding: var(--space-4);
+  padding-block-start: 0;
+}

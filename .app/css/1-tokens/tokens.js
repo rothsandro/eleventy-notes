@@ -83,6 +83,21 @@ module.exports = (theme) => ({
   "color-neutral-text": colorStep(theme.neutral, 11),
   "color-neutral-text-contrast": colorStep(theme.neutral, 12),
   "color-neutral-placeholder": colorStep(theme.neutral, 9),
+
+  "callout-blue-text": colorStepAlpha(theme.blue, 11),
+  "callout-blue-bg": colorStepAlpha(theme.blue, 3),
+  "callout-mint-text": colorStepAlpha(theme.mint, 11),
+  "callout-mint-bg": colorStepAlpha(theme.mint, 3),
+  "callout-green-text": colorStepAlpha(theme.green, 11),
+  "callout-green-bg": colorStepAlpha(theme.green, 3),
+  "callout-orange-text": colorStepAlpha(theme.orange, 11),
+  "callout-orange-bg": colorStepAlpha(theme.orange, 3),
+  "callout-red-text": colorStepAlpha(theme.red, 11),
+  "callout-red-bg": colorStepAlpha(theme.red, 3),
+  "callout-purple-text": colorStepAlpha(theme.purple, 11),
+  "callout-purple-bg": colorStepAlpha(theme.purple, 3),
+  "callout-gray-text": colorStepAlpha(theme.gray, 11),
+  "callout-gray-bg": colorStepAlpha(theme.gray, 2),
 });
 
 function colorStep(color, step) {

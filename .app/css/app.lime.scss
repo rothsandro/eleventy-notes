@@ -71,7 +71,21 @@
   --color-neutral-bg-solid-hover: var(--light, #7f847d) var(--dark, #767d74);
   --color-neutral-text: var(--light, #60655f) var(--dark, #afb5ad);
   --color-neutral-text-contrast: var(--light, #1d211c) var(--dark, #eceeec);
-  --color-neutral-placeholder: var(--light, #898e87) var(--dark, #687066)
+  --color-neutral-placeholder: var(--light, #898e87) var(--dark, #687066);
+  --callout-blue-text: var(--light, #006dcbf2) var(--dark, #70b8ff);
+  --callout-blue-bg: var(--light, #008ff519) var(--dark, #0077ff3a);
+  --callout-mint-text: var(--light, #007763fd) var(--dark, #67ffded2);
+  --callout-mint-bg: var(--light, #00d29e22) var(--dark, #00fff61d);
+  --callout-green-text: var(--light, #00713fde) var(--dark, #46fea5d4);
+  --callout-green-bg: var(--light, #00a43319) var(--dark, #22ff991e);
+  --callout-orange-text: var(--light, #cc4e00) var(--dark, #ffa057);
+  --callout-orange-bg: var(--light, #ff9c0029) var(--dark, #fb6a0025);
+  --callout-red-text: var(--light, #c40006d3) var(--dark, #ff9592);
+  --callout-red-bg: var(--light, #f3000d14) var(--dark, #ff173f2d);
+  --callout-purple-text: var(--light, #52009aba) var(--dark, #d19dff);
+  --callout-purple-bg: var(--light, #8e00f112) var(--dark, #c150ff2d);
+  --callout-gray-text: var(--light, #0000009b) var(--dark, #ffffffaf);
+  --callout-gray-bg: var(--light, #00000006) var(--dark, #ffffff09)
 };
 
 @import './app';
