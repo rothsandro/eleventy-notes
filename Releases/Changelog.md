@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.22.0
+
+**February 03, 2024**
+
+- ✨ **Callouts**: You can now add callouts to your notes.
+
 ## Version 0.21.0
 
 **January 20, 2024**
