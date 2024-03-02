@@ -5,7 +5,13 @@ const { ValueParser } = require("../../shared");
  * @property {string} [titleProp]
  * @property {string | string[]} [pathProp]
  * @property {boolean | number | string} [expanded]
+ *   Whether the tree should be expanded by default.
+ *   If a boolean is provided, it will be used for all levels.
+ *   If a number is provided, the first n levels (starting with 1) will be expanded while all others are collapsed.
+ *   If a string is provided, it will be used as a RegEx pattern to match the paths of the folders that are expanded by default.
  * @property {Record<string, string>} [replace]
+ *   A map of search/replace values that will be applied to the paths of the items in the tree.
+ *   The keys are case-insensitive RegEx patterns.
  */
 
 /**
@@ -39,6 +45,10 @@ module.exports = class TreeGenerator {
    * @returns {NormalizedTreeConfig}
    */
   normalize(options) {
+    if (typeof options !== "boolean") {
+      options.expanded;
+    }
+
     return {
       titleProp: options?.titleProp || "title",
       pathProp: Array.isArray(options?.pathProp)

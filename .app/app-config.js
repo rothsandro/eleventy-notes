@@ -2,6 +2,8 @@
 
 /**
  * @typedef {import('./app-config.schema').AppConfig} AppConfig
+ * @typedef {import('./app-config.schema').NotesQuery} NotesQuery
+ * @typedef {import("./lib/modules/dynamic-content/query-runner").QueryDef} QueryDef
  */
 
 module.exports = {
@@ -11,6 +13,23 @@ module.exports = {
    */
   defineConfig(config) {
     return applyDefaults(config);
+  },
+
+  /**
+   * Creates a query definition for notes.
+   * @param {NotesQuery} query
+   * @returns {QueryDef}
+   */
+  createNotesQuery(query = {}) {
+    return {
+      sort: ["data.sort", "title"],
+      tree: query.tree ? query.tree : false,
+      filter: [
+        ["filePathStem", "isNotEqual", "/index"],
+        ...(query.pattern ? [["filePathStem", "matches", query.pattern]] : []),
+        ...(query.tags ? [["tags", "includesAllOf", query.tags]] : []),
+      ],
+    };
   },
 };
 
@@ -37,7 +56,19 @@ function applyDefaults(custom) {
     },
     sidebar: {
       links: [],
-      notes: [{}],
+      sections: [
+        {
+          label: "Notes",
+          groups: [
+            {
+              query: {
+                sort: ["data.sort", "title"],
+                filter: [["filePathStem", "isNotEqual", "/index"]],
+              },
+            },
+          ],
+        },
+      ],
       ...custom.sidebar,
     },
     panel: {

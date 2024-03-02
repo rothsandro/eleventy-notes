@@ -1,5 +1,5 @@
 // @ts-check
-const { defineConfig } = require("./.app/app-config");
+const { defineConfig, createNotesQuery } = require("./.app/app-config");
 
 module.exports = defineConfig({
   title: "Eleventy Notes",
@@ -33,39 +33,65 @@ module.exports = defineConfig({
         icon: "coffee",
       },
     ],
-    notes: [
+    sections: [
       {
-        pattern: "^/[^/]+$",
-      },
-      {
-        pattern: "^/Writing/",
-        label: "Writing Notes",
-        tree: {
-          replace: {
-            "^/\\w+": "",
+        label: "Introduction",
+        groups: [
+          {
+            query: createNotesQuery({
+              pattern: "^/[^/]+$",
+            }),
           },
-        },
+        ],
       },
       {
-        pattern: "^/Organizing/",
-        label: "Organizing Notes",
-      },
-      {
-        pattern: "^/Features/",
-        label: "Core Features",
-        tree: {
-          replace: {
-            "^/\\w+": "",
+        label: "Guides",
+        groups: [
+          {
+            label: "Writing Notes",
+            query: createNotesQuery({
+              pattern: "^/Writing/",
+              tree: {
+                replace: {
+                  "^/\\w+": "",
+                },
+              },
+            }),
           },
-        },
+          {
+            label: "Organizing Notes",
+            query: createNotesQuery({
+              pattern: "^/Organizing/",
+            }),
+          },
+          {
+            label: "Core Features",
+            query: createNotesQuery({
+              pattern: "^/Features/",
+              tree: {
+                replace: {
+                  "^/\\w+": "",
+                },
+              },
+            }),
+          },
+          {
+            label: "Deployment",
+            query: createNotesQuery({
+              pattern: "^/Deployment/",
+            }),
+          },
+        ],
       },
       {
-        pattern: "^/Deployment/",
-        label: "Deployment",
-      },
-      {
-        pattern: "^/Releases/",
         label: "Releases",
+        groups: [
+          {
+            query: createNotesQuery({
+              pattern: "^/Releases/",
+            }),
+          },
+        ],
       },
     ],
   },

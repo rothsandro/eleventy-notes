@@ -1,3 +1,5 @@
+import type { QueryDef } from "./lib/modules/dynamic-content/query-runner";
+
 export interface AppConfig {
   /**
    * The title of the app.
@@ -150,55 +152,35 @@ export interface AppConfig {
     }>;
 
     /**
-     * A list of grouped notes that are displayed in the sidebar.
-     * @default [{}]
+     * A list of sections that are displayed in the sidebar.
      */
-    notes?: Array<{
+    sections?: Array<{
       /**
-       * A RegEx pattern to match notes to display in this group
+       * The label of the section.
        */
-      pattern?: string;
+      label: string;
 
       /**
-       * The label of the group
+       * A list of groups to display in the section.
        */
-      label?: string;
+      groups: Array<{
+        /**
+         * The label of the group
+         */
+        label?: string;
 
-      /**
-       * Whether the group should be expanded by default.
-       * Ignored if the group has no label.
-       * @default true
-       */
-      expanded?: boolean;
+        /**
+         * Whether the group should be expanded by default.
+         * Ignored if the group has no label.
+         * @default true
+         */
+        expanded?: boolean;
 
-      /**
-       * A list of tags to match notes
-       */
-      tags?: string[];
-
-      /**
-       * If the notes should be displayed as a tree.
-       * @default false
-       */
-      tree?:
-        | boolean
-        | {
-            /**
-             * Whether the tree should be expanded by default.
-             * If a boolean is provided, it will be used for all levels.
-             * If a number is provided, the first n levels (starting with 1) will be expanded while all others are collapsed.
-             * If a string is provided, it will be used as a RegEx pattern to match the paths of the folders that are expanded by default.
-             * @default true
-             */
-            expanded?: boolean | number | string;
-
-            /**
-             * A map of search/replace values that will be applied to the paths of the notes in the tree.
-             * The keys are case-insensitive RegEx patterns.
-             * @default {}
-             */
-            replace?: Record<string, string>;
-          };
+        /**
+         * The query to fetch the notes to display in this group.
+         */
+        query: QueryDef;
+      }>;
     }>;
   };
 
@@ -296,4 +278,47 @@ export interface AppConfig {
      */
     pathPrefix?: string;
   };
+}
+
+export interface NotesQuery {
+  /**
+   * A RegEx pattern to match notes to display in this group
+   */
+  pattern?: string;
+
+  /**
+   * Whether the group should be expanded by default.
+   * Ignored if the group has no label.
+   * @default true
+   */
+  expanded?: boolean;
+
+  /**
+   * A list of tags to match notes
+   */
+  tags?: string[];
+
+  /**
+   * If the notes should be displayed as a tree.
+   * @default false
+   */
+  tree?:
+    | boolean
+    | {
+        /**
+         * Whether the tree should be expanded by default.
+         * If a boolean is provided, it will be used for all levels.
+         * If a number is provided, the first n levels (starting with 1) will be expanded while all others are collapsed.
+         * If a string is provided, it will be used as a RegEx pattern to match the paths of the folders that are expanded by default.
+         * @default true
+         */
+        expanded?: boolean | number | string;
+
+        /**
+         * A map of search/replace values that will be applied to the paths of the notes in the tree.
+         * The keys are case-insensitive RegEx patterns.
+         * @default {}
+         */
+        replace?: Record<string, string>;
+      };
 }

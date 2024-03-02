@@ -64,7 +64,7 @@ modul.exports = defineConfig({
   },
   sidebar: {
     links: [],
-    notes: [{}],
+    sections: [],
   },
   panel: {
     tableOfContents: true,

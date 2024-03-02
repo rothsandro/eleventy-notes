@@ -4,6 +4,68 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next version (to be released)
+
+- ✨ **Enhanced Sidebar Config**: The sidebar configuration now boasts increased flexibility and power. It allows the definition of multiple sections and the use of queries to filter and sort your notes.
+- 💥 **Updated Sidebar Config**: The configuration for your notes' sidebar has been revamped and necessitates manual migration.
+  - The `sidebar.notes` property has been superseded by the `sidebar.sections` property, enabling the configuration of one or more sections.
+  - Each group now accommodates a `query` property, which supersedes `pattern`, `tags`, and `tree`. A new `createNotesQuery()` function is available, generating a query based on these three properties.
+
+If you've customized your sidebar configuration, please migrate it to the new format. Don't hesitate to reach out if you require assistance with the migration. Below is an example of the **previous** format, which defines two groups in the sidebar using a pattern and tags filter:
+
+```js
+// /app.js
+const { defineConfig } = require("./.app/app-config");
+
+module.exports = defineConfig({
+  sidebar: {
+    notes: [
+      {
+        label: "My Posts",
+        pattern: "/posts/",
+      },
+      {
+        label: "Drafts",
+        expanded: false,
+        tags: ["draft"],
+      },
+    ],
+  },
+});
+```
+
+Below is the equivalent configuration in the **updated** format. The two groups are now encapsulated within a new section titled _Notes_. The `createNotesQuery()` function, which needs to be imported at the beginning of the file, is now responsible for filtering.
+
+```js
+// /app.js
+const { defineConfig, createNotesQuery } = require("./.app/app-config");
+
+module.exports = defineConfig({
+  sidebar: {
+    sections: [
+      {
+        label: "Notes",
+        groups: [
+          {
+            label: "My Posts",
+            query: createNotesQuery({
+              pattern: "/posts/",
+            }),
+          },
+          {
+            label: "Drafts",
+            expanded: false,
+            query: createNotesQuery({
+              tags: ["draft"],
+            }),
+          },
+        ],
+      },
+    ],
+  },
+});
+```
+
 ## Version 0.22.0
 
 **February 03, 2024**

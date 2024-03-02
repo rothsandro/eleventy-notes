@@ -7,17 +7,10 @@ const TreeGenerator = require("./tree-generator");
  */
 
 /**
- * @typedef {boolean | {
- *   pathProp?: string;
- *   replace?: Record<string, string>;
- * }} QueryTreeConfig
- */
-
-/**
  * @typedef {object} QueryDef
  * @property {object} [filter]
  * @property {QuerySortConfig} [sort]
- * @property {QueryTreeConfig} [tree]
+ * @property {import('./tree-generator').TreeConfig} [tree]
  * @property {number} [offset]
  * @property {number} [limit]
  */
