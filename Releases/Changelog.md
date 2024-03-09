@@ -4,7 +4,9 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## next version (to be released)
+## Version 0.23.0
+
+**March 09, 2024**
 
 - ✨ **Enhanced Sidebar Config**: The sidebar configuration now boasts increased flexibility and power. It allows the definition of multiple sections and the use of queries to filter and sort your notes.
 - 💥 **Updated Sidebar Config**: The configuration for your notes' sidebar has been revamped and necessitates manual migration.
