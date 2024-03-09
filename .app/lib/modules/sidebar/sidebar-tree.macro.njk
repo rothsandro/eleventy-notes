@@ -1,9 +1,9 @@
-{% macro sidebarTree(tree, group, page) %}
-  <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:notes:group:{{ group.id }}:title">
+{% macro sidebarTree(sectionId, tree, group, page) %}
+  <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:{{ sectionId }}:group:{{ group.id }}:title">
     {% for item in tree %}
       <li
         {% if item.children.length %}
-          x-data="collapsible('app:sidebar:section:notes:group:{{group.id}}:tree:{{item.$treeKey}}', {{ item.$treeExpanded }})"
+          x-data="collapsible('app:sidebar:section:{{ sectionId }}:group:{{group.id}}:tree:{{item.$treeKey}}', {{ item.$treeExpanded }})"
         {% endif %}
       >
         {% if item.url %}
@@ -19,7 +19,7 @@
               <button
                 type="button"
                 class="nav-list__link nav-list__toggle"
-                aria-controls="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.$treeKey }}:list"
+                aria-controls="app:sidebar:section:{{ sectionId }}:group:{{ group.id }}:tree:{{ item.$treeKey }}:list"
                 aria-expanded="true"
                 :aria-expanded="expanded"
                 @click="toggle()"
@@ -35,7 +35,7 @@
           <button
             type="button"
             class="nav-list__link nav-list__toggle"
-            aria-controls="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.$treeKey }}:list"
+            aria-controls="app:sidebar:section:{{ sectionId }}:group:{{ group.id }}:tree:{{ item.$treeKey }}:list"
             aria-expanded="true"
             :aria-expanded="expanded"
             @click="toggle()"
@@ -46,8 +46,8 @@
         {% endif %}
 
         {% if item.children.length %}
-          <div x-show="expanded" id="app:sidebar:section:notes:group:{{ group.id }}:tree:{{ item.$treeKey }}:list">
-            {{ sidebarTree(item.children, group, page) }}
+          <div x-show="expanded" id="app:sidebar:section:{{ sectionId }}:group:{{ group.id }}:tree:{{ item.$treeKey }}:list">
+            {{ sidebarTree(sectionId, item.children, group, page) }}
           </div>
         {% endif %}
       </li>

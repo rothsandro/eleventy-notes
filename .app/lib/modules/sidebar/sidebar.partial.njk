@@ -112,7 +112,7 @@
             <div 
               {% if group.label %}x-show="expanded"{% endif %}
               id="app:sidebar:section:{{ section.id }}:group:{{ group.id }}:list">
-              {{ sidebarTree(group.tree, group, page) }}
+              {{ sidebarTree(section.id, group.tree, group, page) }}
             </div>
           </div>
         {% endfor %}
