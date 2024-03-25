@@ -16,8 +16,8 @@ module.exports = async function transformParser(content) {
   if (!inputPath.endsWith(".md")) return content;
   if (!content.includes("<img")) return content;
 
-  const templateDir = path.dirname(inputPath);
-  const outputDir = path.dirname(outputPath);
+  const templateDir = path.dirname(path.resolve(inputPath));
+  const outputDir = path.dirname(path.resolve(outputPath));
 
   const $ = cheerio.load(content);
   const elements = $("img").toArray();
@@ -51,9 +51,10 @@ async function buildPaths(templateDir, outputDir, src) {
   let relativeDestPath = path.join("./", assetSubdir, assetBasename);
 
   if (isProduction) {
+    const hash = await hashFile(assetPath);
     destDir = outputDir;
-    destPath = path.join(destDir, (await hashFile(assetPath)) + ext);
-    relativeDestPath = `./${assetBasename}`;
+    destPath = path.join(destDir, hash + ext);
+    relativeDestPath = `./${hash + ext}`;
   }
 
   return {
