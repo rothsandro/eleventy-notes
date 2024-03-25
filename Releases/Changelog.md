@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.23.1
+
+**March 25, 2024**
+
+- 🐛 **Fixed asset handling**: Images should now work again in production.
+
 ## Version 0.23.0
 
 **March 09, 2024**
