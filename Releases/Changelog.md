@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.23.2
+
+**April 14, 2024**
+
+- 🐛 **Fixed renderAsList**: The `renderAsList` filter now works with the tags collection by default. Previously, you had to configure the `titleProp`. This is no longer necessary.
+
 ## Version 0.23.1
 
 **March 25, 2024**
