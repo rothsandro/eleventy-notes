@@ -3,7 +3,7 @@ const html = require("nanohtml");
 
 /**
  * @typedef {object} Options
- * @property {string} [titleProp] The name of the title property.
+ * @property {string | string[]} [titleProp] The name of the title property.
  * @property {string} [urlProp] The name of the url property.
  * @property {string} [childrenProp] The name of the children property.
  */
@@ -27,11 +27,13 @@ module.exports = () => (data, options) => {
  * @returns The HTML code
  */
 function createItem(item, options = {}) {
-  const titleProp = options.titleProp ?? "title";
+  const titleProps = valueAsArray(options.titleProp) ?? ["title", "label"];
   const urlProp = options.urlProp ?? "url";
   const childrenProp = options.childrenProp ?? "children";
 
-  const title = ValueParser.getValueByPath(item, titleProp);
+  const title = firstMatch(titleProps, (path) =>
+    ValueParser.getValueByPath(item, path)
+  );
   const url = ValueParser.getValueByPath(item, urlProp);
   const children = ValueParser.getValueByPath(item, childrenProp);
   const content = url ? html`<a href="${url}">${title}</a>` : html`${title}`;
@@ -46,4 +48,24 @@ function createChildList(children, options) {
   return html`<ul>
     ${children.map((item) => createItem(item, options))}
   </ul>`;
+}
+
+function firstMatch(items, matcher, fallback = "") {
+  for (const item of items) {
+    const value = matcher(item);
+    if (value) return value;
+  }
+
+  return fallback;
+}
+
+/**
+ * Transform the value to an array.
+ * @param {string | string[] | undefined} value The single value or array.
+ * @returns An array with the value.
+ */
+function valueAsArray(value) {
+  if (Array.isArray(value)) return value;
+  if (typeof value === "string") return [value];
+  return null;
 }
