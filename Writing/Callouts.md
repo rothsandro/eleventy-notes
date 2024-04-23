@@ -65,7 +65,7 @@ You can use several callout types and aliases. Each type comes with a different 
 > [!abstract]-
 >
 > ```md
-> > ![abstract]
+> > [!abstract]
 > > Lorem ipsum
 > ```
 
@@ -76,7 +76,7 @@ Alias: `summary`, `tldr`
 > [!info]-
 >
 > ```md
-> > ![info]
+> > [!info]
 > > Lorem ipsum
 > ```
 
@@ -85,7 +85,7 @@ Alias: `summary`, `tldr`
 > [!note]-
 >
 > ```md
-> > ![note]
+> > [!note]
 > > Lorem ipsum
 > ```
 
@@ -94,7 +94,7 @@ Alias: `summary`, `tldr`
 > [!todo]-
 >
 > ```md
-> > ![todo]
+> > [!todo]
 > > Lorem ipsum
 > ```
 
@@ -103,7 +103,7 @@ Alias: `summary`, `tldr`
 > [!tip]-
 >
 > ```md
-> > ![tip]
+> > [!tip]
 > > Lorem ipsum
 > ```
 
@@ -114,7 +114,7 @@ Alias: `hint`, `important`
 > [!success]-
 >
 > ```md
-> > ![success]
+> > [!success]
 > > Lorem ipsum
 > ```
 
@@ -125,7 +125,7 @@ Alias: `check`, `done`
 > [!question]-
 >
 > ```md
-> > ![question]
+> > [!question]
 > > Lorem ipsum
 > ```
 
@@ -136,7 +136,7 @@ Alias: `help`, `faq`
 > [!warning]-
 >
 > ```md
-> > ![warning]
+> > [!warning]
 > > Lorem ipsum
 > ```
 
@@ -147,7 +147,7 @@ Alias: `caution`, `attention`
 > [!failure]-
 >
 > ```md
-> > ![failure]
+> > [!failure]
 > > Lorem ipsum
 > ```
 
@@ -158,7 +158,7 @@ Alias: `fail`, `missing`
 > [!danger]-
 >
 > ```md
-> > ![danger]
+> > [!danger]
 > > Lorem ipsum
 > ```
 
@@ -169,7 +169,7 @@ Alias: `error`
 > [!bug]-
 >
 > ```md
-> > ![bug]
+> > [!bug]
 > > Lorem ipsum
 > ```
 
@@ -178,7 +178,7 @@ Alias: `error`
 > [!example]-
 >
 > ```md
-> > ![example]
+> > [!example]
 > > Lorem ipsum
 > ```
 
@@ -187,7 +187,7 @@ Alias: `error`
 > [!quote]-
 >
 > ```md
-> > ![quote]
+> > [!quote]
 > > Lorem ipsum
 > ```
 
