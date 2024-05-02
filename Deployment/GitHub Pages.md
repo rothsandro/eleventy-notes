@@ -11,45 +11,56 @@ You can build and deploy your notes using [GitHub Pages](https://pages.github.co
 Add the following to `.github/workflows/gh-pages.yml` to enable deployment to GitHub pages.
 
 ```yaml
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (npm)
+
 on:
+  workflow_dispatch:
   push:
     branches:
-      # Runs on push to main branch
       - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Needed to deploy to GitHub pages subdomain. (E.g. `your-username.github.io/eleventy-notes/`)
+env:
+  ELEVENTY_NOTES_PATH_PREFIX: "eleventy-notes"
+
 jobs:
-  build-and-deploy:
-    # Specifies the runner
+  setup:
+    name: Setup and Build
     runs-on: ubuntu-latest
     steps:
-      # Checks out your repository
-      - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+        name: Checkout
+      - uses: actions/setup-node@v4
+        name: Setup Node
         with:
-          # Sets up LTS Node version
-          node-version: "lts/*"
+          node-version: 18
       - name: Install dependencies
-        run: |
-          cd .app/
-          npm install
-          cd ..
+        run: npm install --prefix .app
       - name: Build
-        # By default, GitHub Pages point to a subfolder named after the repository name,
-        # like https://username.github.io/repository or https://organization.github.io/repository,
-        # so we need to point the path of ELEVENTY_NOTES_PATH_PREFIX to the repository name.
-        # If you are using a custom domain, ELEVENTY_NOTES_PATH_PREFIX should point to /
-        run: |
-          cd .app/
-          ELEVENTY_NOTES_PATH_PREFIX=/${{ github.event.repository.name }}/ npm run build
-          cd ..
-      - name: Move dist to public
-        run: mv .app/dist public
-      - name: Prepare CNAME
-        run: cp CNAME_DEFAULT public/CNAME
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        run: npm run build --prefix .app
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          path: .app/dist
+
+  deploy:
+    name: Deploy
+    needs: setup
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 ```
