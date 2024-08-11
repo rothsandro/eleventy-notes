@@ -9,36 +9,39 @@
   {% endif %}
 
   <div x-cloak x-data="search" @click.away="open = false" class="search" data-mode="{{ mode }}">
-    <input
-      data-kbd-trigger
-      type="search"
-      role="combobox"
-      aria-autocomplete="list"
-      aria-haspopup="listbox"
-      aria-owns="{{ id('popup') }}"
-      aria-controls="{{ id('popup') }}"
-      aria-activedescendant
-      aria-expanded="false"
-      :aria-activedescendant="open && selectedId ? `{{ id('result', '') }}${selectedId}` : ''"
-      :aria-expanded="open"
-      placeholder="Search"
-      class="search__input"
-      autocorrect="off"
-      autocapitalize="off"
-      enterkeyhint="search"
-      required
-      x-model="term"
-      x-init="{{ init }}"
-      @focus="open = true"
-      @keydown="onKeyDown"
-      @pageshow.window="term = $el.value"
-      lang="en"
-      {{ 'autofocus' if mode === 'inline' else '' }}
-    >
-    {% if mode === 'overlay' %}
-      <kbd class="search__kbd" aria-hidden="true">/</kbd>
-      <span class="visually-hidden" lang="en">Press <kbd>/<kbd> to activate search</span>
-    {% endif %}
+    <div class="search__bar">
+      <span class="search__icon" aria-hidden="true">{{ 'search' | feather | safe }}</span>
+      <input
+        data-kbd-trigger
+        type="search"
+        role="combobox"
+        aria-autocomplete="list"
+        aria-haspopup="listbox"
+        aria-owns="{{ id('popup') }}"
+        aria-controls="{{ id('popup') }}"
+        aria-activedescendant
+        aria-expanded="false"
+        :aria-activedescendant="open && selectedId ? `{{ id('result', '') }}${selectedId}` : ''"
+        :aria-expanded="open"
+        placeholder="Search..."
+        class="search__input"
+        autocorrect="off"
+        autocapitalize="off"
+        enterkeyhint="search"
+        required
+        x-model="term"
+        x-init="{{ init }}"
+        @focus="open = true"
+        @keydown="onKeyDown"
+        @pageshow.window="term = $el.value"
+        lang="en"
+        {{ 'autofocus' if mode === 'inline' else '' }}
+      >
+      {% if mode === 'overlay' %}
+        <kbd class="search__kbd" aria-hidden="true">/</kbd>
+        <span class="visually-hidden" lang="en">Press <kbd>/<kbd> to activate search</span>
+      {% endif %}
+    </div>
     <template x-if="open{{ '|| true' if mode === 'inline' else '' }}">
       <div class="search__popover" id="{{ id('popup') }}">
         <div x-show="!term" class="search__info" lang="en">

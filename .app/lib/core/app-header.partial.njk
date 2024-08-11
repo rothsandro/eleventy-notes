@@ -7,12 +7,12 @@
     {{ app.title }}
   </a>
 
-  {% include 'modules/themes/theme-switcher.partial.njk' %}
-  
-  <div class="show-md">
+  <div class="app-header__search show-md">
     {{ searchInput('overlay') }}
   </div>
+
   <div class="hide-md">
     {% include 'modules/search/search-button.partial.njk' %}
   </div>
+  {% include 'modules/themes/theme-switcher.partial.njk' %}
 </header>

@@ -9,10 +9,12 @@
   align-items: center;
   padding-block: var(--space-2);
   padding-inline: var(--space-4);
+  border-block-end: 1px solid var(--color-neutral-line-weak);
   background-color: var(--color-surface);
   transition: box-shadow 200ms ease-in-out;
 
   &[data-scrolled="true"] {
+    border-block-end-color: transparent;
     box-shadow: var(--shadow-lg);
   }
 
@@ -29,6 +31,7 @@
   margin-inline: var(--space-2) auto;
   outline-offset: var(--space-2);
   color: var(--color-neutral-text-contrast);
+  font-size: var(--font-size-fluid-0);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
   overflow: hidden;
@@ -38,4 +41,10 @@
   &:hover {
     color: var(--color-primary-text);
   }
+}
+
+.app-header__search {
+  margin-inline-end: auto;
+  inline-size: 500px;
+  max-inline-size: 45%;
 }
