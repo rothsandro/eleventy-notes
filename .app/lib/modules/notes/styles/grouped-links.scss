@@ -14,6 +14,7 @@
   color: var(--color-neutral-text);
   font-size: var(--font-size-sm);
   text-decoration: none;
+  text-underline-offset: 5px;
 
   svg {
     inline-size: 16px;
@@ -21,6 +22,7 @@
     flex-shrink: 0;
     box-sizing: content-box;
     padding-inline-end: var(--space-2);
+    opacity: 0.8;
   }
 
   span {
