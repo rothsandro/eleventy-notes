@@ -1,4 +1,10 @@
 .nav-group {
+  &:has(.nav-group__title) {
+    // Space between section title and first group should be increased if labeled.
+    // Will be overwritten for subsequent groups below.
+    margin-block-start: var(--space-3);
+  }
+
   &[data-expanded] + .nav-group {
     margin-block-start: var(--space-6);
   }
@@ -8,12 +14,12 @@
   }
 }
 
-.nav-group__subtitle,
 .nav-group__toggle {
-  margin-block-end: var(--space-1);
+  margin-block-end: var(--space-2);
   padding-block: 0;
-  padding-inline: var(--space-2);
+  padding-inline: var(--space-3);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
   color: var(--color-neutral-text);
 }
 
