@@ -98,18 +98,11 @@
   }
 }
 
-.search__results {
-  margin-block-start: var(--space-2);
-
-  .search[data-mode="inline"] & li + li {
-    margin-block-start: var(--space-2);
-  }
-}
-
 .search__result {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--space-1) var(--space-4);
+  margin-block: var(--space-2);
   padding-block: var(--space-3);
   padding-inline: var(--space-5);
   border-radius: var(--rounded-lg);
@@ -126,7 +119,7 @@
   }
 
   .search[data-mode="overlay"] & {
-    margin: var(--space-2);
+    margin-inline: var(--space-2);
   }
 }
 
