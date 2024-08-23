@@ -13,6 +13,13 @@ export default function (Alpine) {
     _nextHash: window.location.hash.slice(1),
     _scrollTimer: 0,
 
+    get indicatorStyles() {
+      return {
+        "--toc-indicator-start": this.indicator.start,
+        "--toc-indicator-size": this.indicator.size,
+      };
+    },
+
     init() {
       this._links = [...this.$el.querySelectorAll("a")];
       this._headings = this._links

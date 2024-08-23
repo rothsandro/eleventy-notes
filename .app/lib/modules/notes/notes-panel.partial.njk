@@ -9,7 +9,7 @@
     data-pagefind-ignore
     x-data="toc"
     x-on:scroll.window.throttle.30ms="onScroll()"
-    :style="{ '--toc-indicator-start': indicator.start, '--toc-indicator-size': indicator.size }"
+    :style="indicatorStyles"
   >
     <h2 class="toc__label" id="app-panel-toc" lang="en">On this page</h2>
     <ul class="toc__list" role="list" aria-labelledby="app-panel-toc">
