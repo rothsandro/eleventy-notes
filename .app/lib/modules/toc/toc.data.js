@@ -15,8 +15,8 @@ export default function (Alpine) {
 
     get indicatorStyles() {
       return {
-        "--toc-indicator-start": this.indicator.start,
-        "--toc-indicator-size": this.indicator.size,
+        "--toc-indicator-start": `${this.indicator.start}px`,
+        "--toc-indicator-size": `${this.indicator.size}px`,
       };
     },
 

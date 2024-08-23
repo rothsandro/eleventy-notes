@@ -26,9 +26,9 @@
 
   &::after {
     inline-size: 3px;
-    block-size: calc(1px * var(--toc-indicator-size));
+    block-size: var(--toc-indicator-size);
     inset-inline-start: -1px;
-    inset-block-start: calc((1px * var(--toc-indicator-start)));
+    inset-block-start: var(--toc-indicator-start);
     background: var(--color-neutral-border);
     transition: all 150ms linear;
   }
