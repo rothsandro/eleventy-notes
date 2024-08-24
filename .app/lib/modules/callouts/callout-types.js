@@ -24,6 +24,6 @@ function define(name, color, icon, aliases = [], type = name) {
 }
 
 function getIcon(icon) {
-  const path = require.resolve(`@tabler/icons/${icon}.svg`);
+  const path = require.resolve(`@tabler/icons/outline/${icon}.svg`);
   return fs.readFileSync(path, "utf8");
 }

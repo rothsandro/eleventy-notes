@@ -34,7 +34,7 @@
     "sass": "^1.69.5"
   },
   "dependencies": {
-    "@tabler/icons": "^2.46.0",
+    "@tabler/icons": "^3.12.0",
     "alpinejs": "^3.13.2",
     "feather-icons": "^4.29.1",
     "flexsearch": "^0.7.31",
