@@ -10,7 +10,6 @@
   max-inline-size: 100%;
   display: inline-flex;
   align-items: center;
-  padding-block: var(--space-1);
   color: var(--color-neutral-text);
   font-size: var(--font-size-sm);
   text-decoration: none;
@@ -26,12 +25,16 @@
   }
 
   span {
+    // Firefox + Safari don't display text-decoration with offset if the element
+    // uses overflow: hidden, even though the deocration is is on the parent element.
+    // => Padding needs to be added here and not on the parent element.
+    padding-block: var(--space-1);
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    overflow: hidden;
   }
 
-  &:hover span {
+  &:hover {
     text-decoration: underline;
   }
 }
