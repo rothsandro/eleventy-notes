@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@tabler/icons": "^3.12.0",
-    "alpinejs": "^3.13.2",
+    "alpinejs": "^3.14.1",
     "feather-icons": "^4.29.1",
     "flexsearch": "^0.7.31",
     "pagefind": "^1.0.4",
