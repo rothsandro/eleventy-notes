@@ -18,6 +18,11 @@
     background-color: var(--color-primary-bg-hover);
   }
 
+  svg {
+    fill: transparent;
+    transition: all 300ms ease;
+  }
+
   &[aria-pressed="true"] {
     background-color: var(--color-primary-bg-active);
 

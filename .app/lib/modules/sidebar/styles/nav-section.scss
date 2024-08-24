@@ -14,9 +14,10 @@
 
 .nav-section__title {
   margin-block-end: var(--space-2);
-  margin-inline-start: var(--space-2);
+  margin-inline-start: var(--space-3);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
   color: var(--color-neutral-text);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }

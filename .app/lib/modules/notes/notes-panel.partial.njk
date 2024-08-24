@@ -4,12 +4,18 @@
 <aside class="stack" data-stack="6">
   {% set toc = content | toc %}
   {% if (toc | length) and app.panel.tableOfContents %}
-  <div class="toc" data-pagefind-ignore>
-    <h2 class="toc__label" id="app-panel-toc" lang="en">Table of Contents</h2>
+  <div
+    class="toc"
+    data-pagefind-ignore
+    x-data="toc"
+    x-on:scroll.window.throttle.30ms="onScroll()"
+    :style="indicatorStyles"
+  >
+    <h2 class="toc__label" id="app-panel-toc" lang="en">On this page</h2>
     <ul class="toc__list" role="list" aria-labelledby="app-panel-toc">
       {% for item in toc %}
       <li style="--level: {{ item.level }}" class="toc__item">
-        <a href="#{{ item.id }}" class="toc__link">
+        <a href="#{{ item.id }}" class="toc__link" :data-active="'{{ item.id }}' === activeId" @click="onNavigate('{{ item.id }}')">
           {{ item.text | safe }}
         </a>
       </li>
@@ -108,7 +114,7 @@
       {% for external in links.external %}
         <li>
           <a href="{{ external.url }}" class="grouped-links__link" target="_blank" rel="noopener noreferrer">
-            {{ 'external-link' | feather | safe }}
+            {{ 'link-2' | feather | safe }}
             <span>{{ external.title }}</span>
           </a>
         </li>

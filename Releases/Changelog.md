@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next
+
+**to be released**
+
+- ✨ **Redesign**: The design of the header, search, navigation and panel has been improved.
+
 ## Version 0.23.2
 
 **April 14, 2024**

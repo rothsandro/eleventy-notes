@@ -47,7 +47,7 @@ small {
   font-size: var(--font-size-fluid-x1);
 }
 
-ul[role] {
+:where(ul[role]) {
   list-style: none;
   padding: 0;
   margin: 0;

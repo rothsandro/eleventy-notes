@@ -10,6 +10,7 @@ import scrollPositionData from "../lib/shared/scroll-position.data.js";
 import windowScrollBind from "../lib/shared/window-scroll.bind.js";
 import persistPlugin from "../lib/shared/persist.plugin";
 import copyToClipboardData from "../lib/shared/copy-to-clipboard.data.js";
+import tocData from "./../lib/modules/toc/toc.data.js";
 
 Alpine.plugin(persistPlugin);
 
@@ -22,5 +23,6 @@ hotkeysStore(Alpine);
 scrollPositionData(Alpine);
 windowScrollBind(Alpine);
 copyToClipboardData(Alpine);
+tocData(Alpine);
 
 Alpine.start();

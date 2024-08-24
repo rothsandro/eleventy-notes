@@ -1,22 +1,57 @@
 .toc__label {
   margin: 0;
+  margin-block-end: var(--space-2);
   color: var(--color-neutral-text);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
 }
 
+.toc__list {
+  position: relative;
+  padding-inline-start: var(--space-4);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    border-radius: var(--rounded-full);
+  }
+
+  &::before {
+    inline-size: 1px;
+    inset-block: 0;
+    background: var(--color-neutral-line-weak);
+  }
+
+  &::after {
+    inline-size: 3px;
+    block-size: var(--toc-indicator-size);
+    inset-inline-start: -1px;
+    inset-block-start: var(--toc-indicator-start);
+    background: var(--color-neutral-border);
+    transition: all 150ms linear;
+  }
+}
+
 .toc__item {
-  margin-block: var(--space-1);
   margin-inline-start: calc((var(--level, 1) - 1) * var(--space-4));
 }
 
 .toc__link {
-  color: var(--color-primary-text);
+  display: inline-block;
+  padding-block: var(--space-1);
+  color: var(--color-neutral-text);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
   text-decoration: none;
+  text-underline-offset: 5px;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  &[data-active="true"] {
+    color: var(--color-neutral-text-contrast);
   }
 }
