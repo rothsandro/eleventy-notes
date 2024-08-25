@@ -7,7 +7,7 @@ tags: ["basics"]
 
 Before you start, make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/en/) (version 16 or higher)
+- [Node.js](https://nodejs.org/en/) (version 20 or 22+)
 - [Git](https://git-scm.com/)
 
 Node (and npm) are used to install and run the project. Git is used to clone the project from GitHub and for version control. You can also download the project as a ZIP file from GitHub if you don't want to use Git.

@@ -4,6 +4,13 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next
+
+**to be released**
+
+- 💥 **Node Version**: Eleventy Notes now requires Node version 20 or 22 (or higher).
+  Run `node --version` to see what version you have installed. If you need to update, you can download the latest version from the [official website](https://nodejs.org/en/). Also check the node version of your cloud service (like Netlify) if you deploy your site there.
+
 ## Version 0.24.0
 
 **August 25, 2024**

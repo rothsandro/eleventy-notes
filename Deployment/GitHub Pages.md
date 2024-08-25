@@ -42,7 +42,7 @@ jobs:
       - uses: actions/setup-node@v4
         name: Setup Node
         with:
-          node-version: 18
+          node-version: 20
       - name: Install dependencies
         run: npm install --prefix .app
       - name: Build
