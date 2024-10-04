@@ -1,4 +1,3 @@
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = {
@@ -15,9 +14,10 @@ module.exports = {
     markdownTemplateEngine: false,
   },
 
-  setup(config) {
+  async setup(config) {
     config.setLibrary("md", this.mdLibrary(config));
 
+    const { EleventyHtmlBasePlugin } = await import("@11ty/eleventy");
     config.addPlugin(EleventyHtmlBasePlugin);
     config.addPlugin(syntaxHighlightPlugin);
 

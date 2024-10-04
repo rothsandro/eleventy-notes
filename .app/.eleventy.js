@@ -10,7 +10,7 @@ const wikilinksModule = require("./lib/modules/wikilinks");
 const assetsModule = require("./lib/modules/assets");
 const core = require("./lib/core");
 
-module.exports = (eleventyConfig) => {
+module.exports = async (eleventyConfig) => {
   sharedModule.setup(eleventyConfig);
 
   customPropsModule.setup(eleventyConfig);
@@ -23,7 +23,7 @@ module.exports = (eleventyConfig) => {
   wikilinksModule.setup(eleventyConfig);
   assetsModule.setup(eleventyConfig);
 
-  core.setup(eleventyConfig);
+  await core.setup(eleventyConfig);
 
   return core.configObj;
 };
