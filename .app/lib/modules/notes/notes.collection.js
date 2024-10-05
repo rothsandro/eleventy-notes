@@ -1,12 +1,12 @@
-const notesCollection = require("./_notes.collection");
+import { _notesCollection } from "./_notes.collection.js";
 
 /**
  * Factory function for the notes collection.
  * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
  * @returns The notes collection function.
  */
-module.exports = (eleventyConfig) => (collectionApi) => {
-  const notes = notesCollection(eleventyConfig)(collectionApi);
+export const notesCollection = (eleventyConfig) => (collectionApi) => {
+  const notes = _notesCollection(eleventyConfig)(collectionApi);
   return notes.map((note) => ({
     title: note.data.title || note.page.fileSlug,
     tags: parseTags(note.data.tags),

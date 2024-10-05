@@ -1,4 +1,4 @@
-module.exports = () =>
+export const featherRefFilter = () =>
   function (iconName) {
     return `
       <svg width="18" height="18">

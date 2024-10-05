@@ -18,20 +18,20 @@ My note without a panel
 
 ## Hiding sections
 
-Add a `panel` property to your global [[Configuration file]] `app.js` to configure the
+Add a `panel` property to your global [[Configuration file]] `app.mjs` to configure the
 sections of the panel. All sections are enabled by default (if they have content) but you
 can disable them by setting the respective property to `false`.
 
-```json
-// /app.js
-module.exports = defineConfig({
-  "panel": {
-    "tableOfContents": true,
-    "tags": true,
-    "customProperties": true,
-    "incomingLinks": true,
-    "outgoingLinks": true,
-    "externalLinks": true
-  }
-})
+```js
+// /app.mjs
+export default defineConfig({
+  panel: {
+    tableOfContents: true,
+    tags: true,
+    customProperties: true,
+    incomingLinks: true,
+    outgoingLinks: true,
+    externalLinks: true,
+  },
+});
 ```

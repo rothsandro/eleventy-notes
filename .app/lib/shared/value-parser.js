@@ -1,4 +1,4 @@
-module.exports = class ValueParser {
+export class ValueParser {
   /**
    * Gets the value of an object by path.
    * @param {object} item The object to get the value from.
@@ -19,4 +19,4 @@ module.exports = class ValueParser {
 
     return value;
   }
-};
+}

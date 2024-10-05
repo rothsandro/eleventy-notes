@@ -8,8 +8,8 @@ tags: [feature]
 Eleventy Notes supports a few different color schemes to choose from. You can change the color scheme by adding a `theme` object to your [[Configuration file]]:
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.msjs
+export default defineConfig({
   theme: {
     color: "indigo",
   },

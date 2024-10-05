@@ -1,4 +1,4 @@
-class Index {
+export default class Index {
   data() {
     return {
       layout: null,
@@ -17,5 +17,3 @@ class Index {
     );
   }
 }
-
-module.exports = Index;

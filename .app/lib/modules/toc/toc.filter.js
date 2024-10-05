@@ -1,6 +1,6 @@
-const { parse } = require("node-html-parser");
+import { parse } from "node-html-parser";
 
-module.exports = () => (content) => {
+export const tocFilter = () => (content) => {
   const html = parse(content);
   const headings = html.querySelectorAll("h1, h2, h3, h4");
   const toc = headings.map((heading) => {

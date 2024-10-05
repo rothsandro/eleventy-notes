@@ -1,14 +1,14 @@
-const crypto = require("crypto");
-const cheerio = require("cheerio");
-const path = require("path");
-const fs = require("fs");
+import crypto from "crypto";
+import * as cheerio from "cheerio";
+import path from "path";
+import fs from "fs";
 
 const extRegex = /\.(png|jpg|jpeg|svg|webp|gif)$/;
 const isImageFile = (file) => extRegex.test(file);
 const isRelative = (url) => !/^https?:/.test(url);
 const isProduction = process.env.ELEVENTY_RUN_MODE === "build";
 
-module.exports = async function transformParser(content) {
+export async function transformParser(content) {
   const outputPath = this.page.outputPath;
   const inputPath = this.page.inputPath;
 
@@ -37,7 +37,7 @@ module.exports = async function transformParser(content) {
   );
 
   return $.html();
-};
+}
 
 async function buildPaths(templateDir, outputDir, src) {
   const assetPath = path.join(templateDir, src);

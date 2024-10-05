@@ -1,3 +1,5 @@
-module.exports = {
-  markdownPlugin: require("./callouts.md-plugin"),
+import { calloutsMarkdownPlugin } from "./callouts.md-plugin.js";
+
+export const calloutsModule = {
+  markdownPlugin: calloutsMarkdownPlugin,
 };

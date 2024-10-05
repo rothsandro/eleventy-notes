@@ -1,7 +1,6 @@
-const generateTokens = require("../css/1-tokens/tokens.js");
-const themes = require("../css/1-tokens/themes.js");
-
-const fs = require("fs");
+import { generateTokens } from "../css/1-tokens/tokens.js";
+import { themes } from "../css/1-tokens/themes.js";
+import fs from "fs";
 
 Object.entries(themes).forEach(([themeName, theme]) => {
   const tokens = generateTokens(theme);

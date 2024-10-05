@@ -2,7 +2,7 @@
  * Factory function to create a filter that sorts a collection of notes by title.
  * @returns The filter function.
  */
-module.exports = () => {
+export const sortNotesByTitleFilter = () => {
   /**
    * Sorts a collection of notes by title.
    * @template T

@@ -1,4 +1,5 @@
-const { ValueParser } = require("../../shared");
+import { sharedModule } from "../../shared/index.js";
+const { ValueParser } = sharedModule;
 
 /**
  * @typedef {object} TreeConfigObj
@@ -29,7 +30,7 @@ const { ValueParser } = require("../../shared");
 /**
  * Generates a tree structure from a list of items.
  */
-module.exports = class TreeGenerator {
+export class TreeGenerator {
   /**
    * @param {any[]} data The list of items to generate the tree from.
    * @param {TreeConfig} options The tree generation options.
@@ -138,4 +139,4 @@ module.exports = class TreeGenerator {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)+/g, "");
   }
-};
+}

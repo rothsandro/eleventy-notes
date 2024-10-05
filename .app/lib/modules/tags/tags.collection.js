@@ -1,11 +1,11 @@
+import appData from "../../../_data/app.js";
+
 /**
  * Creates the collection factory of all tags
  * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
  * @returns The collection function
  */
-module.exports = (eleventyConfig) => (collectionApi) => {
-  delete require.cache[require.resolve("../../../_data/app")];
-  const appData = require("../../../_data/app");
+export const tagsCollection = (eleventyConfig) => (collectionApi) => {
   const app = appData();
   const slugify = eleventyConfig.getFilter("slugify");
 

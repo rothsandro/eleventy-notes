@@ -44,8 +44,8 @@ If you want to link to a specific note in a folder you should include the folder
 A label will automatically be generated from the provided reference if you omit the label. You can customize the behavior in the [[Configuration file]]:
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   wikilinks: {
     // What label to use for wikilinks without a label
     // - "ref"       Use the reference

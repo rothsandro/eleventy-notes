@@ -28,8 +28,8 @@ author: John Doe
 Then add the property to the configuration file:
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   customProperties: {
     properties: [
       {
@@ -55,8 +55,8 @@ publishedOn: 2023-08-01
 Then add the property to the configuration file:
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   customProperties: {
     properties: [
       {
@@ -93,8 +93,8 @@ related:
 Then add the property to the configuration file:
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   customProperties: {
     properties: [
       {
@@ -125,8 +125,8 @@ meta:
 Then add the property to the configuration file:
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   customProperties: {
     properties: [
       {
@@ -143,7 +143,7 @@ module.exports = defineConfig({
 What properties are shown in the panel can be configured in the [[Configuration file]].
 
 ```js
-module.exports = defineConfig({
+export default defineConfig({
   customProperties: {
     // Define a list of properties to show in the panel.
     properties: [

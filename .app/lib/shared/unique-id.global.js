@@ -1,10 +1,8 @@
-const crypto = require("crypto");
-
 /**
  * Creates a uniqueId filter.
  * @returns The filter function.
  */
-module.exports = () => {
+export const uniqueIdGlobal = () => {
   /**
    * Filter to create a unique ID.
    *

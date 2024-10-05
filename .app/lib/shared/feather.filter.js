@@ -1,6 +1,6 @@
-const { icons } = require("feather-icons");
+import { icons } from "feather-icons";
 
-module.exports = () =>
+export const featherFilter = () =>
   function (iconName, attr) {
     const icon = icons[iconName];
     if (!icon) throw new Error(`Icon ${iconName} not found`);

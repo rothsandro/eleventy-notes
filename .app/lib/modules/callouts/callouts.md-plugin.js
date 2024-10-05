@@ -1,10 +1,11 @@
-const { icons } = require("feather-icons");
+import { icons } from "feather-icons";
+import { calloutTypes } from "./callout-types.js";
+
 const chevronDown = icons["chevron-down"].toSvg({
   width: "1.125em",
   height: "1.125em",
 });
 
-const calloutTypes = require("./callout-types");
 const markers = Object.keys(calloutTypes);
 const markerNames = markers.join("|");
 const regex = new RegExp(
@@ -12,7 +13,7 @@ const regex = new RegExp(
   "i"
 );
 
-module.exports = (md) => {
+export const calloutsMarkdownPlugin = (md) => {
   md.core.ruler.after("block", "callouts", block);
   md.renderer.rules.callout_open = renderCalloutOpen;
   md.renderer.rules.callout_title_open = renderTitleOpen;

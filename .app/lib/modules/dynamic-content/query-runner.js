@@ -1,6 +1,8 @@
-const operators = require("./query-operators");
-const { ValueParser } = require("../../shared");
-const TreeGenerator = require("./tree-generator");
+import { queryOperators as operators } from "./query-operators.js";
+import { sharedModule } from "../../shared/index.js";
+import { TreeGenerator } from "./tree-generator.js";
+
+const { ValueParser } = sharedModule;
 
 /**
  * @typedef {undefined | string | Array<[string, "asc" | "desc"] | string>} QuerySortConfig
@@ -18,7 +20,7 @@ const TreeGenerator = require("./tree-generator");
 /**
  * Runs a query on a list of items.
  */
-module.exports = class QueryRunner {
+export class QueryRunner {
   /**
    * @param {object[]} items The list of items to run the query on.
    * @param {QueryDef} query The query to run.
@@ -58,7 +60,7 @@ module.exports = class QueryRunner {
 
     return result;
   }
-};
+}
 
 class QueryFilter {
   constructor(items, config) {

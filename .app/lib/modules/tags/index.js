@@ -1,11 +1,11 @@
-module.exports = {
-  tagsCollection: require("./tags.collection"),
+import { tagsCollection } from "./tags.collection.js";
 
+export const tagsModule = {
   /**
    * Sets up the module
    * @param {import("@11ty/eleventy").UserConfig} config
    */
   setup(config) {
-    config.addCollection("tags", this.tagsCollection(config));
+    config.addCollection("tags", tagsCollection(config));
   },
 };
