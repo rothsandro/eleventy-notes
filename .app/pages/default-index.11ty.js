@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from "fs";
 
-class DefaultIndex {
+export default class DefaultIndex {
   data() {
     const hasCustomIndex = fs.existsSync("./../index.md");
     return {
@@ -22,5 +22,3 @@ class DefaultIndex {
     `;
   }
 }
-
-module.exports = DefaultIndex;

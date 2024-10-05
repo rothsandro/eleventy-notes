@@ -5,8 +5,8 @@ tags: [feature]
 You can add additional links to the sidebar, which are shown in the first section after the main navigation. For example, you can link to your website or social profiles. These links should be external links and not point to notes. Add them in the [[Configuration file]]:
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   sidebar: {
     links: [
       {

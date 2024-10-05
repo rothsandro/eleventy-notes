@@ -1,26 +1,26 @@
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
-const markdownItTaskCheckbox = require("markdown-it-task-checkbox");
-const markdownItFootnote = require("markdown-it-footnote");
-const markdownItWikilinks = require("./../modules/wikilinks").markdownPlugin;
-const markdownItCopyCode = require("./../modules/notes/copy-code.md-plugin");
-const markdownItCallouts = require("./../modules/callouts").markdownPlugin;
+import markdownIt from "markdown-it";
+import markdownItAnchor from "markdown-it-anchor";
+import markdownItTaskCheckbox from "markdown-it-task-checkbox";
+import markdownItFootnote from "markdown-it-footnote";
+import { wikilinksModule } from "./../modules/wikilinks/index.js";
+import { notesModule } from "./../modules/notes/index.js";
+import { calloutsModule } from "./../modules/callouts/index.js";
 
 /**
  * Creates a markdown-it instance.
  * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
  * @returns The configured markdown library.
  */
-module.exports = (eleventyConfig) => {
+export const markdownLibrary = (eleventyConfig) => {
   const lib = markdownIt({
     html: true,
     linkify: true,
   })
     .use(markdownItTaskCheckbox)
     .use(markdownItFootnote)
-    .use(markdownItCopyCode)
-    .use(markdownItCallouts)
-    .use(markdownItWikilinks, {
+    .use(notesModule.copyCodeMarkdownPlugin)
+    .use(calloutsModule.markdownPlugin)
+    .use(wikilinksModule.markdownPlugin, {
       collections: "_notes",
       slugify: eleventyConfig.getFilter("slugifyPath"),
       slugifyAnchor: eleventyConfig.getFilter("slugify"),

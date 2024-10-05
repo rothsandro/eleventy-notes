@@ -2,6 +2,7 @@
   "name": "eleventy-notes",
   "version": "0.24.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "start": "npm-run-all clean -p css:watch js:watch 11ty:serve",
     "build": "npm-run-all clean -p css:build js:build 11ty:build",

@@ -1,12 +1,15 @@
-const ValueParser = require("../../shared").ValueParser;
-const { Wikilink } = require("../wikilinks");
+import { sharedModule } from "./../../shared/index.js";
+import { wikilinksModule } from "../wikilinks/index.js";
+
+const { Wikilink } = wikilinksModule;
+const { ValueParser } = sharedModule;
 
 /**
  * Creates a filter function that resolves custom properties.
  * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
  * @returns The filter function.
  */
-module.exports = (eleventyConfig) => {
+export const resolveCustomPropsFilter = (eleventyConfig) => {
   /**
    * Filter function to parse the custom properties of a note.
    * @param {Record<string, any>[]} properties The list of properties to parse.

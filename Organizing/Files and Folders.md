@@ -21,8 +21,8 @@ If you remove it, you'll need to make sure you don't have any conflicts with oth
 You can adjust the prefix in the [[Configuration file]]:
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   notes: {
     // Change the prefix to something else
     pathPrefix: "/articles",

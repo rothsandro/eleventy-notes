@@ -1,4 +1,4 @@
-const _colors = require("@radix-ui/colors");
+import _colors from "@radix-ui/colors";
 
 /**
  * @type {Record<keyof typeof _colors, string[]>}
@@ -23,7 +23,7 @@ const base = {
   gray: getColor("gray"),
 };
 
-module.exports = {
+export const themes = {
   amber: {
     ...base,
     primary: getColor("amber"),

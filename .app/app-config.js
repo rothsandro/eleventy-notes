@@ -6,32 +6,30 @@
  * @typedef {import("./lib/modules/dynamic-content/query-runner").QueryDef} QueryDef
  */
 
-module.exports = {
-  /**
-   * @param {AppConfig} config
-   * @returns {AppConfig}
-   */
-  defineConfig(config) {
-    return applyDefaults(config);
-  },
+/**
+ * @param {AppConfig} config
+ * @returns {AppConfig}
+ */
+export function defineConfig(config) {
+  return applyDefaults(config);
+}
 
-  /**
-   * Creates a query definition for notes.
-   * @param {NotesQuery} query
-   * @returns {QueryDef}
-   */
-  createNotesQuery(query = {}) {
-    return {
-      sort: ["data.sort", "title"],
-      tree: query.tree ? query.tree : false,
-      filter: [
-        ["filePathStem", "isNotEqual", "/index"],
-        ...(query.pattern ? [["filePathStem", "matches", query.pattern]] : []),
-        ...(query.tags ? [["tags", "includesAllOf", query.tags]] : []),
-      ],
-    };
-  },
-};
+/**
+ * Creates a query definition for notes.
+ * @param {NotesQuery} query
+ * @returns {QueryDef}
+ */
+export function createNotesQuery(query = {}) {
+  return {
+    sort: ["data.sort", "title"],
+    tree: query.tree ? query.tree : false,
+    filter: [
+      ["filePathStem", "isNotEqual", "/index"],
+      ...(query.pattern ? [["filePathStem", "matches", query.pattern]] : []),
+      ...(query.tags ? [["tags", "includesAllOf", query.tags]] : []),
+    ],
+  };
+}
 
 /**
  * Merges the custom config with the default config.

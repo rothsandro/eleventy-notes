@@ -1,5 +1,7 @@
-const ValueParser = require("../../shared").ValueParser;
-const html = require("nanohtml");
+import { sharedModule } from "../../shared/index.js";
+import html from "nanohtml";
+
+const { ValueParser } = sharedModule;
 
 /**
  * @typedef {object} Options
@@ -14,7 +16,7 @@ const html = require("nanohtml");
  * @param {Options} options The options for the list.
  * @returns The HTML code
  */
-module.exports = () => (data, options) => {
+export const renderAsListFilter = () => (data, options) => {
   return html`<ul data-link-list>
     ${data.map((item) => createItem(item, options))}
   </ul>`;

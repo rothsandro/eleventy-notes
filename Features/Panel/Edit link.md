@@ -8,8 +8,8 @@ You can configure the URL of the edit link in the [[Configuration file]] as show
 Omit the configuration if you want to hide the link.
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   editThisNote: {
     // URL to the online editor
     url: "https://example.com/edit/{{file}}",

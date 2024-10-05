@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from "fs";
 
-module.exports = {
+export const calloutTypes = {
   ...define("note", "blue", "note"),
   ...define("abstract", "mint", "notes", ["summary", "tldr"]),
   ...define("info", "blue", "info-circle"),
@@ -24,6 +24,6 @@ function define(name, color, icon, aliases = [], type = name) {
 }
 
 function getIcon(icon) {
-  const path = require.resolve(`@tabler/icons/outline/${icon}.svg`);
-  return fs.readFileSync(path, "utf8");
+  const path = import.meta.resolve(`@tabler/icons/outline/${icon}.svg`);
+  return fs.readFileSync(new URL(path), "utf8");
 }
