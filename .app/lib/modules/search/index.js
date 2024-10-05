@@ -6,9 +6,11 @@ export const searchModule = {
    * @param {import("@11ty/eleventy").UserConfig} config
    */
   setup(config) {
-    config.on("eleventy.after", async ({ dir, runMode }) => {
+    config.on("eleventy.after", async ({ directories, runMode }) => {
       const isBuild = runMode === "build";
-      isBuild ? await createIndex(dir.output) : createIndex(dir.output);
+      const dir = directories.output;
+
+      isBuild ? await createIndex(dir) : createIndex(dir);
     });
   },
 };
