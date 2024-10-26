@@ -4,8 +4,9 @@ import path from "path";
 import fs from "fs";
 
 const extRegex = /\.(png|jpg|jpeg|svg|webp|gif)$/;
+const remoteRegex = /^https?:/;
 const isImageFile = (file) => extRegex.test(file);
-const isRelative = (url) => !/^https?:/.test(url);
+const isRelative = (url) => !remoteRegex.test(url);
 const isProduction = process.env.ELEVENTY_RUN_MODE === "build";
 
 export async function transformParser(content) {
@@ -20,13 +21,18 @@ export async function transformParser(content) {
   const outputDir = path.dirname(path.resolve(outputPath));
 
   const $ = cheerio.load(content);
-  const elements = $("img").toArray();
+  const elements = $("img")
+    .toArray()
+    .filter((img) => {
+      const src = img.attribs.src;
+      return isRelative(src) && isImageFile(src);
+    });
+
+  if (!elements.length) return content;
 
   await Promise.all(
     elements.map(async (img) => {
       const src = img.attribs.src;
-
-      if (!isRelative(src) || !isImageFile(src)) return;
 
       const paths = await buildPaths(templateDir, outputDir, src);
       $(img).attr("src", paths.newSrc);
