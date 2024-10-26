@@ -23,7 +23,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "@parcel/transformer-sass": "^2.11.0",
     "@radix-ui/colors": "^3.0.0",
-    "cheerio": "^1.0.0-rc.12",
+    "cheerio": "^1.0.0",
     "markdown-it-anchor": "^9.0.1",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-task-checkbox": "^1.0.6",
