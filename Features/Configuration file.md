@@ -5,9 +5,11 @@ tags: [feature]
 
 Eleventy Notes provides several configuration options to customize the app. All of them are optional, but a basic configuration is recommended.
 
+> [!INFO] You may need to restart the app after changing the configuration.
+
 ## Basic configuration
 
-Create a new file `app.mjs` in the root of the project, next to your notes. Add a custom title (shown in the header), a description (not shown but used by search engines) and define the language of your content:
+Open the `app.mjs` file in the root of the project, next to your notes. Add a custom title (shown in the header), a description (not shown but used by search engines) and define the language of your content:
 
 ```js
 import { defineConfig } from "./.app/app-config.js";

@@ -16,8 +16,6 @@ Node (and npm) are used to install and run the project. Git is used to clone the
 
 Visit the [GitHub repository](https://github.com/rothsandro/eleventy-notes) and click on the green "Use this template" button. Then follow the instructions to create a new repository from the template. After that, clone the repository to your computer.
 
-Then clean up the existing notes by deleting all files and folders except for the `.app` folder.
-
 ## Installing the dependencies
 
 Open your terminal and navigate to the project folder. Then run the following commands to install the dependencies:
@@ -25,6 +23,20 @@ Open your terminal and navigate to the project folder. Then run the following co
 ```bash
 cd .app
 npm install
+```
+
+## Cleaning up the notes
+
+The template contains the documentation notes you are currently reading. You can keep them if you want, but it's recommended to delete them before you start writing your own notes. For that, delete all the files and folders in the root of the project except for the `.app` folder and the `app.mjs` file.
+
+You may also want to clean up the configuration. Open the `app.mjs` file and remove the existing configuration. You can add your own configuration later.
+
+```js
+import { defineConfig } from "./.app/app-config.js";
+
+export default defineConfig({
+  // Remove everything here
+});
 ```
 
 ## Running the project
