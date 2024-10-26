@@ -49,7 +49,9 @@ In addition to the [[#basic configuration]], you can also:
 The following example shows the supported configuration options:
 
 ```js
-modul.exports = defineConfig({
+import { defineConfig } from "./.app/app-config.js";
+
+export default defineConfig({
   title: "John's Notes",
   description: "The personal notes of John Doe",
   lang: "en",
