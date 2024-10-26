@@ -247,7 +247,7 @@ export interface AppConfig {
    * The configuration for tags.
    * @default { map: {} }
    */
-  tags: {
+  tags?: {
     /**
      * A key-value object mapping each tag to a different display name.
      */
