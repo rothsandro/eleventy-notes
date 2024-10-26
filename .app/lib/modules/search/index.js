@@ -1,16 +1,16 @@
-module.exports = {
-  _createIndex: require("./search-index"),
+import { createIndex } from "./search-index.js";
 
+export const searchModule = {
   /**
    * Sets up the module
    * @param {import("@11ty/eleventy").UserConfig} config
    */
   setup(config) {
-    config.on("eleventy.after", async ({ dir, runMode }) => {
+    config.on("eleventy.after", async ({ directories, runMode }) => {
       const isBuild = runMode === "build";
-      isBuild
-        ? await this._createIndex(dir.output)
-        : this._createIndex(dir.output);
+      const dir = directories.output;
+
+      isBuild ? await createIndex(dir) : createIndex(dir);
     });
   },
 };

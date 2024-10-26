@@ -10,10 +10,10 @@ You can customize the sidebar to show notes in different sections and groups, fi
 The sidebar in Eleventy Notes can be segmented into multiple sections, each containing one or more collapsible groups. This allows for a highly organized and navigable note structure. The example below demonstrates a basic configuration with a single section and group, which displays all your notes. The `createNotesQuery()` function is used to generate a query that selects and displays all notes.
 
 ```js
-// /app.js
-const { defineConfig, createNotesQuery } = require("./.app/app-config");
+// /app.mjs
+import { defineConfig, createNotesQuery } from "./.app/app-config.js";
 
-module.exports = defineConfig({
+export default defineConfig({
   sidebar: {
     sections: [
       {
@@ -37,10 +37,10 @@ Each section in Eleventy Notes can contain multiple groups, providing a hierarch
 Groups with assigned labels are collapsible, enhancing the user's navigation experience. By default, these groups are expanded. However, you can modify this default state by setting the `expanded` property to `false`, which will render the group as collapsed when the page loads.
 
 ```js
-// /app.js
-const { defineConfig, createNotesQuery } = require("./.app/app-config");
+// /app.mjs
+import { defineConfig, createNotesQuery } from "./.app/app-config.js";
 
-module.exports = defineConfig({
+export default defineConfig({
   sidebar: {
     sections: [
       {
@@ -148,7 +148,7 @@ createNotesQuery({
 
 Users have the ability to manually expand or collapse folders in the sidebar. This expansion state is preserved when navigating between notes or refreshing the page. However, opening a new tab or closing the browser will reset this state to its default. The folder containing the currently viewed note is always expanded for easy reference.
 
-If you make changes to the expansion state in the `app.js` file, it's important to open a new tab to observe these changes. If you don't, the previous expansion state will be restored, and your changes won't be reflected.
+If you make changes to the expansion state in the `app.mjs` file, it's important to open a new tab to observe these changes. If you don't, the previous expansion state will be restored, and your changes won't be reflected.
 
 #### Notes as folders
 
@@ -181,10 +181,10 @@ While the `createNotesQuery()` function offers a basic set of options for filter
 For a comprehensive understanding of the query syntax, refer to the [[Queries]] documentation.
 
 ```js
-// /app.js
-const { defineConfig } = require("./.app/app-config");
+// /app.mjs
+import { defineConfig } from "./.app/app-config.js";
 
-module.exports = defineConfig({
+export default defineConfig({
   sidebar: {
     sections: [
       {
@@ -209,7 +209,7 @@ module.exports = defineConfig({
 If you want to show all your notes in a single group, add an empty group without a filter. You can also omit the `sections` property completely which will use the default configuration:
 
 ```js
-module.exports = defineConfig({
+export default defineConfig({
   sidebar: {
     sections: [
       {
@@ -230,7 +230,7 @@ module.exports = defineConfig({
 Here is an example that shows all notes in the root. Notes in subfolders are excluded:
 
 ```js
-module.exports = defineConfig({
+export default defineConfig({
   sidebar: {
     sections: [
       {
@@ -253,7 +253,7 @@ module.exports = defineConfig({
 The following group renders all notes of the subfolder "Example":
 
 ```js
-module.exports = defineConfig({
+export default defineConfig({
   sidebar: {
     sections: [
       {
@@ -277,7 +277,7 @@ module.exports = defineConfig({
 The tree view can be used to create virtual folders. You can turn the flat list of notes into a tree view by replacing parts of the path with a different value. For example, you can group your weekly notes by year if the file names start with the year:
 
 ```js
-module.exports = defineConfig({
+export default defineConfig({
   sidebar: {
     sections: [
       {

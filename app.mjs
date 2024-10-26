@@ -1,7 +1,7 @@
 // @ts-check
-const { defineConfig, createNotesQuery } = require("./.app/app-config");
+import { defineConfig, createNotesQuery } from "./.app/app-config.js";
 
-module.exports = defineConfig({
+export default defineConfig({
   title: "Eleventy Notes",
   description:
     "A simple, lightweight, and flexible note-taking template for Eleventy.",

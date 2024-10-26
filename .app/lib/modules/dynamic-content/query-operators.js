@@ -1,4 +1,4 @@
-module.exports = {
+export const queryOperators = {
   isEqual(applyOn, filterValue) {
     return normalizeValue(applyOn) === normalizeValue(filterValue);
   },

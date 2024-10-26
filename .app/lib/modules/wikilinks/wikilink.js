@@ -1,4 +1,4 @@
-module.exports = class Wikilink {
+export class Wikilink {
   static REGEX = /^\[\[([^|\]\n]+)(\|([^\]\n]+))?\]\]$/;
   static REGEX_INLINE = /^\[\[([^|\]\n]+)(\|([^\]\n]+))?\]\]/;
 
@@ -140,4 +140,4 @@ module.exports = class Wikilink {
   normalizePath(path) {
     return path.replace(/^\//, "").toLowerCase();
   }
-};
+}

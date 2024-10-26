@@ -42,8 +42,8 @@ My note
 You can customize the visible label of a tag by adding a mapping in the [[Configuration file]].
 
 ```js
-// /app.js
-module.exports = defineConfig({
+// /app.mjs
+export default defineConfig({
   tags: {
     map: {
       // Map a tag to a different label

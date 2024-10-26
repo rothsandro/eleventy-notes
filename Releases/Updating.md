@@ -19,7 +19,7 @@ Eleventy Notes separates the application code from your notes. This allows you t
 │   └── Some note.md       # Your notes
 ├── index.md               # Your notes
 ├── My note.md             # Your notes
-└── app.js                 # Your config
+└── app.mjs                # Your config
 ```
 
 Unless you want to customize the app in a way that isn't officially supported, you should never need to edit any files in the `.app` folder. If you do, you should be aware that you will not be able to update the app anymore or any changes you make will be overwritten when you update the app.

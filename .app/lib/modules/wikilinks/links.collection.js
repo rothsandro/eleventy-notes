@@ -1,12 +1,12 @@
-const notesModule = require("./../notes");
-const { parse } = require("node-html-parser");
+import { notesModule } from "../notes/index.js";
+import { parse } from "node-html-parser";
 
 /**
  * Creates the collection factory of all links.
  * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
  * @returns The collection function
  */
-module.exports = (eleventyConfig) => (collectionApi) => {
+export const linksCollection = (eleventyConfig) => (collectionApi) => {
   const notes = notesModule._notesCollection(eleventyConfig)(collectionApi);
 
   function getNoteTitle(note) {

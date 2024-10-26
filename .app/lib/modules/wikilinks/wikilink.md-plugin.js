@@ -1,7 +1,7 @@
-const html = require("nanohtml");
-const Wikilink = require("./wikilink");
+import html from "nanohtml";
+import { Wikilink } from "./wikilink.js";
 
-module.exports = (md, options) => {
+export const wikilinksMarkdownPlugin = (md, options) => {
   md.inline.ruler.after("link", "wikilink", inline);
   md.renderer.rules["wikilink"] = render;
 

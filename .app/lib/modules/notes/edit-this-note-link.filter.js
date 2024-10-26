@@ -1,6 +1,6 @@
-const { execSync } = require("child_process");
+import { execSync } from "child_process";
 
-module.exports = () => {
+export const editThisNoteLinkFilter = () => {
   const branch = getGitBranch();
 
   return function (page, config) {
