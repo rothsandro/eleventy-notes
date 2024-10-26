@@ -8,11 +8,12 @@ tags: [release]
 
 **to be released**
 
-- ✨ **Eleventy 3**: The template has been updated to Eleventy 3.
-
+- ✨ **Eleventy 3**: Updated the template to Eleventy 3.
+- ⚡️ **Performance**: Improved performance for files without assets.
+- 🐛 **Config Schema**: Fixed the config schema to mark `tags` as optional.
 - 💥 **Node Version**: Eleventy Notes now requires Node version 20 or 22 (or higher).
   Run `node --version` to see what version you have installed. If you need to update, you can download the latest version from the [official website](https://nodejs.org/en/). Also check the node version of your cloud service (like Netlify) if you deploy your site there.
-- 💥 **Config (ESM)**. The template has been migrated from CJS to ESM which affects the configuration file `app.js` as well. Migrate to the new format by renaming the file to `app.mjs` and adjust the export as shown below.
+- 💥 **Config (ESM)**: The template has been migrated from CJS to ESM, which affects the configuration file `app.js` as well. Migrate to the new format by renaming the file to `app.mjs` and adjusting the export as shown below. If you don't have a config file, you'll need to create one as it's now required.
 
 The previous `app.js` used (CJS) syntax:
 
