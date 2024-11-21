@@ -1,28 +1,28 @@
-@import "./3-global/remedy";
-@import "./3-global/theme-mode";
-@import "./3-global/kbd";
+@use "./3-global/remedy";
+@use "./3-global/theme-mode";
+@use "./3-global/kbd";
 
-@import "./4-components/code-block";
-@import "./4-components/icon-btn";
-@import "./4-components/note-link";
-@import "./4-components/toggle-btn";
+@use "./4-components/code-block";
+@use "./4-components/icon-btn";
+@use "./4-components/note-link";
+@use "./4-components/toggle-btn";
 
-@import "./../lib/core/styles";
-@import "./../lib/modules/callouts/styles";
-@import "./../lib/modules/custom-props/styles";
-@import "./../lib/modules/notes/styles";
-@import "./../lib/modules/search/styles";
-@import "./../lib/modules/sidebar/styles";
-@import "./../lib/modules/tags/styles";
-@import "./../lib/modules/themes/styles";
-@import "./../lib/modules/toc/styles";
-@import "./../lib/shared/styles";
+@use "./../lib/core/styles" as core;
+@use "./../lib/modules/callouts/styles" as callouts;
+@use "./../lib/modules/custom-props/styles" as custom-props;
+@use "./../lib/modules/notes/styles" as notes;
+@use "./../lib/modules/search/styles" as search;
+@use "./../lib/modules/sidebar/styles" as sidebar;
+@use "./../lib/modules/tags/styles" as tags;
+@use "./../lib/modules/themes/styles" as themes;
+@use "./../lib/modules/toc/styles" as toc;
+@use "./../lib/shared/styles" as shared;
 
-@import "./5-utils/cloak";
-@import "./5-utils/hide";
-@import "./5-utils/inline";
-@import "./5-utils/show";
-@import "./5-utils/stack";
-@import "./5-utils/visually-hidden";
+@use "./5-utils/cloak";
+@use "./5-utils/hide";
+@use "./5-utils/inline";
+@use "./5-utils/show";
+@use "./5-utils/stack";
+@use "./5-utils/visually-hidden";
 
-@import "./../../app.styles.scss";
+@use "./../../app.styles.scss";
