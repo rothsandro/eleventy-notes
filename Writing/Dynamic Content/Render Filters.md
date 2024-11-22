@@ -4,7 +4,7 @@ tags: [writing, dynamic-content]
 
 The `renderAsList` filter renders the given collection as a list.
 
-```njk
+```jinja
 {{ collections.notes | renderAsList | safe }}
 ```
 
