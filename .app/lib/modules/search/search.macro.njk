@@ -3,8 +3,8 @@
   {% set id = uniqueId() %}
 
   {% if mode === 'inline' %}
-    <noscript lang="en">
-      Please enable JavaScript to use the search.
+    <noscript lang="{% uiLang %}">
+      {{ 'search.noscript' | t }}
     </noscript>
   {% endif %}
 
@@ -23,7 +23,7 @@
         aria-expanded="false"
         :aria-activedescendant="open && selectedId ? `{{ id('result', '') }}${selectedId}` : ''"
         :aria-expanded="open"
-        placeholder="Search..."
+        placeholder="{{ 'search.input.placeholder' | t }}"
         class="search__input"
         autocorrect="off"
         autocapitalize="off"
@@ -34,24 +34,26 @@
         @focus="open = true"
         @keydown="onKeyDown"
         @pageshow.window="term = $el.value"
-        lang="en"
+        lang="{% uiLang %}"
         {{ 'autofocus' if mode === 'inline' else '' }}
       >
       {% if mode === 'overlay' %}
         <kbd class="search__kbd" aria-hidden="true">/</kbd>
-        <span class="visually-hidden" lang="en">Press <kbd>/<kbd> to activate search</span>
+        <span class="visually-hidden" lang="{% uiLang %}">
+          {{ 'search.shortcutInfo' | t }}
+        </span>
       {% endif %}
     </div>
     <template x-if="open{{ '|| true' if mode === 'inline' else '' }}">
       <div class="search__popover" id="{{ id('popup') }}">
-        <div x-show="!term" class="search__info" lang="en">
-          Search by title, content and #tags
+        <div x-show="!term" class="search__info" lang="{% uiLang %}">
+          {{ 'search.popover.placeholder' | t }}
         </div>
-        <div x-show="!!term && results && !results.length" class="search__info" lang="en">
-          Nothing found, try a different search term.
+        <div x-show="!!term && results && !results.length" class="search__info" lang="{% uiLang %}">
+          {{ 'search.popover.noResults' | t }}
         </div>
-        <div x-show="!!term && !results" class="search__info" lang="en">
-          Searching...
+        <div x-show="!!term && !results" class="search__info" lang="{% uiLang %}">
+          {{ 'search.popover.searching' | t }}
         </div>
 
         <ul x-show="term && results && results.length" class="search__results" role="listbox" aria-label="Search Results">

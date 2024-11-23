@@ -1,5 +1,15 @@
 // @ts-check
 import { defineConfig, createNotesQuery } from "./.app/app-config.js";
+import { defineTranslations } from "./.app/app-translations.js";
+
+// TODO: For testing purposes only => remove
+export const translations = defineTranslations({
+  lang: "de",
+  translations: {
+    "search.input.placeholder": "Suchen...",
+    "search.popover.placeholder": "Suche nach Titel, Inhalt und #tag",
+  },
+});
 
 export default defineConfig({
   title: "Eleventy Notes",
