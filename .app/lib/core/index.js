@@ -27,6 +27,6 @@ export const core = {
     config.setDataDirectory(".app/_data");
     config.setIncludesDirectory(".app/lib");
 
-    config.addWatchTarget("./../app.js");
+    config.addWatchTarget("./../app.mjs");
   },
 };
