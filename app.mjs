@@ -5,6 +5,7 @@ import { defineTranslations } from "./.app/app-translations.js";
 // TODO: For testing purposes only => remove
 export const translations = defineTranslations({
   lang: "de",
+  partial: true,
   translations: {
     "search.input.placeholder": "Suchen...",
     "search.popover.placeholder": "Suche nach Titel, Inhalt und #tag",
