@@ -4,10 +4,10 @@
       href="{{ page | editThisNoteLink(config) }}"
       {{ 'target="_blank" rel="noopener"' if config.openInNewTab == true else '' }}
       class="toggle-btn"
-      lang="en"
+      lang="{% uiLang %}"
     >
       {{ 'edit-2' | feather({ width: '1em', height: '1em' }) | safe }}
-      <span>Edit</span>
+      <span>{{ 'edit_this_note.label' | t }}</span>
     </a>
   {% endif %}
 {% endmacro %}

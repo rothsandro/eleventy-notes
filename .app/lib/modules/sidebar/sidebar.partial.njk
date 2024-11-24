@@ -1,10 +1,10 @@
 {% from 'modules/sidebar/sidebar-tree.macro.njk' import sidebarTree %}
 
 <aside>
-  <h2 class="visually-hidden" lang="en">Navigation</h2>
+  <h2 class="visually-hidden" lang="{% uiLang %}">{{ 'sidebar.title' | t }}</h2>
 
   <nav aria-labelledby="app:sidebar:nav" class="nav-section">
-    <h3 id="app:sidebar:nav" class="visually-hidden" lang="en">Main</h3>
+    <h3 id="app:sidebar:nav" class="visually-hidden" lang="{% uiLang %}">{{ 'sidebar.sections.main.label' | t }}</h3>
     <ul class="nav-list" role="list" aria-labelledby="app:sidebar:nav">
       <li>
         <a
@@ -15,7 +15,7 @@
           {{ 'home' | feather | safe }}
           {% set indexQuery = { filter: [['url', 'isEqual', '/' ]] } %}
           {% set indexNote = (collections._notes | query(indexQuery)) | first %}
-          <span>{{ indexNote.data.title if indexNote else 'Home' }}</span>
+          <span>{{ indexNote.data.title if indexNote else ('sidebar.sections.main.home_link' | t) }}</span>
         </a>
       </li>
       {% if collections.tags.length %}
@@ -24,10 +24,10 @@
             href="/tags/"
             {{ '/tags/' | ariaCurrent }}
             class="nav-list__link"
-            lang="en"
+            lang="{% uiLang %}"
           >
             {{ 'hash' | featherRef | safe }}
-            <span>Tags</span>
+            <span>{{ 'sidebar.sections.main.tags_link' | t }}</span>
           </a>
         </li>
       {% endif %}
@@ -36,10 +36,10 @@
           href="/search/"
           {{ '/search/' | ariaCurrent }}
           class="nav-list__link"
-          lang="en"
+          lang="{% uiLang %}"
         >
           {{ 'search' | feather | safe }}
-          <span>Search</span>
+          <span>{{ 'sidebar.sections.main.search_link' | t }}</span>
         </a>
       </li>
     </ul>
@@ -47,7 +47,9 @@
 
   {% if app.sidebar.links.length %}
     <nav aria-labelledby="app:sidebar:section:links" class="nav-section nav-section--continued">
-      <h3 id="app:sidebar:section:links" class="visually-hidden" lang="en">Links</h3>
+      <h3 id="app:sidebar:section:links" class="visually-hidden" lang="{% uiLang %}">
+        {{ 'sidebar.sections.links.label' | t }}
+      </h3>
       <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:links">
         {% for item in app.sidebar.links %}
           <li>
@@ -67,7 +69,9 @@
 
   <template x-if="$store.bookmarks.items.length">
     <nav aria-labelledby="app:sidebar:section:bookmarks" class="nav-section" x-cloak>
-      <h3 id="app:sidebar:section:bookmarks" class="nav-section__title" lang="en">Bookmarks</h3>
+      <h3 id="app:sidebar:section:bookmarks" class="nav-section__title" lang="{% uiLang %}">
+        {{ 'sidebar.sections.bookmarks.label' | t }}
+      </h3>
       <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:bookmarks">
         <template x-for="bkm in $store.bookmarks.items">
           <li>
@@ -122,7 +126,9 @@
 
   {% if collections.tags.length %}
     <nav aria-labelledby="app:sidebar:section:tags" class="nav-section">
-      <h3 id="app:sidebar:section:tags" class="nav-section__title" lang="en">Tags</h3>
+      <h3 id="app:sidebar:section:tags" class="nav-section__title" lang="{% uiLang %}">
+        {{ 'sidebar.sections.tags.label' | t }}
+      </h3>
       <ul class="nav-list" role="list" aria-labelledby="app:sidebar:section:tags">
         {% for tag in collections.tags %}
         <li>

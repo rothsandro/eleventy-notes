@@ -7,7 +7,7 @@ panel: false
 
 <div class="page">
   <main class="page__main" id="app-content">
-    <h1 class="page__title" lang="en">Tags <small>({{ collections.tags.length }})</small></h1>
+    <h1 class="page__title" lang="{% uiLang %}">{{ 'page.tags.title' | t }} <small>({{ collections.tags.length }})</small></h1>
     <div class="stack" data-stack="6">
       <ul role="list" class="tags-list">
         {% for tag in collections.tags %}

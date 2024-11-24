@@ -40,7 +40,7 @@
       {% if mode === 'overlay' %}
         <kbd class="search__kbd" aria-hidden="true">/</kbd>
         <span class="visually-hidden" lang="{% uiLang %}">
-          {{ 'search.shortcutInfo' | t }}
+          {{ 'search.shortcut_info' | t }}
         </span>
       {% endif %}
     </div>
@@ -50,7 +50,7 @@
           {{ 'search.popover.placeholder' | t }}
         </div>
         <div x-show="!!term && results && !results.length" class="search__info" lang="{% uiLang %}">
-          {{ 'search.popover.noResults' | t }}
+          {{ 'search.popover.no_results' | t }}
         </div>
         <div x-show="!!term && !results" class="search__info" lang="{% uiLang %}">
           {{ 'search.popover.searching' | t }}

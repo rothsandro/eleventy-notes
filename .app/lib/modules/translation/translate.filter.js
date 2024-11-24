@@ -6,12 +6,18 @@ export const translateFilter = async () => {
     ? { ...en, ...app.translations.translations }
     : en;
 
-  return (key) => {
+  return (key, params) => {
     if (!(key in translations)) {
       console.warn("Unknown translation key " + key);
       return key;
     }
 
-    return translations[key];
+    const value = translations[key];
+    if (!params) return value;
+
+    const placeholders = Object.keys(params);
+    const pattern = new RegExp(`{{\\s*(${placeholders.join("|")})\\s*}}`, "gi");
+
+    return value.replace(pattern, (_, match) => params[match]);
   };
 };
