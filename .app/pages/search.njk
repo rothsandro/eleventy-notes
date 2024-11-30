@@ -9,7 +9,9 @@ panel: false
 
 <div class="page">
   <main class="page__main" id="app-content">
-    <h1 class="page__title" lang="en">Search</h1>
+    <h1 class="page__title" lang="{% uiLang %}">
+      {{ 'page.search.title' | t }}
+    </h1>
     {{ searchInput('inline') }}
   </main>
 </div>

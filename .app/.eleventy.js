@@ -8,11 +8,12 @@ import { tagsModule } from "./lib/modules/tags/index.js";
 import { tocModule } from "./lib/modules/toc/index.js";
 import { wikilinksModule } from "./lib/modules/wikilinks/index.js";
 import { assetsModule } from "./lib/modules/assets/index.js";
+import { translationModule } from "./lib/modules/translation/index.js";
 import { core } from "./lib/core/index.js";
 
 export const config = core.configObj;
 
-export default function (eleventyConfig) {
+export default async function (eleventyConfig) {
   sharedModule.setup(eleventyConfig);
   customPropsModule.setup(eleventyConfig);
   dynamicContentModule.setup(eleventyConfig);
@@ -23,6 +24,7 @@ export default function (eleventyConfig) {
   tocModule.setup(eleventyConfig);
   wikilinksModule.setup(eleventyConfig);
   assetsModule.setup(eleventyConfig);
+  await translationModule.setup(eleventyConfig);
 
   core.setup(eleventyConfig);
 }

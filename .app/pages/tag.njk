@@ -13,7 +13,7 @@ panel: false
 
 <div class="page">
   <main class="page__main" id="app-content">
-    <h1 class="page__title"><span lang="en">Tag:</span> {{ tag.label }} <small>({{ tag.notes.length }})</small></h1>
+    <h1 class="page__title"><span lang="{% uiLang %}">{{ 'page.tag.title' | t}}</span> {{ tag.label }} <small>({{ tag.notes.length }})</small></h1>
     <ul role="list" class="stack">
       {% for post in tag.notes | sortNotesByTitle %}
         <li>

@@ -30,7 +30,7 @@
               >
                 {{ 'chevron-right' | feather | safe }}
                 <span class="visually-hidden">
-                  Toggle {{ item.title }}
+                  {{ 'sidebar.nav_item_toggle.label' | t({ title: item.title }) }}
                 </span>
               </button>
             {% endif %}
