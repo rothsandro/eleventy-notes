@@ -1,4 +1,6 @@
-@use "prism-themes/themes/prism-material-light.css";
+.shiki span {
+  color: var(--light, var(--code-l)) var(--dark, var(--code-d));
+}
 
 .code-block {
   position: relative;

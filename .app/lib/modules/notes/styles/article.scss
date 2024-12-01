@@ -19,11 +19,6 @@
   p + ol {
     --flow-space: 0.75em;
   }
-
-  pre {
-    // Overwrite prism styles
-    margin-block: 0;
-  }
 }
 
 .article {
@@ -167,7 +162,7 @@
     font-size: inherit;
     padding: 0;
     word-break: break-all;
-    background-color: transparent !important;
+    background-color: transparent;
   }
 
   .footnotes-sep {

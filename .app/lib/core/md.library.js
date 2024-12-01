@@ -5,6 +5,13 @@ import markdownItFootnote from "markdown-it-footnote";
 import { wikilinksModule } from "./../modules/wikilinks/index.js";
 import { notesModule } from "./../modules/notes/index.js";
 import { calloutsModule } from "./../modules/callouts/index.js";
+import { fromHighlighter } from "@shikijs/markdown-it/core";
+import { createHighlighter, bundledLanguages } from "shiki/bundle/web";
+
+const highlighter = await createHighlighter({
+  langs: Object.keys(bundledLanguages),
+  themes: ["light-plus", "dark-plus"],
+});
 
 /**
  * Creates a markdown-it instance.
@@ -18,6 +25,13 @@ export const markdownLibrary = (eleventyConfig) => {
   })
     .use(markdownItTaskCheckbox)
     .use(markdownItFootnote)
+    .use(
+      fromHighlighter(highlighter, {
+        defaultColor: false,
+        cssVariablePrefix: "--code-",
+        themes: { l: "light-plus", d: "dark-plus" },
+      })
+    )
     .use(notesModule.copyCodeMarkdownPlugin)
     .use(calloutsModule.markdownPlugin)
     .use(wikilinksModule.markdownPlugin, {
