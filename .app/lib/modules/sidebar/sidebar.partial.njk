@@ -12,7 +12,7 @@
           {{ '/' | ariaCurrent }}
           class="nav-list__link"
         >
-          {{ 'home' | feather | safe }}
+          {{ 'home' | icon | safe }}
           {% set indexQuery = { filter: [['url', 'isEqual', '/' ]] } %}
           {% set indexNote = (collections._notes | query(indexQuery)) | first %}
           <span>{{ indexNote.data.title if indexNote else ('sidebar.sections.main.home_link' | t) }}</span>
@@ -26,7 +26,7 @@
             class="nav-list__link"
             lang="{% uiLang %}"
           >
-            {{ 'hash' | featherRef | safe }}
+            {{ 'hash' | iconRef | safe }}
             <span>{{ 'sidebar.sections.main.tags_link' | t }}</span>
           </a>
         </li>
@@ -38,7 +38,7 @@
           class="nav-list__link"
           lang="{% uiLang %}"
         >
-          {{ 'search' | feather | safe }}
+          {{ 'search' | icon | safe }}
           <span>{{ 'sidebar.sections.main.search_link' | t }}</span>
         </a>
       </li>
@@ -58,7 +58,7 @@
               {{ 'target="_blank" rel="noopener"' if item.openInNewTab != false else '' }}
               class="nav-list__link"
             >
-              {{ item.icon | feather | safe }}
+              {{ item.icon | icon | safe }}
               <span>{{ item.label }}</span>
             </a>
           </li>
@@ -76,7 +76,7 @@
         <template x-for="bkm in $store.bookmarks.items">
           <li>
             <a :href="bkm" class="nav-list__link">
-              {{ 'file-text' | feather | safe }}
+              {{ 'file-text' | icon | safe }}
               <span x-text="$store.bookmarks.index[bkm] || bkm"></span>
             </a>
           </li>
@@ -109,7 +109,7 @@
                   @click="toggle()"
                 >
                   <span>{{ group.label }}</span>
-                  {{ 'chevron-right' | feather | safe }}
+                  {{ 'chevron-right' | icon | safe }}
                 </button>
               </h4>
             {% endif %}
@@ -137,7 +137,7 @@
             {{ tag.url | ariaCurrent }}
             class="nav-list__link"
           >
-            {{ 'hash' | featherRef | safe }}
+            {{ 'hash' | iconRef | safe }}
             <span>{{ tag.label }}</span>
           </a>
         </li>
