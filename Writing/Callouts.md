@@ -1,3 +1,7 @@
+---
+tags: [writing]
+---
+
 Callouts, also known as custom containers, admonitions, or alerts, are a way to highlight important information, warnings, or tips in your notes without disrupting the overall flow of your content.
 
 ## Creating a callout
