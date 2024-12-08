@@ -10,7 +10,7 @@
 
   <div x-cloak x-data="search" @click.away="open = false" class="search" data-mode="{{ mode }}">
     <div class="search__bar">
-      <span class="search__icon" aria-hidden="true">{{ 'search' | feather | safe }}</span>
+      <span class="search__icon" aria-hidden="true">{{ 'search' | icon | safe }}</span>
       <input
         data-kbd-trigger
         type="search"
@@ -70,7 +70,7 @@
                   <span class="search__note-title" x-text="result.title"></span>
                   <span class="search__note-content" x-html="result.excerpt"></span>
                   <span class="search__selected-icon" aria-hidden="true">
-                    {{ 'corner-down-left' | feather | safe }}
+                    {{ 'corner-down-left' | icon | safe }}
                   </span>
                 </a>
               </li>

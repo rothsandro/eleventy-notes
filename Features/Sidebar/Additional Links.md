@@ -17,7 +17,7 @@ export default defineConfig({
         label: "GitHub",
 
         // The icon name
-        // For a list of available icons, see https://feathericons.com/
+        // For a list of available icons, see https://lucide.dev/icons/
         icon: "github",
 
         // If the link should open in a new tab (optional)
@@ -29,4 +29,4 @@ export default defineConfig({
 });
 ```
 
-For a list of available icons visit [feathericons.com](https://feathericons.com/).
+For a list of available icons visit [lucide.dev/icons](https://lucide.dev/icons/).

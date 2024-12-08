@@ -71,7 +71,7 @@
         <a
           href="{{ tagConfig.url }}" class="grouped-links__link"
           data-pagefind-filter="tags:{{ tag }}">
-          {{ 'hash' | featherRef | safe }}
+          {{ 'hash' | iconRef | safe }}
           <span>{{ tagConfig.label }}</span>
         </a>
       </li>
@@ -90,7 +90,7 @@
       {% for incoming in links.incoming %}
         <li>
           <a href="{{ incoming.url }}" class="grouped-links__link">
-            {{ 'arrow-left' | feather | safe }}
+            {{ 'arrow-left' | icon | safe }}
             <span>{{ incoming.title }}</span>
           </a>
         </li>
@@ -108,7 +108,7 @@
       {% for outgoing in links.outgoing %}
         <li>
           <a href="{{ outgoing.url }}" class="grouped-links__link">
-            {{ 'arrow-right' | feather | safe }}
+            {{ 'arrow-right' | icon | safe }}
             <span>{{ outgoing.title }}</span>
           </a>
         </li>
@@ -126,7 +126,7 @@
       {% for external in links.external %}
         <li>
           <a href="{{ external.url }}" class="grouped-links__link" target="_blank" rel="noopener noreferrer">
-            {{ 'link-2' | feather | safe }}
+            {{ 'link-2' | icon | safe }}
             <span>{{ external.title }}</span>
           </a>
         </li>

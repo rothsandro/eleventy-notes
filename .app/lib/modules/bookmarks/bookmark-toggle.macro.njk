@@ -7,7 +7,7 @@
     @click="$store.bookmarks.toggle('{{ id }}')"
     lang="{% uiLang %}"
   >
-    {{ 'bookmark' | feather | safe }}
+    {{ 'bookmark' | icon | safe }}
     <span>{{ 'bookmark_toggle.label' | t }}</span>
   </button>
 {% endmacro %}

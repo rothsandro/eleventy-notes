@@ -1,7 +1,7 @@
-export const featherRefFilter = () =>
+export const iconRefFilter = () =>
   function (iconName) {
     return `
-      <svg width="18" height="18">
+      <svg width="1.25em" height="1.25em">
         <use xlink:href="#icon-${iconName}"></use>
       </svg>
     `;
