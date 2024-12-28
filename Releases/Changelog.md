@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next
+
+**to be released**
+
+- 💄 **Icons**: Replaced Feather and Tabler icons with Lucid icons. You can now select any Lucid icon for additional links in the side panel.
+
 ## Version 0.26.0
 
 **December 01, 2024**
