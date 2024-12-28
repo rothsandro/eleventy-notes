@@ -10,7 +10,7 @@ export function createIcon(icon, customAttrs = {}) {
 
   return createElement(
     tag,
-    { ...attrs, width: "1.25em", height: "1.25em", ...customAttrs },
+    { ...attrs, width: "1.125em", height: "1.125em", ...customAttrs },
     children
   );
 }
@@ -18,9 +18,11 @@ export function createIcon(icon, customAttrs = {}) {
 function createElement(tag, attrs, children = []) {
   let element = `<${tag}`;
 
-  Object.keys(attrs).forEach((name) => {
-    element += ` ${name}="${String(attrs[name])}"`;
-  });
+  Object.entries(attrs)
+    .filter(([, value]) => value !== undefined && value !== null)
+    .forEach(([name, value]) => {
+      element += ` ${name}="${String(value)}"`;
+    });
 
   element += ">";
 
