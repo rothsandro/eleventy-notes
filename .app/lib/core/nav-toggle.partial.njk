@@ -6,8 +6,8 @@
     x-cloak
     lang="{% uiLang %}"
   >
-    <span x-show="!$store.nav.open">{{ 'menu' | feather | safe }}</span>
-    <span x-show="$store.nav.open">{{ 'x' | feather | safe }}</span>
+    <span x-show="!$store.nav.open">{{ 'menu' | icon | safe }}</span>
+    <span x-show="$store.nav.open">{{ 'x' | icon | safe }}</span>
     <span class="visually-hidden">{{ 'nav_toggle.label' | t }}</span>
   </button>
 </div>

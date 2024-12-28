@@ -37,10 +37,10 @@ panel: true
     <script src="/app.js" data-base="{{ '/' | htmlBaseUrl }}"></script>
 
     <div aria-hidden="true" hidden>
-      {{ 'hash' | feather({ id: 'icon-hash' }) | safe }}
-      {{ 'link' | feather({ id: 'icon-anchor-link', width: "0.8em", height: "0.8em" }) | safe }}
-      {{ 'copy' | feather({ id: 'icon-copy' }) | safe }}
-      {{ 'check' | feather({ id: 'icon-check' }) | safe }}
+      {{ 'hash' | icon({ id: 'icon-hash', width: null, height: null }) | safe }}
+      {{ 'link' | icon({ id: 'icon-anchor-link', width: null, height: null }) | safe }}
+      {{ 'copy' | icon({ id: 'icon-copy', width: null, height: null }) | safe }}
+      {{ 'check' | icon({ id: 'icon-check', width: null, height: null }) | safe }}
     </div>
   </body>
 </html>

@@ -140,7 +140,7 @@ export interface AppConfig {
 
       /**
        * The icon of the link.
-       * See https://feathericons.com/ for a list of icons.
+       * See https://lucide.dev/icons/ for a list of icons.
        */
       icon: string;
 

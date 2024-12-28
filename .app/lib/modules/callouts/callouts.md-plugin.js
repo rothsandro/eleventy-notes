@@ -1,10 +1,8 @@
-import { icons } from "feather-icons";
+import { ChevronDown } from "lucide";
 import { calloutTypes } from "./callout-types.js";
+import { sharedModule } from "./../../shared/index.js";
 
-const chevronDown = icons["chevron-down"].toSvg({
-  width: "1.125em",
-  height: "1.125em",
-});
+const expandIcon = sharedModule.createIcon(ChevronDown);
 
 const markers = Object.keys(calloutTypes);
 const markerNames = markers.join("|");
@@ -159,7 +157,7 @@ export const calloutsMarkdownPlugin = (md) => {
     const { meta, tag } = tokens[idx];
 
     if (!meta.foldable) return `</div></${tag}>`;
-    return `</div><div class="callout__foldable">${chevronDown}</div></${tag}>`;
+    return `</div><div class="callout__foldable">${expandIcon}</div></${tag}>`;
   }
 
   function renderCalloutContentOpen() {
