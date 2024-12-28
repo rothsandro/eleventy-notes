@@ -2,10 +2,7 @@ import { ChevronDown } from "lucide";
 import { calloutTypes } from "./callout-types.js";
 import { sharedModule } from "./../../shared/index.js";
 
-const expandIcon = sharedModule.createIcon(ChevronDown, {
-  width: "1.125em",
-  height: "1.125em",
-});
+const expandIcon = sharedModule.createIcon(ChevronDown);
 
 const markers = Object.keys(calloutTypes);
 const markerNames = markers.join("|");
