@@ -8,7 +8,7 @@ tags: [release]
 
 **December 28, 2024**
 
-- 💄 **Icons**: Replaced Feather and Tabler icons with Lucid icons. You can now select any Lucid icon for additional links in the side panel.
+- 💄 **Icons**: Replaced Feather and Tabler icons with Lucide icons. You can now select any Lucide icon for additional links in the side panel.
 
 ## Version 0.26.0
 
