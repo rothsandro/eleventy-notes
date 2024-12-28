@@ -1,0 +1,17 @@
+{% set pageNav = null | pageNav %}
+{% if pageNav %}
+  <div>
+  {% if pageNav.prev %}
+    <a href="{{ pageNav.prev.href }}">
+      <span {% uiLang %}>{{ 'pageNav.prev.label' | t }}</span>
+      <span>{{ pageNav.prev.label }}</span>
+    </a>
+  {% endif %}
+  {% if pageNav.next %}
+    <a href="{{ pageNav.next.href }}">
+      <span {% uiLang %}>{{ 'pageNav.next.label' | t }}</span>
+      <span>{{ pageNav.next.label }}</span>
+    </a>
+  {% endif %}
+  </div>
+{% endif %}

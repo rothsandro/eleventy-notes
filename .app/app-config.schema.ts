@@ -226,6 +226,13 @@ export interface AppConfig {
   };
 
   /**
+   * The configuration for the page navigation.
+   */
+  pageNav?: {
+    mode?: "on" | "off" | "manual";
+  };
+
+  /**
    * The configuration for wikilinks.
    * @default { autoLabel: "ref", anchorLabel: "none" }
    */

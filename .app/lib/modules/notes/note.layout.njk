@@ -20,13 +20,17 @@
         {{ content | safe }}
       </div>
     </article>
+
+    <div class="page__nav">
+      {% include 'modules/page-nav/page-nav.partial.njk' %}
+    </div>
   </main>
 
   {% if panel %}
   <div class="page__panel">
     {% include 'modules/notes/notes-panel.partial.njk' %}
   </div>
-  {% endif%}
+  {% endif %}
 </div>
 
 
