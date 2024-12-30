@@ -40,6 +40,7 @@ In addition to the [[#basic configuration]], you can also:
 - Adjust the URL of your notes, see [[Files and Folders#URL prefix]]
 - Add an edit link to your notes, see [[Edit link]]
 - Customize the notes in the sidebar or add links to other websites, see [[Sidebar]]
+- Customize the page navigation, see [[Page Navigation]]
 - Customize the content of the panel, see [[Panel]]
 - Configure custom properties in the panel, see [[Custom Properties]]
 - Change the color scheme, see [[Themes]]
@@ -77,6 +78,9 @@ export default defineConfig({
     incomingLinks: true,
     outgoingLinks: true,
     externalLinks: true,
+  },
+  pageNav: {
+    mode: "on",
   },
   wikilinks: {
     autoLabel: "ref",

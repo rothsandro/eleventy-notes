@@ -226,6 +226,20 @@ export interface AppConfig {
   };
 
   /**
+   * The configuration for the page navigation.
+   */
+  pageNav?: {
+    /**
+     * Controls the display of page navigation.
+     * - "on": Display page navigation based on sidebar and frontmatter configuration.
+     * - "manual": Display page navigation based on frontmatter configuration only.
+     * - "off": Do not display page navigation.
+     * @default "on"
+     */
+    mode?: "on" | "off" | "manual";
+  };
+
+  /**
    * The configuration for wikilinks.
    * @default { autoLabel: "ref", anchorLabel: "none" }
    */

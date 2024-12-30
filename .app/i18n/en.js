@@ -32,4 +32,6 @@ export default /** @type {const} */ ({
   "page.tags.title": "Tags",
   "page.tag.title": "Tag:",
   "page.search.title": "Search",
+  "pageNav.next.label": "Next",
+  "pageNav.prev.label": "Previous",
 });

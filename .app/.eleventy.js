@@ -2,6 +2,7 @@ import { sharedModule } from "./lib/shared/index.js";
 import { customPropsModule } from "./lib/modules/custom-props/index.js";
 import { dynamicContentModule } from "./lib/modules/dynamic-content/index.js";
 import { notesModule } from "./lib/modules/notes/index.js";
+import { pageNavModule } from "./lib/modules/page-nav/index.js";
 import { searchModule } from "./lib/modules/search/index.js";
 import { sidebarModule } from "./lib/modules/sidebar/index.js";
 import { tagsModule } from "./lib/modules/tags/index.js";
@@ -18,6 +19,7 @@ export default async function (eleventyConfig) {
   customPropsModule.setup(eleventyConfig);
   dynamicContentModule.setup(eleventyConfig);
   notesModule.setup(eleventyConfig);
+  pageNavModule.setup(eleventyConfig);
   searchModule.setup(eleventyConfig);
   sidebarModule.setup(eleventyConfig);
   tagsModule.setup(eleventyConfig);
