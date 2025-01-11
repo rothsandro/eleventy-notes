@@ -4,7 +4,7 @@
     {% if pageNav.prev %}
       <a href="{{ pageNav.prev.href }}" class="page-nav__link" data-type="prev">
         {{ 'arrow-left' | icon({ class: "page-nav__icon" }) | safe }}
-        <span class="page-nav__type" {% uiLang %}>{{ 'pageNav.prev.label' | t }} </span>
+        <span class="page-nav__type" {% uiLang %}>{{ 'pageNav.prev.label' | t }}</span>
         <span class="page-nav__label">{{ pageNav.prev.label }}</span>
       </a>
     {% else %}
