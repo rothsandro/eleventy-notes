@@ -36,10 +36,10 @@ You can configure the page navigation globally in the [[Configuration file]].
 // /app.mjs
 export default defineConfig({
   pageNav: {
-    // Whether to display the page navigation.
-    // - "on": display page navigation based on sidebar and frontmatter configuration
-    // - "manual": display page navigation based on frontmatter configuration only
-    // - "off": do not display page navigation
+    // Controls the display of page navigation.
+    // - "on": Display page navigation based on sidebar and frontmatter configuration.
+    // - "manual": Display page navigation based on frontmatter configuration only.
+    // - "off": Do not display page navigation.
     mode: "manual",
   },
 });
