@@ -4,9 +4,9 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## next
+## Version 0.28.0
 
-**to be released**
+**January 17, 2025**
 
 - ✨ **Page Navigation**: Added a new navigation bar at the bottom of notes to navigate to the previous and next note.
 
