@@ -1,5 +1,5 @@
 import { Parcel } from "@parcel/core";
-import path from "path";
+import { fileURLToPath } from 'url';
 import fs from "fs";
 
 const args = process.argv.slice(2);
@@ -13,7 +13,7 @@ let bundler = new Parcel({
   defaultConfig: "@parcel/config-default",
   // Ensure the custom CSS file outside the project root is watched
   // See https://github.com/parcel-bundler/parcel/issues/4332
-  watchDir: new URL("./../../", import.meta.url).pathname,
+  watchDir: fileURLToPath(new URL("./../../", import.meta.url)),
 });
 
 if (isWatchMode) {
@@ -23,7 +23,7 @@ if (isWatchMode) {
 }
 
 function ensureCustomCssExists() {
-  const cssPath = new URL("./../../app.styles.scss", import.meta.url).pathname;
+  const cssPath = fileURLToPath(new URL("./../../app.styles.scss", import.meta.url));
   const content = "/* Write your custom CSS here */";
   !fs.existsSync(cssPath) && fs.writeFileSync(cssPath, content);
 }
