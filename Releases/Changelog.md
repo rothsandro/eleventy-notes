@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.28.1
+
+**February 22, 2025**
+
+- 🐛 **CSS Bundling**: Fixed an issue with CSS bundling on Windows.
+
 ## Version 0.28.0
 
 **January 17, 2025**
