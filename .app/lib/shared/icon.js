@@ -6,12 +6,22 @@
  * @returns The SVG of the icon
  */
 export function createIcon(icon, customAttrs = {}) {
-  const [tag, attrs, children] = icon;
-
   return createElement(
-    tag,
-    { ...attrs, width: "1.125em", height: "1.125em", ...customAttrs },
-    children
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "1.125em",
+      height: "1.125em",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-width": 2,
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "aria-hidden": "true",
+      ...customAttrs,
+    },
+    icon
   );
 }
 
