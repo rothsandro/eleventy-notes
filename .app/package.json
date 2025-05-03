@@ -29,7 +29,7 @@
     "markdown-it-task-checkbox": "^1.0.6",
     "nanohtml": "^1.10.0",
     "node-html-parser": "^7.0.1",
-    "npm-run-all2": "^7.0.1",
+    "npm-run-all2": "^8.0.1",
     "parcel": "^2.14.4",
     "rimraf": "^6.0.1",
     "sass": "^1.81.0"
