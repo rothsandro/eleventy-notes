@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.28.2
+
+**May 03, 2025**
+
+- 📦️ **Dependency**: Dependencies have been updated to the latest version.
+
 ## Version 0.28.1
 
 **February 22, 2025**
@@ -27,7 +33,7 @@ tags: [release]
 **December 01, 2024**
 
 - ✨ **Translations**: Added support for translations. You can now customize the text in the UI or provide translations for other languages.
-- 📦️ **SCSS Dependency**: Updated SCSS to the latest version. Styles have been migrated to use the latest syntax. If you use deprecated syntax in your custom styles (`app.styles.scss`), you may see warnings in the console. Please update your styles accordingly.
+- a **SCSS Dependency**: Updated SCSS to the latest version. Styles have been migrated to use the latest syntax. If you use deprecated syntax in your custom styles (`app.styles.scss`), you may see warnings in the console. Please update your styles accordingly.
 
 ## Version 0.25.0
 
