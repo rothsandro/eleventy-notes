@@ -19,4 +19,4 @@ With Eleventy Notes, you can:
 
 Whether you're a blogger, developer, or just someone who loves to write, Eleventy Notes has everything you need to publish your content. So what are you waiting for? Get started today by reading our [[Getting started]] guide and start sharing your thoughts with the world!
 
-Built with ❤️ by [Sandro Roth](https://sandroroth.com/)
+Built with ❤️ by [Sandro Roth](https://sandroroth.com/) • [Third-party license](./third-party-license.txt)
