@@ -40,6 +40,7 @@ export default defineConfig({
           {
             query: createNotesQuery({
               pattern: "^/[^/]+$",
+              tags: ["basics"],
             }),
           },
         ],
