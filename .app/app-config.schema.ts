@@ -55,6 +55,28 @@ export interface AppConfig {
   };
 
   /**
+   * Configuration for static assets.
+   */
+  staticAssets?: {
+    /**
+     * Static assets that are copied to the output folder.
+     *
+     * The value should be one of the following:
+     * - A string with a file or folder path.
+     * - A list of strings with file or folder paths.
+     * - A key-value object where the key is the input path and the value is the output path.
+     *
+     * Globs are supported in the input path.
+     *
+     * @example "assets/"
+     * @example "documents/*.pdf"
+     * @example ["assets/", "public/"]
+     * @example { "_assets/": "assets/", "public/": "/" }
+     */
+    paths?: string | string[] | Record<string, string>;
+  };
+
+  /**
    * The configuration for custom properties.
    * @default { properties: [] }
    */

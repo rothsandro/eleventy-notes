@@ -8,6 +8,9 @@ export default defineConfig({
   editThisNote: {
     url: "https://github.com/rothsandro/eleventy-notes/edit/{{branch}}/{{file}}",
   },
+  staticAssets: {
+    paths: { "public/": "/" },
+  },
   customProperties: {
     properties: [
       {
