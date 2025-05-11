@@ -48,6 +48,11 @@ function applyDefaults(custom) {
       ...custom.theme,
     },
 
+    staticAssets: {
+      paths: {},
+      ...custom.staticAssets,
+    },
+
     customProperties: {
       properties: [],
       ...custom.customProperties,

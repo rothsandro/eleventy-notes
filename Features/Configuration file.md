@@ -46,6 +46,7 @@ In addition to the [[#basic configuration]], you can also:
 - Change the color scheme, see [[Themes]]
 - Customize the behavior of Wikilinks, see [[Wikilinks#Automatic Label]]
 - Create mappings for your tags, see [[Tags#Tags mapping]]
+- Add static assets, see [[Static Assets]]
 
 ## Summary
 
@@ -58,6 +59,9 @@ export default defineConfig({
   title: "John's Notes",
   description: "The personal notes of John Doe",
   lang: "en",
+  staticAssets: {
+    paths: {},
+  },
   customProperties: {
     properties: [],
   },
