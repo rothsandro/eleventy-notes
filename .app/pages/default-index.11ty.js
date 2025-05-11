@@ -1,8 +1,11 @@
 import fs from "fs";
 
+const customIndexPaths = ["./../index.md", "./../index.njk", "./../index.html"];
+
 export default class DefaultIndex {
   data() {
-    const hasCustomIndex = fs.existsSync("./../index.md");
+    const hasCustomIndex = customIndexPaths.some((path) => fs.existsSync(path));
+
     return {
       title: "Home",
       permalink: hasCustomIndex ? false : "/",
