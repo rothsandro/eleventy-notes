@@ -47,6 +47,7 @@ In addition to the [[#basic configuration]], you can also:
 - Customize the behavior of Wikilinks, see [[Wikilinks#Automatic Label]]
 - Create mappings for your tags, see [[Tags#Tags mapping]]
 - Add static assets, see [[Static Assets]]
+- Add `ignores` to exclude files
 
 ## Summary
 
@@ -62,6 +63,7 @@ export default defineConfig({
   staticAssets: {
     paths: {},
   },
+  ignores: [],
   customProperties: {
     properties: [],
   },
