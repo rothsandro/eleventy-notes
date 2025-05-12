@@ -4,6 +4,17 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.29.0
+
+**May 12, 2025**
+
+- 📄 **License**: Eleventy Notes is now licensed under the MIT License.
+- ✨ **Start page**: The start page now supports `.njk` and `.html` files for greater flexibility.
+- ✨ **Static Assets**: Added support for serving static assets.
+- ✨ **Ignores**: Added support for custom ignore patterns in the configuration file.
+- 💥 **Readme**: The `README.md` file in the project root, which was previously excluded by default,
+  is now included in the build. To exclude it, add `ignores: ["README.md"]` to your configuration file.
+
 ## Version 0.28.2
 
 **May 03, 2025**
