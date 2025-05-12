@@ -11,6 +11,7 @@ export default defineConfig({
   staticAssets: {
     paths: { "public/": "/" },
   },
+  ignores: ["README.md"],
   customProperties: {
     properties: [
       {

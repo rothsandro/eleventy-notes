@@ -77,6 +77,11 @@ export interface AppConfig {
   };
 
   /**
+   * A list of paths that should be ignored by Eleventy.
+   */
+  ignores?: string[];
+
+  /**
    * The configuration for custom properties.
    * @default { properties: [] }
    */
