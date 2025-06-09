@@ -1,3 +1,10 @@
+@use "sass:meta";
+
+@use "./config.generated.scss" as config;
+@use "./1-tokens/tokens" with (
+  $theme-name: config.$theme
+);
+
 @use "./3-global/remedy";
 @use "./3-global/theme-mode";
 @use "./3-global/kbd";
@@ -26,4 +33,6 @@
 @use "./5-utils/stack";
 @use "./5-utils/visually-hidden";
 
-@use "./../../app.styles.scss";
+@if config.$custom-styles {
+  @include meta.load-css("./../../app.styles.scss");
+}

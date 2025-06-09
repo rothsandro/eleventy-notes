@@ -8,7 +8,7 @@
     "build": "npm-run-all clean -p css:build js:build 11ty:build",
     "11ty:serve": "eleventy --serve",
     "11ty:build": "eleventy",
-    "themes:generate": "node ./scripts/generate-themes.js",
+    "colors:generate": "node ./scripts/generate-colors.js",
     "css:watch": "node scripts/bundle-css.js --watch",
     "js:watch": "node scripts/bundle-js.js --watch",
     "css:build": "node scripts/bundle-css.js",
