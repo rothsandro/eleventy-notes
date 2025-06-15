@@ -20,41 +20,6 @@ export interface AppConfig {
   lang?: string;
 
   /**
-   * The theme configuration.
-   * @default { color: "sky" }
-   */
-  theme?: {
-    /**
-     * The primary color of the app.
-     * @default sky
-     */
-    color:
-      | "tomato"
-      | "red"
-      | "ruby"
-      | "crimson"
-      | "pink"
-      | "plum"
-      | "purple"
-      | "violet"
-      | "iris"
-      | "indigo"
-      | "blue"
-      | "sky"
-      | "cyan"
-      | "teal"
-      | "jade"
-      | "mint"
-      | "green"
-      | "grass"
-      | "lime"
-      | "yellow"
-      | "amber"
-      | "orange"
-      | "brown";
-  };
-
-  /**
    * Configuration for static assets.
    */
   staticAssets?: {

@@ -1,38 +1,39 @@
+@use "sass:map";
 @use "sass:meta";
 
-@use "./config.generated.scss" as config;
-@use "./1-tokens/tokens" with (
-  $theme-name: config.$theme
-);
+@use "./../../app" as app;
 
-@use "./3-global/remedy";
-@use "./3-global/theme-mode";
-@use "./3-global/kbd";
+@layer app {
+  @include meta.load-css(
+    "./1-tokens/tokens",
+    $with: (theme-name: map.get(app.$config, "theme"))
+  );
 
-@use "./4-components/code-block";
-@use "./4-components/icon-btn";
-@use "./4-components/note-link";
-@use "./4-components/toggle-btn";
+  @include meta.load-css("./3-global/remedy");
+  @include meta.load-css("./3-global/theme-mode");
+  @include meta.load-css("./3-global/kbd");
 
-@use "./../lib/core/styles" as core;
-@use "./../lib/modules/callouts/styles" as callouts;
-@use "./../lib/modules/custom-props/styles" as custom-props;
-@use "./../lib/modules/notes/styles" as notes;
-@use "./../lib/modules/page-nav/styles" as page-nav;
-@use "./../lib/modules/search/styles" as search;
-@use "./../lib/modules/sidebar/styles" as sidebar;
-@use "./../lib/modules/tags/styles" as tags;
-@use "./../lib/modules/themes/styles" as themes;
-@use "./../lib/modules/toc/styles" as toc;
-@use "./../lib/shared/styles" as shared;
+  @include meta.load-css("./4-components/code-block");
+  @include meta.load-css("./4-components/icon-btn");
+  @include meta.load-css("./4-components/note-link");
+  @include meta.load-css("./4-components/toggle-btn");
 
-@use "./5-utils/cloak";
-@use "./5-utils/hide";
-@use "./5-utils/inline";
-@use "./5-utils/show";
-@use "./5-utils/stack";
-@use "./5-utils/visually-hidden";
+  @include meta.load-css("./../lib/core/styles");
+  @include meta.load-css("./../lib/modules/callouts/styles");
+  @include meta.load-css("./../lib/modules/custom-props/styles");
+  @include meta.load-css("./../lib/modules/notes/styles");
+  @include meta.load-css("./../lib/modules/page-nav/styles");
+  @include meta.load-css("./../lib/modules/search/styles");
+  @include meta.load-css("./../lib/modules/sidebar/styles");
+  @include meta.load-css("./../lib/modules/tags/styles");
+  @include meta.load-css("./../lib/modules/themes/styles");
+  @include meta.load-css("./../lib/modules/toc/styles");
+  @include meta.load-css("./../lib/shared/styles");
 
-@if config.$custom-styles {
-  @include meta.load-css("./../../app.styles.scss");
+  @include meta.load-css("./5-utils/cloak");
+  @include meta.load-css("./5-utils/hide");
+  @include meta.load-css("./5-utils/inline");
+  @include meta.load-css("./5-utils/show");
+  @include meta.load-css("./5-utils/stack");
+  @include meta.load-css("./5-utils/visually-hidden");
 }
