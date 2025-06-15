@@ -7,7 +7,7 @@ Eleventy Notes provides a comprehensive set of default styles. However, if you n
 
 ## Custom Styles
 
-An `app.styles.scss` file is available at the root of the project for you to add your custom styles. This file is automatically included after all the default styles provided by Eleventy Notes.
+To add your own styles, create a file named `app.styles.scss` in the root of your project. After restarting the development server, Eleventy Notes will automatically include this file after its default styles.
 
 ```scss
 // /app.styles.scss
@@ -15,8 +15,6 @@ An `app.styles.scss` file is available at the root of the project for you to add
   color: red;
 }
 ```
-
-Please note, the `app.styles.scss` file must always exist in the project, even if you don't add any custom styles. It is automatically created when you run or build the project.
 
 ## Overwriting default styles
 
