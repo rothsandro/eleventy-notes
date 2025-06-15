@@ -20,7 +20,7 @@ export const core = {
     config.addPlugin(syntaxHighlightPlugin);
 
     config.setServerOptions({
-      watch: ["dist/app.js", "dist/app.*.css"],
+      watch: ["dist/app.js", "dist/app.css"],
     });
 
     config.setInputDirectory("./../");
