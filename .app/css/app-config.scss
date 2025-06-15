@@ -1,0 +1,5 @@
+@use "sass:map";
+
+@function define-config($config) {
+  @return $config;
+}

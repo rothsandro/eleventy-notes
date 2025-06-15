@@ -43,11 +43,6 @@ function applyDefaults(custom) {
     lang: "en",
     ...custom,
 
-    theme: {
-      color: "sky",
-      ...custom.theme,
-    },
-
     staticAssets: {
       paths: {},
       ...custom.staticAssets,
