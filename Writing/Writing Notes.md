@@ -17,6 +17,19 @@ title: My super cool note
 This is my note.
 ```
 
+## Custom description
+
+Add a custom description to your note by including a `description` property in the front matter. This helps with search engines and sharing your notes on social media.
+
+```markdown
+---
+title: My super cool note
+description: This is a description of my super cool note.
+---
+
+This is my note.
+```
+
 ## Images
 
 You can add images to your notes using a relative file path:
