@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.30.0
+
+**June 15, 2025**
+
+- ✨ **Note Description**: The meta description can now be customized per note using the `description` front matter property.
+
 ## Version 0.29.0
 
 **May 12, 2025**
