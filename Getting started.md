@@ -27,7 +27,7 @@ npm install
 
 ## Cleaning up the notes
 
-The template contains the documentation notes you are currently reading. You can keep them if you want, but it's recommended to delete them before you start writing your own notes. For that, delete all the files and folders in the root of the project except for the `.app` folder and the `app.mjs` file.
+The template contains the documentation notes you are currently reading. You can keep them if you want, but it's recommended to delete them before you start writing your own notes. For that, delete all the files and folders in the root of the project except for the `.app` folder, the `app.mjs` file and the `app.scss` file.
 
 You may also want to clean up the configuration. Open the `app.mjs` file and remove the existing configuration. You can add your own configuration later.
 
