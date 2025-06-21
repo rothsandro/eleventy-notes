@@ -5,15 +5,18 @@ tags: [feature]
 
 # Color schemes
 
-Eleventy Notes supports a few different color schemes to choose from. You can change the color scheme by adding a `theme` object to your [[Configuration file]]:
+Eleventy Notes supports a few different color schemes to choose from. You can change the color scheme in the `app.scss` file in the root of the project.
 
 ```js
-// /app.mjs
-export default defineConfig({
-  theme: {
-    color: "indigo",
-  },
-});
+// /app.scss
+@use "./.app/app-config";
+
+$config: app-config.define-config(
+  (
+    theme: "sky", // <-- The color scheme to use
+  )
+);
+
 ```
 
 The supported color schemes are: tomato, red, ruby, crimson, pink, plum, purple, violet, iris, indigo, blue, sky, cyan, teal, jade, mint, green, grass, lime, yellow, amber, orange and brown.

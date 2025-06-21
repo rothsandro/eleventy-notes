@@ -43,7 +43,6 @@ In addition to the [[#basic configuration]], you can also:
 - Customize the page navigation, see [[Page Navigation]]
 - Customize the content of the panel, see [[Panel]]
 - Configure custom properties in the panel, see [[Custom Properties]]
-- Change the color scheme, see [[Themes]]
 - Customize the behavior of Wikilinks, see [[Wikilinks#Automatic Label]]
 - Create mappings for your tags, see [[Tags#Tags mapping]]
 - Add static assets, see [[Static Assets]]
@@ -66,9 +65,6 @@ export default defineConfig({
   ignores: [],
   customProperties: {
     properties: [],
-  },
-  theme: {
-    color: "sky",
   },
   editThisNote: {
     url: "https://example.com/edit/{{file}}",

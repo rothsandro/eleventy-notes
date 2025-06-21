@@ -4,6 +4,39 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## next
+
+**to be released**
+
+- ⚡️ **CSS Bundling**: CSS bundling is now faster. Only the active theme is bundled.
+- 💥 **Themes/Styles**: Theme settings have changed. See the steps below to update your setup.
+
+Rename `app.styles.scss` in your project root to `app.scss`. Add the config below at the top of the file. If you set a custom theme in `app.mjs` (`theme.color`), update the `theme` value here to match.
+
+```scss
+@use "./.app/app-config";
+
+$config: app-config.define-config(
+  (
+    theme: "sky",
+  )
+);
+
+// ... (your custom styles, if any)
+```
+
+If you have a `theme` setting in `app.mjs`, you can delete it – theme config now belongs in `app.scss`.
+
+```diff
+// /app.mjs
+export default defineConfig({
+-  theme: {
+-    color: "red",
+-  },
+   // ... (other configuration)
+});
+```
+
 ## Version 0.30.0
 
 **June 15, 2025**

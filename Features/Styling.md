@@ -3,20 +3,23 @@ sort: 4
 tags: [feature]
 ---
 
-Eleventy Notes provides a comprehensive set of default styles. However, if you need to add specific styles to your content, you have the flexibility to write your own CSS.
-
-## Custom Styles
-
-An `app.styles.scss` file is available at the root of the project for you to add your custom styles. This file is automatically included after all the default styles provided by Eleventy Notes.
+Eleventy Notes provides a comprehensive set of default styles. However, if you need to add specific styles to your content, you have the flexibility to write your own CSS in the `app.scss` file at the root of your project.
 
 ```scss
-// /app.styles.scss
+// /app.scss
+@use "./.app/app-config";
+
+$config: app-config.define-config(
+  (
+    theme: "sky",
+  )
+);
+
+// Your custom styles go here:
 .my-custom-class {
   color: red;
 }
 ```
-
-Please note, the `app.styles.scss` file must always exist in the project, even if you don't add any custom styles. It is automatically created when you run or build the project.
 
 ## Overwriting default styles
 

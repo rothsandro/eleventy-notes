@@ -1,0 +1,7 @@
+@use "./.app/app-config";
+
+$config: app-config.define-config(
+  (
+    theme: "sky",
+  )
+);
