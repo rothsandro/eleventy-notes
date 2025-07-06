@@ -4,11 +4,11 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## next
+## Version 0.31.0
 
-**to be released**
+**July 6, 2025**
 
-- ⚡️ **CSS Bundling**: CSS bundling is now faster. Only the active theme is bundled.
+- ⚡️ **CSS Bundling**: CSS bundling is now faster, and errors are logged.
 - 💥 **Themes/Styles**: Theme settings have changed. See the steps below to update your setup.
 
 Rename `app.styles.scss` in your project root to `app.scss`. Add the config below at the top of the file. If you set a custom theme in `app.mjs` (`theme.color`), update the `theme` value here to match.
