@@ -14,7 +14,18 @@ let bundler = new Parcel({
 });
 
 if (isWatchMode) {
-  bundler.watch();
+  bundler.watch((_error, event) => {
+    if (event.type === "buildSuccess") {
+      console.log("[CSS] Build successful");
+    } else if (event.type === "buildFailure") {
+      console.error("[CSS] Build failed");
+      console.warn(
+        // See https://github.com/parcel-bundler/parcel/issues/7374
+        "Please fix the errors below. You may need to restart the server after resolving them."
+      );
+      console.error(event.diagnostics);
+    }
+  });
 } else {
   await bundler.run();
 }
