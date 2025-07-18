@@ -8,7 +8,12 @@ export const sidebarSectionsCollection =
     const getId = () => counter++;
 
     const app = appData();
-    const notes = notesModule.notesCollection(eleventyConfig)(collectionApi);
+    const notes = notesModule
+      .notesCollection(eleventyConfig)(collectionApi)
+      .map((note) => ({
+        ...note,
+        title: note.data.navTitle || note.title,
+      }));
 
     const sections = app.sidebar.sections.flatMap((section) => {
       const groups = section.groups.flatMap((group) => {

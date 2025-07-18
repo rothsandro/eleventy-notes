@@ -1,5 +1,6 @@
 ---
-title: Home
+navTitle: Home
+title: Eleventy Notes
 headline: Welcome to Eleventy Notes
 panel: false
 nextPage: "[[Getting started]]"

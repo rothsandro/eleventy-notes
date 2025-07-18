@@ -15,7 +15,7 @@
           {{ 'home' | icon | safe }}
           {% set indexQuery = { filter: [['url', 'isEqual', '/' ]] } %}
           {% set indexNote = (collections._notes | query(indexQuery)) | first %}
-          <span>{{ indexNote.data.title if indexNote else ('sidebar.sections.main.home_link' | t) }}</span>
+          <span>{{ (indexNote.data.navTitle or indexNote.data.title) if indexNote else ('sidebar.sections.main.home_link' | t) }}</span>
         </a>
       </li>
       {% if collections.tags.length %}

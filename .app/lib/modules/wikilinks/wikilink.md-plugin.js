@@ -31,8 +31,10 @@ export const wikilinksMarkdownPlugin = (md, options) => {
     const wikilink = new Wikilink(
       env.collections[options.collections],
       env.app.wikilinks,
-      options.slugify,
-      options.slugifyAnchor
+      {
+        slugify: options.slugify,
+        slugifyAnchor: options.slugifyAnchor,
+      }
     );
 
     const [, path, , text] = match;

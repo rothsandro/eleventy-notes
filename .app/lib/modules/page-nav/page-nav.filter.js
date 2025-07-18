@@ -11,9 +11,15 @@ export const pageNavFilter = (eleventyConfig) => {
     const page = this.page;
     const wikilink = new Wikilink(
       this.ctx.collections._notes,
-      this.ctx.app.wikilinks,
-      eleventyConfig.getFilter("slugifyPath"),
-      eleventyConfig.getFilter("slugify")
+      {
+        ...this.ctx.app.wikilinks,
+        autoLabel: "title",
+      },
+      {
+        slugify: eleventyConfig.getFilter("slugifyPath"),
+        slugifyAnchor: eleventyConfig.getFilter("slugify"),
+        resolveTitle: (note) => note.data.navTitle || note.data.title,
+      }
     );
 
     const prev = resolveCustomNav(this.ctx.prevPage) ?? resolveAutoNav(-1);

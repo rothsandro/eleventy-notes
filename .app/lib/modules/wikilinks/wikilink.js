@@ -11,18 +11,26 @@ export class Wikilink {
    */
 
   /**
+   * @typedef Deps
+   * @property {(path: string) => string} slugify
+   * @property {(path: string) => string} slugifyAnchor
+   * @property {((note: Note) => string | undefined) | undefined} resolveTitle
+   */
+
+  /**
    * Creates a new Wikilink instance to process wikilinks.
    *
    * @param {Note[]} notes The collection of notes.
    * @param {*} wikilinksConfig The configuration for wikilinks.
-   * @param {(path: string) => string} slugify
-   * @param {(path: string) => string} slugifyAnchor
+   * @param {Deps} deps The dependencies for processing wikilinks.
    */
-  constructor(notes, wikilinksConfig, slugify, slugifyAnchor) {
+  constructor(notes, wikilinksConfig, deps) {
     this.notes = notes;
     this.wikilinksConfig = wikilinksConfig;
-    this.slugify = slugify;
-    this.slugifyAnchor = slugifyAnchor;
+    this.deps = {
+      resolveTitle: (note) => note.data.title,
+      ...deps,
+    };
   }
 
   /**
@@ -48,12 +56,8 @@ export class Wikilink {
    * @returns The href for the wikilink.
    */
   createHref(file, hash, page) {
-    if (hash === "Cloning the template") {
-      console.log({ file, hash });
-    }
-
-    let href = page ? page.url : file ? this.slugify(`/${file}`) : "";
-    hash && (href += `#${this.slugifyAnchor(hash)}`);
+    let href = page ? page.url : file ? this.deps.slugify(`/${file}`) : "";
+    hash && (href += `#${this.deps.slugifyAnchor(hash)}`);
 
     return href;
   }
@@ -74,7 +78,7 @@ export class Wikilink {
 
     switch (this.wikilinksConfig.autoLabel) {
       case "title":
-        label = page.data.title || page.fileSlug || file;
+        label = this.deps.resolveTitle(page) || page.fileSlug || file;
         break;
       case "fileSlug":
         label = page.fileSlug || file;
