@@ -11,9 +11,15 @@ export const pageNavFilter = (eleventyConfig) => {
     const page = this.page;
     const wikilink = new Wikilink(
       this.ctx.collections._notes,
-      this.ctx.app.wikilinks,
-      eleventyConfig.getFilter("slugifyPath"),
-      eleventyConfig.getFilter("slugify")
+      {
+        ...this.ctx.app.wikilinks,
+        autoLabel: "title",
+      },
+      {
+        slugify: eleventyConfig.getFilter("slugifyPath"),
+        slugifyAnchor: eleventyConfig.getFilter("slugify"),
+        resolveTitle: (note) => note.data.navTitle || note.data.title,
+      }
     );
 
     const prev = resolveCustomNav(this.ctx.prevPage) ?? resolveAutoNav(-1);
@@ -45,7 +51,7 @@ export const pageNavFilter = (eleventyConfig) => {
       const entry = idx >= 0 ? pageNavOrder[idx + idxDiff] : null;
       if (!entry) return null;
 
-      return { label: entry.title, href: entry.url };
+      return { label: entry.data.navTitle || entry.title, href: entry.url };
     }
   };
 };

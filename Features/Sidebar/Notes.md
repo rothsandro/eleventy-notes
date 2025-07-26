@@ -202,6 +202,18 @@ export default defineConfig({
 });
 ```
 
+## Note Title
+
+You can customize the title of a note in the sidebar by adding a `navTitle` property to the front matter of the note.
+
+```md
+---
+navTitle: Custom Title
+---
+
+My Note
+```
+
 ## Examples
 
 ### All notes
