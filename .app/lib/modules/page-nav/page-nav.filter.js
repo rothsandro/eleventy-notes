@@ -51,7 +51,7 @@ export const pageNavFilter = (eleventyConfig) => {
       const entry = idx >= 0 ? pageNavOrder[idx + idxDiff] : null;
       if (!entry) return null;
 
-      return { label: entry.title, href: entry.url };
+      return { label: entry.data.navTitle || entry.title, href: entry.url };
     }
   };
 };
