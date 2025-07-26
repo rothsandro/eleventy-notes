@@ -4,6 +4,12 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.32.0
+
+**July 26, 2025**
+
+- ✨ **Nav Title**: You can now set a custom title for a note in the sidepanel using the `navTitle` front matter property.
+
 ## Version 0.31.0
 
 **July 6, 2025**
