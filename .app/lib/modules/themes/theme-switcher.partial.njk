@@ -1,13 +1,53 @@
 {% set id = uniqueId() %}
 
-<div class="theme-switcher" x-data="{ open: false, focusedIndex: -1 }" x-cloak lang="{% uiLang %}" @keydown.escape.window="open = false">
+<div 
+  class="theme-switcher" 
+  x-data="{
+    open: false,
+    menuItems: ['light', 'dark', 'system'],
+    get currentIndex() {
+      return this.menuItems.indexOf($store.appearance.theme);
+    },
+    openMenu() {
+      this.open = true;
+      this.$nextTick(() => {
+        const checkedItem = this.$refs.menu.querySelector('[aria-checked=true]');
+        if (checkedItem) {
+          checkedItem.focus();
+        } else {
+          this.$refs.menu.querySelector('[role=menuitemradio]').focus();
+        }
+      });
+    },
+    closeMenu() {
+      this.open = false;
+      this.$refs.button.focus();
+    },
+    focusNext(currentIndex) {
+      const nextIndex = (currentIndex + 1) % 3;
+      this.$refs.menu.querySelectorAll('[role=menuitemradio]')[nextIndex].focus();
+    },
+    focusPrevious(currentIndex) {
+      const prevIndex = (currentIndex - 1 + 3) % 3;
+      this.$refs.menu.querySelectorAll('[role=menuitemradio]')[prevIndex].focus();
+    },
+    selectTheme(theme) {
+      $store.appearance.theme = theme;
+      this.closeMenu();
+    }
+  }" 
+  x-cloak 
+  lang="{% uiLang %}" 
+  @keydown.escape.window="if (open) { closeMenu(); $event.preventDefault(); }"
+>
   <button
     type="button"
     class="theme-switcher__button icon-btn"
     :aria-expanded="open"
     aria-haspopup="menu"
     aria-label="{{ 'theme_switcher.label' | t }}"
-    @click="open = !open"
+    @click="openMenu()"
+    x-ref="button"
   >
     <span x-show="$store.appearance.theme === 'light'">{{ 'sun' | icon | safe }}</span>
     <span x-show="$store.appearance.theme === 'dark'">{{ 'moon' | icon | safe }}</span>
@@ -18,21 +58,24 @@
     class="theme-switcher__menu"
     x-show="open"
     x-transition
-    @click.outside="open = false"
+    @click.outside="closeMenu()"
     role="menu"
     aria-label="{{ 'theme_switcher.label' | t }}"
+    x-ref="menu"
   >
     <button
       type="button"
       role="menuitemradio"
       :aria-checked="$store.appearance.theme === 'light'"
-      :data-focused="focusedIndex === 0"
+      :tabindex="$store.appearance.theme === 'light' ? 0 : -1"
       class="theme-switcher__menu-item"
-      @click="$store.appearance.theme = 'light'; open = false"
-      @keydown.arrow-down.prevent="focusedIndex = 1"
-      @keydown.arrow-up.prevent="focusedIndex = 2"
-      @keydown.enter.prevent="$store.appearance.theme = 'light'; open = false"
-      @keydown.space.prevent="$store.appearance.theme = 'light'; open = false"
+      @click="selectTheme('light')"
+      @keydown.arrow-down.prevent="focusNext(0)"
+      @keydown.arrow-up.prevent="focusPrevious(0)"
+      @keydown.enter.prevent="selectTheme('light')"
+      @keydown.space.prevent="selectTheme('light')"
+      @keydown.home.prevent="$refs.menu.querySelector('[role=menuitemradio]').focus()"
+      @keydown.end.prevent="$refs.menu.querySelectorAll('[role=menuitemradio]')[2].focus()"
     >
       {{ 'sun' | icon | safe }}
       <span>{{ 'theme_switcher.options.light' | t }}</span>
@@ -42,13 +85,15 @@
       type="button"
       role="menuitemradio"
       :aria-checked="$store.appearance.theme === 'dark'"
-      :data-focused="focusedIndex === 1"
+      :tabindex="$store.appearance.theme === 'dark' ? 0 : -1"
       class="theme-switcher__menu-item"
-      @click="$store.appearance.theme = 'dark'; open = false"
-      @keydown.arrow-down.prevent="focusedIndex = 2"
-      @keydown.arrow-up.prevent="focusedIndex = 0"
-      @keydown.enter.prevent="$store.appearance.theme = 'dark'; open = false"
-      @keydown.space.prevent="$store.appearance.theme = 'dark'; open = false"
+      @click="selectTheme('dark')"
+      @keydown.arrow-down.prevent="focusNext(1)"
+      @keydown.arrow-up.prevent="focusPrevious(1)"
+      @keydown.enter.prevent="selectTheme('dark')"
+      @keydown.space.prevent="selectTheme('dark')"
+      @keydown.home.prevent="$refs.menu.querySelector('[role=menuitemradio]').focus()"
+      @keydown.end.prevent="$refs.menu.querySelectorAll('[role=menuitemradio]')[2].focus()"
     >
       {{ 'moon' | icon | safe }}
       <span>{{ 'theme_switcher.options.dark' | t }}</span>
@@ -58,13 +103,15 @@
       type="button"
       role="menuitemradio"
       :aria-checked="$store.appearance.theme === 'system'"
-      :data-focused="focusedIndex === 2"
+      :tabindex="$store.appearance.theme === 'system' ? 0 : -1"
       class="theme-switcher__menu-item"
-      @click="$store.appearance.theme = 'system'; open = false"
-      @keydown.arrow-down.prevent="focusedIndex = 0"
-      @keydown.arrow-up.prevent="focusedIndex = 1"
-      @keydown.enter.prevent="$store.appearance.theme = 'system'; open = false"
-      @keydown.space.prevent="$store.appearance.theme = 'system'; open = false"
+      @click="selectTheme('system')"
+      @keydown.arrow-down.prevent="focusNext(2)"
+      @keydown.arrow-up.prevent="focusPrevious(2)"
+      @keydown.enter.prevent="selectTheme('system')"
+      @keydown.space.prevent="selectTheme('system')"
+      @keydown.home.prevent="$refs.menu.querySelector('[role=menuitemradio]').focus()"
+      @keydown.end.prevent="$refs.menu.querySelectorAll('[role=menuitemradio]')[2].focus()"
     >
       {{ 'monitor' | icon | safe }}
       <span>{{ 'theme_switcher.options.system' | t }}</span>

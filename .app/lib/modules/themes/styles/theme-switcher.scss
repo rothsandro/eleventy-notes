@@ -51,9 +51,10 @@
   }
 
   &:hover,
-  &[data-focused="true"] {
+  &:focus {
     background-color: var(--color-neutral-bg-hover);
     color: var(--color-neutral-text-contrast);
+    outline: none;
   }
 
   &:active {
