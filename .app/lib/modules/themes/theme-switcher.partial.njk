@@ -1,39 +1,76 @@
 {% set id = uniqueId() %}
 
-<div role="radiogroup" aria-label="{{ 'theme_switcher.label' | t }}" class="theme-switcher" x-data x-cloak lang="{% uiLang %}">
-  <input
-    id="{{ id('light') }}"
-    type="radio"
-    name="appearance"
-    x-model="$store.appearance.theme"
-    value="light"
-    class="visually-hidden"
+<div class="theme-switcher" x-data="{ open: false, focusedIndex: -1 }" x-cloak lang="{% uiLang %}" @keydown.escape.window="open = false">
+  <button
+    type="button"
+    class="theme-switcher__button icon-btn"
+    :aria-expanded="open"
+    aria-haspopup="menu"
+    aria-label="{{ 'theme_switcher.label' | t }}"
+    @click="open = !open"
+    @keydown.arrow-down.prevent="if (!open) { open = true; focusedIndex = 0; } else { focusedIndex = (focusedIndex + 1) % 3; }"
+    @keydown.arrow-up.prevent="if (!open) { open = true; focusedIndex = 2; } else { focusedIndex = (focusedIndex - 1 + 3) % 3; }"
   >
-  <label for="{{ id('light') }}" class="theme-switcher__label" aria-label="{{ 'theme_switcher.options.light' | t}}">
-    {{ 'sun' | icon | safe }}
-  </label>
+    <span x-show="$store.appearance.theme === 'light'">{{ 'sun' | icon | safe }}</span>
+    <span x-show="$store.appearance.theme === 'dark'">{{ 'moon' | icon | safe }}</span>
+    <span x-show="$store.appearance.theme === 'system'">{{ 'monitor' | icon | safe }}</span>
+  </button>
 
-  <input
-    id="{{ id('dark') }}"
-    type="radio"
-    name="appearance"
-    x-model="$store.appearance.theme"
-    value="dark"
-    class="visually-hidden"
+  <div
+    class="theme-switcher__menu"
+    x-show="open"
+    x-transition
+    @click.outside="open = false"
+    role="menu"
+    aria-label="{{ 'theme_switcher.label' | t }}"
   >
-  <label for="{{ id('dark') }}" class="theme-switcher__label" aria-label="{{ 'theme_switcher.options.dark' | t }}">
-    {{ 'moon' | icon | safe }}
-  </label>
-
-  <input
-    id="{{ id('system') }}"
-    type="radio"
-    name="appearance"
-    x-model="$store.appearance.theme"
-    value="system"
-    class="visually-hidden"
-  >
-  <label for="{{ id('system') }}" class="theme-switcher__label" aria-label="{{ 'theme_switcher.options.system' | t }}">
-    {{ 'monitor' | icon | safe }}
-  </label>
+    <button
+      type="button"
+      role="menuitemradio"
+      :aria-checked="$store.appearance.theme === 'light'"
+      :data-focused="focusedIndex === 0"
+      class="theme-switcher__menu-item"
+      @click="$store.appearance.theme = 'light'; open = false"
+      @keydown.arrow-down.prevent="focusedIndex = 1"
+      @keydown.arrow-up.prevent="focusedIndex = 2"
+      @keydown.enter.prevent="$store.appearance.theme = 'light'; open = false"
+      @keydown.space.prevent="$store.appearance.theme = 'light'; open = false"
+    >
+      {{ 'sun' | icon | safe }}
+      <span>{{ 'theme_switcher.options.light' | t }}</span>
+      <span class="theme-switcher__check" x-show="$store.appearance.theme === 'light'">{{ 'check' | icon | safe }}</span>
+    </button>
+    <button
+      type="button"
+      role="menuitemradio"
+      :aria-checked="$store.appearance.theme === 'dark'"
+      :data-focused="focusedIndex === 1"
+      class="theme-switcher__menu-item"
+      @click="$store.appearance.theme = 'dark'; open = false"
+      @keydown.arrow-down.prevent="focusedIndex = 2"
+      @keydown.arrow-up.prevent="focusedIndex = 0"
+      @keydown.enter.prevent="$store.appearance.theme = 'dark'; open = false"
+      @keydown.space.prevent="$store.appearance.theme = 'dark'; open = false"
+    >
+      {{ 'moon' | icon | safe }}
+      <span>{{ 'theme_switcher.options.dark' | t }}</span>
+      <span class="theme-switcher__check" x-show="$store.appearance.theme === 'dark'">{{ 'check' | icon | safe }}</span>
+    </button>
+    <button
+      type="button"
+      role="menuitemradio"
+      :aria-checked="$store.appearance.theme === 'system'"
+      :data-focused="focusedIndex === 2"
+      class="theme-switcher__menu-item"
+      @click="$store.appearance.theme = 'system'; open = false"
+      @keydown.arrow-down.prevent="focusedIndex = 0"
+      @keydown.arrow-up.prevent="focusedIndex = 1"
+      @keydown.enter.prevent="$store.appearance.theme = 'system'; open = false"
+      @keydown.space.prevent="$store.appearance.theme = 'system'; open = false"
+    >
+      {{ 'monitor' | icon | safe }}
+      <span>{{ 'theme_switcher.options.system' | t }}</span>
+      <span class="theme-switcher__check" x-show="$store.appearance.theme === 'system'">{{ 'check' | icon | safe }}</span>
+    </button>
+  </div>
 </div>
