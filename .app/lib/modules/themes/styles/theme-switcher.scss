@@ -13,10 +13,10 @@
 
 .theme-switcher__menu {
   position: absolute;
-  top: calc(100% + var(--space-2));
-  right: 0;
+  inset-block-start: calc(100% + var(--space-2));
+  inset-inline-end: 0;
   z-index: 10;
-  min-width: 160px;
+  min-inline-size: 160px;
   padding: var(--space-2);
   border-radius: var(--rounded-lg);
   background-color: var(--color-surface);
@@ -28,20 +28,21 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  width: 100%;
-  padding: var(--space-2) var(--space-3);
+  inline-size: 100%;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
   border-radius: var(--rounded-md);
   border: 0;
   background: transparent;
   color: var(--color-neutral-text);
   cursor: pointer;
-  text-align: left;
+  text-align: start;
   transition: all 200ms ease;
   font-size: var(--font-size-sm);
 
   svg {
-    width: 1em;
-    height: 1em;
+    inline-size: 1em;
+    block-size: 1em;
     flex-shrink: 0;
   }
 
@@ -70,7 +71,7 @@
   color: var(--color-primary-text);
   
   svg {
-    width: 1em;
-    height: 1em;
+    inline-size: 1em;
+    block-size: 1em;
   }
 }
