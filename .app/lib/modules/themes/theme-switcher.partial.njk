@@ -8,8 +8,6 @@
     aria-haspopup="menu"
     aria-label="{{ 'theme_switcher.label' | t }}"
     @click="open = !open"
-    @keydown.arrow-down.prevent="if (!open) { open = true; focusedIndex = 0; } else { focusedIndex = (focusedIndex + 1) % 3; }"
-    @keydown.arrow-up.prevent="if (!open) { open = true; focusedIndex = 2; } else { focusedIndex = (focusedIndex - 1 + 3) % 3; }"
   >
     <span x-show="$store.appearance.theme === 'light'">{{ 'sun' | icon | safe }}</span>
     <span x-show="$store.appearance.theme === 'dark'">{{ 'moon' | icon | safe }}</span>
