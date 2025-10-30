@@ -42,13 +42,5 @@ export default function (Alpine) {
       this.$store.appearance.theme = theme;
       this.closeMenu();
     },
-
-    handleMenuKeydown(event) {
-      // Tab and Shift+Tab should close the menu and move focus out
-      if (event.key === "Tab") {
-        this.closeMenu();
-        // Don't prevent default - let the browser handle tab navigation
-      }
-    },
   }));
 }
