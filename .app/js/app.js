@@ -1,6 +1,7 @@
 import Alpine from "alpinejs";
 
 import appearanceStore from "../lib/modules/themes/appearance.store";
+import themeSwitcherData from "../lib/modules/themes/theme-switcher.data";
 import bookmarksStore from "./../lib/modules/bookmarks/bookmarks.store";
 import navStore from "../lib/modules/sidebar/nav.store";
 import searchData from "./../lib/modules/search/search.data";
@@ -15,6 +16,7 @@ import tocData from "./../lib/modules/toc/toc.data";
 Alpine.plugin(persistPlugin);
 
 appearanceStore(Alpine);
+themeSwitcherData(Alpine);
 bookmarksStore(Alpine);
 navStore(Alpine);
 searchData(Alpine);
