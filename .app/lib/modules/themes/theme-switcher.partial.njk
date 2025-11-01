@@ -3,89 +3,61 @@
 <div 
   class="theme-switcher" 
   x-data="themeSwitcher"
+  x-init="themes = 
+    [
+      { key: 'light', label: '{{ 'theme_switcher.options.light' | t }}', icon: '{{ 'sun' | icon }}'  },
+      { key: 'dark', label: '{{ 'theme_switcher.options.dark' | t }}', icon: '{{ 'moon' | icon }}'  },
+      { key: 'system', label: '{{ 'theme_switcher.options.system' | t }}', icon: '{{ 'monitor' | icon }}'  }
+    ]"
   x-cloak 
   lang="{% uiLang %}" 
-  @keydown.escape.window="if (open) { closeMenu(); $event.preventDefault(); }"
 >
   <button
     type="button"
-    class="theme-switcher__button icon-btn"
-    :aria-expanded="open"
-    aria-haspopup="menu"
+    class="icon-btn"
     aria-label="{{ 'theme_switcher.label' | t }}"
+    aria-haspopup="menu"
+    aria-controls="{{ id('menu') }}"
+    :aria-expanded="open"
+    x-ref="trigger"
     @click="openMenu()"
-    x-ref="button"
   >
-    <span x-show="$store.appearance.theme === 'light'">{{ 'sun' | icon | safe }}</span>
-    <span x-show="$store.appearance.theme === 'dark'">{{ 'moon' | icon | safe }}</span>
-    <span x-show="$store.appearance.theme === 'system'">{{ 'monitor' | icon | safe }}</span>
+  {{ 'sun-moon' | icon | safe }}
   </button>
 
+  <div class="theme-switcher__backdrop" x-show="open"></div>
   <div
-    class="theme-switcher__menu"
-    x-show="open"
-    x-transition
-    @click.outside="closeMenu()"
+    id="{{ id('menu') }}"
     role="menu"
     aria-label="{{ 'theme_switcher.label' | t }}"
     x-ref="menu"
+    x-show="open"
+    x-transition.origin.top.right
+    class="theme-switcher__menu"
+    @mousedown.prevent.self
+    @keydown.prevent.escape="closeMenu()"
+    @focusout="onFocusOut($event)"
   >
-    <button
-      type="button"
-      role="menuitemradio"
-      :aria-checked="$store.appearance.theme === 'light'"
-      tabindex="-1"
-      class="theme-switcher__menu-item"
-      @click="selectTheme('light')"
-      @keydown.tab.prevent="closeMenu()"
-      @keydown.arrow-down.prevent="focusNext(0)"
-      @keydown.arrow-up.prevent="focusPrevious(0)"
-      @keydown.enter.prevent="selectTheme('light')"
-      @keydown.space.prevent="selectTheme('light')"
-      @keydown.home.prevent="$refs.menu.querySelector('[role=menuitemradio]').focus()"
-      @keydown.end.prevent="$refs.menu.querySelectorAll('[role=menuitemradio]')[2].focus()"
-    >
-      {{ 'sun' | icon | safe }}
-      <span>{{ 'theme_switcher.options.light' | t }}</span>
-      <span class="theme-switcher__check" x-show="$store.appearance.theme === 'light'">{{ 'check' | icon | safe }}</span>
-    </button>
-    <button
-      type="button"
-      role="menuitemradio"
-      :aria-checked="$store.appearance.theme === 'dark'"
-      tabindex="-1"
-      class="theme-switcher__menu-item"
-      @click="selectTheme('dark')"
-      @keydown.tab.prevent="closeMenu()"
-      @keydown.arrow-down.prevent="focusNext(1)"
-      @keydown.arrow-up.prevent="focusPrevious(1)"
-      @keydown.enter.prevent="selectTheme('dark')"
-      @keydown.space.prevent="selectTheme('dark')"
-      @keydown.home.prevent="$refs.menu.querySelector('[role=menuitemradio]').focus()"
-      @keydown.end.prevent="$refs.menu.querySelectorAll('[role=menuitemradio]')[2].focus()"
-    >
-      {{ 'moon' | icon | safe }}
-      <span>{{ 'theme_switcher.options.dark' | t }}</span>
-      <span class="theme-switcher__check" x-show="$store.appearance.theme === 'dark'">{{ 'check' | icon | safe }}</span>
-    </button>
-    <button
-      type="button"
-      role="menuitemradio"
-      :aria-checked="$store.appearance.theme === 'system'"
-      tabindex="-1"
-      class="theme-switcher__menu-item"
-      @click="selectTheme('system')"
-      @keydown.tab.prevent="closeMenu()"
-      @keydown.arrow-down.prevent="focusNext(2)"
-      @keydown.arrow-up.prevent="focusPrevious(2)"
-      @keydown.enter.prevent="selectTheme('system')"
-      @keydown.space.prevent="selectTheme('system')"
-      @keydown.home.prevent="$refs.menu.querySelector('[role=menuitemradio]').focus()"
-      @keydown.end.prevent="$refs.menu.querySelectorAll('[role=menuitemradio]')[2].focus()"
-    >
-      {{ 'monitor' | icon | safe }}
-      <span>{{ 'theme_switcher.options.system' | t }}</span>
-      <span class="theme-switcher__check" x-show="$store.appearance.theme === 'system'">{{ 'check' | icon | safe }}</span>
-    </button>
+    <template x-for="(theme, idx) in themes">
+      <div
+        role="menuitemradio"
+        class="theme-switcher__menu-item"
+        :aria-checked="$store.appearance.theme === theme.key"
+        :tabindex="focusedIdx === idx ? 0 : -1"
+        :data-focused="focusedIdx === idx"
+        @click="selectTheme(theme.key)"
+        @mousemove="focusOnNextTick(idx)"
+        @keydown.enter.prevent="selectTheme(theme.key)"
+        @keydown.space.prevent="selectTheme(theme.key, { keepOpen: true })" 
+        @keydown.arrow-down.prevent="focusNext()"
+        @keydown.arrow-up.prevent="focusPrevious()"
+      >
+        <span x-html="theme.icon"></span>
+        <span class="theme-switcher__menu-item-label" x-text="theme.label"></span>
+        <span x-show="$store.appearance.theme === theme.key">
+          {{ 'check' | icon({ width: "1em", height: "1em" }) | safe }}
+        </span>
+      </div>
+    </template>
   </div>
 </div>

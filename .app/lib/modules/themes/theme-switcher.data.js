@@ -5,42 +5,48 @@
 export default function (Alpine) {
   Alpine.data("themeSwitcher", () => ({
     open: false,
-    menuItems: ["light", "dark", "system"],
-
-    get currentIndex() {
-      return this.menuItems.indexOf(this.$store.appearance.theme);
-    },
+    focusedIdx: 0,
+    themes: [], // Will be initialized in x-init
 
     openMenu() {
       this.open = true;
-      this.$nextTick(() => {
-        const checkedItem = this.$refs.menu.querySelector("[aria-checked=true]");
-        if (checkedItem) {
-          checkedItem.focus();
-        } else {
-          this.$refs.menu.querySelector("[role=menuitemradio]").focus();
-        }
-      });
+
+      this.focusOnNextTick(
+        this.themes.findIndex((t) => t.key === this.$store.appearance.theme)
+      );
     },
 
-    closeMenu() {
+    closeMenu({ restoreFocus = true } = {}) {
       this.open = false;
-      this.$refs.button.focus();
+      restoreFocus && this.$refs.trigger.focus();
     },
 
-    focusNext(currentIndex) {
-      const nextIndex = (currentIndex + 1) % 3;
-      this.$refs.menu.querySelectorAll("[role=menuitemradio]")[nextIndex].focus();
+    onFocusOut(event) {
+      if (this.open && !this.$refs.menu.contains(event.relatedTarget)) {
+        this.$nextTick(() => this.closeMenu({ restoreFocus: false }));
+      }
     },
 
-    focusPrevious(currentIndex) {
-      const prevIndex = (currentIndex - 1 + 3) % 3;
-      this.$refs.menu.querySelectorAll("[role=menuitemradio]")[prevIndex].focus();
+    focusNext() {
+      this.focusOnNextTick((this.focusedIdx + 1) % this.themes.length);
     },
 
-    selectTheme(theme) {
+    focusPrevious() {
+      const { length } = this.themes;
+      this.focusOnNextTick((this.focusedIdx - 1 + length) % length);
+    },
+
+    selectTheme(theme, { keepOpen = false } = {}) {
       this.$store.appearance.theme = theme;
-      this.closeMenu();
+      !keepOpen && this.closeMenu();
+    },
+
+    focusOnNextTick(index) {
+      this.focusedIdx = index;
+
+      this.$nextTick(() => {
+        this.$refs.menu.querySelector('[data-focused="true"]')?.focus();
+      });
     },
   }));
 }
