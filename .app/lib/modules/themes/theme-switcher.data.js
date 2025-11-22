@@ -11,9 +11,7 @@ export default function (Alpine) {
     openMenu() {
       this.open = true;
 
-      this.focusOnNextTick(
-        this.themes.findIndex((t) => t.key === this.$store.appearance.theme)
-      );
+      this.focusOnNextTick(this.themes.indexOf(this.$store.appearance.theme));
     },
 
     closeMenu({ restoreFocus = true } = {}) {

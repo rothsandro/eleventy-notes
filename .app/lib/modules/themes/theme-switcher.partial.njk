@@ -1,14 +1,17 @@
 {% set id = uniqueId() %}
+{% set comma = joiner() %}
+{% set themes = 
+  [
+    { key: 'light', label: 'theme_switcher.options.light', icon: 'sun'  },
+    { key: 'dark', label: 'theme_switcher.options.dark', icon: 'moon'  },
+    { key: 'system', label: 'theme_switcher.options.system', icon: 'monitor' }
+  ]
+%}
 
 <div 
   class="theme-switcher" 
   x-data="themeSwitcher"
-  x-init="themes = 
-    [
-      { key: 'light', label: '{{ 'theme_switcher.options.light' | t }}', icon: '{{ 'sun' | icon }}'  },
-      { key: 'dark', label: '{{ 'theme_switcher.options.dark' | t }}', icon: '{{ 'moon' | icon }}'  },
-      { key: 'system', label: '{{ 'theme_switcher.options.system' | t }}', icon: '{{ 'monitor' | icon }}'  }
-    ]"
+  x-init="themes = [{% for theme in themes %}{{ comma() }}'{{ theme.key }}'{% endfor %}]"
   x-cloak 
   lang="{% uiLang %}" 
 >
@@ -38,26 +41,26 @@
     @keydown.prevent.escape="closeMenu()"
     @focusout="onFocusOut($event)"
   >
-    <template x-for="(theme, idx) in themes">
-      <div
-        role="menuitemradio"
-        class="theme-switcher__menu-item"
-        :aria-checked="$store.appearance.theme === theme.key"
-        :tabindex="focusedIdx === idx ? 0 : -1"
-        :data-focused="focusedIdx === idx"
-        @click="selectTheme(theme.key)"
-        @mousemove="focusOnNextTick(idx)"
-        @keydown.enter.prevent="selectTheme(theme.key)"
-        @keydown.space.prevent="selectTheme(theme.key, { keepOpen: true })" 
-        @keydown.arrow-down.prevent="focusNext()"
-        @keydown.arrow-up.prevent="focusPrevious()"
-      >
-        <span x-html="theme.icon"></span>
-        <span class="theme-switcher__menu-item-label" x-text="theme.label"></span>
-        <span x-show="$store.appearance.theme === theme.key">
-          {{ 'check' | icon({ width: "1em", height: "1em" }) | safe }}
-        </span>
-      </div>
-    </template>
+    {% for theme in themes %}
+    <div
+      role="menuitemradio"
+      class="theme-switcher__menu-item"
+      :aria-checked="$store.appearance.theme === '{{ theme.key }}'"
+      :tabindex="focusedIdx === {{ loop.index0 }} ? 0 : -1"
+      :data-focused="focusedIdx === {{ loop.index0 }}"
+      @click="selectTheme('{{ theme.key }}')"
+      @mousemove="focusOnNextTick({{ loop.index0 }})"
+      @keydown.enter.prevent="selectTheme('{{ theme.key }}')"
+      @keydown.space.prevent="selectTheme('{{ theme.key }}', { keepOpen: true })" 
+      @keydown.arrow-down.prevent="focusNext()"
+      @keydown.arrow-up.prevent="focusPrevious()"
+    >
+      {{ theme.icon | icon | safe }}
+      <span class="theme-switcher__menu-item-label">{{ theme.label | t }}</span>
+      <span x-show="$store.appearance.theme === '{{ theme.key }}'">
+        {{ 'check' | icon({ width: "1em", height: "1em" }) | safe }}
+      </span>
+    </div>
+    {% endfor %}
   </div>
 </div>
