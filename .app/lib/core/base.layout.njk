@@ -19,12 +19,14 @@ panel: true
 
     <div class="app-layout">
       {% include 'core/app-header.partial.njk' %}
+      {% include 'modules/panel/panel-overlay.partial.njk' %}
       <div class="app-layout__wrapper">
         <div
           class="app-layout__sidebar"
           x-data="scrollContainer('app:sidebar')"
           x-bind="container"
           :data-open="$store.nav.open.toString()"
+          :data-overlay="$store.nav.open.toString()"
         >
           <div class="app-layout__sidebar-inner">
             {% include 'modules/sidebar/sidebar.partial.njk' %}

@@ -1,5 +1,6 @@
 export default /** @type {const} */ ({
   "nav_toggle.label": "Menu",
+  "panel_toggle.label": "Panel",
   "search.action": "Search",
   "search.noscript": "Please enable JavaScript to use the search.",
   "search.shortcut_info": 'Press "/" to activate search',

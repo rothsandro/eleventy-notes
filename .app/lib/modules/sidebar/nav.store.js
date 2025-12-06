@@ -6,8 +6,12 @@
 export default function (Alpine) {
   Alpine.store("nav", {
     open: false,
-    toggle() {
-      this.open = !this.open;
+    toggle(value) {
+      this.open = value ?? !this.open;
+
+      if (this.open) {
+        Alpine.store("panel").toggle(false);
+      }
     },
   });
 }

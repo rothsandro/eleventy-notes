@@ -30,7 +30,7 @@
     inset-inline-start: -1px;
     inset-block-start: var(--toc-indicator-start);
     background: var(--color-neutral-border);
-    transition: all 150ms linear;
+    transition: all var(--motion-transition-duration, 150ms) linear;
   }
 }
 

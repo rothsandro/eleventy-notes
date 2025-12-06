@@ -13,6 +13,10 @@
   padding-block: var(--space-6);
   padding-inline: var(--space-4);
   overscroll-behavior: contain;
+
+  &:not(:has(*)) {
+    display: none;
+  }
 }
 
 .page__title {

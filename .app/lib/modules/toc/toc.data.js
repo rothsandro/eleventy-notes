@@ -13,6 +13,8 @@ export default function (Alpine) {
     _nextHash: window.location.hash.slice(1),
     _scrollTimer: 0,
 
+    _resizeObserver: null,
+
     get indicatorStyles() {
       return {
         "--toc-indicator-start": `${this.indicator.start}px`,
@@ -26,9 +28,17 @@ export default function (Alpine) {
         .map((link) => link.getAttribute("href").slice(1))
         .map((id) => document.getElementById(id));
 
-      // Initialize trigger in case the user loads the pagge for the first time
+      // Initialize trigger in case the user loads the page for the first time
       // without a restored scroll position or hash.
       this.onScroll(false);
+
+      // Ensure indicator is updated when mobile panel is opened
+      this._resizeObserver = new ResizeObserver(() => this._calcIndicator());
+      this._resizeObserver.observe(this.$el);
+    },
+
+    destroy() {
+      this._resizeObserver?.disconnect();
     },
 
     onNavigate(id) {

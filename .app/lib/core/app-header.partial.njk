@@ -15,4 +15,17 @@
     {% include 'modules/search/search-button.partial.njk' %}
   </div>
   {% include 'modules/themes/theme-switcher.partial.njk' %}
+
+  <button
+    class="icon-btn"
+    lang="{% uiLang %}"
+    :aria-expanded="$store.panel.open"
+    @click="$store.panel.toggle()"
+    x-show="$store.panel.withOverlay"
+    x-cloak
+  >
+    <span x-show="!$store.panel.open">{{ 'list' | icon | safe }}</span>
+    <span x-show="$store.panel.open">{{ 'x' | icon | safe }}</span>
+    <span class="visually-hidden">{{ 'panel_toggle.label' | t }}</span>
+  </button>
 </header>

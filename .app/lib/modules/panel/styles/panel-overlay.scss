@@ -1,0 +1,21 @@
+.panel-overlay {
+  position: fixed;
+  inset: 4rem 0 0;
+  inline-size: 100%;
+  z-index: 2;
+  background-color: var(--color-backdrop);
+}
+
+.panel-overlay__content {
+  block-size: 100%;
+  max-inline-size: 400px;
+  margin-inline-start: auto;
+  padding: var(--space-6);
+  box-shadow: var(--shadow-xxl);
+  background-color: var(--color-surface);
+  overflow: auto;
+  overscroll-behavior: contain;
+
+  // Disable motion for TOC indicator
+  --motion-transition-duration: 0;
+}

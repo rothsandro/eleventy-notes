@@ -1,0 +1,11 @@
+<div
+  class="panel-overlay"
+  x-cloak
+  x-data
+  x-show="$store.panel.open"
+  :data-overlay="$store.panel.open"
+  @click="$store.panel.onOverlayClick($event)"
+  @keydown.escape.window="$store.panel.toggle(false)"
+>
+  <div class="panel-overlay__content" data-ref="overlayPanel"></div>
+</div>

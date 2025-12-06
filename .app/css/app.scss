@@ -23,6 +23,7 @@
   @include meta.load-css("./../lib/modules/custom-props/styles");
   @include meta.load-css("./../lib/modules/notes/styles");
   @include meta.load-css("./../lib/modules/page-nav/styles");
+  @include meta.load-css("./../lib/modules/panel/styles");
   @include meta.load-css("./../lib/modules/search/styles");
   @include meta.load-css("./../lib/modules/sidebar/styles");
   @include meta.load-css("./../lib/modules/tags/styles");
