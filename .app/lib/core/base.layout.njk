@@ -23,12 +23,16 @@ panel: true
       <div class="app-layout__wrapper">
         <div
           class="app-layout__sidebar"
-          x-data="scrollContainer('app:sidebar')"
-          x-bind="container"
+          x-data
+          @click.self="$store.nav.toggle(false)"
           :data-open="$store.nav.open.toString()"
           :data-overlay="$store.nav.open.toString()"
         >
-          <div class="app-layout__sidebar-inner">
+          <div 
+            class="app-layout__sidebar-inner"
+            x-data="scrollContainer('app:sidebar')"
+            x-bind="container"
+          >
             {% include 'modules/sidebar/sidebar.partial.njk' %}
           </div>
         </div>

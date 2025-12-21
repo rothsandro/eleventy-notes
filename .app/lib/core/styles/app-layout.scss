@@ -2,7 +2,6 @@
 
 .app-layout__sidebar {
   background-color: var(--color-backdrop);
-  overscroll-behavior: contain;
   z-index: 2;
 
   &[data-open="false"] {
@@ -12,19 +11,21 @@
   .supports-js & {
     position: fixed;
     inset: 4rem 0 0;
-    overflow: auto;
   }
 }
 
 .app-layout__sidebar-inner {
-  min-block-size: 100%;
+  block-size: 100%;
   inline-size: 100%;
+  position: relative;
   padding-block: var(--space-4);
   background-color: var(--color-surface);
+  overscroll-behavior: contain;
 
   :root.supports-js & {
     box-shadow: var(--shadow-xxl);
     max-inline-size: 400px;
+    overflow: auto;
   }
 }
 
@@ -39,6 +40,9 @@
     display: block !important;
     position: sticky !important;
     inset: 4rem 0 0;
-    overflow: auto;
+  }
+
+  .app-layout__sidebar-inner {
+    box-shadow: none !important;
   }
 }
