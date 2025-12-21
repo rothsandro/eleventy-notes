@@ -21,11 +21,11 @@
   padding-block: var(--space-4);
   background-color: var(--color-surface);
   overscroll-behavior: contain;
+  overflow: auto;
 
   :root.supports-js & {
     box-shadow: var(--shadow-xxl);
     max-inline-size: 400px;
-    overflow: auto;
   }
 }
 
