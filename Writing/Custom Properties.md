@@ -1,7 +1,9 @@
 ---
 tags: [writing]
+author:
+  name: Sandro Roth
+  url: "https://sandroroth.com"
 props:
-  author: Sandro Roth
   publishedOn: 2023-07-31
   learnMore:
     - "[[Configuration file|Config file]]"
@@ -107,6 +109,38 @@ export default defineConfig({
 
 Wikilinks used in custom properties are not listed in the incoming / outgoing sections of the panel.
 
+### Author with Link
+
+This example shows how to use a custom template to render a property as a link. First, define the author with a name and URL in your note using Front Matter:
+
+```md
+---
+author:
+  name: John Doe
+  url: "https://johndoe.com"
+---
+
+# My Note
+```
+
+Then add the property with a template to the configuration file. The template uses Nunjucks and Markdown syntax:
+
+```js
+// /app.mjs
+export default defineConfig({
+  customProperties: {
+    properties: [
+      {
+        name: "author",
+        template: "[{{ value.name }}]({{ value.url }})",
+      },
+    ],
+  },
+});
+```
+
+The template has access to `value` (the raw property value) and `formattedValue` (the formatted value for dates and numbers). For array values, both `value` and `formattedValue` are arrays with matching indices.
+
 ### Arbitrary Properties
 
 This example shows how to add arbitrary properties to a note. First, define the properties in your note using Front Matter.
@@ -159,6 +193,11 @@ export default defineConfig({
         // The label to show in the panel.
         // If omitted, is inferred from the property name.
         label: "Lovely written by",
+
+        // Custom template to render the property value.
+        // It supports Nunjucks and Markdown syntax and
+        // has access to `value` and `formattedValue` variables.
+        template: "[{{ value.name }}]({{ value.url }})",
 
         // Options for the property value (optional).
         options: {

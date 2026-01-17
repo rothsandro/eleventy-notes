@@ -28,6 +28,9 @@
 
   {% if panel %}
   <div class="page__panel" data-ref="panel">
+    {# Necessary for notes panel's async render filter (for custom props template) #}
+    {% asyncEach i in [] %} {% endeach %}
+
     {% include 'modules/notes/notes-panel.partial.njk' %}
   </div>
   {% endif %}

@@ -37,21 +37,27 @@
       <div>
           <dt>{{ prop.label }}</dt>
           <dd class="stack">
-            {% for value in prop.values %}
-                <div class="custom-props__value">
-                {% if value.type == 'string' %}
-                  {{ value.value }}
-                {% elseif value.type == 'boolean' %}
-                  {{ value.formattedValue }}
-                {% elseif value.type == 'date' %}
-                  <time datetime="{{ value.value.toISOString() }}">{{ value.formattedValue }}</time>
-                {% elseif value.type == 'number' %}
-                  {{ value.formattedValue }}
-                {% elseif value.type == 'wikilink' %}
-                  <a href="{{ value.href }}" class="custom-props__links">{{ value.label }}</a>
-                {% endif %}
+            {% if prop.template %}
+              <div class="custom-props__value">
+                {{ prop.template.src | renderContent("njk,md", prop.template.data) | safe }}
               </div>
-            {% endfor %}
+            {% else %}
+              {% for value in prop.values %}
+                  <div class="custom-props__value">
+                  {% if value.type == 'string' %}
+                    {{ value.value }}
+                  {% elseif value.type == 'boolean' %}
+                    {{ value.formattedValue }}
+                  {% elseif value.type == 'date' %}
+                    <time datetime="{{ value.value.toISOString() }}">{{ value.formattedValue }}</time>
+                  {% elseif value.type == 'number' %}
+                    {{ value.formattedValue }}
+                  {% elseif value.type == 'wikilink' %}
+                    <a href="{{ value.href }}">{{ value.label }}</a>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            {% endif %}
           </dd>
       </div>
       {% endfor %}

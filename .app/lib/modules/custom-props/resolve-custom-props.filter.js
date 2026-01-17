@@ -45,7 +45,7 @@ export const resolveCustomPropsFilter = (eleventyConfig) => {
       if (typeof value === "string" && Wikilink.REGEX.test(value)) {
         const [, path, , text] = value.match(Wikilink.REGEX);
         const link = wikilink.process(path, text);
-        return [{ type: "wikilink", ...link }];
+        return [{ type: "wikilink", value, ...link }];
       }
 
       if (typeof value === "number") {
@@ -53,11 +53,13 @@ export const resolveCustomPropsFilter = (eleventyConfig) => {
           options?.number?.locale,
           options?.number?.format
         );
-        return [{ type: "number", formattedValue: intl.format(value) }];
+        return [{ type: "number", value, formattedValue: intl.format(value) }];
       }
 
       if (typeof value === "boolean") {
-        return [{ type: "boolean", formattedValue: value ? "Yes" : "No" }];
+        return [
+          { type: "boolean", value, formattedValue: value ? "Yes" : "No" },
+        ];
       }
 
       if (value instanceof Date) {
@@ -75,6 +77,19 @@ export const resolveCustomPropsFilter = (eleventyConfig) => {
       return [{ type: "string", value }];
     }
 
+    function extractTemplateData(value, parsedValues) {
+      const isMultiValue = Array.isArray(value);
+      const rawValues = parsedValues.map((x) => x.value);
+      const formattedValues = parsedValues.flatMap(
+        (x) => x.formattedValue ?? null
+      );
+
+      return {
+        value: isMultiValue ? rawValues : rawValues[0],
+        formattedValue: isMultiValue ? formattedValues : formattedValues[0],
+      };
+    }
+
     return properties.flatMap((property) => {
       const rootPath = property.path ?? "";
       const root = ValueParser.getValueByPath(this.ctx, rootPath) ?? {};
@@ -83,11 +98,20 @@ export const resolveCustomPropsFilter = (eleventyConfig) => {
         const value = ValueParser.getValueByPath(root, name);
         if (value === undefined || value === null) return [];
 
+        const parsedValues = parseValue(value, property.options);
+        if (parsedValues.length === 0) return [];
+
         return [
           {
             name,
             label: property.label || nameToDisplayName(name),
-            values: parseValue(value, property.options),
+            values: parsedValues,
+            template: property.template
+              ? {
+                  src: property.template,
+                  data: extractTemplateData(value, parsedValues),
+                }
+              : null,
           },
         ];
       });

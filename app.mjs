@@ -15,6 +15,10 @@ export default defineConfig({
   customProperties: {
     properties: [
       {
+        name: "author",
+        template: "[{{ value.name }}]({{ value.url }})",
+      },
+      {
         path: "props",
         options: {
           date: {

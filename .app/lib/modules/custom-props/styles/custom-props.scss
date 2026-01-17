@@ -22,15 +22,15 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
 
-.custom-props__links {
-  color: inherit;
-  text-underline-offset: 5px;
-  text-decoration-style: dashed;
-  text-decoration-thickness: 1px;
+  a[href] {
+    color: inherit;
+    text-underline-offset: 5px;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
 
-  &:hover {
-    text-decoration-style: solid;
+    &:hover {
+      text-decoration-style: solid;
+    }
   }
 }

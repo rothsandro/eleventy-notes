@@ -72,6 +72,13 @@ export interface AppConfig {
       label?: string;
 
       /**
+       * The template used to render the property value.
+       * It supports Nunjucks and Markdown syntax and
+       * has access to `value` and `formattedValue` variables.
+       */
+      template?: string;
+
+      /**
        * Configuration options for the property value.
        */
       options?: {
