@@ -19,9 +19,9 @@
 }
 
 .custom-props__value {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  hyphens: auto;
 
   a[href] {
     color: inherit;
