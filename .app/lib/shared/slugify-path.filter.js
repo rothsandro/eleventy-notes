@@ -1,6 +1,6 @@
 /**
  * Creates the slugifyPath filter.
- * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig
  * @returns {((path: string) => string)} The filter function.
  */
 export const slugifyPathFilter = (eleventyConfig) => (path) => {

@@ -8,7 +8,7 @@ import { calloutsModule } from "./../modules/callouts/index.js";
 
 /**
  * Creates a markdown-it instance.
- * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig
  * @returns The configured markdown library.
  */
 export const markdownLibrary = (eleventyConfig) => {

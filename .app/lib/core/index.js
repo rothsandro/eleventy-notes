@@ -12,7 +12,7 @@ export const core = {
 
   /**
    * Sets up the core.
-   * @param {import("@11ty/eleventy").UserConfig} config
+   * @param {import("@11ty/eleventy/UserConfig").default} config
    */
   setup(config) {
     config.setLibrary("md", markdownLibrary(config));

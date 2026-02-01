@@ -4,7 +4,7 @@ import { pageNavFilter } from "./page-nav.filter.js";
 export const pageNavModule = {
   /**
    * Sets up the module.
-   * @param {import("@11ty/eleventy").UserConfig} config
+   * @param {import("@11ty/eleventy/UserConfig").default} config
    */
   setup(config) {
     config.addCollection("_pageNavOrder", pageNavOrderCollection(config));

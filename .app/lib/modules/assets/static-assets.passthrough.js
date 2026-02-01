@@ -2,7 +2,7 @@ import appData from "../../../_data/app.js";
 
 /**
  * Registers the static assets as passthrough copy in Eleventy.
- * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig
  */
 export function registerStaticAssetsAsPassthroughCopy(eleventyConfig) {
   const pathsConfig = appData().staticAssets.paths;

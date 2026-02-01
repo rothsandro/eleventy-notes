@@ -6,7 +6,7 @@ const { ValueParser } = sharedModule;
 
 /**
  * Creates a filter function that resolves custom properties.
- * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig
  * @returns The filter function.
  */
 export const resolveCustomPropsFilter = (eleventyConfig) => {
@@ -22,7 +22,7 @@ export const resolveCustomPropsFilter = (eleventyConfig) => {
       {
         slugify: eleventyConfig.getFilter("slugifyPath"),
         slugifyAnchor: eleventyConfig.getFilter("slugify"),
-      }
+      },
     );
 
     function nameToDisplayName(name) {
@@ -51,7 +51,7 @@ export const resolveCustomPropsFilter = (eleventyConfig) => {
       if (typeof value === "number") {
         const intl = new Intl.NumberFormat(
           options?.number?.locale,
-          options?.number?.format
+          options?.number?.format,
         );
         return [{ type: "number", value, formattedValue: intl.format(value) }];
       }
@@ -65,7 +65,7 @@ export const resolveCustomPropsFilter = (eleventyConfig) => {
       if (value instanceof Date) {
         const intl = new Intl.DateTimeFormat(
           options?.date?.locale,
-          options?.date?.format
+          options?.date?.format,
         );
         return [{ type: "date", value, formattedValue: intl.format(value) }];
       }
@@ -81,7 +81,7 @@ export const resolveCustomPropsFilter = (eleventyConfig) => {
       const isMultiValue = Array.isArray(value);
       const rawValues = parsedValues.map((x) => x.value);
       const formattedValues = parsedValues.flatMap(
-        (x) => x.formattedValue ?? null
+        (x) => x.formattedValue ?? null,
       );
 
       return {

@@ -11,7 +11,7 @@ export const notesModule = {
 
   /**
    * Sets up the module.
-   * @param {import("@11ty/eleventy").UserConfig} config
+   * @param {import("@11ty/eleventy/UserConfig").default} config
    */
   setup(config) {
     config.addCollection("_notes", this._notesCollection(config));

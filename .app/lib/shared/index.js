@@ -12,7 +12,7 @@ export const sharedModule = {
 
   /**
    * Sets up the module
-   * @param {import("@11ty/eleventy").UserConfig} config
+   * @param {import("@11ty/eleventy/UserConfig").default} config
    */
   setup(config) {
     config.addFilter("ariaCurrent", ariaCurrentFilter(config));

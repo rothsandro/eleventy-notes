@@ -14,6 +14,9 @@ import { core } from "./lib/core/index.js";
 
 export const config = core.configObj;
 
+/**
+ * @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig
+ */
 export default async function (eleventyConfig) {
   sharedModule.setup(eleventyConfig);
   customPropsModule.setup(eleventyConfig);

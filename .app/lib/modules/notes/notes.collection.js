@@ -2,7 +2,7 @@ import { _notesCollection } from "./_notes.collection.js";
 
 /**
  * Factory function for the notes collection.
- * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig
  * @returns The notes collection function.
  */
 export const notesCollection = (eleventyConfig) => (collectionApi) => {

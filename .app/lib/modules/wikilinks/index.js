@@ -8,7 +8,7 @@ export const wikilinksModule = {
 
   /**
    * Sets up the module
-   * @param {import("@11ty/eleventy").UserConfig} config
+   * @param {import("@11ty/eleventy/UserConfig").default} config
    */
   setup(config) {
     config.addCollection("_links", linksCollection(config));

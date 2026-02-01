@@ -3,7 +3,7 @@ import { parse } from "node-html-parser";
 
 /**
  * Creates the collection factory of all links.
- * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig
  * @returns The collection function
  */
 export const linksCollection = (eleventyConfig) => (collectionApi) => {
@@ -18,7 +18,7 @@ export const linksCollection = (eleventyConfig) => (collectionApi) => {
     return (_parsedNotes ??= Object.fromEntries(
       notes.map((note) => {
         return [note.url, { ...note, dom: parse(note.content) }];
-      })
+      }),
     ));
   }
 
@@ -37,7 +37,7 @@ export const linksCollection = (eleventyConfig) => (collectionApi) => {
             return !!href && list.findIndex(([h]) => h === href) === idx;
           });
         return [note.url, filteredLinks];
-      })
+      }),
     ));
   }
 

@@ -4,7 +4,7 @@ import { uiLangShortcode } from "./ui-lang.shortcode.js";
 export const translationModule = {
   /**
    * Sets up the module
-   * @param {import("@11ty/eleventy").UserConfig} config
+   * @param {import("@11ty/eleventy/UserConfig").default} config
    */
   async setup(config) {
     config.addFilter("t", await translateFilter(config));

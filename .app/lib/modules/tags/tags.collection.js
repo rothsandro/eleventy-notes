@@ -2,7 +2,7 @@ import appData from "../../../_data/app.js";
 
 /**
  * Creates the collection factory of all tags
- * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
+ * @param {import("@11ty/eleventy/UserConfig").default} eleventyConfig
  * @returns The collection function
  */
 export const tagsCollection = (eleventyConfig) => (collectionApi) => {
