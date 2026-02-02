@@ -86,16 +86,16 @@ export interface AppConfig {
          * Configuration options for date values.
          */
         date?: {
-          locale?: string;
-          format?: object;
+          locale?: Intl.LocalesArgument;
+          format?: Intl.DateTimeFormatOptions;
         };
 
         /**
          * Configuration options for numeric values.
          */
         number?: {
-          locale?: string;
-          format?: object;
+          locale?: Intl.LocalesArgument;
+          format?: Intl.NumberFormatOptions;
         };
       };
     }>;
