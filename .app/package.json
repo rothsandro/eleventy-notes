@@ -13,7 +13,7 @@
     "js:watch": "node scripts/bundle-js.js --watch",
     "css:build": "node scripts/bundle-css.js",
     "js:build": "node scripts/bundle-js.js",
-    "clean": "rimraf dist"
+    "clean": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\""
   },
   "keywords": [],
   "author": "",
@@ -30,7 +30,6 @@
     "node-html-parser": "^7.0.1",
     "npm-run-all2": "^8.0.1",
     "parcel": "^2.14.4",
-    "rimraf": "^6.0.1",
     "sass": "^1.87.0"
   },
   "dependencies": {
