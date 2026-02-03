@@ -19,7 +19,7 @@ export const pageNavFilter = (eleventyConfig) => {
         slugify: eleventyConfig.getFilter("slugifyPath"),
         slugifyAnchor: eleventyConfig.getFilter("slugify"),
         resolveTitle: (note) => note.data.navTitle || note.data.title,
-      }
+      },
     );
 
     const prev = resolveCustomNav(this.ctx.prevPage) ?? resolveAutoNav(-1);
@@ -45,13 +45,13 @@ export const pageNavFilter = (eleventyConfig) => {
 
       const filePathStem = page.filePathStem;
       const idx = pageNavOrder.findIndex(
-        (x) => x.filePathStem === filePathStem
+        (x) => x.filePathStem === filePathStem,
       );
 
       const entry = idx >= 0 ? pageNavOrder[idx + idxDiff] : null;
       if (!entry) return null;
 
-      return { label: entry.data.navTitle || entry.title, href: entry.url };
+      return { label: entry.data?.navTitle || entry.title, href: entry.url };
     }
   };
 };
