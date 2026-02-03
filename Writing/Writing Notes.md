@@ -38,6 +38,10 @@ You can add images to your notes using a relative file path:
 ![My image](./my-image.jpg)
 ```
 
+Like this:
+
+![Hello World banner](./assets/hello-world.svg)
+
 ## Task lists
 
 You can use task lists with checkboxes:
