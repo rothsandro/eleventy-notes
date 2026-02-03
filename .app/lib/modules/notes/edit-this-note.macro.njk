@@ -2,7 +2,7 @@
   {% if config and config.url %}
     <a 
       href="{{ page | editThisNoteLink(config) }}"
-      {{ 'target="_blank" rel="noopener"' if config.openInNewTab == true else '' }}
+      {{ ('target="_blank" rel="noopener"' | safe) if config.openInNewTab == true else '' }}
       class="toggle-btn"
       lang="{% uiLang %}"
     >

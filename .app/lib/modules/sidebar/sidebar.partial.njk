@@ -9,7 +9,7 @@
       <li>
         <a
           href="/"
-          {{ '/' | ariaCurrent }}
+          {{ '/' | ariaCurrent | safe }}
           class="nav-list__link"
         >
           {{ 'home' | icon | safe }}
@@ -22,7 +22,7 @@
         <li>
           <a
             href="/tags/"
-            {{ '/tags/' | ariaCurrent }}
+            {{ '/tags/' | ariaCurrent | safe }}
             class="nav-list__link"
             lang="{% uiLang %}"
           >
@@ -34,7 +34,7 @@
       <li>
         <a
           href="/search/"
-          {{ '/search/' | ariaCurrent }}
+          {{ '/search/' | ariaCurrent | safe }}
           class="nav-list__link"
           lang="{% uiLang %}"
         >
@@ -55,7 +55,7 @@
           <li>
             <a
               href="{{ item.url }}"
-              {{ 'target="_blank" rel="noopener"' if item.openInNewTab != false else '' }}
+              {{ ('target="_blank" rel="noopener"' | safe) if item.openInNewTab != false else '' }}
               class="nav-list__link"
             >
               {{ item.icon | icon | safe }}
@@ -134,7 +134,7 @@
         <li>
           <a
             href="{{ tag.url }}"
-            {{ tag.url | ariaCurrent }}
+            {{ tag.url | ariaCurrent | safe }}
             class="nav-list__link"
           >
             {{ 'hash' | iconRef | safe }}

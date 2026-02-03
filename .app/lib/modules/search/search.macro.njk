@@ -30,7 +30,7 @@
         enterkeyhint="search"
         required
         x-model="term"
-        x-init="{{ init }}"
+        x-init="{{ init | safe }}"
         @focus="open = true"
         @keydown="onKeyDown"
         @pageshow.window="term = $el.value"

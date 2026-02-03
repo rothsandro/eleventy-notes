@@ -14,7 +14,7 @@
           <div class="nav-list__link-with-toggle">
             <a
               href="{{ item.url }}"
-              {{ item.url | ariaCurrent(page) }}
+              {{ item.url | ariaCurrent(page) | safe }}
               class="nav-list__link"
             >
               <span>{{ item.title }}</span>
