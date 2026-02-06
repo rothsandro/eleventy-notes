@@ -1,12 +1,13 @@
 ---
-tags: organizing
+sort: 4
+tags: [notes]
 ---
 
-You can use tags to organize your notes. All your tags are automatically listed in the sidebar and there is a separate tags page that lists all your tags and notes. In addition, the [[Features/Search|Search]] support filtering by tags, and you can customize the [[Features/Sidebar|Sidebar]] based on tags.
+You can use tags to organize your notes. All your tags are automatically listed in the sidebar and there is a separate tags page that lists all your tags and notes. The [[Search]] supports filtering by tags, and you can customize the [[Sidebar]] based on tags.
 
 ## Adding tags
 
-Use Front Matter to add tags to your notes. For a single tag you can directly add the tag name:
+Use front matter to add tags to your notes. For a single tag you can directly add the tag name:
 
 ```markdown
 ---
@@ -37,9 +38,9 @@ tags: [one, two, three]
 My note
 ```
 
-## Tags mapping
+## Tag mapping
 
-You can customize the visible label of a tag by adding a mapping in the [[Configuration file]].
+You can customize the visible label of a tag by adding a mapping in your `app.mjs`:
 
 ```js
 // /app.mjs

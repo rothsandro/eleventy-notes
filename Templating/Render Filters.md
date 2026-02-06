@@ -1,5 +1,6 @@
 ---
-tags: [writing, dynamic-content]
+sort: 4
+tags: [customization, templating]
 ---
 
 The `renderAsList` filter renders the given collection as a list.

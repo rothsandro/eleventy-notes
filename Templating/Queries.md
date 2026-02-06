@@ -1,12 +1,13 @@
 ---
-tags: [writing, dynamic-content]
+sort: 3
+tags: [customization, templating]
 ---
 
-Queries allow you to filter, sort and manipulate data collections. Queries can be used on [[Collections]] provided by Eleventy Notes or any other list of objects you want to manipulate.
+Queries allow you to filter, sort, and manipulate data collections. Queries can be used on [[Collections]] provided by Eleventy Notes or any other list of objects you want to manipulate.
 
 ## Usage
 
-Define a query in the front matter of a note and use the `query` filter to apply it to a list of objects.
+Define a query in the front matter of a note and use the `query` filter to apply it:
 
 ```md
 ---
@@ -20,11 +21,9 @@ myQuery:
 {{ collections.notes | query(myQuery) }}
 ```
 
-## Query Properties
+## Filtering
 
-### Filtering
-
-The `filter` property allows you to filter the data collection. The `filter` property is an array of filter rows. Each filter row is an array with three elements: the property to filter on, the operator and the value of the operator.
+The `filter` property allows you to filter the data collection. It's an array of filter rows, where each row is an array with three elements: the property, the operator, and the value.
 
 ```yml
 myQuery:
@@ -39,9 +38,7 @@ myQuery:
     - ["tags", "includes", "book"]
 ```
 
-#### Operators
-
-The following operators are available:
+### Operators
 
 | Operator               | Description                                             |
 | :--------------------- | :------------------------------------------------------ |
@@ -60,9 +57,9 @@ The following operators are available:
 | `includesNoneOf`       | The property must include none of the values            |
 | `matches`              | The property must match the given RegEx pattern         |
 
-#### And / Or
+### And / Or
 
-By default, all provided conditions must match. You can change this behavior by passing an object with either an `and` or `or` property. These objects can also be nested:
+By default, all provided conditions must match. You can change this by using `and` or `or` objects, which can also be nested:
 
 ```yaml
 myQuery:
@@ -76,11 +73,11 @@ myQuery:
           - ["tags", "isEmpty"]
 ```
 
-The example above filters all notes that have the tag `book` OR that have the title `Book:` AND no tags.
+This filters all notes that have the tag `book` OR that have the title starting with `Book:` AND no tags.
 
-### Sorting
+## Sorting
 
-The `sort` property allows you to sort the data collection. The `sort` property is an array of sort rows. Each sort row is an array with two elements: the property to sort on and the sort direction.
+The `sort` property allows you to sort the data collection. Each sort row is an array with two elements: the property and the direction.
 
 ```yml
 myQuery:
@@ -95,9 +92,9 @@ myQuery:
     - ["title", "desc"]
 ```
 
-### Tree
+## Tree
 
-The `tree` property allows you to transform the data collection into a tree structure. The tree is created by a path property that is split on a separator.
+The `tree` property transforms the data collection into a tree structure based on a path property:
 
 ```yml
 myQuery:
@@ -116,7 +113,7 @@ anotherQuery:
       "^/Demo/": ""
 ```
 
-If `tree` is enabled, it will transform each item in the collection into a tree node. The tree node has the following properties:
+If `tree` is enabled, it transforms each item into a tree node:
 
 ```js
 [
@@ -135,9 +132,9 @@ If `tree` is enabled, it will transform each item in the collection into a tree 
 ];
 ```
 
-### Offset and Limit
+## Offset and limit
 
-The `offset` and `limit` properties allow you to limit the number of items returned by the query.
+The `offset` and `limit` properties allow you to limit the number of items returned:
 
 ```yml
 myQuery:

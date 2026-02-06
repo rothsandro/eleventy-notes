@@ -1,6 +1,6 @@
 ---
 sort: 1
-tags: [feature]
+tags: [customization, configuration]
 ---
 
 Eleventy Notes provides several configuration options to customize the app. All of them are optional, but a basic configuration is recommended.
@@ -9,7 +9,7 @@ Eleventy Notes provides several configuration options to customize the app. All 
 
 ## Basic configuration
 
-Open the `app.mjs` file in the root of the project, next to your notes. Add a custom title (shown in the header), a description (not shown but used by search engines) and define the language of your content:
+Open the `app.mjs` file in the root of the project, next to your notes. Add a custom title (shown in the header), a description (used by search engines) and define the language of your content:
 
 ```js
 import { defineConfig } from "./.app/app-config.js";
@@ -21,11 +21,9 @@ export default defineConfig({
 });
 ```
 
-## TypeScript
+## TypeScript support
 
-If you use an editor like [VS Code](https://code.visualstudio.com/), you can add
-type-checking to your configuration file by adding the following comment
-at the top of the file:
+If you use an editor like [VS Code](https://code.visualstudio.com/), you can add type-checking to your configuration file by adding the following comment at the top of the file:
 
 ```js
 // @ts-check
@@ -33,24 +31,20 @@ at the top of the file:
 
 This will warn you about invalid configuration options.
 
-## Supported configurations
+## Available options
 
-In addition to the [[#basic configuration]], you can also:
-
-- Adjust the URL of your notes, see [[Files and Folders#URL prefix]]
-- Add an edit link to your notes, see [[Edit link]]
-- Customize the notes in the sidebar or add links to other websites, see [[Sidebar]]
-- Customize the page navigation, see [[Page Navigation]]
-- Customize the content of the panel, see [[Panel]]
-- Configure custom properties in the panel, see [[Custom Properties]]
-- Customize the behavior of Wikilinks, see [[Wikilinks#Automatic Label]]
-- Create mappings for your tags, see [[Tags#Tags mapping]]
-- Add static assets, see [[Static Assets]]
+- [[Sidebar|Sidebar]] - Customize the sidebar sections and notes
+- [[Panel|Panel]] - Configure the panel sections and edit link
+- [[Themes and Styling|Themes and Styling]] - Choose color schemes and add custom CSS
+- [[Page Navigation|Page Navigation]] - Configure previous/next navigation
+- [[Tags|Tags]] - Create tag mappings and labels
+- [[Custom Properties|Custom Properties]] - Add metadata to your notes
+- [[Static Assets|Static Assets]] - Serve non-processed files
+- [[Language|Language]] - Set content and UI language
+- [[Wikilinks#Automatic label]] - Customize automatic wikilink labels
 - Add `ignores` to exclude files
 
-## Summary
-
-The following example shows the supported configuration options:
+## Full configuration example
 
 ```js
 import { defineConfig } from "./.app/app-config.js";

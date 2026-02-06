@@ -1,5 +1,6 @@
 ---
-tags: organizing
+sort: 5
+tags: [notes]
 ---
 
 How you name your files and organize them is up to you. You can use [[Tags]], folders, maps of contents, or a combination of all three.
@@ -18,7 +19,7 @@ All your notes are automatically prefixed with `/n`. This is to avoid conflicts 
 You can change the prefix to something else or remove it entirely.
 If you remove it, you'll need to make sure you don't have any conflicts with other pages.
 
-You can adjust the prefix in the [[Configuration file]]:
+You can adjust the prefix in your [[Configuration File|configuration]]:
 
 ```js
 // /app.mjs

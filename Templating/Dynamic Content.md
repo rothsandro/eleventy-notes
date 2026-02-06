@@ -1,14 +1,13 @@
 ---
-tags: [writing, dynamic-content]
+sort: 1
+tags: [customization, templating]
 ---
 
-Besides static content written in Markdown, you can render dynamic content, like a filtered list of your notes. Eleventy Notes provides a set of features for this purpose:
+Besides static content written in Markdown, you can render dynamic content like a filtered list of your notes. Eleventy Notes provides a set of features for this purpose:
 
 - [[Collections]] give you access to your notes and tags
-- [[Queries]] allow to filter your notes and tags based on a set of conditions
+- [[Queries]] allow you to filter and sort your notes based on conditions
 - [[Render Filters]] allow you to render lists
-
-Below you will find an example of using these features to render a list of featured notes.
 
 ## Example: Featured notes
 
@@ -55,7 +54,9 @@ Finally, we can render the list of featured notes. Note that we add a `templateE
 
 ```md
 ---
-featuredNotes: ... # filter omitted for brevity
+featuredNotes:
+  filter: [["data.featured", "isEqual", true]]
+  sort: [["data.featuredOrder", "asc"], ["title", "asc"]]
 templateEngineOverride: njk, md
 ---
 
@@ -66,4 +67,4 @@ templateEngineOverride: njk, md
 
 We first access our notes using the collection `collections.notes`. Then we apply our `featuredNotes` query using the `query` filter. Finally, we render the result as a list using the `renderAsList` filter and the `safe` filter to prevent the HTML from being escaped.
 
-Now open the page in the browser and should see a list of featured notes. If you click on one of the links, you should be redirected to the note.
+Now open the page in the browser and you should see a list of featured notes. If you click on one of the links, you should be redirected to the note.
