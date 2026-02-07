@@ -1,23 +1,24 @@
 ---
-tags: [writing]
+sort: 7
+tags: [customization, configuration]
 author:
   name: Sandro Roth
   url: "https://sandroroth.com"
 props:
   publishedOn: 2023-07-31
   learnMore:
-    - "[[Configuration file|Config file]]"
+    - "[[Configuration File|Config file]]"
     - "[[Wikilinks#syntax|Wikilink syntax]]"
 ---
 
 Custom Properties are additional metadata for notes, such as the author or the date it was published.
-You can add custom properties to your notes using Front Matter and specify properties in the [[Configuration file]] to show them in the [[Panel]].
+You can add custom properties to your notes using front matter and specify properties in your configuration to show them in the [[Panel]].
 
 ## Examples
 
 ### Author
 
-This example shows how to add an author to a note. First, define the author in your note using Front Matter:
+This example shows how to add an author to a note. First, define the author in your note using front matter:
 
 ```md
 ---
@@ -42,9 +43,9 @@ export default defineConfig({
 });
 ```
 
-### Published Date
+### Published date
 
-This example shows how to add a date to a note. First, define the date in your note using Front Matter:
+This example shows how to add a date to a note. First, define the date in your note using front matter:
 
 ```md
 ---
@@ -63,8 +64,6 @@ export default defineConfig({
     properties: [
       {
         name: "publishedOn",
-
-        // Optionally, format the date.
         options: {
           date: {
             locale: "en-US",
@@ -79,13 +78,12 @@ export default defineConfig({
 
 ### Related notes
 
-This example shows how to add a list of related notes to a note. First, define the related notes in your note using Front Matter.
-Related notes can be referenced using the same [[Wikilinks#syntax|wikilink syntax]] as in your notes.
+This example shows how to add a list of related notes to a note. First, define the related notes in your note using the [[Wikilinks#syntax|wikilink syntax]]:
 
 ```md
 ---
 related:
-  - "[[My other note]]" # Must be wrapped in quotes!
+  - "[[My other note]]"
   - "[[My third note]]"
 ---
 
@@ -109,9 +107,9 @@ export default defineConfig({
 
 Wikilinks used in custom properties are not listed in the incoming / outgoing sections of the panel.
 
-### Author with Link
+### Author with link
 
-This example shows how to use a custom template to render a property as a link. First, define the author with a name and URL in your note using Front Matter:
+This example shows how to use a custom template to render a property as a link. First, define the author with a name and URL in your note using front matter:
 
 ```md
 ---
@@ -123,7 +121,7 @@ author:
 # My Note
 ```
 
-Then add the property with a template to the configuration file. The template uses Nunjucks and Markdown syntax:
+Then add the property with a template (using Nunjucks and Markdown syntax):
 
 ```js
 // /app.mjs
@@ -143,8 +141,7 @@ The template has access to `value` (the raw property value) and `formattedValue`
 
 ### Arbitrary Properties
 
-This example shows how to add arbitrary properties to a note. First, define the properties in your note using Front Matter.
-For arbitrary properties, it's recommended to use a nested object (`meta` in this example).
+For arbitrary properties, use a nested object (`meta` in this example):
 
 ```md
 ---
@@ -156,15 +153,13 @@ meta:
 # My Note
 ```
 
-Then add the property to the configuration file:
-
 ```js
 // /app.mjs
 export default defineConfig({
   customProperties: {
     properties: [
       {
-        // Includes all props in the meta object
+        // Includes all properties defined under the `meta` key in front matter
         path: "meta",
       },
     ],
@@ -174,12 +169,9 @@ export default defineConfig({
 
 ## Configuration API
 
-What properties are shown in the panel can be configured in the [[Configuration file]].
-
 ```js
 export default defineConfig({
   customProperties: {
-    // Define a list of properties to show in the panel.
     properties: [
       {
         // The path to the property, if your property is nested (optional).
@@ -201,12 +193,10 @@ export default defineConfig({
 
         // Options for the property value (optional).
         options: {
-          // Options for date values
           date: {
             locale: "en-US",
             format: { dateStyle: "full" },
           },
-          // Options for numeric values
           number: {
             locale: "en-US",
             format: {

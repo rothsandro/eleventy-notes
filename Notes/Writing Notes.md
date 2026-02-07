@@ -1,13 +1,13 @@
 ---
 sort: 1
-tags: ["writing"]
+tags: [notes]
 ---
 
-All your notes are plain text files using `.md` as file extension. You can use the default Markdown syntax and front matter.
+All your notes are plain text files using `.md` as file extension. You can use the default Markdown syntax and front matter. Eleventy Notes uses [markdown-it](https://github.com/markdown-it/markdown-it), which supports CommonMark syntax.
 
 ## Custom note title
 
-The file name is automatically used as the title of your note. Add a custom title to your note by adding a `title` property to the front matter.
+The file name is automatically used as the title of your note. Add a custom title by adding a `title` property to the front matter:
 
 ```markdown
 ---
@@ -19,7 +19,7 @@ This is my note.
 
 ## Custom description
 
-Add a custom description to your note by including a `description` property in the front matter. This helps with search engines and sharing your notes on social media.
+Add a custom description to help with search engines and social media sharing:
 
 ```markdown
 ---

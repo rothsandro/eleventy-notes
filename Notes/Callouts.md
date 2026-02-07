@@ -1,12 +1,13 @@
 ---
-tags: [writing]
+sort: 3
+tags: [notes]
 ---
 
-Callouts, also known as custom containers, admonitions, or alerts, are a way to highlight important information, warnings, or tips in your notes without disrupting the overall flow of your content.
+Callouts, also known as admonitions or alerts, are a way to highlight important information, warnings, or tips in your notes without disrupting the overall flow of your content.
 
 ## Creating a callout
 
-Creating a callout is simple. Start a blockquote and add `[!info]` to the first line, where `info` is the type of the callout.
+Start a blockquote and add `[!info]` to the first line, where `info` is the type of the callout.
 
 ```md
 > [!info]
@@ -18,9 +19,7 @@ Creating a callout is simple. Start a blockquote and add `[!info]` to the first 
 
 ## Changing the title
 
-By default, the callout title is automatically set to match the callout type. However, you can customize this title to better suit your content.
-
-To change the title, simply add your desired text after the callout type:
+By default, the callout title matches the callout type. You can customize this title:
 
 ```md
 > [!info] Custom Title Here
@@ -30,7 +29,7 @@ To change the title, simply add your desired text after the callout type:
 > [!info] Custom Title Here
 > This is the body of the callout.
 
-In cases where you want to highlight a brief piece of information, you can create a callout with just a title and no body:
+You can create a callout with just a title and no body:
 
 ```md
 > [!tip] Title-only Callout
@@ -40,9 +39,7 @@ In cases where you want to highlight a brief piece of information, you can creat
 
 ## Foldable callouts
 
-You can create foldable callouts, which can be expanded or collapsed by the reader. This feature is particularly useful when dealing with large amounts of information that you want to keep organized and easy to navigate.
-
-To create a foldable callout, add a plus `+` or a minus `-` directly after the callout type. A plus sign (`+`) will make the callout expanded by default, while a minus sign (`-`) will make it collapsed by default.
+You can create foldable callouts that can be expanded or collapsed. Add a plus `+` or a minus `-` after the callout type. A plus sign makes it expanded by default, a minus sign makes it collapsed.
 
 ```md
 > [!info]- Callouts are foldable

@@ -1,16 +1,16 @@
 ---
-sort: 5
-tags: [feature]
+sort: 8
+tags: [customization, configuration]
 ---
 
 Static assets are files like documents, videos, or other resources that Eleventy Notes doesn't process. These files are copied as-is to the build output, keeping their original format.
 
-> [!tip] Using Images in Markdown  
+> [!tip] Using images in Markdown
 > You don't need to place images in the static assets folder to use them in Markdown files. See [[Writing Notes#Images]] for details on adding images to your notes.
 
 ## Configuration
 
-You can set up one or more folders for static assets in your [[Configuration file]]:
+You can set up one or more folders for static assets in your `app.mjs`:
 
 ```js
 // /app.mjs
@@ -31,6 +31,5 @@ export default defineConfig({
       "public/": "/",
     },
   },
-  // ... other settings
 });
 ```

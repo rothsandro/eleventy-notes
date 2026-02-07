@@ -1,5 +1,6 @@
 ---
-tags: [writing, dynamic-content]
+sort: 2
+tags: [customization, templating]
 ---
 
 Eleventy Notes provides a number of collections that you can use in your notes.

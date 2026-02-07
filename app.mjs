@@ -47,47 +47,51 @@ export default defineConfig({
         groups: [
           {
             query: createNotesQuery({
-              pattern: "^/[^/]+$",
-              tags: ["basics"],
+              pattern: "^/Introduction/",
             }),
           },
         ],
       },
       {
-        label: "Guides",
+        label: "Notes",
         groups: [
           {
-            label: "Writing Notes",
             query: createNotesQuery({
-              pattern: "^/Writing/",
-              tree: {
-                replace: {
-                  "^/\\w+": "",
-                },
-              },
+              pattern: "^/Notes/",
+            }),
+          },
+        ],
+      },
+      {
+        label: "Customization",
+        groups: [
+          {
+            label: "Configuration",
+            query: createNotesQuery({
+              pattern: "^/Configuration/",
             }),
           },
           {
-            label: "Organizing Notes",
+            label: "Templating",
+            expanded: false,
             query: createNotesQuery({
-              pattern: "^/Organizing/",
+              pattern: "^/Templating/",
             }),
           },
+        ],
+      },
+      {
+        label: "Deployment",
+        groups: [
           {
-            label: "Core Features",
-            query: createNotesQuery({
-              pattern: "^/Features/",
-              tree: {
-                replace: {
-                  "^/\\w+": "",
-                },
-              },
-            }),
-          },
-          {
-            label: "Deployment",
             query: createNotesQuery({
               pattern: "^/Deployment/",
+              tree: {
+                expanded: false,
+                replace: {
+                  "^/\\w+": "",
+                },
+              },
             }),
           },
         ],
@@ -103,10 +107,5 @@ export default defineConfig({
         ],
       },
     ],
-  },
-  tags: {
-    map: {
-      "dynamic-content": "dynamic content",
-    },
   },
 });
