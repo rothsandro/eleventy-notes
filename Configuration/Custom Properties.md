@@ -45,7 +45,7 @@ export default defineConfig({
 
 ### Published date
 
-This example shows how to add a date to a note:
+This example shows how to add a date to a note. First, define the date in your note using front matter:
 
 ```md
 ---
@@ -78,7 +78,7 @@ export default defineConfig({
 
 ### Related notes
 
-Define related notes using the [[Wikilinks#syntax|wikilink syntax]]:
+This example shows how to add a list of related notes to a note. First, define the related notes in your note using the [[Wikilinks#syntax|wikilink syntax]]:
 
 ```md
 ---
@@ -109,7 +109,7 @@ Wikilinks used in custom properties are not listed in the incoming / outgoing se
 
 ### Author with link
 
-Use a custom template to render a property as a link:
+This example shows how to use a custom template to render a property as a link. First, define the author with a name and URL in your note using front matter:
 
 ```md
 ---
@@ -159,6 +159,7 @@ export default defineConfig({
   customProperties: {
     properties: [
       {
+        // Includes all properties defined under the `meta` key in front matter
         path: "meta",
       },
     ],

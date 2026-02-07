@@ -5,7 +5,7 @@ tags: [customization, configuration]
 
 The sidebar is the main navigation of the app. It shows links to the start page, your notes, search, and more.
 
-## Sections and groups
+## Sections
 
 The sidebar can be segmented into multiple sections, each containing one or more collapsible groups. This allows for a highly organized and navigable note structure. The example below demonstrates a basic configuration with a single section and group, which displays all your notes. The `createNotesQuery()` function is used to generate a query that selects and displays all notes.
 
@@ -30,7 +30,7 @@ export default defineConfig({
 });
 ```
 
-### Groups
+## Groups
 
 Each section can contain multiple groups. Each group can be assigned a label and a query, allowing you to display only specific notes within that group.
 

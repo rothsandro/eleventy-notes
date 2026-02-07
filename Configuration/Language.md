@@ -16,6 +16,7 @@ The default content language is English. If you prefer to write your notes in an
 // /app.mjs
 export default defineConfig({
   lang: "de",
+  // ... (other configuration)
 });
 ```
 
