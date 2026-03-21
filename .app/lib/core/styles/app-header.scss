@@ -1,3 +1,5 @@
+@use "./../../../css/2-lib/breakpoints" as *;
+
 .app-header {
   block-size: 4rem;
   position: sticky;
@@ -28,7 +30,7 @@
 }
 
 .app-header__title {
-  margin-inline: var(--space-3) auto;
+  margin-inline-end: auto;
   outline-offset: var(--space-2);
   color: var(--color-neutral-text-contrast);
   font-size: var(--font-size-fluid-0);
@@ -40,6 +42,10 @@
 
   &:hover {
     color: var(--color-primary-text);
+  }
+
+  @include media-breakpoint-up("xl") {
+    margin-inline-start: var(--space-3);
   }
 }
 

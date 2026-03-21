@@ -1,9 +1,8 @@
-<div class="hide-xl">
+<div class="hide-xl" x-cloak>
   <button
     class="icon-btn"
     :aria-expanded="$store.nav.open"
     @click="$store.nav.toggle()"
-    x-cloak
     lang="{% uiLang %}"
   >
     <span x-show="!$store.nav.open">{{ 'menu' | icon | safe }}</span>
