@@ -14,7 +14,7 @@ $neutral-color: map.get(themes.$neutrals, $theme-name);
 }
 
 @function color-value($color, $step, $alpha: false, $dark: false) {
-  $name: "#{$color}#{if($dark, "Dark", "")}#{if($alpha, "A", "")}#{$step}";
+  $name: "#{$color}#{if(sass($dark): "Dark"; else: "")}#{if(sass($alpha): "A"; else: "")}#{$step}";
 
   @if map.has-key(colors.$values, $name) {
     @return map.get(colors.$values, $name);
@@ -28,13 +28,14 @@ $neutral-color: map.get(themes.$neutrals, $theme-name);
 }
 
 :root {
-  --font-family-default: ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+  --font-family-default:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-family-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -63,13 +64,15 @@ $neutral-color: map.get(themes.$neutrals, $theme-name);
 
   --shadow-xs: 0 1px 3px rgba(100, 100, 100, 0.09);
   --shadow-sm: 0 1px 5px rgba(100, 100, 100, 0.05);
-  --shadow-md: 0 0 0 1px var(--color-neutral-border),
-    0 1px 5px rgba(100, 100, 100, 0.05), 0 0 40px rgba(100, 100, 100, 0.015);
-  --shadow-lg: 0 0 0 1px var(--color-neutral-border),
-    0 5px 17px rgba(100, 100, 100, 0.14);
-  --shadow-xl: 0 4px 12px rgba(100, 100, 100, 0.15),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
-  --shadow-xxl: 0 24px 38px 3px rgba(100, 100, 100, 0.16),
+  --shadow-md:
+    0 0 0 1px var(--color-neutral-border), 0 1px 5px rgba(100, 100, 100, 0.05),
+    0 0 40px rgba(100, 100, 100, 0.015);
+  --shadow-lg:
+    0 0 0 1px var(--color-neutral-border), 0 5px 17px rgba(100, 100, 100, 0.14);
+  --shadow-xl:
+    0 4px 12px rgba(100, 100, 100, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-xxl:
+    0 24px 38px 3px rgba(100, 100, 100, 0.16),
     0 9px 86px 8px rgba(100, 100, 100, 0.1),
     0 11px 15px -7px rgba(100, 100, 100, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
 
