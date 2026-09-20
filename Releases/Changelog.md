@@ -4,6 +4,10 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## to be relased
+
+- ⚡️ **Highlighting**: Text can now be highlighted using `==` with support for different colors.
+
 ## Version 0.35.0
 
 **March 28, 2026**

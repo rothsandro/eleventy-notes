@@ -5,6 +5,7 @@ import markdownItFootnote from "markdown-it-footnote";
 import { wikilinksModule } from "./../modules/wikilinks/index.js";
 import { notesModule } from "./../modules/notes/index.js";
 import { calloutsModule } from "./../modules/callouts/index.js";
+import { highlightModule } from "./../modules/highlight/index.js";
 
 /**
  * Creates a markdown-it instance.
@@ -20,6 +21,7 @@ export const markdownLibrary = (eleventyConfig) => {
     .use(markdownItFootnote)
     .use(notesModule.copyCodeMarkdownPlugin)
     .use(calloutsModule.markdownPlugin)
+    .use(highlightModule.markdownPlugin)
     .use(wikilinksModule.markdownPlugin, {
       collections: "_notes",
       slugify: eleventyConfig.getFilter("slugifyPath"),
