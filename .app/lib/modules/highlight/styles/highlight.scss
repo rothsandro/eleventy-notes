@@ -1,0 +1,19 @@
+$colors: ("red", "orange", "yellow", "green", "blue", "purple");
+
+.article mark {
+  box-decoration-break: clone;
+  background: var(--highlight-yellow-bg);
+  color: inherit;
+  border-radius: var(--rounded-sm);
+
+  &:not(:empty) {
+    padding-block: 0.05em;
+    padding-inline: 0.15em;
+  }
+
+  @each $color in $colors {
+    &[data-color="#{$color}"] {
+      background: var(--highlight-#{$color}-bg);
+    }
+  }
+}
