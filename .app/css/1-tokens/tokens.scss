@@ -136,4 +136,11 @@ $neutral-color: map.get(themes.$neutrals, $theme-name);
   --callout-purple-bg: #{step("purple", 3, $alpha: true)};
   --callout-gray-text: #{step("gray", 11, $alpha: true)};
   --callout-gray-bg: #{step("gray", 2, $alpha: true)};
+
+  --highlight-red-bg: #{step("red", 4, $alpha: true)};
+  --highlight-orange-bg: #{step("orange", 4, $alpha: true)};
+  --highlight-yellow-bg: #{step("yellow", 4, $alpha: true)};
+  --highlight-green-bg: #{step("green", 4, $alpha: true)};
+  --highlight-blue-bg: #{step("blue", 4, $alpha: true)};
+  --highlight-purple-bg: #{step("purple", 4, $alpha: true)};
 }

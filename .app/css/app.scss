@@ -20,6 +20,7 @@
 
   @include meta.load-css("./../lib/core/styles");
   @include meta.load-css("./../lib/modules/callouts/styles");
+  @include meta.load-css("./../lib/modules/highlight/styles");
   @include meta.load-css("./../lib/modules/custom-props/styles");
   @include meta.load-css("./../lib/modules/notes/styles");
   @include meta.load-css("./../lib/modules/page-nav/styles");

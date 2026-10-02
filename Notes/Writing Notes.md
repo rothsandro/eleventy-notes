@@ -42,6 +42,20 @@ Like this:
 
 ![Hello World banner](./assets/hello-world.svg)
 
+## Highlights
+
+You can highlight text by wrapping it in `==`. To change the color, add a colored emoji directly after the opening `==`. The emoji is removed from the output.
+
+```markdown
+This is ==highlighted text== and this is ==🟢green==.
+```
+
+Like this:
+
+This is ==highlighted text== and this is ==🟢green==.
+
+Available colors are ==🔴🔴&nbsp;red==, ==🟠🟠&nbsp;orange==, ==🟡🟡&nbsp;yellow==, ==🟢🟢&nbsp;green==, ==🔵🔵&nbsp;blue== and ==🟣🟣&nbsp;purple==.
+
 ## Task lists
 
 You can use task lists with checkboxes:
