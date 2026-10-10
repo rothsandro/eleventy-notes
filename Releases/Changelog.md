@@ -4,9 +4,18 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.36.1
+
+**October 10, 2026**
+
+- 🐛 **URL Prefix**: Fixed invalid URLs on Windows when path prefix was set to `/`.
+- 📝 **Docs**: Improved documentation and config types for `pathPrefix`.
+
 ## Version 0.36.0
 
-- ⚡️ **Highlighting**: Text can now be highlighted using `==` with support for different colors.
+**October 02, 2026**
+
+- ✨ **Highlighting**: Text can now be highlighted using `==` with support for different colors.
 
 ## Version 0.35.0
 
