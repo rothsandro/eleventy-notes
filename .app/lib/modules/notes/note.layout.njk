@@ -2,12 +2,12 @@
 {
   layout: "core/base.layout.njk",
   permalink: function({ page, app }) {
-    const url = this.slugifyPath(page.filePathStem).replace(/\/index$/, '');
+    const url = this.slugifyPath(page.filePathStem).replace(/\/index$/, "");
     const isRoot = url === "";
     if (isRoot) return "/";
 
-    const pathPrefix = app.notes.pathPrefix.replace(/^\/|\/$/, '');
-    return `/${[pathPrefix, url].filter(Boolean).join('/')}/`;
+    const parts = [app.notes.pathPrefix, url];
+    return `/${parts.join("/")}/`.replace(/\/{2,}/g, "/");
   }
 }
 ---
