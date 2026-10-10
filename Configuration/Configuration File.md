@@ -42,6 +42,7 @@ This will warn you about invalid configuration options.
 - [[Static Assets|Static Assets]] - Serve non-processed files
 - [[Language|Language]] - Set content and UI language
 - [[Wikilinks#Automatic label]] - Customize automatic wikilink labels
+- [[Files and Folders#URL prefix|URL prefix]] - Change the URL prefix of notes
 - Add `ignores` to exclude files
 
 ## Full configuration example
@@ -84,6 +85,9 @@ export default defineConfig({
   },
   tags: {
     map: {},
+  },
+  notes: {
+    pathPrefix: "/n",
   },
 });
 ```

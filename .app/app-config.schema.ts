@@ -286,10 +286,15 @@ export interface AppConfig {
    */
   notes?: {
     /**
-     * The prefix for all notes.
-     * @default /n
+     * The URL prefix for all notes. Must start with a slash.
+     * Use a custom path like `/articles` to serve notes at `/articles/my-note/`,
+     * or use `/` to serve notes at the root of your site, e.g. `/my-note/`.
+     * When using `/`, make sure no note conflicts with other pages like search or tags.
+     * @default "/n"
+     * @example "/articles"
+     * @example "/"
      */
-    pathPrefix?: string;
+    pathPrefix?: `/${string}`;
   };
 }
 

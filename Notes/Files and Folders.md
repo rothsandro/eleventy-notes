@@ -16,19 +16,19 @@ You can create folders to organize your notes. Folders end up in the URL of your
 ## URL prefix
 
 All your notes are automatically prefixed with `/n`. This is to avoid conflicts with other pages like search and tags.
-You can change the prefix to something else or remove it entirely.
-If you remove it, you'll need to make sure you don't have any conflicts with other pages.
+You can change the prefix to something else, or set it to `/` to serve your notes at the root of your site (e.g. `/my-note/`).
+If you use `/`, you'll need to make sure you don't have any conflicts with other pages.
 
-You can adjust the prefix in your [[Configuration File|configuration]]:
+You can adjust the prefix in your [[Configuration File|configuration]]. The prefix must always start with a slash:
 
 ```js
 // /app.mjs
 export default defineConfig({
   notes: {
-    // Change the prefix to something else
+    // Serve notes at /articles/my-note/
     pathPrefix: "/articles",
 
-    // Remove the prefix entirely
+    // Serve notes at the root, e.g. /my-note/
     pathPrefix: "/",
   },
 });
