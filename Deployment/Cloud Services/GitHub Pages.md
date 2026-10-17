@@ -37,18 +37,18 @@ jobs:
     name: Setup and Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         name: Checkout
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         name: Setup Node
         with:
-          node-version: 20
+          node-version: 24
       - name: Install dependencies
         run: npm install --prefix .app
       - name: Build
         run: npm run build --prefix .app
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: .app/dist
 
@@ -62,5 +62,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 ```

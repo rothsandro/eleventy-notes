@@ -12,7 +12,7 @@ Make sure to add the following environment variables to your Cloudflare Pages pr
 
 | Variable       | Value |
 | :------------- | :---- |
-| `NODE_VERSION` | 20    |
+| `NODE_VERSION` | 24    |
 
 ## Build configurations
 
