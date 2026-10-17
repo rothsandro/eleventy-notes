@@ -52,7 +52,11 @@ async function buildPaths(templateDir, outputDir, src) {
 
   let destDir = path.join(outputDir, assetSubdir);
   let destPath = path.join(destDir, assetBasename);
-  let relativeDestPath = path.join("./", assetSubdir, assetBasename);
+  let relativeDestPath = path.posix.join(
+    "./",
+    ...assetSubdir.split(path.sep),
+    assetBasename,
+  );
 
   if (isProduction) {
     const hash = await hashFile(assetPath);
