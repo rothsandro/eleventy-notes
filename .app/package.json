@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
-    "alpinejs": "^3.15.8",
+    "alpinejs": "^3.17.4",
     "lucide": "^0.577.0",
     "pagefind": "^1.5.2",
     "prism-themes": "^1.9.0"
