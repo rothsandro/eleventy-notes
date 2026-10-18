@@ -90,7 +90,7 @@ $neutral-color: map.get(themes.$neutrals, $theme-name);
   --color-background: #{ld("#fff", color-value($neutral-color, 1, $dark: true))};
   --color-surface: #{ld("#fff", color-value($neutral-color, 1, $dark: true))};
 
-  --color-primary-mark: #{step-alpha($primary-color, 5)};
+  --color-primary-mark: #{step($primary-color, 5, $alpha: true)};
 
   --color-primary-bg-subtle: #{step($primary-color, 2)};
   --color-primary-bg: #{step($primary-color, 3)};
