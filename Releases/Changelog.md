@@ -4,6 +4,16 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## Version 0.37.0
+
+**October 21, 2026**
+
+- 🐛 **Images**: Fixed image paths on Windows.
+- 🐛 **Search**: Fixed highlighted text in search.
+- 📦️ **Dependencies**: Updated dependencies (incl. Eleventy, Pagefind, Alpine.js and Sass) and fixed audit issues.
+- 💥 **Node Version**: Eleventy Notes now requires Node version 22 or higher.
+  Run `node --version` to see what version you have installed. Also check the node version of your cloud service (like Netlify) if you deploy your site there.
+
 ## Version 0.36.1
 
 **October 10, 2026**
