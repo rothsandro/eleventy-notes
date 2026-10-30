@@ -1,8 +1,10 @@
 import { queryOperators as operators } from "./query-operators.js";
 import { sharedModule } from "../../shared/index.js";
 import { TreeGenerator } from "./tree-generator.js";
+import appData from "../../../_data/app.js";
 
 const { ValueParser } = sharedModule;
+const collator = new Intl.Collator(appData().lang);
 
 /**
  * @typedef {undefined | string | Array<[string, "asc" | "desc"] | string>} QuerySortConfig
@@ -208,9 +210,14 @@ class QuerySorter {
    * @returns The comparison result.
    */
   compareValues(a, b) {
+    if (typeof a === "string" && typeof b === "string") {
+      return collator.compare(a, b);
+    }
+
     const emptyValues = new Set([undefined, null]);
     if (emptyValues.has(a) && !emptyValues.has(b)) return 1;
     if (!emptyValues.has(a) && emptyValues.has(b)) return -1;
+
     return a < b ? -1 : a > b ? 1 : 0;
   }
 }

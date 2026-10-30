@@ -7,6 +7,7 @@ tags: [release]
 ## unreleased
 
 - 🐛 **Page Navigation**: Fixed language attribute.
+- 🐛 **Queries**: Fixed sorting of text values.
 
 ## Version 0.37.0
 
