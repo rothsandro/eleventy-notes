@@ -4,6 +4,10 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
+## unreleased
+
+- 🐛 **Page Navigation**: Fixed language attribute.
+
 ## Version 0.37.0
 
 **October 21, 2026**

@@ -4,7 +4,7 @@
     {% if pageNav.prev %}
       <a href="{{ pageNav.prev.href }}" class="page-nav__link" data-type="prev">
         {{ 'arrow-left' | icon({ class: "page-nav__icon" }) | safe }}
-        <span class="page-nav__type" {% uiLang %}>{{ 'pageNav.prev.label' | t }}</span>
+        <span class="page-nav__type" lang="{% uiLang %}">{{ 'pageNav.prev.label' | t }}</span>
         <span class="page-nav__label">{{ pageNav.prev.label }}</span>
       </a>
     {% else %}
@@ -12,7 +12,7 @@
     {% endif %}
     {% if pageNav.next %}
       <a href="{{ pageNav.next.href }}" class="page-nav__link" data-type="next">
-        <span class="page-nav__type" {% uiLang %}>{{ 'pageNav.next.label' | t }}</span>
+        <span class="page-nav__type" lang="{% uiLang %}">{{ 'pageNav.next.label' | t }}</span>
         <span class="page-nav__label">{{ pageNav.next.label }}</span>
         {{ 'arrow-right' | icon({ class: "page-nav__icon" }) | safe }}
       </a>
