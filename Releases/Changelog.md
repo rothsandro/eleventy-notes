@@ -11,6 +11,7 @@ tags: [release]
 - 🐛 **Queries**: Fixed sorting of text values.
 - 🐛 **Notes**: Fixed handling of numeric titles.
 - 🐛 **Wikilinks**: Fixed handling of broken links.
+- 🐛 **Images**: Fixed images with uppercase file extensions.
 
 ## Version 0.37.0
 

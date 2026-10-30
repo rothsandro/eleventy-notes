@@ -3,7 +3,7 @@ import { parse } from "node-html-parser";
 import path from "path";
 import fs from "fs";
 
-const extRegex = /\.(png|jpg|jpeg|svg|webp|gif)$/;
+const extRegex = /\.(png|jpg|jpeg|svg|webp|gif)$/i;
 const remoteRegex = /^https?:/;
 const isImageFile = (file) => extRegex.test(file);
 const isRelative = (url) => !remoteRegex.test(url);
