@@ -20,6 +20,6 @@ export const pageNavOrderCollection = (eleventyConfig) => (collectionApi) => {
 };
 
 const flatTreeItem = (item) => [
-  item,
+  ...(item.url ? [item] : []), // Folders don't have an URL
   ...(Array.isArray(item.children) ? item.children.flatMap(flatTreeItem) : []),
 ];
