@@ -67,7 +67,7 @@ export class Wikilink {
    * @param {string | undefined} text The manually specified label of the wikilink.
    * @param {string} file The file path of the wikilink.
    * @param {string | undefined} hash The anchor target of the wikilink (if any).
-   * @param {Note} page The page that the wikilink points to (if any).
+   * @param {Note | undefined} page The page that the wikilink points to (if any).
    * @returns The final label for the wikilink.
    */
   createLabel(text, file, hash, page) {
@@ -76,16 +76,18 @@ export class Wikilink {
 
     let label = file;
 
-    switch (this.wikilinksConfig.autoLabel) {
-      case "title":
-        label = this.deps.resolveTitle(page) || page.fileSlug || file;
-        break;
-      case "fileSlug":
-        label = page.fileSlug || file;
-        break;
-      case "ref":
-      default:
-        break;
+    if (page) {
+      switch (this.wikilinksConfig.autoLabel) {
+        case "title":
+          label = this.deps.resolveTitle(page) || page.fileSlug || file;
+          break;
+        case "fileSlug":
+          label = page.fileSlug || file;
+          break;
+        case "ref":
+        default:
+          break;
+      }
     }
 
     if (hash) {
@@ -119,7 +121,7 @@ export class Wikilink {
     const match =
       this.notes.find((f) => this.normalizePath(f.filePathStem) === pageName) ||
       this.notes.find((f) =>
-        this.normalizePath(f.filePathStem).endsWith(`/${pageName}`)
+        this.normalizePath(f.filePathStem).endsWith(`/${pageName}`),
       );
 
     return match;

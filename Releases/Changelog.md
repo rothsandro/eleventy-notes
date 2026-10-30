@@ -10,6 +10,7 @@ tags: [release]
 - 🐛 **Page Navigation**: Fixed handling of folders.
 - 🐛 **Queries**: Fixed sorting of text values.
 - 🐛 **Notes**: Fixed handling of numeric titles.
+- 🐛 **Wikilinks**: Fixed handling of broken links.
 
 ## Version 0.37.0
 
