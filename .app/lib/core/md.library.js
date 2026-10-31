@@ -6,6 +6,7 @@ import { wikilinksModule } from "./../modules/wikilinks/index.js";
 import { notesModule } from "./../modules/notes/index.js";
 import { calloutsModule } from "./../modules/callouts/index.js";
 import { highlightModule } from "./../modules/highlight/index.js";
+import { mermaidModule } from "./../modules/mermaid/index.js";
 
 /**
  * Creates a markdown-it instance.
@@ -20,6 +21,7 @@ export const markdownLibrary = (eleventyConfig) => {
     .use(markdownItTaskCheckbox)
     .use(markdownItFootnote)
     .use(notesModule.copyCodeMarkdownPlugin)
+    .use(mermaidModule.markdownPlugin)
     .use(calloutsModule.markdownPlugin)
     .use(highlightModule.markdownPlugin)
     .use(wikilinksModule.markdownPlugin, {
