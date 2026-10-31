@@ -12,6 +12,7 @@ tags: [release]
 - 🐛 **Notes**: Fixed handling of numeric titles.
 - 🐛 **Wikilinks**: Fixed handling of broken links.
 - 🐛 **Images**: Fixed images with uppercase file extensions.
+- 🐛 **Tags**: Fixed sort order of notes on the tags page.
 
 ## Version 0.37.0
 

@@ -21,7 +21,7 @@ panel: false
         <div class="stack">
           <h2 id="{{ tag.slug }}">{{ tag.label }} <small>({{ tag.notes.length }})</small></h2>
           <ul role="list" class="stack">
-            {% for post in tag.notes %}
+            {% for post in tag.notes | sortNotesByTitle %}
               <li>
                 <a href="{{ post.url }}" class="note-link">
                   {{ post.data.title or post.page.fileSlug }}
