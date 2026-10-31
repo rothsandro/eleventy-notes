@@ -4,7 +4,9 @@ tags: [release]
 
 <!-- Use emojis from https://gitmoji.dev/ -->
 
-## unreleased
+## Version 0.37.1
+
+**October 31, 2026**
 
 - 🐛 **Page Navigation**: Fixed language attribute.
 - 🐛 **Page Navigation**: Fixed handling of folders.
