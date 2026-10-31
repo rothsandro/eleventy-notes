@@ -13,6 +13,7 @@ tags: [release]
 - 🐛 **Wikilinks**: Fixed handling of broken links.
 - 🐛 **Images**: Fixed images with uppercase file extensions.
 - 🐛 **Tags**: Fixed sort order of notes on the tags page.
+- 🐛 **Dev Server**: Fixed endless rebuilds on Windows after changing a file.
 
 ## Version 0.37.0
 

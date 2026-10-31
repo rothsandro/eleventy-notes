@@ -37,6 +37,10 @@ export const core = {
         config.watchIgnores.add(path);
       });
 
+    // Fix endless rebuilds on Windows
+    // Waiting for: https://github.com/11ty/buildawesome/issues/4412
+    config.watchIgnores.add("**/.app/dist/");
+
     config.addWatchTarget("./../app.mjs");
   },
 };
