@@ -29,6 +29,7 @@
     "node-html-parser": "^9.0.4",
     "npm-run-all2": "^8.0.4",
     "parcel": "^2.16.4",
+    "pele": "^1.13.0",
     "sass": "^1.105.2"
   },
   "dependencies": {

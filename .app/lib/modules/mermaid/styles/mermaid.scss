@@ -1,0 +1,56 @@
+.mermaid-diagram {
+  overflow-x: auto;
+  text-align: center;
+
+  .pele {
+    --pele-bg: var(--diagram-bg);
+    --pele-fg: var(--diagram-text);
+    --pele-muted: var(--diagram-text-muted);
+    --pele-line: var(--diagram-line);
+    --pele-surface: var(--diagram-node-bg);
+    --pele-surface-alt: var(--diagram-group-bg);
+    --pele-border: var(--diagram-node-border);
+    --pele-accent: var(--diagram-accent);
+    --pele-critical: var(--diagram-critical);
+    --pele-series-1: var(--diagram-series-1);
+    --pele-series-2: var(--diagram-series-2);
+    --pele-series-3: var(--diagram-series-3);
+    --pele-series-4: var(--diagram-series-4);
+    --pele-series-5: var(--diagram-series-5);
+    --pele-series-6: var(--diagram-series-6);
+    --pele-series-7: var(--diagram-series-7);
+    --pele-series-8: var(--diagram-series-8);
+    --pele-font: var(--font-family-default);
+    --pele-font-mono: var(--font-family-mono);
+    --pele-radius: var(--rounded-md);
+  }
+
+  // Pele draws gantt tasks as solid bars with `--pele-bg` as text color,
+  // use softer bars with proper text colors instead.
+  .pele-task:not(.pele-milestone) {
+    rect {
+      fill: var(--diagram-task-bg);
+      stroke: var(--diagram-task-border);
+    }
+
+    // Labels outside of the bar have no fill and use the default text color
+    .pele-label[fill] {
+      fill: var(--diagram-task-text);
+    }
+
+    &.pele-crit {
+      rect {
+        fill: var(--diagram-critical-bg);
+        stroke: var(--diagram-critical-border);
+      }
+
+      .pele-label[fill] {
+        fill: var(--diagram-critical-text);
+      }
+    }
+  }
+
+  .pele-slice-labels {
+    fill: var(--diagram-series-text);
+  }
+}

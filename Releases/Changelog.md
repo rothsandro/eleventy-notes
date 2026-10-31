@@ -6,6 +6,7 @@ tags: [release]
 
 ## unreleased
 
+- ✨ **Diagrams**: Mermaid diagrams are now supported.
 - 🐛 **Page Navigation**: Fixed language attribute.
 - 🐛 **Page Navigation**: Fixed handling of folders.
 - 🐛 **Queries**: Fixed sorting of text values.
